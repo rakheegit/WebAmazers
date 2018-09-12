@@ -137,6 +137,22 @@ module.exports.get_logout = function(req, res)
         res.send("Nobody is currently logged in!");
     }
 };
+/*
+ * GET graph page.
+ */
+module.exports.get_graph = function(req, res)
+{
+    res.render('graph',
+               { message: "View graph!" });
+};
+/*
+ * POST graph page.
+ */
+module.exports.post_graph = function(req, res)
+{
+    res.render('postgraph',
+               { message: "This is your graph!" });
+};
 
 /*
  * GET protected page.

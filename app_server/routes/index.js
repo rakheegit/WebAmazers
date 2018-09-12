@@ -33,6 +33,16 @@ router.post('/login', ctrlMain.post_login);
 router.get('/logout', ctrlMain.get_logout);
 
 /*
+ * GET graph page.
+ */
+router.get('/graph', ctrlMain.get_graph);
+
+/*
+ * POST graph page.
+ */
+router.post('/graph', ctrlMain.post_graph);
+
+/*
  * GET protected page.
  */
 router.get('/protected', ctrlMain.loggedIn, ctrlMain.get_protected);
