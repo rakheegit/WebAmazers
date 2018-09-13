@@ -17,4 +17,6 @@ app.use(session( {secret: "String for encrypting cookies." } ));
 app.use('/', index);
 
 module.exports = app;
+
+
 app.listen(3001);
