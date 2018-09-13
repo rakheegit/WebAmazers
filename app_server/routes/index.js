@@ -38,6 +38,11 @@ router.get('/logout', ctrlMain.get_logout);
 router.get('/graph', ctrlMain.get_graph);
 
 /*
+ * GET map page.
+ */
+router.get('/map', ctrlMain.get_map);
+
+/*
  * POST graph page.
  */
 router.post('/graph', ctrlMain.post_graph);

@@ -79,6 +79,10 @@ module.exports.get_login = function(req, res)
    res.render('login', { message: "Please log in!" });
 };
 
+modules.exports.get_map = function(req,res)
+{
+   res.redirect('/map');
+}
 /*
  * POST login page.
  */
