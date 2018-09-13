@@ -1,10 +1,7 @@
-html
-   head
-      title Graph
-   body
-      if(message)
-         h4 #{message}
-         form(action = "/graph" method = "POST")
-             
-             button(type = "Submit") India
-         
+extends layout
+block graph
+  if(message)
+    h4 #{message}
+    form(action = "/graph" method = "POST")
+      button(type = "Submit") India
+        

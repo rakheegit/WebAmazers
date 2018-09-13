@@ -21,7 +21,7 @@ module.exports.loggedIn = function(req, res, next)
  */
 module.exports.index = function(req, res, next) 
 {
-    res.render('index', { title: 'Authentication Demo' });
+    res.render('index', { title: 'Women in Olympics – an inspiration' });
     console.log('Cookies: ', req.cookies);
 };
 
