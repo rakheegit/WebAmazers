@@ -1,7 +1,29 @@
 extends layout
 block graph
-  if(message)
+  head
+    script(src='https://canvasjs.com/assets/script/canvasjs.min.js')
+    script(type='text/javascript').
+      window.onload = function () {
+      var chart = new CanvasJS.Chart("chartContainer", {
+      title:{
+      text: "% of Women in Olympics by Year"
+      },
+      data: [
+      {
+      
+      type: "column",
+      dataPoints: [
+      { label: "1900",  y: 10  },
+      { label: "1910", y: 15  },
+      { label: "1920", y: 25  },
+      { label: "1930",  y: 30  },
+      { label: "1940",  y: 28  }
+      ]
+      }
+      ]
+      });
+      chart.render();
+      }
+  body
     h4 #{message}
-    form(action = "/graph" method = "POST")
-      button(type = "Submit") India
-        
+    #chartContainer(style='height: 300px; width: 50%;')

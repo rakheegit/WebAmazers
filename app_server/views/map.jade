@@ -1,5 +1,5 @@
-doctype html
-html
+extend layout
+block map
   head
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
     link(href='https://unpkg.com/aos@2.3.1/dist/aos.css', rel='stylesheet')
@@ -8,8 +8,8 @@ html
       | World Map
     style.
       svg{
-      height:192px;
-      width: 419px;
+      height:100%;
+      width: 100%;
       }
       path{
       fill: #d3d3d3; transition: 0.6s fill;
@@ -16196,8 +16196,11 @@ html
       AOS.init();
       }
       jQuery(function($){
+      
       $('path').click(function(){
-      alert(this.id)
-      $('#graph').show('slow');
+        $.post("/graph",function(){
+          window.location.replace("/graph");
+        });
+      
       });
       });
