@@ -11,17 +11,17 @@ function myPost() {
 }
 
 function myFocus(x) {
-    if (x.value = 'Name' || 'Email address')
-    {
-    x.style.color='#000';
-    x.value = '';
+    if (x.value = 'Name' || 'Email address') {
+        x.style.color = '#000';
+        x.value = '';
     }
- }
- function myBlur(y) {
-    if (y.value == '')
-    {
-    y.style.color='#BBB';
-    document.getElementById('name').value = "Name";
-    document.getElementById('email').value = "Email address";
+}
+
+function myBlur(y) {
+    if (y.value == '') {
+        y.style.color = '#BBB';
+        document.getElementById('name').placeholder = "Name";
+        document.getElementById('email').placeholder = "Email address";
+        document.getElementById('comments').placeholder = "Comments";
     }
 }

@@ -5,13 +5,13 @@ block commentbox
     div(class='main')
       h3 Tell us what you think!
       form(method='post')
-        input#name(type='text', value='Name', onfocus='myFocus(this)', onblur='myBlur(this)', style='color:gray')
+        input#name(type='text', placeholder='Name', onfocus='myFocus(this)', onblur='myBlur(this)', style='color:gray')
         |  
         br
         |  
         br
         |  
-        input#email(type='text', value='Email address', onfocus='myFocus(this)', onblur='myBlur(this)', style='color:gray')
+        input#email(type='text', placeholder='Email address', onfocus='myFocus(this)', onblur='myBlur(this)', style='color:gray')
         br
         br
         |  
@@ -20,12 +20,20 @@ block commentbox
         |  
         br
         |  
-        button(type='button', onclick='myPost()') Post Comment
-        |  
+        button(type='button' class='button', onclick='myPost()') Post Comment  
+        br
+        br
+        | 
         .row
-          #commentPerson.col
+          .col1
             | Name
           |  
-          #commentsHistory.col
+          .col1
             | Comments
+        .row
+          #commentPerson.col
+            
+          |  
+          #commentsHistory.col
+            
     script(src="/scripts/postComment.js")
