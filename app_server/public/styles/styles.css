@@ -1,0 +1,17 @@
+.row {
+    display: flex; /* equal height of the children */
+  }
+
+.col {
+flex: 1; /* additionally, equal width */
+padding: 0em;
+border: groove;
+}
+
+h3 {
+    color:darkslategray;font-family:georgia
+}
+
+.main{
+    padding: 20px; border: 1px solid #000; margin-left: 30px; margin-right: 30px
+}

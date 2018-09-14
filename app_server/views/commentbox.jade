@@ -1,19 +1,9 @@
 extends layout
 block commentbox
   body
-    style(type="text/css").
-      
-      .row {
-        display: flex; /* equal height of the children */
-      }
-
-      .col {
-        flex: 1; /* additionally, equal width */
-        padding: 0em;
-        border: groove;
-      }
-    div(style='padding: 20px; border: 1px solid #000; margin-left: 30px; margin-right: 30px')
-      h3(style='color:darkslategray;font-family:georgia') Tell us what you think!
+    link(href='/styles/styles.css', rel='stylesheet')
+    div(class='main')
+      h3 Tell us what you think!
       form(method='post')
         input#name(type='text', value='Name', onfocus='myFocus(this)', onblur='myBlur(this)', style='color:gray')
         |  
@@ -38,29 +28,4 @@ block commentbox
           |  
           #commentsHistory.col
             | Comments
-    script
-      | function myPost() {
-      | var para = document.createElement("p");
-      | var t = document.createTextNode(document.getElementById("name").value);
-      | para.appendChild(t);
-      | document.getElementById("commentPerson").appendChild(para);
-      | var para1 = document.createElement("p");
-      | var n = document.createTextNode(document.getElementById("comment").value);
-      | para1.appendChild(n);
-      | document.getElementById("commentsHistory").appendChild(para1);
-      | }
-      | function myFocus(x) {
-      | if (x.value = 'Name' || 'Email address')
-      | {
-      | x.style.color='#000';
-      | x.value = '';
-      | }
-      | }
-      | function myBlur(y) {
-      | if (y.value == '')
-      | {
-      | y.style.color='#BBB';
-      | document.getElementById('name').value = "Name";
-      | document.getElementById('email').value = "Email address";
-      | }
-      | }
+    script(src="/scripts/postComment.js")

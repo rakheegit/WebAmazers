@@ -2,3 +2,4 @@ node_modules
 /nbproject/private/
 .DS_Store
 ./app_server/DS_Store
+package-lock.json
