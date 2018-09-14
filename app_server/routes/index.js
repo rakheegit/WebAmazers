@@ -43,6 +43,11 @@ router.get('/graph', ctrlMain.get_graph);
 router.get('/map', ctrlMain.get_map);
 
 /*
+ * GET comment page.
+ */
+router.get('/comments', ctrlMain.get_comments);
+
+/*
  * POST graph page.
  */
 router.post('/graph', ctrlMain.post_graph);

@@ -159,6 +159,15 @@ module.exports.post_graph = function(req, res)
 };
 
 /*
+ * GET comments page.
+ */
+module.exports.get_comments = function(req, res)
+{
+    res.render('commentbox',
+               { message: "This is your graph!" });
+};
+
+/*
  * GET protected page.
  */
 module.exports.get_protected = function(req, res)
