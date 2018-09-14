@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<head><title>comment box</title></head>
+
+<head>
+    <title>comment box</title>
+</head>
+
 <body>
-<div style="padding: 2px; border: 1px solid #000;">
-<pre class="code_block" style="margin-bottom: 10px;">
+    <div style="padding: 2px; border: 1px solid #000;">
+        <pre class="code_block" style="margin-bottom: 10px;">
 <h3 style="color:darkslategray;font-family:georgia">Tell us what you think!</h3>
 <form method='post'>
 
  <input type="text" id="name" value="Name" onfocus="myFocus(this)" onblur="myBlur(this)" style="color:gray"/> <br>
- <input type='text' id='email' value="Email address" id='email' onfocus="myFocus(this)" onblur="myBlur(this)" style="color:gray"/><br />
- <textarea rows="6" cols="60" name='comment' id='comment' placeholder="Comments"" ></textarea><br />
+ <input type='text' id='email' value="Email address" onfocus="myFocus(this)" onblur="myBlur(this)" style="color:gray"/><br />
+ <textarea rows="6" cols="60" name='comment' id='comment' placeholder="Comments" ></textarea><br />
  
  <script>
  function myFocus(x) {
@@ -68,6 +72,7 @@ function myPost() {
 </script>
  </form>
 </pre>
-</div>
+    </div>
 </body>
+
 </html>
