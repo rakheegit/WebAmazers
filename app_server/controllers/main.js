@@ -48,7 +48,20 @@ module.exports.get_logout = function(req, res)
  */
 module.exports.get_login = function(req, res, next)
 {
-   res.render('login', { message: "Login" });
+    if (req.session.user){
+        if(req.session.user.username==="admin"){
+            res.render('adminHome', 
+                   { name: req.session.user.username });
+        }
+        else{
+            res.render('index', 
+                   { name: req.session.user.username });
+        }
+    }
+    else{
+        res.render('login', { message: "Login" });
+    }
+   
 };
 
 module.exports.get_map = function(req,res)
@@ -75,15 +88,15 @@ module.exports.post_login = function(req, res)
     }
     else
     {
+        req.session.user = matches[0];
         // Admin Login
         if(matches[0].username==="admin"){
-            req.session.user = matches[0];
             res.render('adminHome', 
                    { name: req.session.user.username });
         }
         else{
             res.render('index', 
-                   {  });
+                   { name: req.session.user.username });
         }
         
     }
