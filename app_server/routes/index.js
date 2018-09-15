@@ -3,9 +3,20 @@ var router = express.Router();
 var ctrlMain = require("../controllers/main");
 
 /*
+ * GET login page.
+ */
+router.get('/', ctrlMain.get_login);
+router.get('/login', ctrlMain.get_login);
+
+/*
+ * POST login page.
+ */
+router.post('/login', ctrlMain.post_login);
+
+/*
  * GET home page.
  */
-router.get('/', ctrlMain.index);
+router.get('/index', ctrlMain.index);
 
 /*
  * GET registration page.
@@ -17,15 +28,6 @@ router.get('/register', ctrlMain.get_register);
  */
 router.post('/register', ctrlMain.post_register);
 
-/*
- * GET login page.
- */
-router.get('/login', ctrlMain.get_login);
-
-/*
- * POST login page.
- */
-router.post('/login', ctrlMain.post_login);
 
 /*
  * GET logout page.

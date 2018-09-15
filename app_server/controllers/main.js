@@ -1,20 +1,4 @@
-var registeredUsers = [];
-
-module.exports.loggedIn = function(req, res, next)
-{
-    console.log("Checking if logged in:");
-    if (req.session.user)
-    {
-        // Proceed if the user is logged in.
-        console.log("Logged in: "); console.log(req.session.user);
-        next();  
-    } 
-    else 
-    {
-        console.log("Not logged in");
-        res.send("You must first log in.");
-    }
-};
+var registeredUsers = [{username:"admin",password:"admin"}];
 
 /*
  * GET home page.
@@ -24,6 +8,22 @@ module.exports.index = function(req, res, next)
     res.render('index', { title: 'Women in Olympics – an inspiration' });
     console.log('Cookies: ', req.cookies);
 };
+
+
+module.exports.loggedIn = function(req, res, next)
+{
+    console.log("Checking if logged in:");
+    if (req.session.user)
+    {
+        next();  
+    } 
+    else 
+    {
+        console.log("Not logged in");
+        res.send("You must first log in.");
+    }
+};
+
 
 /*
  * GET registration page.
@@ -76,7 +76,7 @@ module.exports.post_register = function(req, res)
  */
 module.exports.get_login = function(req, res)
 {
-   res.render('login', { message: "Please log in!" });
+   res.render('login', { message: "Login" });
 };
 
 module.exports.get_map = function(req,res)
@@ -88,7 +88,6 @@ module.exports.get_map = function(req,res)
  */
 module.exports.post_login = function(req, res)
 {
-    console.log("Registered users:"); console.log(registeredUsers);
     console.log("Logging in: " + req.body.username + "/" + req.body.password);
     
     // Create an array of users with matching credentials.
@@ -98,7 +97,6 @@ module.exports.post_login = function(req, res)
                              && (user.password === req.body.password);
                   });
     
-    console.log("Matching credentials: "); console.log(matches);
     
     if (matches.length === 0)
     {
@@ -111,7 +109,7 @@ module.exports.post_login = function(req, res)
         console.log("Sucessfully logged in:"); 
         console.log(req.session.user.username);
         
-        res.render('loggedin', 
+        res.render('index', 
                    { name: req.session.user.username });
     }
 };
