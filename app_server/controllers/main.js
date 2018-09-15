@@ -66,7 +66,7 @@ module.exports.get_login = function(req, res, next)
 
 module.exports.get_map = function(req,res)
 {
-   res.render('map', {message: "map loading success"});
+   res.render('map', {message: "World Map of Olympic Historic Data"});
 }
 /*
  * POST login page.
