@@ -19,17 +19,6 @@ router.post('/login', ctrlMain.post_login);
 router.get('/index', ctrlMain.index);
 
 /*
- * GET registration page.
- */
-router.get('/register', ctrlMain.get_register);
-
-/*
- * POST registration page.
- */
-router.post('/register', ctrlMain.post_register);
-
-
-/*
  * GET logout page.
  */
 router.get('/logout', ctrlMain.get_logout);
@@ -55,8 +44,8 @@ router.get('/comments', ctrlMain.get_comments);
 router.post('/graph', ctrlMain.post_graph);
 
 /*
- * GET protected page.
+ * GET olympicData page.
  */
-router.get('/protected', ctrlMain.loggedIn, ctrlMain.get_protected);
+router.get('/olympicData', ctrlMain.adminHome, ctrlMain.get_olympic_data);
 
 module.exports = router;
