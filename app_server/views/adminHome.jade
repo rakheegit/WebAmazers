@@ -2,5 +2,11 @@ html
    head
       title Logged in page
    body
+      link(href='/styles/styles.css', rel='stylesheet')
       p Hi, #{name}
       p Now you can add olympic data
+      button(onclick="addData()") Update Olympic Data
+  script.
+  function addData() {
+    window.location.href = '/olympicData'
+  }
