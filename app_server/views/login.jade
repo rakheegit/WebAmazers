@@ -8,8 +8,10 @@ html
             center 
                   h3 #{message}
                   form(action = "/login" method = "POST")
-                        input(name = "username" type = "text" required 
-                              placeholder = "username")
-                        input(name = "password" type = "password" required 
+                        input(name = "email" type = "text" id="email" oninput="onEmailChange(this.value)" required 
+                              placeholder = "email")
+                        input(name = "password" type = "password" id="password" oninput="onPasswordChange(this.value)" required 
                               placeholder = "password")
                         button(type = "Submit") Log in
+
+   script(src="/scripts/loginScript.js")
