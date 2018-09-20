@@ -14,6 +14,16 @@ router.get('/login', ctrlMain.get_login);
 router.post('/login', ctrlMain.post_login);
 
 /*
+ * GET register page.
+ */
+router.get('/register', ctrlMain.get_register);
+
+/*
+ * POST register page.
+ */
+router.post('/register', ctrlMain.post_register);
+
+/*
  * GET home page.
  */
 router.get('/index', ctrlMain.index);

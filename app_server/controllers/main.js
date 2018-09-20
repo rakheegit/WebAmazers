@@ -48,12 +48,9 @@ module.exports.get_login = function(req, res, next) {
 
 };
 
-module.exports.get_map = function(req, res) {
-        res.render('map', { message: "World Map of Olympic Historic Data" });
-    }
-    /*
-     * POST login page.
-     */
+/*
+    * POST login page.
+*/
 module.exports.post_login = function(req, res) {
 
     // Create an array of users with matching credentials.
@@ -78,8 +75,52 @@ module.exports.post_login = function(req, res) {
 };
 
 /*
- * GET graph page.
+ * GET register page.
  */
+module.exports.get_register = function(req, res, next)
+{
+    res.render('register', { message: "Register" });
+};
+
+/*
+ * POST register page.
+ */
+module.exports.post_register = function(req, res)
+{
+    // Create an array of users with matching usernames.
+    var matches = registeredUsers.filter(function(user)
+    {
+        return user.username === req.body.emailreg;
+    });
+    
+    // If there is a match, the user has already registered.
+    if (matches.length > 0)
+    {
+        res.render('register', {message: "User already registered!"});
+    }
+    
+    // Register a new user.
+    else
+    {
+        var newUser = { username: req.body.emailreg, 
+                        password: req.body.passwordreg };
+        registeredUsers.push(newUser);
+        res.redirect('/login');
+    }
+}
+
+
+/*
+    * GET map page.
+ */
+module.exports.get_map = function(req,res)
+{
+   res.render('map', {message: "World Map of Olympic Historic Data",});
+}
+
+/*
+    * GET graph page.
+*/
 module.exports.get_graph = function(req, res) {
     res.render('graph', { message: "View graph!" });
 };

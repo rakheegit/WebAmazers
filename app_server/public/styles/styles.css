@@ -1,3 +1,7 @@
+body {
+    margin: 12px 12px;
+}
+
 .row {
     display: flex;
 }
@@ -17,7 +21,8 @@
 
 h3 {
     color: brown;
-    font-family: georgia
+    font-family: georgia;
+    margin-left: 12px;
 }
 
 h2 {
@@ -34,12 +39,20 @@ h2 {
     background-color: blanchedalmond
 }
 
-input {
+.radiobox {
+    border: 3px solid white;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2), 0 0 14px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.7);
+    margin: 12px 12px !important;
+}
+
+.textbox {
     border: 3px solid white;
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2), 0 0 14px rgba(0, 0, 0, 0.2);
     padding: 7px;
     background: rgba(255, 255, 255, 0.7);
     margin: 0 0 8px 0;
+    width: 500px;
 }
 
 textarea {
@@ -67,7 +80,7 @@ textarea {
     width: 50%;
     border: 3px solid blue;
     padding: 10px;
-    margin-top: 20%;
+    margin-top: 15%;
 }
 
 button {
@@ -85,8 +98,8 @@ button {
 
 .topright {
     position: absolute;
-    top: 10px;
-    right: 16px;
+    top: 25px;
+    right: 26px;
     font-size: 16px;
     color: lightgray
 }
@@ -99,18 +112,20 @@ button {
     background-image: url('/images/crystal_search.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    width: 100%;
+    width: 95%;
     font-size: 16px;
     padding: 12px 20px 12px 40px;
     border: 1px solid #ddd;
     margin-bottom: 12px;
+    margin-left: 12px;
 }
 
 #searchTable {
     border-collapse: collapse;
-    width: 100%;
+    width: 95%;
     border: 1px solid rgba(221, 221, 221, 0.932);
     font-size: 16px;
+    margin-left: 12px;
 }
 
 #searchTable th,
@@ -126,4 +141,17 @@ button {
 #searchTable tr.header,
 #searchTable tr:hover {
     background-color: linen;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+#strength{
+    position: absolute;
+    margin-left: 8px;
+    margin-top: 8px;
 }
