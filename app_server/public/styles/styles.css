@@ -65,7 +65,8 @@ textarea {
 }
 
 button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
+    /* Green */
     border: none;
     color: white;
     padding: 5px 10px;
@@ -74,4 +75,49 @@ button {
     display: inline-block;
     font-size: 10px;
     margin-left: 10px;
+}
+
+.topright {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    font-size: 16px;
+    color: lightgray
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#searchInput {
+    background-image: url('/css/searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}
+
+#myTable {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid rgba(221, 221, 221, 0.932);
+    font-size: 16px;
+}
+
+#myTable th,
+#myTable td {
+    text-align: left;
+    padding: 12px;
+}
+
+#myTable tr {
+    border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header,
+#myTable tr:hover {
+    background-color: linen;
 }

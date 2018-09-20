@@ -1,6 +1,8 @@
 extends layout
 
 block content
-  center
-    h3 Welcome #{name}
-    img.className#IdName(src="/images/olympic.jpg" alt="Image Title")
+  body
+    link(href='/styles/styles.css', rel='stylesheet')
+    .topright Welcome #{name}
+    center
+      img.className#IdName(src="/images/olympic.jpg" alt="Image Title")

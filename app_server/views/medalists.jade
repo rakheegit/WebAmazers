@@ -1,0 +1,98 @@
+extends layout
+block medalists
+    head
+        title Medalists
+    body
+        link(href='/styles/styles.css', rel='stylesheet')
+        script(src="/scripts/searchMedalists.js")
+        h3 Top Women Medalists
+        form(action='')
+            fieldset
+                p
+                    input#cbred(type='radio', name='searchtype', value='Search by Athlete', onclick="displayChange(this.value)")
+                    label(for='cbred') Search by Athlete
+                    input#cbgreen(type='radio', name='searchtype', value='Search by Country', onclick="displayChange(this.value)")
+                    label(for='cbgreen') Search by Country
+        input#searchInput(type='text', onkeyup='searchme()', placeholder='Select above and Enter here...')
+        table#myTable
+            tbody
+                tr.header
+                    th(style='width:35%;') Athlete
+                    th(style='width:30%;') Country
+                    th(style='width:20%;') Medal
+                    th(style='width:10%;') Year
+                tr
+                    td Elaine Thompson
+                    td Jamaica
+                    td Gold
+                    td 2016
+                tr
+                    td Tori Bowie
+                    td United States
+                    td Silver
+                    td 2016
+                tr
+                    td Shelly Ann
+                    td Jamaica
+                    td Bronze
+                    td 2016
+                 tr
+                    td Veronica Brown
+                    td Jamaica
+                    td Bronze
+                    td 2012
+                tr
+                    td Carmelita Jeter
+                    td United States
+                    td Silver
+                    td 2012
+                tr
+                    td Shelly Ann
+                    td Jamaica
+                    td Gold
+                    td 2012
+                tr
+                    td Tianna Bartoletta
+                    td United States
+                    td Gold
+                    td 2016
+                tr
+                    td Britney Reese
+                    td United States
+                    td Silver
+                    td 2016
+                tr
+                    td Ivana Spanovic
+                    td Serbia
+                    td Bronze
+                    td 2016
+                tr
+                    td Michelle Carter
+                    td United States
+                    td Gold
+                    td 2016
+                tr
+                    td Valerie Adams
+                    td New Zealand
+                    td Silver
+                    td 2016
+                tr
+                    td Anita Marton
+                    td Hungary
+                    td Bronze
+                    td 2016
+                tr
+                    td Gong Lijiao
+                    td China
+                    td Silver
+                    td 2012
+                tr
+                    td Valerie Adams
+                    td New Zealand
+                    td Gold
+                    td 2012
+                tr
+                    td Li Ling
+                    td China
+                    td Bronze
+                    td 2012

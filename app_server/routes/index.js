@@ -39,6 +39,11 @@ router.get('/map', ctrlMain.get_map);
 router.get('/comments', ctrlMain.get_comments);
 
 /*
+ * GET medalists page.
+ */
+router.get('/medalists', ctrlMain.get_medalists);
+
+/*
  * POST graph page.
  */
 router.post('/graph', ctrlMain.post_graph);
