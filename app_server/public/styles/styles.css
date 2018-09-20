@@ -20,6 +20,12 @@ h3 {
     font-family: georgia
 }
 
+h2 {
+    text-align: center;
+    color: brown;
+    font-family: georgia
+}
+
 .main {
     padding: 20px;
     border: 1px solid brown;
@@ -90,7 +96,7 @@ button {
 }
 
 #searchInput {
-    background-image: url('/css/searchicon.png');
+    background-image: url('/images/crystal_search.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
     width: 100%;
@@ -100,24 +106,24 @@ button {
     margin-bottom: 12px;
 }
 
-#myTable {
+#searchTable {
     border-collapse: collapse;
     width: 100%;
     border: 1px solid rgba(221, 221, 221, 0.932);
     font-size: 16px;
 }
 
-#myTable th,
-#myTable td {
+#searchTable th,
+#searchTable td {
     text-align: left;
     padding: 12px;
 }
 
-#myTable tr {
+#searchTable tr {
     border-bottom: 1px solid #ddd;
 }
 
-#myTable tr.header,
-#myTable tr:hover {
+#searchTable tr.header,
+#searchTable tr:hover {
     background-color: linen;
 }
