@@ -5,7 +5,7 @@ block medalists
     body
         link(href='/styles/styles.css', rel='stylesheet')
         script(src="/scripts/searchMedalists.js")
-        h2 Top Women Medalists
+        h3 Top Women Medalists
         form(action='')
             fieldset
                 p
@@ -14,7 +14,7 @@ block medalists
                     input#cbgreen(type='radio', name='searchtype', value='Search by Country',class="radiobox", onclick="displayChange(this.value)")
                     label(for='cbgreen') Search by Country
         input#searchInput(type='text', onkeyup='searchme()',class="textbox" placeholder='Select above and Enter here...')
-        table#myTable
+        table#searchTable
             tbody
                 tr.header
                     th(style='width:35%;') Athlete

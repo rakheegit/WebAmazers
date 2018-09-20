@@ -1,4 +1,4 @@
-var registeredUsers = [{ username: "admin", password: "admin" }, { username: "ashish", password: "1234" }];
+var registeredUsers = [{ username: "admin@admin.com", password: "admin" }, { username: "ashish@gmail.com", password: "1234" }];
 
 /*
  * GET home page.

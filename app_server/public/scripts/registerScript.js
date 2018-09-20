@@ -19,8 +19,6 @@ function onEmailChange(value){
 }
 
 function onPasswordChange(value){
-    const passwordNode = document.getElementById("passwordreg");
-    const regButtonNode = document.getElementById("regMeButton");
     const strengthNode = document.getElementById("strength");
     const passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
     const matched = passRegex.test(value);
