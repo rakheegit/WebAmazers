@@ -26,7 +26,7 @@ module.exports.get_logout = function(req, res) {
 
         req.session.destroy(function() {});
 
-        res.send(name + " is now logged out.");
+        res.render('login', { message: "Login" });
     } else {
         res.send("Nobody is currently logged in!");
     }

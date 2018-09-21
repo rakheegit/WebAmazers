@@ -21,7 +21,10 @@ function onEmailChange(value){
 function onPasswordChange(value){
     const strengthNode = document.getElementById("strength");
     const passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+    const cnfPasswordNode = document.getElementById("cnfpasswordreg");
+    const passmatchNode = document.getElementById("passmatch");
     const matched = passRegex.test(value);
+    const regButtonNode = document.getElementById("regMeButton");
     if(matched){
         strengthNode.innerHTML = "Strong";
         strengthNode.style.color = "green";
@@ -34,5 +37,29 @@ function onPasswordChange(value){
         else{
             strengthNode.innerHTML = "";
         }
+    }
+    if(cnfPasswordNode.value == value){
+        passmatchNode.innerHTML = "Password Matched";
+        passmatchNode.style.color = "green";
+        regButtonNode.disabled = false;
+    }
+    else{
+        regButtonNode.disabled = true;
+        passmatchNode.innerHTML = "";
+    }
+}
+
+function onConfirmPasswordChange(value){
+    const passNode = document.getElementById("passwordreg");
+    const passmatchNode = document.getElementById("passmatch");
+    const regButtonNode = document.getElementById("regMeButton");
+    if(passNode.value === value){
+        passmatchNode.innerHTML = "Password Matched";
+        passmatchNode.style.color = "green";
+        regButtonNode.disabled = false;
+    }
+    else{
+        regButtonNode.disabled = true;
+        passmatchNode.innerHTML = "";
     }
 }
