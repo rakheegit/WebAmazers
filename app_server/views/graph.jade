@@ -1,28 +1,13 @@
 extends layout
 block graph
-  head
-    script(src='https://canvasjs.com/assets/script/canvasjs.min.js')
-    script(type='text/javascript').
-      window.onload = function () {
-      var chart = new CanvasJS.Chart("chartContainer", {
-      title:{
-      text: "% of Women in Olympics by Year"
-      },
-      data: [
-      {
-      
-      type: "column",
-      dataPoints: [
-      { label: "1900",  y: 10  },
-      { label: "1910", y: 15  },
-      { label: "1920", y: 25  },
-      { label: "1930",  y: 30  },
-      { label: "1940",  y: 28  }
-      ]
-      }
-      ]
-      });
-      chart.render();
-      }
-  body
-    #chartContainer(style='height: 300px; width: 50%;')
+  script(src='/scripts/animation.js')
+  title Graphs
+  body(onload='loadrings()')
+    canvas#ring-canvas(height='924', width='1662', style='border: solid white 1px;')
+    script.
+      window.requestAnimFrame = (function(callback) {
+      return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+      function(callback) {
+      window.setTimeout(callback, 1000 / 60);
+      };
+      })();

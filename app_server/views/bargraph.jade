@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title barGraph
+    script(type='text/javascript').
+      var pattern = new Image();
+      
+      function animate() {
+        pattern.src = '/images/pattern.jpg';
+        setInterval(drawShape, 50);
+      }
+      
+      var x = 100;
+      var  y = 200;
+      x1 = 30;
+      y1 = 30;
+
+      function drawShape() {
+        var canvas = document.getElementById('mycanvas');
+        var ctx = canvas.getContext('2d');
+        ctx.drawImage(pattern,x,y,x1,y1);
+        x1 = x1 +1; y1 = y1 +1; x=x+1; y=y+1;
+      }
+  body(onload='animate();')
+    img(src='/images/man.gif')
+    canvas#mycanvas(width='500', height='500')
