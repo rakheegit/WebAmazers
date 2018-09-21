@@ -14,6 +14,9 @@ html
                               placeholder = "password")
                         span(id="strength")
                         br
+                        input(name = "cnfpasswordreg" type = "password" class="textbox" id="cnfpasswordreg" oninput="onConfirmPasswordChange(this.value)" required 
+                              placeholder = "confirm password")
+                        span(id="passmatch")
                         br
                         button(type = "Submit" id="regMeButton" disabled) Register
                   p Already have an account?  <a href="/login"> Login Here </a>
