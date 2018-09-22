@@ -1,6 +1,8 @@
 extends layout
 
 block content
+  head
+        title Olympics - Home
   script(type='text/javascript').
       var pattern = new Image();
       function animate() {
@@ -23,7 +25,7 @@ block content
       y1 = y1 +1;
       }
       }
-  body(onload='animate()')
+  body(onload='animate()', class="indexBlock")
     link(href='/styles/styles.css', rel='stylesheet')
     .topright Welcome #{name}
     img.someIMage(class="images" src='/images/man.gif')

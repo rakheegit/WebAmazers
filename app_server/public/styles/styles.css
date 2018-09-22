@@ -2,6 +2,10 @@ body {
     margin: 12px 12px;
 }
 
+.indexBlock {
+    background-color: #f7f7f7;
+}
+
 .row {
     display: flex;
 }
