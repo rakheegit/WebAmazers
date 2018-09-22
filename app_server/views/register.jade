@@ -18,6 +18,9 @@ html
                               placeholder = "confirm password")
                         span(id="passmatch")
                         br
+                        input(name = "mobile" type = "tel" class="textbox" id="mobilereg" oninput="onMobileChange(this.value)" 
+                              placeholder = "Contact Number")
+                        br
                         button(type = "Submit" id="regMeButton" disabled) Register
                   p Already have an account?  <a href="/login"> Login Here </a>
    script(src="/scripts/registerScript.js")

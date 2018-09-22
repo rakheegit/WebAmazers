@@ -63,3 +63,20 @@ function onConfirmPasswordChange(value){
         passmatchNode.innerHTML = "";
     }
 }
+
+function onMobileChange(value){
+    const mobileNode = document.getElementById("mobilereg");
+    const mobileRegex = /^(\+\d{1,3}[- ]?)?\d{10}$/;
+    const matched = mobileRegex.test(value);
+    if(matched){
+        mobileNode.style.backgroundColor="rgba(124, 252, 0, " + 0.7 + ")";
+    }
+    else{
+        if (value.length>0){
+            mobileNode.style.backgroundColor="rgba(255, 95, 95, " + 0.7 + ")";
+        }
+        else{
+            mobileNode.style.backgroundColor="rgba(255, 255, 255, " + 0.7 + ")";
+        }
+    }
+}
