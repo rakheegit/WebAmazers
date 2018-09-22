@@ -1,7 +1,7 @@
 function searchme() {
     var input, filter, table, tr, td, i, col;
-    var checkname = document.getElementById("cbred").checked;
-    var checkcountry = document.getElementById("cbgreen").checked;
+    var checkname = document.getElementById("inp1").checked;
+    var checkcountry = document.getElementById("inp2").checked;
     input = document.getElementById("searchInput");
     filter = input.value.toUpperCase();
     table = document.getElementById("searchTable");
@@ -25,4 +25,13 @@ function searchme() {
 
 function displayChange(type) {
     document.getElementById("searchInput").placeholder = type;
+}
+
+function hideShow() {
+    var x = document.getElementById("hideImage");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
 }

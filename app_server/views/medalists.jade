@@ -6,13 +6,27 @@ block medalists
         link(href='/styles/styles.css', rel='stylesheet')
         script(src="/scripts/searchMedalists.js")
         h3 Top Women Medalists
+        button(onclick='hideShow()') Hide/Show Winning moments
+        div#hideImage
+            .container
+                .medalistImg
+                    img(src='images/Elaine.jpg')
+                .text Elaine Thompson
+            .container
+                .medalistImg
+                    img(src='images/shelly_ann.jpg')
+                .text Shelly-Ann Fraser-Pryce
+            .container
+                .medalistImg
+                    img(src='/images/ivana.jpg')
+                .text Ivana Spanovic
         form(action='')
             fieldset
                 p
-                    input#cbred(type='radio', name='searchtype', value='Search by Athlete', class="radiobox", onclick="displayChange(this.value)")
-                    label(for='cbred') Search by Athlete
-                    input#cbgreen(type='radio', name='searchtype', value='Search by Country',class="radiobox", onclick="displayChange(this.value)")
-                    label(for='cbgreen') Search by Country
+                    input#inp1(type='radio', name='searchtype', value='Search by Athlete', class="radiobox", onclick="displayChange(this.value)")
+                    label(for='inp1') Search by Athlete
+                    input#inp2(type='radio', name='searchtype', value='Search by Country',class="radiobox", onclick="displayChange(this.value)")
+                    label(for='inp2') Search by Country
         input#searchInput(type='text', onkeyup='searchme()',class="textbox" placeholder='Select above and Enter here...')
         table#searchTable
             tbody

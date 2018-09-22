@@ -144,20 +144,50 @@ button {
 }
 
 button:disabled,
-button[disabled]{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
+button[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
 }
 
-#strength{
+#strength {
     position: absolute;
     margin-left: 8px;
     margin-top: 8px;
 }
 
-#passmatch{
+#passmatch {
     position: absolute;
     margin-left: 8px;
     margin-top: 8px;
+}
+
+.someIMage {
+    vertical-align: top;
+}
+
+#hideImage {
+    width: 100%;
+    margin-top: 20px;
+    display: none
+}
+
+.container {
+    width: 150px;
+    margin-left: 10px;
+    float: left;
+}
+
+div img {
+    width: 120px;
+    height: 150px;
+    float: left;
+}
+
+.text {
+    text-align: center;
+}
+
+form {
+    clear: both;
 }
