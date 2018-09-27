@@ -19,3 +19,4 @@ function drawShape() {
         y1 = y1 +1;
     }
 }
+$( "#accordion" ).accordion();
