@@ -1,0 +1,26 @@
+extends layout
+block guessgame
+
+  head
+    meta(http-equiv='content-type', content='text/xml; charset=utf-8')
+    link(href='/styles/styles.css', rel='stylesheet')
+    title Guess Game!
+    script(type='text/javascript', src="/scripts/guessgame.js")
+  body
+    h3
+      | Guess Game! Who do you think will be the winner of Olympics 2019 in tennis? 
+    ul
+      li
+        #serena
+          img(src='images/serena.jpeg', title='Serena Williams', width='300', height='300')
+      li
+        #puig
+          img(src='images/puig.jpeg', title='Puig', width='300', height='300')
+          div  
+      li
+        #kerber
+          img(src='images/kerber.jpeg', title='kerber', width='300', height='300')
+      li
+        #kvitova
+          img(src='images/kvitova.jpeg', title='kvitova', width='300', height='300')
+    #makeMeDroppable Drop your guess here and resize the frame
