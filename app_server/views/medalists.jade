@@ -22,11 +22,15 @@ block medalists
                 .text Ivana Spanovic
         form(action='')
             fieldset
-                p
+                span
                     input#inp1(type='radio', name='searchtype', value='Search by Athlete', class="radiobox", onclick="displayChange(this.value)")
                     label(for='inp1') Search by Athlete
                     input#inp2(type='radio', name='searchtype', value='Search by Country',class="radiobox", onclick="displayChange(this.value)")
                     label(for='inp2') Search by Country
+                div(class="parentDiv")
+                    div(id="slider" class="slider")
+                    label(class='yearSliderLabel') Filter by Year
+                    
         input#searchInput(type='text', onkeyup='searchme()',class="textbox" placeholder='Select above and Enter here...')
         table#searchTable
             tbody
@@ -39,12 +43,12 @@ block medalists
                     td Elaine Thompson
                     td Jamaica
                     td Gold
-                    td 2016
+                    td 2001
                 tr
                     td Tori Bowie
                     td United States
                     td Silver
-                    td 2016
+                    td 1993
                 tr
                     td Shelly Ann
                     td Jamaica
@@ -54,37 +58,37 @@ block medalists
                     td Veronica Brown
                     td Jamaica
                     td Bronze
-                    td 2012
+                    td 2000
                 tr
                     td Carmelita Jeter
                     td United States
                     td Silver
-                    td 2012
+                    td 2010
                 tr
                     td Shelly Ann
                     td Jamaica
                     td Gold
-                    td 2012
+                    td 1999
                 tr
                     td Tianna Bartoletta
                     td United States
                     td Gold
-                    td 2016
+                    td 2006
                 tr
                     td Britney Reese
                     td United States
                     td Silver
-                    td 2016
+                    td 2005
                 tr
                     td Ivana Spanovic
                     td Serbia
                     td Bronze
-                    td 2016
+                    td 2011
                 tr
                     td Michelle Carter
                     td United States
                     td Gold
-                    td 2016
+                    td 2012
                 tr
                     td Valerie Adams
                     td New Zealand
@@ -94,12 +98,12 @@ block medalists
                     td Anita Marton
                     td Hungary
                     td Bronze
-                    td 2016
+                    td 2003
                 tr
                     td Gong Lijiao
                     td China
                     td Silver
-                    td 2012
+                    td 1981
                 tr
                     td Valerie Adams
                     td New Zealand
@@ -109,4 +113,4 @@ block medalists
                     td Li Ling
                     td China
                     td Bronze
-                    td 2012
+                    td 1984

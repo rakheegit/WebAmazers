@@ -222,3 +222,24 @@ img {
 
 
     
+#slider label {
+    position: absolute;
+    width: 20px;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .slider{
+    margin-left:120px;
+  }
+
+  .yearSliderLabel{
+    float: left;
+    width:100px;
+    margin-bottom: -10px;
+  }
+
+  .parentDiv{
+    width: 90%; 
+    margin: 10px 25px 40px 10px;
+  }
