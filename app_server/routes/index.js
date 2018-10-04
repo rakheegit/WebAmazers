@@ -54,6 +54,11 @@ router.get('/comments', ctrlMain.get_comments);
 router.get('/medalists', ctrlMain.get_medalists);
 
 /*
+ * GET Guess game page.
+ */
+router.get('/guessgame', ctrlMain.get_guessgame);
+
+/*
  * POST graph page.
  */
 router.post('/graph', ctrlMain.post_graph);
@@ -62,5 +67,6 @@ router.post('/graph', ctrlMain.post_graph);
  * GET olympicData page.
  */
 router.get('/olympicData', ctrlMain.adminHome, ctrlMain.get_olympic_data);
+
 
 module.exports = router;

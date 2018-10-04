@@ -119,6 +119,14 @@ module.exports.get_map = function(req,res)
 }
 
 /*
+GET Guess game page.
+*/
+module.exports.get_guessgame = function(req,res)
+{
+   res.render('guessgame');
+}
+
+/*
     * GET graph page.
 */
 module.exports.get_graph = function(req, res) {
