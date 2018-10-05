@@ -37,7 +37,8 @@ function hideShow() {
 }
 
 $( function() {
-    $("#slider").slider({
+    $("#slider")
+    .slider({
         value: 2000,
         range: true,
         min: 1980,
@@ -50,7 +51,7 @@ $( function() {
             tr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
                 td = tr[i].getElementsByTagName("td")[3];
-                console.log(td);
+                
                 if (td) {
                     const year = td.innerHTML;
                     if (year<minimum || year>maximum) {
@@ -63,6 +64,7 @@ $( function() {
             }
         }
     })
+    
     .each(function() {
     
         // Add labels to slider whose values 
@@ -86,4 +88,20 @@ $( function() {
         }
     
     });
-  } );
+    
+  });
+
+  $(function() {
+        $(document).tooltip();
+  })
+  $(document).ready(function() {
+    $('#img1').tooltip({
+   position: { 
+     my: 'center bottom', 
+     at: 'center bottom+10',
+     of: '#img1'
+   }
+ });                  
+ $('#img1').tooltip('option', 'tooltipClass', 'top');
+
+ });
