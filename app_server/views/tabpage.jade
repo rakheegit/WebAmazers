@@ -1,0 +1,22 @@
+extends layout
+block tabpage
+  head
+    meta(charset='UTF-8')
+    link(rel='stylesheet', type='text/css', href='http://www.cs.sjsu.edu/~mak/CMPE280/code/jquery-ui/css/jquery-ui-lightness/jquery-ui.min.css')
+    script(type='text/javascript', src='http://www.cs.sjsu.edu/~mak/CMPE280/code/jquery-ui/js/jquery.js')
+    script(type='text/javascript', src='http://www.cs.sjsu.edu/~mak/CMPE280/code/jquery-ui/js/jquery-ui-lightness/jquery-ui.min.js')
+    script(type='text/javascript', src='scripts/tabsdemo.js')
+    title AJAX Tabs
+  body
+    h1.ui-state-default AJAX Tabs Demo
+    #tabs
+      ul
+        li
+          a(href="#tabs-1") Preloaded
+        li
+          a(href="views/templates/CMPE180A.html") CMPE 180A
+        li
+          a(href="views/templates/CMPE226.jade") CMPE 226
+      #tabs-1
+        p
+          | Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. 

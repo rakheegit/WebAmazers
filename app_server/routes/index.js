@@ -68,5 +68,10 @@ router.post('/graph', ctrlMain.post_graph);
  */
 router.get('/olympicData', ctrlMain.adminHome, ctrlMain.get_olympic_data);
 
+/*
+ * GET tabs page.
+ */
+router.get('/tabpage', ctrlMain.get_tabpage);
+
 
 module.exports = router;
