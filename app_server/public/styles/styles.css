@@ -188,6 +188,17 @@ div img {
     float: left;
 }
 
+#imgid {
+    width: 120px;
+    height: 95px;
+    float: left;
+    border: 1px solid black;
+}
+
+#imgid:hover {
+    outline: 2px solid black;
+}
+
 .text {
     text-align: center;
 }
@@ -196,49 +207,46 @@ form {
     clear: both;
 }
 
-
-
 #makeMeDroppable {
-    width:500px;
-    height:500px;
-    border:10px solid rgb(117, 51, 51);
-    float:left;
+    width: 500px;
+    height: 500px;
+    border: 10px solid rgb(117, 51, 51);
+    float: left;
     margin-top: 25px;
     margin-bottom: 200px;
 }
-ul{
+
+ul {
     list-style-type: none;
-    float:left;
+    float: left;
 }
-li{
+
+li {
     margin: 5px;
 }
 
 img {
-    border:1px solid #000;
-    
+    border: 1px solid #000;
 }
 
-
-    
 #slider label {
     position: absolute;
     width: 20px;
     margin-top: 20px;
     text-align: center;
-  }
+}
 
-  .slider{
-    margin-left:120px;
-  }
+.slider {
+    margin-left: 120px;
+}
 
-  .yearSliderLabel{
+.yearSliderLabel {
     float: left;
-    width:100px;
+    width: 100px;
     margin-bottom: -10px;
-  }
+}
 
-  .parentDiv{
-    width: 90%; 
+.parentDiv {
+    width: 90%;
     margin: 10px 25px 40px 10px;
-  }
+}

@@ -2,7 +2,8 @@ extends layout
 block content
   head
     title Olympics - Home
-  body(onload='animate()', class="indexBlock")
+  body
+    img#imgid(src='/images/olymhigh.png')
     doctype html
     html.
       <!-- Accordion -->
@@ -20,7 +21,5 @@ block content
     link(href='/styles/styles.css', rel='stylesheet')
 
     .topright Welcome #{name}
-    img.someIMage(class="images" src='/images/man.gif')
-    canvas#mycanvas(width='500', height='500')
-    img(src='/images/olympic.svg')
+    
   script(src="/scripts/indexScript.js")
