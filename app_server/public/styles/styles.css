@@ -195,10 +195,6 @@ div img {
     border: 1px solid black;
 }
 
-#imgid:hover {
-    outline: 2px solid black;
-}
-
 .text {
     text-align: center;
 }

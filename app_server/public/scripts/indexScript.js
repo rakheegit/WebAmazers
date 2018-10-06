@@ -22,4 +22,17 @@ function drawShape() {
 }
 $("#accordion").accordion();
 $('#imgid').resizable();
-$('#imgid').tooltip({ items: "span", content: "Each ring in the Olympic logo represents a Continent. Resize and have fun!" });
+
+$(function() {
+    $(document).tooltip();
+})
+$(document).ready(function() {
+    $('#imgid').tooltip({
+        position: {
+            my: 'right center',
+            at: 'right bottom',
+            of: '#imgid'
+        }
+    });
+    $('#imgid').tooltip('option', 'tooltipClass', 'top');
+});
