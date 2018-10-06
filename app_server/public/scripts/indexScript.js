@@ -22,3 +22,4 @@ function drawShape() {
 }
 $("#accordion").accordion();
 $('#imgid').resizable();
+$('#imgid').tooltip({ items: "span", content: "Each ring in the Olympic logo represents a Continent. Resize and have fun!" });
