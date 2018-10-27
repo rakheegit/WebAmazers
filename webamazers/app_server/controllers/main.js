@@ -2,6 +2,16 @@ var registeredUsers = [{ username: "admin@admin.com", password: "admin" }, { use
 
 
 module.exports.get_websites = function(req, res) {
-    res.render('websites', { title: 'Women in Olympics – an inspiration' });
+    results = [{
+        '_id':1,
+        'Website':'www.google.com',
+        'privacy':'excellent'
+        },{
+        '_id':2,
+        'Website':'www.facebook.com',
+        'privacy':'average'
+        },
+    ] 
+    res.render('websites', { title: 'Express' , websites: results });
 };
 
