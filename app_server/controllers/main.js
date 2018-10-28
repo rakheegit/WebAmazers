@@ -22,19 +22,15 @@ module.exports.adminHome = function(req, res, next) {
  * GET logout page.
  */
 module.exports.get_logout = function(req, res) {
-    schemaWebsite.find(function (err, webs) {
-        console.log(webs)
-        res.send(webs)
-    })
-    // if (req.session.user) {
-    //     var name = req.session.user.username;
+    if (req.session.user) {
+        var name = req.session.user.username;
 
-    //     req.session.destroy(function() {});
+        req.session.destroy(function() {});
 
-    //     res.render('login', { message: "Login" });
-    // } else {
-    //     res.send("Nobody is currently logged in!");
-    // }
+        res.render('login', { message: "Login" });
+    } else {
+        res.send("Nobody is currently logged in!");
+    }
 };
 
 /*
