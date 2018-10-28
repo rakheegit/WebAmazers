@@ -1,0 +1,21 @@
+extends layout
+block websites
+    div
+        table.table.table-hover
+            thead
+                tr
+                    td='website'
+                    td='privacy'
+            tbody
+                each website,index in websites
+                    tr(id=website._id)
+                        td(name=website._id)=website.Website 
+                        td(name=website._id)=website.privacy
+                        td 
+                            button(onclick="onDelete("+website._id+")") Delete
+                            button(onclick="onEdit("+website._id+")", id="editButton"+website._id) Edit
+        button(onclick="onInsert()") Insert
+
+    script(src='/scripts/websites.js')
+                        
+                
