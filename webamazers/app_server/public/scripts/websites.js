@@ -18,13 +18,7 @@ function onEdit(id){
         $('#editButton'+id)[0].innerText="Edit";
     }
 }
-function onView(id){
-    
-}
 
-function onInsert(){
-    
-}
 
 function insertFields(){
     var body={
