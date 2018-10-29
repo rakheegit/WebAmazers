@@ -5,7 +5,10 @@ var session = require('express-session');
 var index = require('./app_server/routes/index');
 var app = express();
 var mongoose = require('mongoose');
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0c0ef5bd352bac4a8478ff4f943c6935bf1f4383
 
 //View engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
