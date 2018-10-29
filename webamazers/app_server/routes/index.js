@@ -9,4 +9,5 @@ router.get('/', ctrlMain.get_websites);
 
 router.get('/websites:id', ctrlMain.get_website_with_ID);
 
+router.get('/searchFromDB', ctrlMain.search_DB)
 module.exports = router;

@@ -1,10 +1,6 @@
 extends layout
-block websites
+block searchResults
     link(href='/styles/styles.css', rel='stylesheet')
-    div
-       form(id='submitToEnter' action='/searchFromDB',method='get')
-            input#websiteName(type='text', name='websiteName' placeholder='Search for a website',style='color:gray')
-            input#search(type='submit' value='Search')
     div
         table.table.table-hover
             thead
@@ -25,11 +21,6 @@ block websites
                         td(name=website._id)=website.Trustworthiness
                         td(name=website._id)=website.Avg_Daily_Pageviews
                         td(name=website._id)=website.Privacy
-                        td 
-                            button(onclick="onView("+website._id+")") View
-                            button(onclick="onDelete("+website._id+")") Delete
-                            button(id="editButton"+website._id, onclick="onEdit("+website._id+")") Edit
-        button(onclick="onInsert()") Insert
 
     script(src='/scripts/websites.js')
                         
