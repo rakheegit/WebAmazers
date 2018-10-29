@@ -1,3 +1,4 @@
+
 function onDelete(id){
     //delete from database here
     console.log(id);
@@ -22,15 +23,19 @@ function onView(id){
 }
 
 function onInsert(){
-    var markup = 
-        "<tr><td contentEditable='true' id='insertWebsiteName'>Website Name</td><td contentEditable='true' id='insertPrivacy'>Privacy</td>"
-        +"<td><button onclick=insertFields()>Insert </button></td></tr>";
-    $("table tbody").append(markup);
+    
 }
 
 function insertFields(){
-    console.log($('#insertWebsiteName')[0].innerText);
-    console.log($('#insertPrivacy')[0].innerText);
-
+    var body={
+        website: $('#insertWebsite')[0].innerText,
+        country: $('#insertCountryRank')[0].innerText,
+        safety :$('#insertChildSafety')[0].innerText,
+        trust: $('#insertTrustworthiness')[0].innerText,
+        pageview: $('#insertAvgDailyPageviews')[0].innerText,
+        privacy: $('#insertPrivacy')[0].innerText
+    }    
+    $('#submitToEnter').submit();
     // write api calls to insert into db
+    
 }

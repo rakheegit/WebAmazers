@@ -15,4 +15,25 @@ module.exports.get_website_with_ID = function(req, res){
     })
 };
 
-
+module.exports.post_db_data = function(req, res){
+        var WebsiteData = {
+            Website:req.body.insertWebsite,
+            Country_Rank:req.body.insertCountryRank,
+            Child_Safety:req.body.insertChildSafety,
+            Trustworthiness:req.body.insertTrustworthiness,
+            Avg_Daily_Pageviews:req.body.insertAvgDailyPageviews,
+            Privacy:req.body.insertPrivacy
+        } 
+        console.log(req.body)
+        var data = new schemaWebsite(WebsiteData)
+        data.save(function(err, data){
+            if(err){
+                console.log(err)
+            }
+            else{
+                console.log("success")
+            }
+        })
+        res.send("item saved to database");
+       
+}
