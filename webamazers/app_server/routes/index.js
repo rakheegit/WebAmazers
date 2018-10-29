@@ -7,4 +7,6 @@ var ctrlMain = require("../controllers/main");
  */
 router.get('/', ctrlMain.get_websites);
 
+router.get('/websites:id', ctrlMain.get_website_with_ID);
+
 module.exports = router;

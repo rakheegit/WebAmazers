@@ -1,19 +1,34 @@
 extends layout
 block websites
+    link(href='/styles/styles.css', rel='stylesheet')
+    div
+        input#email(type='text', placeholder='Search for a website',style='color:gray')
+        button#search(onclick="") Search
+        button#insert(onclick="") Insert into DB
     div
         table.table.table-hover
             thead
                 tr
-                    td='website'
-                    td='privacy'
+                    td='Website'
+                    td='Country Rank'
+                    td='Child Safety'
+                    td='Trustworthiness'
+                    td='Average Daily Page Views'
+                    td='Privacy'
+                    td='Actions'
             tbody
                 each website,index in websites
                     tr(id=website._id)
                         td(name=website._id)=website.Website 
-                        td(name=website._id)=website.privacy
+                        td(name=website._id)=website.Country_Rank 
+                        td(name=website._id)=website.Child_Safety
+                        td(name=website._id)=website.Trustworthiness
+                        td(name=website._id)=website.Avg_Daily_Pageviews
+                        td(name=website._id)=website.Privacy
                         td 
+                            button(onclick="onView("+website._id+")") View
                             button(onclick="onDelete("+website._id+")") Delete
-                            button(onclick="onEdit("+website._id+")", id="editButton"+website._id) Edit
+                            button(id="editButton"+website._id, onclick="onEdit("+website._id+")") Edit
         button(onclick="onInsert()") Insert
 
     script(src='/scripts/websites.js')

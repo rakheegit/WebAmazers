@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var index = require('./app_server/routes/index');
 var app = express();
+var mongoose = require('mongoose');
+
 
 //View engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));

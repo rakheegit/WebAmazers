@@ -50,6 +50,44 @@ h2 {
     margin: 12px 12px !important;
 }
 
+#email{
+    border: 3px solid lightcoral;
+    width: 1000px;
+    margin: 0 0 8px 0;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+#search {
+    background-color: lightseagreen;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    margin-bottom: 8px ;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin-left: 10px;
+}
+
+#insert {
+    background-color: lightseagreen;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    margin-bottom: 8px ;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin-left: 10px;
+}
+
 .textbox {
     border: 3px solid white;
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2), 0 0 14px rgba(0, 0, 0, 0.2);

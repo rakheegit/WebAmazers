@@ -8,4 +8,11 @@ module.exports.get_websites = function (req, res) {
     })
 };
 
+module.exports.get_website_with_ID = function(req, res){
+    var id = req.id;
+    schemaWebsite.find({},function (err, webs) {
+        res.render('websites', { title: 'Express', websites: webs });
+    })
+};
+
 
