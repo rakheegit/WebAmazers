@@ -15,10 +15,29 @@ function onEdit(id){
     }
     else if($('#editButton'+id)[0].innerText=="Submit"){
         // Update db here
+        
         $('#editButton'+id)[0].innerText="Edit";
     }
 }
 
+$(function() {
+    $("#editButton").on("click",function(e) {
+        
+        var id=e.target.name;
+        console.log($('#Website'+id).val());
+        var data = {
+            _id:id,
+            updatedData:{
+                "Website":"testVirani"
+            }
+        }
+        e.preventDefault(); // cancel the link itself
+        $.post("/editDbData",data,function(data) {
+            console.log(data.msg);
+        });
+    console.log(e.target.name);
+  });
+});
 
 function insertFields(){
     var body={
@@ -31,5 +50,4 @@ function insertFields(){
     }    
     $('#submitToEnter').submit();
     // write api calls to insert into db
-    
 }

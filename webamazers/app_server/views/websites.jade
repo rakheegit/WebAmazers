@@ -30,16 +30,16 @@ block websites
             tbody
                 each website,index in websites
                     tr(id=website._id)
-                        td(name=website._id)=website.Website 
-                        td(name=website._id)=website.Country_Rank 
-                        td(name=website._id)=website.Child_Safety
-                        td(name=website._id)=website.Trustworthiness
-                        td(name=website._id)=website.Avg_Daily_Pageviews
-                        td(name=website._id)=website.Privacy
+                        td(name=website._id,id="Website"+website._id, contentEditable=true)=website.Website 
+                        td(name=website._id, contentEditable=true)=website.Country_Rank 
+                        td(name=website._id, contentEditable=true)=website.Child_Safety
+                        td(name=website._id, contentEditable=true)=website.Trustworthiness
+                        td(name=website._id, contentEditable=true)=website.Avg_Daily_Pageviews
+                        td(name=website._id, contentEditable=true)=website.Privacy
                         td 
-                            button(onclick="onView("+website._id+")") View
+                            //- button(onclick="onView("+website._id+")") View
                             button(onclick="onDelete("+website._id+")") Delete
-                            button(id="editButton"+website._id, onclick="onEdit("+website._id+")") Edit
+                            button(id="editButton", name=website._id) Edit
         button(onclick="onInsert()") Add new row
 
     script(src='/scripts/websites.js')
