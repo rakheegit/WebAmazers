@@ -1,20 +1,13 @@
 extends layout
 block websites
     link(href='/styles/styles.css', rel='stylesheet')
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
     div
-       form(action='/searchFromDB',method='get')
+       form()
             input#websiteName(type='text', name='websiteName' placeholder='Search for a website')
-            input#searchInDB(type='submit' value='Search')
+            button.search(onclick="searchDB(event)")
+                i.fa.fa-search
     div
-        form(action='/insertDbData',method='post')
-            input#insertWebsite(class='insert' type='text' name='insertWebsite' placeholder='Website')
-            input#insertCountryRank(class='insert' type='text' name='insertCountryRank' placeholder='Country Rank')
-            input#insertChildSafety(class='insert' type='text' name='insertChildSafety' placeholder='Child Safety')
-            input#insertTrustworthiness(class='insert' type='text' name='insertTrustworthiness' placeholder='Trustworthiness')
-            input#insertAvgDailyPageviews(class='insert' type='text' name='insertAvgDailyPageviews' placeholder='Average daily pageview')
-            input#insertPrivacy(class='insert' type='text' name='insertPrivacy' placeholder='Privacy')
-            input#submittoDB(class='insert' type='submit' value='Insert')
- 
         table.table.table-hover
             thead
                 tr  
@@ -36,8 +29,10 @@ block websites
                         td(name=website._id, contentEditable=true)=website.Privacy
                         td 
                             div
-                                button(class="deleteButton") Delete
-                                button(class="editButton") Edit
+                                button.deleteButton
+                                    i.fa.fa-trash  Delete
+                                button.editButton
+                                    i.fa.fa-pencil-square-o  Edit
         button(onclick="onInsert()") Add new row
 
     script(src='/scripts/websites.js')
