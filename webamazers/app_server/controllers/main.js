@@ -12,7 +12,7 @@ module.exports.get_websites = function(req, res) {
 module.exports.get_website_with_ID = function(req, res) {
     var id = req.id;
     schemaWebsite.find({}, function(err, webs) {
-        res.render('websites', { title: 'Express', websites: webs });
+        return res.render('websites', { title: 'Express', websites: webs });
     })
 };
 
@@ -55,8 +55,7 @@ module.exports.delete_DB = function(req, res){
 }
 module.exports.search_DB = function(req, res) {
     console.log(req.query)
-    schemaWebsite.find({ Website: req.query.website }, function(err, response) {
-        console.log(response)
+    schemaWebsite.find({ Website: req.query.websiteName }, function(err, response) {
         res.render('searchResults', { websites: response });
     })
 }
