@@ -2,12 +2,14 @@ extends layout
 block websites
     link(href='/styles/styles.css', rel='stylesheet')
     link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
+
     div
-       form()
+       form(action='/searchFromDB',method='get')
             input#websiteName(type='text', name='websiteName' placeholder='Search for a website')
-            button.search(onclick="searchDB(event)")
+            button.search()
                 i.fa.fa-search
-    div
+                    input#searchInDB(type='submit' value=" Search ")
+
         table.table.table-hover
             thead
                 tr  
@@ -36,5 +38,3 @@ block websites
         button(onclick="onInsert()") Add new row
 
     script(src='/scripts/websites.js')
-                        
-                

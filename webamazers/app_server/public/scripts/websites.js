@@ -1,5 +1,4 @@
 
-
 $(function () {
     $("table").on('click', '.editButton', function (e) {
         $rows = $(this).closest('tr')[0].children;
@@ -57,33 +56,6 @@ function onInsert() {
 
 }
 
-$(function () {
-    $("table").on('click', '.deleteButton', function (e) {
-        $webId = $(this).closest('tr')[0].id
-        website = {
-            _id: $webId,
-        }
-        e.preventDefault(); // cancel the link itself
-        $.ajax({
-            url: "/deleteFromDB",
-            type: 'DELETE',
-            data: website,
-            success: function (data) {
-                alert(data.msg);
-                window.location.reload();
-            }
-        })
-
-    });
-});
-function searchDB(e) {
-    e.preventDefault();
-    var Website = {
-        website: $('#websiteName')[0].value
-    }
-    $.ajax("/searchFromDB", { data: Website },
-    )
-}
 function insertFields(e) {
     var Website = {
         website: $('#insertWebsiteName')[0].innerText,

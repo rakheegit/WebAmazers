@@ -57,12 +57,21 @@ h2 {
     font-size: 15px; /* Set a font size */
     cursor: pointer;
 }
+
+#searchInDB{
+    background-color: lightseagreen; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 10px 14px; /* Some padding */
+    font-size: 15px; /* Set a font size */
+    cursor: pointer;
+}
 #websiteName {
-    border: 3px solid lightcoral;
     width: 1000px;
-    margin: 0 0 8px 0;
-    height: 30px;
-    background: rgba(255, 255, 255, 0.7);
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-style: ridge
 }
 
 .search {
