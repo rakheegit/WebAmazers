@@ -35,22 +35,20 @@ module.exports.post_db_data = function(req, res) {
         }
     })
     res.send("item saved to database");
-
+       
 }
 
-module.exports.delete_db_data = function(req, res) {
+module.exports.edit_db_data = function(req, res){
+    // var data = new schemaWebsite(WebsiteData)
     console.log(req.body)
-    var data = new schemaWebsite(WebsiteData)
-    data.remove({_id: req.query},function(err, data) {
-        if (err) {
-            console.log(err)
-        } else {
-            console.log("success")
-        }
-    })
     res.send("item saved to database");
-
+    // var q = schemaWebsite.findOneAndUpdate({_id:updatedData})
+    // q.exec(function(err, doc){
+    //     if (err) return res.send(500, { error: err });
+    //     return res.send({msg:"succesfully saved"});
+    // });
 }
+
 
 module.exports.search_DB = function(req, res) {
     schemaWebsite.find({ Website: req.query.websiteName }, function(err, response) {
