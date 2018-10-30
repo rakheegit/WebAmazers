@@ -1,0 +1,26 @@
+extends layout
+block searchResults
+    link(href='/styles/styles.css', rel='stylesheet')
+    div
+        table.table.table-hover
+            thead
+                tr
+                    td='Website'
+                    td='Country Rank'
+                    td='Child Safety'
+                    td='Trustworthiness'
+                    td='Average Daily Page Views'
+                    td='Privacy'
+            tbody
+                each website,index in websites
+                    tr(id=website._id)
+                        td(name=website._id)=website.Website 
+                        td(name=website._id)=website.Country_Rank 
+                        td(name=website._id)=website.Child_Safety
+                        td(name=website._id)=website.Trustworthiness
+                        td(name=website._id)=website.Avg_Daily_Pageviews
+                        td(name=website._id)=website.Privacy
+
+    script(src='/scripts/websites.js')
+                        
+                

@@ -2,11 +2,9 @@ extends layout
 block websites
     link(href='/styles/styles.css', rel='stylesheet')
     div
-        input#email(type='text', placeholder='Search for a website',style='color:gray')
-        button#search(onclick="") Search
-        button#insert(onclick="") Insert into DB
-    
-        
+       form(action='/searchFromDB',method='get')
+            input#websiteName(type='text', name='websiteName' placeholder='Search for a website')
+            input#searchInDB(type='submit' value='Search')
     div
         form(action='/insertDbData',method='post')
             input#insertWebsite(type='text' name='insertWebsite' placeholder='Website')
