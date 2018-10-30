@@ -3,7 +3,8 @@ var schemaWebsite = require('../model/websitesSchema')
 var userSchema = require('../model/user');
 
 module.exports.get_websites = function(req, res) {
-    schemaWebsite.find(function(err, webs) {
+    var q = schemaWebsite.find().limit(10);
+    q.exec(function(err, webs){
         res.render('websites', { title: 'Express', websites: webs });
     })
 };
@@ -27,6 +28,20 @@ module.exports.post_db_data = function(req, res) {
     console.log(req.body)
     var data = new schemaWebsite(WebsiteData)
     data.save(function(err, data) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log("success")
+        }
+    })
+    res.send("item saved to database");
+
+}
+
+module.exports.delete_db_data = function(req, res) {
+    console.log(req.body)
+    var data = new schemaWebsite(WebsiteData)
+    data.remove({_id: req.query},function(err, data) {
         if (err) {
             console.log(err)
         } else {
