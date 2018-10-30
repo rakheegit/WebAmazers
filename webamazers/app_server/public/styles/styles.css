@@ -50,6 +50,13 @@ h2 {
     margin: 12px 12px !important;
 }
 
+.insert{
+    border: 3px solid lightcoral;
+    margin: 0 3px 8px 3px;
+    height: 30px;
+    width: 200px;
+    background: rgba(255, 255, 255, 0.7);
+}
 #websiteName {
     border: 3px solid lightcoral;
     width: 1000px;

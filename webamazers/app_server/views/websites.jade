@@ -7,13 +7,13 @@ block websites
             input#searchInDB(type='submit' value='Search')
     div
         form(action='/insertDbData',method='post')
-            input#insertWebsite(type='text' name='insertWebsite' placeholder='Website')
-            input#insertCountryRank(type='text' name='insertCountryRank' placeholder='Country Rank')
-            input#insertChildSafety(type='text' name='insertChildSafety' placeholder='Child Safety')
-            input#insertTrustworthiness(type='text' name='insertTrustworthiness' placeholder='Trustworthiness')
-            input#insertAvgDailyPageviews(type='text' name='insertAvgDailyPageviews' placeholder='Average daily pageview')
-            input#insertPrivacy(type='text' name='insertPrivacy' placeholder='Privacy')
-            input#submittoDB(type='submit' value='Insert')
+            input#insertWebsite(class='insert' type='text' name='insertWebsite' placeholder='Website')
+            input#insertCountryRank(class='insert' type='text' name='insertCountryRank' placeholder='Country Rank')
+            input#insertChildSafety(class='insert' type='text' name='insertChildSafety' placeholder='Child Safety')
+            input#insertTrustworthiness(class='insert' type='text' name='insertTrustworthiness' placeholder='Trustworthiness')
+            input#insertAvgDailyPageviews(class='insert' type='text' name='insertAvgDailyPageviews' placeholder='Average daily pageview')
+            input#insertPrivacy(class='insert' type='text' name='insertPrivacy' placeholder='Privacy')
+            input#submittoDB(class='insert' type='submit' value='Insert')
  
         table.table.table-hover
             thead
@@ -36,7 +36,7 @@ block websites
                         td(name=website._id, contentEditable=true)=website.Privacy
                         td 
                             div
-                                button(onclick="onDelete("+website._id+")") Delete
+                                button(class="deleteButton") Delete
                                 button(class="editButton") Edit
         button(onclick="onInsert()") Add new row
 

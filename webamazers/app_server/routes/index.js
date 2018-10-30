@@ -12,4 +12,6 @@ router.post('/insertDbData', ctrlMain.post_db_data);
 router.post('/editDbData', ctrlMain.edit_db_data);
 
 router.get('/searchFromDB', ctrlMain.search_DB)
+
+router.delete('/deleteFromDB', ctrlMain.delete_DB);
 module.exports = router;

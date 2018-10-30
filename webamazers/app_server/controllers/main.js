@@ -39,17 +39,23 @@ module.exports.post_db_data = function(req, res) {
 }
 
 module.exports.edit_db_data = function(req, res){
-    // var data = new schemaWebsite(WebsiteData)
+    var data = new schemaWebsite(req.body)
     console.log(req.body)
-    res.send("item saved to database");
-    // var q = schemaWebsite.findOneAndUpdate({_id:updatedData})
-    // q.exec(function(err, doc){
-    //     if (err) return res.send(500, { error: err });
-    //     return res.send({msg:"succesfully saved"});
-    // });
+    var q = schemaWebsite.replaceOne({_id:data._id}, data)
+    q.exec(function(err, doc){
+        if (err) return res.send(500, { error: err });
+        return res.send({msg:"succesfully saved"});
+    });
 }
 
-
+module.exports.delete_DB = function(req, res){
+    var q = schemaWebsite.remove({_id:req.body._id})
+    console.log(req.body)
+    q.exec(function(err, doc){
+        if (err) return res.send(500, { error: err });
+        return res.send({msg:"deleted successfully"});
+    });
+}
 module.exports.search_DB = function(req, res) {
     schemaWebsite.find({ Website: req.query.websiteName }, function(err, response) {
         res.render('searchResults', { websites: response });

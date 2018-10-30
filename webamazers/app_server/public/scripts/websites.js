@@ -4,9 +4,6 @@ $(function () {
     $("table").on('click', '.editButton', function (e) {
         $rows = $(this).closest('tr')[0].children;
         $webId = $(this).closest('tr')[0].id
-        $.each($rows, function () {               // Visits every single <td> element
-            console.log($(this).text());        // Prints out the text within the <td>
-        });
         var WebsiteData = {
             _id: $webId,
             Website: $rows[0].textContent,
@@ -19,9 +16,29 @@ $(function () {
         e.preventDefault(); // cancel the link itself
         $.post({
             url: "/editDbData",
-            data: JSON.stringify(WebsiteData),
+            data: WebsiteData,
             success: function (data) {
-                // alert(data.msg);
+                alert(data.msg);
+            }
+        })
+
+    });
+});
+
+$(function () {
+    $("table").on('click', '.deleteButton', function (e) {
+        $webId = $(this).closest('tr')[0].id
+        website = {
+            _id: $webId,
+        }
+        e.preventDefault(); // cancel the link itself
+        $.ajax({
+            url: "/deleteFromDB",
+            type: 'DELETE',
+            data: website,
+            success: function (data) {
+                alert(data.msg);
+                window.location.reload();
             }
         })
 
