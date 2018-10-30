@@ -36,3 +36,9 @@ module.exports.post_db_data = function(req, res) {
     res.send("item saved to database");
 
 }
+
+module.exports.search_DB = function(req, res) {
+    schemaWebsite.find({ Website: req.query.websiteName }, function(err, response) {
+        res.render('searchResults', { websites: response });
+    })
+}
