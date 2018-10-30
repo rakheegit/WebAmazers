@@ -7,7 +7,8 @@ var ctrlMain = require("../controllers/main");
  */
 router.get('/', ctrlMain.get_websites);
 
-router.get('/websites:id', ctrlMain.get_website_with_ID);
+router.get('/websites', ctrlMain.get_website_with_ID);
+router.post('/insertDbData', ctrlMain.post_db_data);
 
 router.get('/searchFromDB', ctrlMain.search_DB)
 module.exports = router;

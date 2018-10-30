@@ -2,13 +2,21 @@ extends layout
 block websites
     link(href='/styles/styles.css', rel='stylesheet')
     div
-       form(id='submitToEnter' action='/searchFromDB',method='get')
-            input#websiteName(type='text', name='websiteName' placeholder='Search for a website',style='color:gray')
-            input#search(type='submit' value='Search')
+       form(action='/searchFromDB',method='get')
+            input#websiteName(type='text', name='websiteName' placeholder='Search for a website')
+            input#searchInDB(type='submit' value='Search')
     div
+        form(action='/insertDbData',method='post')
+            input#insertWebsite(type='text' name='insertWebsite' placeholder='Website')
+            input#insertCountryRank(type='text' name='insertCountryRank' placeholder='Country Rank')
+            input#insertChildSafety(type='text' name='insertChildSafety' placeholder='Child Safety')
+            input#insertTrustworthiness(type='text' name='insertTrustworthiness' placeholder='Trustworthiness')
+            input#insertAvgDailyPageviews(type='text' name='insertAvgDailyPageviews' placeholder='Average daily pageview')
+            input#submittoDB(type='submit' value='Insert')
+ 
         table.table.table-hover
             thead
-                tr
+                tr  
                     td='Website'
                     td='Country Rank'
                     td='Child Safety'
@@ -29,7 +37,7 @@ block websites
                             button(onclick="onView("+website._id+")") View
                             button(onclick="onDelete("+website._id+")") Delete
                             button(id="editButton"+website._id, onclick="onEdit("+website._id+")") Edit
-        button(onclick="onInsert()") Insert
+        button(onclick="onInsert()") Add new row
 
     script(src='/scripts/websites.js')
                         
