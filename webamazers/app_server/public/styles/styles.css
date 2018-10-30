@@ -49,8 +49,24 @@ h2 {
     background: rgba(255, 255, 255, 0.7);
     margin: 12px 12px !important;
 }
-.deleteButton , .editButton{
+ .editButton{
     background-color: DodgerBlue; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 10px 14px; /* Some padding */
+    font-size: 15px; /* Set a font size */
+    cursor: pointer;
+}
+.addButton{
+    background-color: #4CAF50; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 10px 14px; /* Some padding */
+    font-size: 20px; /* Set a font size */
+    cursor: pointer;
+}
+.deleteButton{
+    background-color: red; /* Blue background */
     border: none; /* Remove borders */
     color: white; /* White text */
     padding: 10px 14px; /* Some padding */
