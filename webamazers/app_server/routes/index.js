@@ -14,4 +14,8 @@ router.post('/editDbData', ctrlMain.edit_db_data);
 router.get('/searchFromDB', ctrlMain.search_DB)
 
 router.delete('/deleteFromDB', ctrlMain.delete_DB);
+
+router.get('/dashboard', ctrlMain.get_dashboard);
+router.get('/dashboardData', ctrlMain.get_dashboard_data);
+
 module.exports = router;

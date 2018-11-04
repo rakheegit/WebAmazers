@@ -59,3 +59,14 @@ module.exports.search_DB = function(req, res) {
         res.render('searchResults', { websites: response });
     })
 }
+
+module.exports.get_dashboard_data = function(req, res){
+    var q = schemaWebsite.find().select({ "Website": 1, "Country_Rank":1, "_id": 0}).limit(5);
+    q.exec(function(err, webs){
+        return res.send({webs:webs});
+    })
+}
+
+module.exports.get_dashboard = function(req, res){
+    res.render('dashboard')
+}
