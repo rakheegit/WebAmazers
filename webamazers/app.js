@@ -16,7 +16,7 @@ app.use(session( {secret: "String for encrypting cookies." } ));
 app.use('/', index);
 
 //mongo connection
-mongoose.connect('mongodb://54.218.249.201:27017/webamazers', {
+mongoose.connect('mongodb://54.218.249.201:27017/webamazer', {
     autoReconnect: true, reconnectTries: Number.MAX_VALUE, keepAlive: true
 })
 mongoose.connection.on('connected', () => {
