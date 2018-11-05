@@ -81,11 +81,9 @@ module.exports.get_dashboard_graph2 = function(req, res) {
         return res.send({ webs: webs });
     })
 }
-module.exports.get_dashboard = function(req, res) {
-    res.render('dashboard')
-}
 
-module.exports.get_dashboard_data_bar = function(req, res){
+
+module.exports.get_dashboardbar = function(req, res){
     var q = schemaWebsite.aggregate([ { 
         $project: { 
             _id:"$Website",
@@ -99,8 +97,7 @@ module.exports.get_dashboard_data_bar = function(req, res){
     })
 }
 
-
-
-module.exports.get_dashboard_bar = function(req, res){
+module.exports.get_dashboard = function(req, res) {
     res.render('dashboard')
 }
+

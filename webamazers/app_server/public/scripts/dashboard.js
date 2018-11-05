@@ -173,7 +173,7 @@ function drawColumnChart1() {
 function drawChart_bar() {
 
     $.ajax({
-        url: "/dashboardData_bar",
+        url: "/dashboardbar",
         type: 'GET',
         success: function (resData) {
             console.log(resData.webs);
