@@ -10,10 +10,10 @@ function drawLineChart() {
         url: "/dashboardTopCountries",
         type: 'GET',
         success: function(resData) {
-            console.log(resData);
             var results = resData.webs;
             var columns = Object.keys(results[0]);
-
+            var colors=["red","blue","green","orange","gold"];
+            var i=0;
             var data = results.map(function(result) {
                 var tableRow = [];
                 columns.forEach(function(col) {
@@ -24,6 +24,8 @@ function drawLineChart() {
                         tableRow.splice(0, 0, result[col]);
                     }
                 });
+                tableRow.splice(2,0,colors[i]);
+                i+=1;
                 return tableRow;
             });
             var tableRow = [];
@@ -33,17 +35,19 @@ function drawLineChart() {
                 }
                 tableRow.push(col);
             })
+            tableRow.push({ role: 'style' });
             data.splice(0, 0, tableRow);
-        
+            console.log(data)
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Top Countries in Web Usage',
-                width: 600,
-                height: 400,
-                colors: ['green']
+                width: 700,
+                height: 350,
+                colors: ['green'],
+                legend: { position: "none" },
             };
 
-            var chart = new google.visualization.LineChart(document.getElementById('piechart'));
+            var chart = new google.visualization.LineChart(document.getElementById('topcountries'));
             chart.draw(chartData, options);
         }
     })
