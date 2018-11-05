@@ -94,7 +94,7 @@ function drawColumnChart() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Websites with daily average Page views'
+                title: 'Top Websites with daily average Page views'
             };
 
             chartData.sort({
@@ -153,7 +153,7 @@ function drawColumnChart1() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Websites with daily average Visitors'
+                title: 'Top Websites with daily average Visitors'
             };
 
             chartData.sort({
