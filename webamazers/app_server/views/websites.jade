@@ -1,6 +1,7 @@
 extends layout
 block websites
     link(href='/styles/styles.css', rel='stylesheet')
+    //- link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css", rel="stylesheet", crossorigin="anonymous")
     link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
 
     div
@@ -23,7 +24,7 @@ block websites
             tbody
                 each website,index in websites
                     tr(id=website._id)
-                        td(name=website._id,id="Website"+website._id, contentEditable=true)=website.Website 
+                        td.table-active(name=website._id,id="Website"+website._id, contentEditable=true)=website.Website 
                         td(name=website._id, contentEditable=true)=website.Country_Rank 
                         td(name=website._id, contentEditable=true)=website.Child_Safety
                         td(name=website._id, contentEditable=true)=website.Trustworthiness

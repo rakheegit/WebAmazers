@@ -2,8 +2,12 @@ var registeredUsers = [{ username: "admin@admin.com", password: "admin" }, { use
 var schemaWebsite = require('../model/websitesSchema')
 var userSchema = require('../model/user');
 
+module.exports.index = function(req, res) {
+    res.render('index', { title: 'Website Data' });
+};
+
 module.exports.get_websites = function(req, res) {
-    var q = schemaWebsite.find().limit(10);
+    var q = schemaWebsite.find().limit(100);
     q.exec(function(err, webs) {
         res.render('websites', { title: 'Express', websites: webs });
     })

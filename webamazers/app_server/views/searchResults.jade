@@ -2,15 +2,14 @@ extends layout
 block searchResults
     link(href='/styles/styles.css', rel='stylesheet')
     div
-        table.table.table-hover
-            thead
-                tr
-                    td='Website'
-                    td='Country Rank'
-                    td='Child Safety'
-                    td='Trustworthiness'
-                    td='Average Daily Page Views'
-                    td='Privacy'
+        table.table
+            thead.thead-dark
+                th(scope='col') Website
+                th(scope='col') Country Rank
+                th(scope='col') Child Safety
+                th(scope='col') Trustworthiness
+                th(scope='col') Average Daily Page Views
+                th(scope='col') Privacy
             tbody
                 each website,index in websites
                     tr(id=website._id)
