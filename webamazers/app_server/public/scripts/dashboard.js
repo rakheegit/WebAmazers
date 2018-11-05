@@ -174,12 +174,7 @@ function drawChart_bar() {
     $.ajax({
         url: "/dashboardbar",
         type: 'GET',
-<<<<<<< HEAD
         success: function (resData) {
-=======
-        success: function(resData) {
-            console.log(resData.webs);
->>>>>>> 3c956254aea0463cbfe8511ffd133a24db1211cb
             var results = resData.webs;
             var columns = Object.keys(results[0]);
             var data = results.map(function(result) {
@@ -203,14 +198,8 @@ function drawChart_bar() {
             columns.forEach(function(col) {
                 tableRow.push(col);
             })
-<<<<<<< HEAD
             data.splice(0,0,tableRow);
            
-=======
-            data.splice(0, 0, tableRow);
-            console.log(data);
-
->>>>>>> 3c956254aea0463cbfe8511ffd133a24db1211cb
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Most Socially Referred websites',
