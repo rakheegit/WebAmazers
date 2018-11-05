@@ -181,6 +181,8 @@ function drawChart_bar() {
         success: function (resData) {
             var results = resData.webs;
             var columns = Object.keys(results[0]);
+            var colors=["green","grey","grey","grey","grey"];
+            var i=0;
             var data = results.map(function(result) {
                 var tableRow = [];
                 columns.forEach(function(col) {
@@ -196,18 +198,21 @@ function drawChart_bar() {
                         tableRow.splice(0, 0, result[col]);
                     }
                 });
+                tableRow.splice(2,0,colors[i]);
+                i+=1;
                 return tableRow;
             });
             var tableRow = [];
             columns.forEach(function(col) {
                 tableRow.push(col);
             })
+            tableRow.push({ role: 'style' });
             data.splice(0,0,tableRow);
            
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Most Socially Referred websites',
-                colors: ['red'],
+            
                 width: 400,
                 height: 400,
                 legend: { position: "none" },
