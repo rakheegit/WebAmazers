@@ -352,6 +352,12 @@ img {
     margin: 0;
 }
 
+#barchart {
+    width: 600px;
+    height: 500px;
+    margin: 0;
+}
+
 .chartdiv {
     float: left;
     width: 50%;

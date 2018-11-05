@@ -206,10 +206,14 @@ function drawChart_bar() {
             
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-            title: 'Most Socially Referred websites in United States'
-            };
+                title: 'Most Socially Referred websites',
+                colors: ['red'],
+                width: 400,
+                height: 400,
+                legend: { position: "none" },
+                };
         
-            var chart = new google.visualization.BarChart(document.getElementById('barchart'));
+            var chart = new google.visualization.ColumnChart(document.getElementById('barchart'));
             chart.draw(chartData, options);   
         }
     })
