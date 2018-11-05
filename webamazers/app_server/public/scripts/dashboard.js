@@ -105,7 +105,7 @@ function drawColumnChart() {
                 desc: true
             });
 
-            var chart = new google.visualization.ColumnChart(document.getElementById('columnchart'));
+            var chart = new google.visualization.ColumnChart(document.getElementById('avgpageviews'));
             chart.draw(chartData, options);
 
 
@@ -165,7 +165,7 @@ function drawColumnChart1() {
                 desc: true
             });
 
-            var chart = new google.visualization.ColumnChart(document.getElementById('columnchart1'));
+            var chart = new google.visualization.ColumnChart(document.getElementById('avgvisitors'));
             chart.draw(chartData, options);
 
 
@@ -218,7 +218,7 @@ function drawChart_bar() {
                 legend: { position: "none" },
             };
 
-            var chart = new google.visualization.ColumnChart(document.getElementById('barchart'));
+            var chart = new google.visualization.ColumnChart(document.getElementById('sociallyreferred'));
             chart.draw(chartData, options);
         }
     })

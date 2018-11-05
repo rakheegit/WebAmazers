@@ -3,9 +3,11 @@ block dashboard
     h4 Websites Traffic Information Dashboard 
     h3(align='center') Top 5 in web traffic
     div#topcountries
-    div#columnchart.chartdiv
-    div#columnchart1.chartdiv1
-    div#barchart.chartdiv
+    div(class="mainContainer")
+        div#avgpageviews
+        div#sociallyreferred
+        div#avgvisitors
+        
     
     script(src='/scripts/dashboard.js')
     link(href='/styles/styles.css', rel='stylesheet')
