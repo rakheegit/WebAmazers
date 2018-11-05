@@ -181,7 +181,7 @@ function drawChart_bar() {
         success: function (resData) {
             var results = resData.webs;
             var columns = Object.keys(results[0]);
-            var colors=["green","grey","grey","grey","grey"];
+            var colors=["#00b300","grey","grey","grey","grey"];
             var i=0;
             var data = results.map(function(result) {
                 var tableRow = [];
@@ -192,7 +192,8 @@ function drawChart_bar() {
                     }
 
                     if (col == "Social reference") {
-                        result[col] = parseInt(result[col]);
+                        
+                        result[col] = parseInt(result[col]/1000000);
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "_id") {
                         tableRow.splice(0, 0, result[col]);
@@ -212,6 +213,7 @@ function drawChart_bar() {
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Most Socially Referred websites',
+                vAxis:{title:"No. of refereneces in Social networks( in millions)"},
             
                 width: 400,
                 height: 400,
