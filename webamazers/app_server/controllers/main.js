@@ -84,13 +84,16 @@ module.exports.get_dashboard_graph2 = function(req, res) {
 
 
 module.exports.get_dashboardbar = function(req, res){
-    var q = schemaWebsite.aggregate([ { 
+    var q = schemaWebsite.aggregate([ 
+        {$match: {'country':"United States"}},
+
+        { 
         $project: { 
             _id:"$Website",
             'Social reference': { $add: ["$Facebook_likes","$Twitter_mentions","$Google_Pluses","$Linkedin_Links","$Pinterest_Pins"] }
            }
     },
-    {$limit:10},
+    {$limit:5},
     {$sort:{"Social reference":-1}}  ] )
     q.exec(function(err, webs){
         return res.send({webs:webs});
