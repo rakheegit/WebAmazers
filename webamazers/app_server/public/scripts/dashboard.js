@@ -1,9 +1,9 @@
 google.charts.load('current', { 'packages': ['corechart'] });
-google.charts.setOnLoadCallback(drawBarChart);
+//google.charts.setOnLoadCallback(drawBarChart);
 google.charts.setOnLoadCallback(drawColumnChart);
 google.charts.setOnLoadCallback(drawColumnChart1);
 google.charts.setOnLoadCallback(drawChart_bar);
-
+/*
 function drawBarChart() {
 
     $.ajax({
@@ -51,7 +51,7 @@ function drawBarChart() {
         }
     })
 }
-
+*/
 function drawColumnChart() {
 
     $.ajax({
@@ -95,7 +95,11 @@ function drawColumnChart() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Top Websites with daily average Page views'
+                title: 'Top Websites with daily average Page views',
+                colors: ['#C5A5CF'],
+                width: 400,
+                height: 400,
+                legend: { position: 'none' },
             };
 
             chartData.sort({
@@ -154,7 +158,12 @@ function drawColumnChart1() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Top Websites with daily average Visitors'
+                title: 'Top Websites with daily average Visitors',
+                colors: ['#C5A5CF'],
+                opacity: 0.5,
+                width: 400,
+                height: 400,
+                legend: { position: 'none' },
             };
 
             chartData.sort({
@@ -175,35 +184,34 @@ function drawChart_bar() {
     $.ajax({
         url: "/dashboardbar",
         type: 'GET',
-        success: function (resData) {
+        success: function(resData) {
             console.log(resData.webs);
             var results = resData.webs;
             var columns = Object.keys(results[0]);
-            var data = results.map(function (result) {
+            var data = results.map(function(result) {
                 var tableRow = [];
-                columns.forEach(function (col) {
-                    if(col=="Website"){
-                        result[col]=parseInt(result[col]);
-                        tableRow.splice(5,0,result[col]);
+                columns.forEach(function(col) {
+                    if (col == "Website") {
+                        result[col] = parseInt(result[col]);
+                        tableRow.splice(5, 0, result[col]);
                     }
-                    
-                    if(col=="Social reference"){
-                        result[col]=parseInt(result[col]);
-                        tableRow.splice(1,0,result[col]);
-                    }
-                    else if(col=="_id"){
-                        tableRow.splice(0,0,result[col]);
+
+                    if (col == "Social reference") {
+                        result[col] = parseInt(result[col]);
+                        tableRow.splice(1, 0, result[col]);
+                    } else if (col == "_id") {
+                        tableRow.splice(0, 0, result[col]);
                     }
                 });
                 return tableRow;
             });
-            var tableRow=[];
-            columns.forEach(function(col){
+            var tableRow = [];
+            columns.forEach(function(col) {
                 tableRow.push(col);
             })
-            data.splice(0,0,tableRow);
+            data.splice(0, 0, tableRow);
             console.log(data);
-            
+
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Most Socially Referred websites',
@@ -211,10 +219,10 @@ function drawChart_bar() {
                 width: 400,
                 height: 400,
                 legend: { position: "none" },
-                };
-        
+            };
+
             var chart = new google.visualization.ColumnChart(document.getElementById('barchart'));
-            chart.draw(chartData, options);   
+            chart.draw(chartData, options);
         }
     })
 }

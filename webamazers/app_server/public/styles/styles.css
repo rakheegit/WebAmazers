@@ -341,15 +341,15 @@ img {
 }
 
 #columnchart {
-    width: 600px;
+    width: 550px;
     height: 500px;
-    margin: 0;
+    margin: 10px;
 }
 
 #columnchart1 {
-    width: 600px;
+    width: 550px;
     height: 500px;
-    margin: 0;
+    margin: 10px;
 }
 
 #barchart {
@@ -360,12 +360,12 @@ img {
 
 .chartdiv {
     float: left;
-    width: 50%;
+    width: 40%;
     border: none;
 }
 
 .chartdiv1 {
     float: right;
-    width: 50%;
+    width: 40%;
     border: none;
 }
