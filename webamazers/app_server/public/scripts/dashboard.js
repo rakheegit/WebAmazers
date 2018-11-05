@@ -206,7 +206,7 @@ function drawChart_bar() {
             
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-            title: 'Most Socially Referred websites'
+            title: 'Most Socially Referred websites in United States'
             };
         
             var chart = new google.visualization.BarChart(document.getElementById('barchart'));
