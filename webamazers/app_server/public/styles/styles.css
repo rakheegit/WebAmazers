@@ -49,39 +49,63 @@ h2 {
     background: rgba(255, 255, 255, 0.7);
     margin: 12px 12px !important;
 }
- .editButton{
-    background-color: DodgerBlue; /* Blue background */
-    border: none; /* Remove borders */
-    color: white; /* White text */
-    padding: 10px 14px; /* Some padding */
-    font-size: 15px; /* Set a font size */
-    cursor: pointer;
-}
-.addButton{
-    background-color: #4CAF50; /* Blue background */
-    border: none; /* Remove borders */
-    color: white; /* White text */
-    padding: 10px 14px; /* Some padding */
-    font-size: 20px; /* Set a font size */
-    cursor: pointer;
-}
-.deleteButton{
-    background-color: red; /* Blue background */
-    border: none; /* Remove borders */
-    color: white; /* White text */
-    padding: 10px 14px; /* Some padding */
-    font-size: 15px; /* Set a font size */
+
+.editButton {
+    background-color: DodgerBlue;
+    /* Blue background */
+    border: none;
+    /* Remove borders */
+    color: white;
+    /* White text */
+    padding: 10px 14px;
+    /* Some padding */
+    font-size: 15px;
+    /* Set a font size */
     cursor: pointer;
 }
 
-#searchInDB{
-    background-color: lightseagreen; /* Blue background */
-    border: none; /* Remove borders */
-    color: white; /* White text */
-    padding: 10px 14px; /* Some padding */
-    font-size: 15px; /* Set a font size */
+.addButton {
+    background-color: #4CAF50;
+    /* Blue background */
+    border: none;
+    /* Remove borders */
+    color: white;
+    /* White text */
+    padding: 10px 14px;
+    /* Some padding */
+    font-size: 20px;
+    /* Set a font size */
     cursor: pointer;
 }
+
+.deleteButton {
+    background-color: red;
+    /* Blue background */
+    border: none;
+    /* Remove borders */
+    color: white;
+    /* White text */
+    padding: 10px 14px;
+    /* Some padding */
+    font-size: 15px;
+    /* Set a font size */
+    cursor: pointer;
+}
+
+#searchInDB {
+    background-color: lightseagreen;
+    /* Blue background */
+    border: none;
+    /* Remove borders */
+    color: white;
+    /* White text */
+    padding: 10px 14px;
+    /* Some padding */
+    font-size: 15px;
+    /* Set a font size */
+    cursor: pointer;
+}
+
 #websiteName {
     width: 1000px;
     padding: 12px 20px;
@@ -95,7 +119,8 @@ h2 {
     /* Green */
     border: none;
     color: white;
-    padding: 10px 14px; /* Some padding */
+    padding: 10px 14px;
+    /* Some padding */
     font-size: 15px;
     text-align: center;
     text-decoration: none;
@@ -313,4 +338,28 @@ img {
 .parentDiv {
     width: 90%;
     margin: 10px 25px 40px 10px;
+}
+
+#columnchart {
+    width: 600px;
+    height: 500px;
+    margin: 0;
+}
+
+#columnchart1 {
+    width: 600px;
+    height: 500px;
+    margin: 0;
+}
+
+.chartdiv {
+    float: left;
+    width: 50%;
+    border: none;
+}
+
+.chartdiv1 {
+    float: right;
+    width: 50%;
+    border: none;
 }

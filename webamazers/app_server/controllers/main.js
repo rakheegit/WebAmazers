@@ -4,7 +4,7 @@ var userSchema = require('../model/user');
 
 module.exports.get_websites = function(req, res) {
     var q = schemaWebsite.find().limit(10);
-    q.exec(function(err, webs){
+    q.exec(function(err, webs) {
         res.render('websites', { title: 'Express', websites: webs });
     })
 };
@@ -30,27 +30,27 @@ module.exports.post_db_data = function(req, res) {
     var webData = new schemaWebsite(WebsiteData)
     webData.save(function(err, data) {
         if (err) return res.send(500, { error: err });
-        return res.send({msg:"inserted Successfully"});
+        return res.send({ msg: "inserted Successfully" });
     })
-       
+
 }
 
-module.exports.edit_db_data = function(req, res){
+module.exports.edit_db_data = function(req, res) {
     var data = new schemaWebsite(req.body)
     console.log(req.body)
-    var q = schemaWebsite.replaceOne({_id:data._id}, data)
-    q.exec(function(err, doc){
+    var q = schemaWebsite.replaceOne({ _id: data._id }, data)
+    q.exec(function(err, doc) {
         if (err) return res.send(500, { error: err });
-        return res.send({msg:"succesfully saved"});
+        return res.send({ msg: "succesfully saved" });
     });
 }
 
-module.exports.delete_DB = function(req, res){
-    var q = schemaWebsite.remove({_id:req.body._id})
+module.exports.delete_DB = function(req, res) {
+    var q = schemaWebsite.remove({ _id: req.body._id })
     console.log(req.body)
-    q.exec(function(err, doc){
+    q.exec(function(err, doc) {
         if (err) return res.send(500, { error: err });
-        return res.send({msg:"deleted successfully"});
+        return res.send({ msg: "deleted successfully" });
     });
 }
 module.exports.search_DB = function(req, res) {
@@ -60,13 +60,27 @@ module.exports.search_DB = function(req, res) {
     })
 }
 
-module.exports.get_dashboard_data = function(req, res){
-    var q = schemaWebsite.find().select({ "Website": 1, "Country_Rank":1, "_id": 0}).limit(5);
-    q.exec(function(err, webs){
-        return res.send({webs:webs});
+module.exports.get_dashboard_data = function(req, res) {
+    var q = schemaWebsite.find().select({ "Website": 1, "Country_Rank": 1, "_id": 0 }).limit(5);
+    q.exec(function(err, webs) {
+        return res.send({ webs: webs });
     })
 }
 
-module.exports.get_dashboard = function(req, res){
+module.exports.get_dashboard_graph1 = function(req, res) {
+    //var us_rows = schemaWebsite.find({ country: 'United States' });
+    var q = schemaWebsite.find({ country: { $in: ['United States'] } }).select({ "Website": 1, "Avg_Daily_Pageviews": 1, "_id": 0 }).limit(5);
+    q.exec(function(err, webs) {
+        return res.send({ webs: webs });
+    })
+}
+module.exports.get_dashboard_graph2 = function(req, res) {
+    //var us_rows = schemaWebsite.find({ country: 'United States' });
+    var q = schemaWebsite.find({ country: { $in: ['United States'] } }).select({ "Website": 1, "Avg_Daily_Visitors": 1, "_id": 0 }).limit(5);
+    q.exec(function(err, webs) {
+        return res.send({ webs: webs });
+    })
+}
+module.exports.get_dashboard = function(req, res) {
     res.render('dashboard')
 }

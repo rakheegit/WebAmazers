@@ -17,5 +17,7 @@ router.delete('/deleteFromDB', ctrlMain.delete_DB);
 
 router.get('/dashboard', ctrlMain.get_dashboard);
 router.get('/dashboardData', ctrlMain.get_dashboard_data);
+router.get('/dashboardGraph1', ctrlMain.get_dashboard_graph1);
+router.get('/dashboardGraph2', ctrlMain.get_dashboard_graph2);
 
 module.exports = router;
