@@ -20,4 +20,7 @@ router.get('/dashboardData', ctrlMain.get_dashboard_data);
 router.get('/dashboardGraph1', ctrlMain.get_dashboard_graph1);
 router.get('/dashboardGraph2', ctrlMain.get_dashboard_graph2);
 
+router.get('/dashboard_bar', ctrlMain.get_dashboard_bar);
+router.get('/dashboardData_bar', ctrlMain.get_dashboard_data_bar)
+
 module.exports = router;

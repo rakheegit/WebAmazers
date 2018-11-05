@@ -2,6 +2,7 @@ google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawBarChart);
 google.charts.setOnLoadCallback(drawColumnChart);
 google.charts.setOnLoadCallback(drawColumnChart1);
+google.charts.setOnLoadCallback(drawChart_bar);
 
 function drawBarChart() {
 
@@ -165,6 +166,51 @@ function drawColumnChart1() {
             chart.draw(chartData, options);
 
 
+        }
+    })
+}
+
+function drawChart_bar() {
+
+    $.ajax({
+        url: "/dashboardData_bar",
+        type: 'GET',
+        success: function (resData) {
+            console.log(resData.webs);
+            var results = resData.webs;
+            var columns = Object.keys(results[0]);
+            var data = results.map(function (result) {
+                var tableRow = [];
+                columns.forEach(function (col) {
+                    if(col=="Website"){
+                        result[col]=parseInt(result[col]);
+                        tableRow.splice(5,0,result[col]);
+                    }
+                    
+                    if(col=="Social reference"){
+                        result[col]=parseInt(result[col]);
+                        tableRow.splice(1,0,result[col]);
+                    }
+                    else if(col=="_id"){
+                        tableRow.splice(0,0,result[col]);
+                    }
+                });
+                return tableRow;
+            });
+            var tableRow=[];
+            columns.forEach(function(col){
+                tableRow.push(col);
+            })
+            data.splice(0,0,tableRow);
+            console.log(data);
+            
+            var chartData = google.visualization.arrayToDataTable(data);
+            var options = {
+            title: 'Most Socially Referred websites'
+            };
+        
+            var chart = new google.visualization.BarChart(document.getElementById('barchart'));
+            chart.draw(chartData, options);   
         }
     })
 }

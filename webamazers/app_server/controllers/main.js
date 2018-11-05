@@ -84,3 +84,23 @@ module.exports.get_dashboard_graph2 = function(req, res) {
 module.exports.get_dashboard = function(req, res) {
     res.render('dashboard')
 }
+
+module.exports.get_dashboard_data_bar = function(req, res){
+    var q = schemaWebsite.aggregate([ { 
+        $project: { 
+            _id:"$Website",
+            'Social reference': { $add: ["$Facebook_likes","$Twitter_mentions","$Google_Pluses","$Linkedin_Links","$Pinterest_Pins"] }
+           }
+    },
+    {$limit:10},
+    {$sort:{"Social reference":-1}}  ] )
+    q.exec(function(err, webs){
+        return res.send({webs:webs});
+    })
+}
+
+
+
+module.exports.get_dashboard_bar = function(req, res){
+    res.render('dashboard')
+}
