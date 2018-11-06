@@ -116,7 +116,7 @@ module.exports.get_dashboard_top_countries = function(req, res) {
 
 
     var q = schemaWebsite.aggregate([
-        { $group: { _id: '$Location', Total_Views: { $sum: '$Avg_Daily_Pageviews' } } }, { $sort: { Total_Views: -1 } }, { $limit: 5 }
+        { $group: { _id: '$Location', Total_Views: { $sum: '$Traffic_rank' } } }, { $sort: { Total_Views: -1 } }, { $limit: 5 }
     ])
     q.exec(function(err, webs) {
         return res.send({ webs: webs });

@@ -22,6 +22,9 @@ function drawLineChart() {
                         result[col] = parseInt(result[col] / 1000000);
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "_id") {
+                        if (result[col]=="NA"){
+                            result[col]="India";
+                        }
                         tableRow.splice(0, 0, result[col]);
                     }
                 });
@@ -48,7 +51,7 @@ function drawLineChart() {
                 legend: { position: "none" },
             };
 
-            var chart = new google.visualization.LineChart(document.getElementById('topcountries'));
+            var chart = new google.visualization.BarChart(document.getElementById('topcountries'));
             chart.draw(chartData, options);
         }
     })
