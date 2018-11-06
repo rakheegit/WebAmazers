@@ -43,6 +43,9 @@ function drawLineChart() {
                         result[col] = parseInt(result[col] / 1000000);
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "_id") {
+                        if (result[col]=="NA"){
+                            result[col]="India";
+                        }
                         tableRow.splice(0, 0, result[col]);
                     }
                 });
@@ -63,13 +66,13 @@ function drawLineChart() {
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Top Countries in Web Usage',
-                width: 700,
-                height: 350,
+                width: 600,
+                height: 400,
                 colors: ['green'],
                 legend: { position: "none" },
             };
 
-            var chart = new google.visualization.LineChart(document.getElementById('topcountries'));
+            var chart = new google.visualization.BarChart(document.getElementById('topcountries'));
             chart.draw(chartData, options);
         }
     })
@@ -96,7 +99,7 @@ function drawColumnChart() {
                 var tableRow = [];
                 columns.forEach(function(col) {
                     if (col == "Avg_Daily_Pageviews") {
-                        result[col] = parseInt(result[col]);
+                        result[col] = parseInt(result[col] / 1000000);
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "Website") {
                         tableRow.splice(0, 0, result[col]);
@@ -116,9 +119,10 @@ function drawColumnChart() {
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Top Websites with daily average Page views',
-                colors: ['#C5A5CF'],
+                colors: ['#DD4477'],
                 width: 400,
                 height: 400,
+                vAxis:{title:"(in millions)"},
                 legend: { position: 'none' },
             };
 
@@ -155,7 +159,7 @@ function drawColumnChart1() {
                 var tableRow = [];
                 columns.forEach(function(col) {
                     if (col == "Avg_Daily_Visitors") {
-                        result[col] = parseInt(result[col]);
+                        result[col] = parseInt(result[col] / 1000000);
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "Website") {
                         tableRow.splice(0, 0, result[col]);
@@ -175,10 +179,11 @@ function drawColumnChart1() {
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Top Websites with daily average Visitors',
-                colors: ['#C5A5CF'],
+                colors: ['#DD4477'],
                 opacity: [0.2],
                 width: 400,
                 height: 400,
+                vAxis:{title:"(in millions)"},
                 legend: { position: 'none' },
             };
 
@@ -237,7 +242,7 @@ function drawChart_bar() {
                 title: 'Most Socially Referred websites',
                 vAxis: { title: "No. of refereneces in Social networks( in millions)" },
 
-                width: 400,
+                width: 500,
                 height: 400,
                 legend: { position: "none" },
             };
@@ -295,7 +300,7 @@ function drawChart_social() {
             var options = {
                 title: 'FaceBook Likes Vs Twitter mentions',
                 colors: ['#22AA99', '#DD4477', '#316395'],
-                width: 400,
+                width: 500,
                 height: 400,
             };
 
