@@ -45,8 +45,8 @@ function drawLineChart() {
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Top Countries in Web Usage',
-                width: 700,
-                height: 350,
+                width: 600,
+                height: 400,
                 colors: ['green'],
                 legend: { position: "none" },
             };
@@ -219,7 +219,7 @@ function drawChart_bar() {
                 title: 'Most Socially Referred websites',
                 vAxis: { title: "No. of refereneces in Social networks( in millions)" },
 
-                width: 400,
+                width: 500,
                 height: 400,
                 legend: { position: "none" },
             };
@@ -277,7 +277,7 @@ function drawChart_social() {
             var options = {
                 title: 'FaceBook Likes Vs Twitter mentions',
                 colors: ['#22AA99', '#DD4477', '#316395'],
-                width: 400,
+                width: 500,
                 height: 400,
             };
 

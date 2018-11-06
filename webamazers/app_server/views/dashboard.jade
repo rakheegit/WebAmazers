@@ -1,18 +1,15 @@
 
 extends layout
 block dashboard
-    h4 Websites Traffic Information Dashboard 
     h3(align='center') Top 5 in web traffic
-    div#piechart
-    div#columnchart.chartdiv
-    div#columnchart1.chartdiv1
-    div#barchart.chartdiv
-    div#socialchart.chartdiv
-    div#topcountries
-    div(class="mainContainer")
-        div#avgpageviews
-        div#sociallyreferred
-        div#avgvisitors
-        
+   
+    div(class="row")
+        div#topcountries
+        div(class="column")#avgpageviews
+        div(class="column")#avgvisitors
+    
+    div(class="row")
+        div(class="column")#sociallyreferred
+        div(class="column")#socialchart
     
     script(src='/scripts/dashboard.js')
