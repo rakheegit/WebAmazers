@@ -221,7 +221,7 @@ function drawChart_bar() {
             var options = {
                 title: 'Most Socially Referred websites',
                 vAxis: { title: "No. of refereneces in Social networks( in millions)" },
-                width: 600,
+                width: 450,
                 height: 400,
                 legend: { position: "none" },
             };
@@ -279,9 +279,9 @@ function drawChart_social() {
             var options = {
                 title: 'FaceBook Likes Vs Twitter mentions Vs LinkedIn Links',
                 colors: ['#22AA99', '#DD4477', '#316395'],
-                width: 600,
+                width: 650,
                 height: 400,
-                legend: { position: "none" }
+            
             };
 
             var chart = new google.visualization.ColumnChart(document.getElementById('socialchart'));
