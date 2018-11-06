@@ -78,7 +78,7 @@ function drawColumnChart() {
                 var tableRow = [];
                 columns.forEach(function(col) {
                     if (col == "Avg_Daily_Pageviews") {
-                        result[col] = parseInt(result[col]);
+                        result[col] = parseInt(result[col] / 1000000);
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "Website") {
                         tableRow.splice(0, 0, result[col]);
@@ -98,9 +98,10 @@ function drawColumnChart() {
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Top Websites with daily average Page views',
-                colors: ['#C5A5CF'],
+                colors: ['#DD4477'],
                 width: 400,
                 height: 400,
+                vAxis:{title:"(in millions)"},
                 legend: { position: 'none' },
             };
 
@@ -137,7 +138,7 @@ function drawColumnChart1() {
                 var tableRow = [];
                 columns.forEach(function(col) {
                     if (col == "Avg_Daily_Visitors") {
-                        result[col] = parseInt(result[col]);
+                        result[col] = parseInt(result[col] / 1000000);
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "Website") {
                         tableRow.splice(0, 0, result[col]);
@@ -157,10 +158,11 @@ function drawColumnChart1() {
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Top Websites with daily average Visitors',
-                colors: ['#C5A5CF'],
+                colors: ['#DD4477'],
                 opacity: [0.2],
                 width: 400,
                 height: 400,
+                vAxis:{title:"(in millions)"},
                 legend: { position: 'none' },
             };
 
