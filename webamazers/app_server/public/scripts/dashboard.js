@@ -51,7 +51,7 @@ function drawLineChart() {
                 colors: ['#55d6aa'],
                 legend: { position: "none" },
                 titleTextStyle: {
-                    fontSize: 18, // 12, 18 whatever you want (don't specify px)
+                    fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true,    // true or false
                 }
             };
@@ -109,7 +109,7 @@ function drawColumnChart() {
                 vAxis: { title: "(in millions)" },
                 legend: { position: 'none' },
                 titleTextStyle: {
-                    fontSize: 18, // 12, 18 whatever you want (don't specify px)
+                    fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true,    // true or false
                 }
             };
@@ -174,7 +174,7 @@ function drawColumnChart1() {
                 vAxis: { title: "(in millions)" },
                 legend: { position: 'none' },
                 titleTextStyle: {
-                    fontSize: 18, // 12, 18 whatever you want (don't specify px)
+                    fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true,    // true or false
                 }
             };
@@ -237,7 +237,7 @@ function drawChart_bar() {
                 height: 350,
                 legend: { position: "none" },
                 titleTextStyle: {
-                    fontSize: 18, // 12, 18 whatever you want (don't specify px)
+                    fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true,    // true or false
                 }
             };
@@ -298,7 +298,7 @@ function drawChart_social() {
                 width: 550,
                 height: 350,
                 titleTextStyle: {
-                    fontSize: 16, // 12, 18 whatever you want (don't specify px)
+                    fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true,    // true or false
                 }
             
