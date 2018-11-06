@@ -48,19 +48,37 @@ nav {
 #childsafe {
     height: 100px;
     width: 100px;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-right: 10px;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 #trendsTitle {
-    margin-left: 30px;
+    margin-left: 10px;
     margin-top: 50px;
     font-size: 15px;
 }
 
 #socialchart1 {
     font-size: 15px;
+    margin-left: 20px;
+}
+
+#privacy {
+    font-size: 15px;
+    margin-left: 20px;
+}
+
+#userPrivacy {
+    height: 150px;
+    width: 160px;
+    background: palevioletred;
+}
+
+#childSafety {
+    height: 150px;
+    width: 160px;
+    background: #55d6aa;
 }
 
 nav ul {
@@ -547,24 +565,23 @@ img {
 } */
 
 #topcountries {
-    margin-left: 5%;
+    margin-left: 2%;
 }
 
 #sociallyreferred {
-    margin-left: 5%;
+    margin-left: 2%;
 }
 
-
 #avgpageviews {
-    margin-left: 5%;
+    margin-left: 2%;
 }
 
 #differentStatus {
-    margin-left: 5%;
+    margin-left: 2%;
 }
 
 #socialchart {
-    margin-left: 170px;
+    margin-left: -5%;
 }
 
 * {
