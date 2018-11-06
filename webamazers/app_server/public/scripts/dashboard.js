@@ -12,7 +12,7 @@ function drawLineChart() {
         success: function(resData) {
             var results = resData.webs;
             var columns = Object.keys(results[0]);
-            var colors=["red","blue","green","orange","gold"];
+            var colors=["red","blue","green","orange","skyblue"];
             var i=0;
             var data = results.map(function(result) {
                 var tableRow = [];
