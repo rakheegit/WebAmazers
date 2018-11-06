@@ -22,8 +22,8 @@ function drawLineChart() {
                         result[col] = parseInt(result[col] / 1000000);
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "_id") {
-                        if (result[col]=="NA"){
-                            result[col]="India";
+                        if (result[col] == "NA") {
+                            result[col] = "India";
                         }
                         tableRow.splice(0, 0, result[col]);
                     }
@@ -45,7 +45,7 @@ function drawLineChart() {
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Top Countries in Web Usage with daily average page views',
-                vAxis:{title:"(in millions)"},
+                vAxis: { title: "(in millions)" },
                 width: 550,
                 height: 400,
                 colors: ['green'],
@@ -99,10 +99,10 @@ function drawColumnChart() {
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Top Websites with daily average Page views',
-                colors: ['#DD4477'],
+                colors: ['#5574A6'],
                 width: 450,
                 height: 400,
-                vAxis:{title:"(in millions)"},
+                vAxis: { title: "(in millions)" },
                 legend: { position: 'none' },
             };
 
@@ -159,11 +159,11 @@ function drawColumnChart1() {
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Top Websites with daily average Visitors',
-                colors: ['#DD4477'],
+                colors: ['#5574A6'],
                 opacity: [0.2],
                 width: 450,
                 height: 400,
-                vAxis:{title:"(in millions)"},
+                vAxis: { title: "(in millions)" },
                 legend: { position: 'none' },
             };
 
