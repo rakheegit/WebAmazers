@@ -8,6 +8,8 @@ var ctrlMain = require("../controllers/main");
 router.get('/', ctrlMain.index);
 router.get('/websites', ctrlMain.get_websites);
 router.post('/insertDbData', ctrlMain.post_db_data);
+router.get('/get_childsafety', ctrlMain.get_childsafety);
+router.get('/get_all_us', ctrlMain.get_all_us);
 router.post('/editDbData', ctrlMain.edit_db_data);
 
 router.get('/searchFromDB', ctrlMain.search_DB)

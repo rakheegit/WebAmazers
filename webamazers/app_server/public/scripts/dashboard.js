@@ -4,7 +4,28 @@ google.charts.setOnLoadCallback(drawColumnChart);
 google.charts.setOnLoadCallback(drawColumnChart1);
 google.charts.setOnLoadCallback(drawChart_bar);
 google.charts.setOnLoadCallback(drawChart_social);
+google.charts.setOnLoadCallback(getPercentage);
 
+
+function getPercentage(){
+    var total = 0;
+    var us_only = 0;
+    $.ajax({
+        url: "/get_all_us",
+        type: 'GET',
+        success: function(resData) {
+            console.log(resData.webs[0].us_all)
+            total = resData.webs[0].us_all
+            $.ajax({
+                url: "/get_childsafety",
+                type: 'GET',
+                success: function(resData) {
+                    console.log(resData.webs[0].total)
+                    us_only = resData.webs[0].total
+                    console.log(us_only/total*100)
+                }})
+        }})
+}
 function drawLineChart() {
 
     $.ajax({
