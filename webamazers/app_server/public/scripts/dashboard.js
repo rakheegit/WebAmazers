@@ -89,6 +89,10 @@ function drawLineChart() {
                 height: 400,
                 colors: ['#55d6aa'],
                 legend: { position: "none" },
+                titleTextStyle: {
+                    fontSize: 18, // 12, 18 whatever you want (don't specify px)
+                    bold: true,    // true or false
+                }
             };
 
             var chart = new google.visualization.BarChart(document.getElementById('topcountries'));
@@ -137,12 +141,16 @@ function drawColumnChart() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Top Websites Daily average Page views',
+                title: 'Top Websites with daily average page views',
                 colors: ['#55d6aa'],
                 width: 450,
                 height: 400,
                 vAxis: { title: "(in millions)" },
                 legend: { position: 'none' },
+                titleTextStyle: {
+                    fontSize: 18, // 12, 18 whatever you want (don't specify px)
+                    bold: true,    // true or false
+                }
             };
 
             chartData.sort({
@@ -204,6 +212,10 @@ function drawColumnChart1() {
                 height: 400,
                 vAxis: { title: "(in millions)" },
                 legend: { position: 'none' },
+                titleTextStyle: {
+                    fontSize: 18, // 12, 18 whatever you want (don't specify px)
+                    bold: true,    // true or false
+                }
             };
 
             chartData.sort({
@@ -260,9 +272,13 @@ function drawChart_bar() {
             var options = {
                 title: 'Most Socially Referred websites',
                 vAxis: { title: "No. of refereneces in Social networks( in millions)" },
-                width: 450,
+                width: 650,
                 height: 400,
                 legend: { position: "none" },
+                titleTextStyle: {
+                    fontSize: 18, // 12, 18 whatever you want (don't specify px)
+                    bold: true,    // true or false
+                }
             };
 
             var chart = new google.visualization.ColumnChart(document.getElementById('sociallyreferred'));
@@ -320,6 +336,10 @@ function drawChart_social() {
                 colors: ['#55d6aa', '#DD4477', '#316395'],
                 width: 650,
                 height: 400,
+                titleTextStyle: {
+                    fontSize: 16, // 12, 18 whatever you want (don't specify px)
+                    bold: true,    // true or false
+                }
             
             };
 

@@ -554,9 +554,6 @@ img {
     margin-left: 5%;
 }
 
-#avgvisitors {
-    /* margin-left: -10%; */
-}
 
 #avgpageviews {
     margin-left: 5%;
@@ -564,6 +561,10 @@ img {
 
 #differentStatus {
     margin-left: 5%;
+}
+
+#socialchart {
+    margin-left: 170px;
 }
 
 * {
