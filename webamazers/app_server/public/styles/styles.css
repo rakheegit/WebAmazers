@@ -46,38 +46,41 @@ nav {
 }
 
 #childsafe {
-    height: 100px;
-    width: 100px;
-    margin-top: 20px;
-    margin-right: 10px;
+    height: 30px;
+    width: 30px;
+    margin-top: 10px;
     margin-left: 20px;
 }
 
 #trendsTitle {
     margin-left: 10px;
-    margin-top: 50px;
+    margin-top: 30px;
     font-size: 15px;
 }
 
 #socialchart1 {
-    font-size: 15px;
+    font-size: 20px;
     margin-left: 20px;
+    margin-right: 20px;
 }
 
 #privacy {
-    font-size: 15px;
+    font-size: 20px;
     margin-left: 20px;
+    margin-right: 20px;
 }
 
 #userPrivacy {
-    height: 150px;
-    width: 160px;
+    margin-top: 10px;
+    height: 120px;
+    width: 230px;
     background: palevioletred;
 }
 
 #childSafety {
-    height: 150px;
-    width: 160px;
+    margin-top: 10px;
+    height: 120px;
+    width: 230px;
     background: #55d6aa;
 }
 
@@ -138,6 +141,8 @@ nav a:hover::before {
 .col {
     flex: 1;
     padding: 0em;
+    width:100%;
+    height:100%;
     border: groove;
 }
 
