@@ -541,6 +541,22 @@ img {
     margin-left: 25%;
 } */
 
+#topcountries {
+    margin-left: 30px;
+}
+
+#sociallyreferred {
+    margin-left: 200px;
+}
+
+#avgvisitors {
+    margin-left: -10%;
+}
+
+#avgpageviews {
+    margin-left: 6%;
+}
+
 * {
     box-sizing: border-box;
 }

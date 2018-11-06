@@ -52,7 +52,7 @@ function drawLineChart() {
         success: function (resData) {
             var results = resData.webs;
             var columns = Object.keys(results[0]);
-            var colors = ["red", "blue", "green", "orange", "skyblue"];
+            var colors = ["#55d6aa", "blue", "red", "orange", "skyblue"];
             var i = 0;
             var data = results.map(function (result) {
                 var tableRow = [];
@@ -83,10 +83,11 @@ function drawLineChart() {
             console.log(data)
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Top Countries in Web Usage',
-                width: 600,
+                title: 'Top Countries in Web Usage with daily average page views',
+                vAxis: { title: "(in millions)" },
+                width: 550,
                 height: 400,
-                colors: ['green'],
+                colors: ['#55d6aa'],
                 legend: { position: "none" },
             };
 
@@ -136,9 +137,9 @@ function drawColumnChart() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Top Websites with daily average Page views',
-                colors: ['#DD4477'],
-                width: 400,
+                title: 'Top Websites Daily average Page views',
+                colors: ['#55d6aa'],
+                width: 450,
                 height: 400,
                 vAxis: { title: "(in millions)" },
                 legend: { position: 'none' },
@@ -197,9 +198,9 @@ function drawColumnChart1() {
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Top Websites with daily average Visitors',
-                colors: ['#DD4477'],
+                colors: ['#55d6aa'],
                 opacity: [0.2],
-                width: 400,
+                width: 450,
                 height: 400,
                 vAxis: { title: "(in millions)" },
                 legend: { position: 'none' },
@@ -226,7 +227,7 @@ function drawChart_bar() {
         success: function (resData) {
             var results = resData.webs;
             var columns = Object.keys(results[0]);
-            var colors = ["#00b300", "grey", "grey", "grey", "grey"];
+            var colors = ["#55d6aa", "grey", "grey", "grey", "grey"];
             var i = 0;
             var data = results.map(function (result) {
                 var tableRow = [];
@@ -259,8 +260,7 @@ function drawChart_bar() {
             var options = {
                 title: 'Most Socially Referred websites',
                 vAxis: { title: "No. of refereneces in Social networks( in millions)" },
-
-                width: 500,
+                width: 450,
                 height: 400,
                 legend: { position: "none" },
             };
@@ -316,10 +316,11 @@ function drawChart_social() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'FaceBook Likes Vs Twitter mentions',
-                colors: ['#22AA99', '#DD4477', '#316395'],
-                width: 500,
+                title: 'FaceBook Likes Vs Twitter mentions Vs LinkedIn Links',
+                colors: ['#55d6aa', '#DD4477', '#316395'],
+                width: 650,
                 height: 400,
+            
             };
 
             var chart = new google.visualization.ColumnChart(document.getElementById('socialchart'));
