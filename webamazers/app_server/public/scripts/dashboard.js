@@ -46,8 +46,8 @@ function drawLineChart() {
             var options = {
                 title: 'Top Countries in Web Usage with daily average page views',
                 vAxis: { title: "(in millions)" },
-                width: 550,
-                height: 400,
+                width: 450,
+                height: 300,
                 colors: ['#55d6aa'],
                 legend: { position: "none" },
                 titleTextStyle: {
@@ -104,8 +104,8 @@ function drawColumnChart() {
             var options = {
                 title: 'Top Websites with daily average page views',
                 colors: ['#55d6aa'],
-                width: 450,
-                height: 400,
+                width: 400,
+                height: 300,
                 vAxis: { title: "(in millions)" },
                 legend: { position: 'none' },
                 titleTextStyle: {
@@ -169,8 +169,8 @@ function drawColumnChart1() {
                 title: 'Top Websites with daily average Visitors',
                 colors: ['#55d6aa'],
                 opacity: [0.2],
-                width: 450,
-                height: 400,
+                width: 400,
+                height: 300,
                 vAxis: { title: "(in millions)" },
                 legend: { position: 'none' },
                 titleTextStyle: {
@@ -233,8 +233,8 @@ function drawChart_bar() {
             var options = {
                 title: 'Most Socially Referred websites',
                 vAxis: { title: "No. of refereneces in Social networks( in millions)" },
-                width: 650,
-                height: 400,
+                width: 550,
+                height: 350,
                 legend: { position: "none" },
                 titleTextStyle: {
                     fontSize: 18, // 12, 18 whatever you want (don't specify px)
@@ -295,8 +295,8 @@ function drawChart_social() {
             var options = {
                 title: 'FaceBook Likes Vs Twitter mentions Vs LinkedIn Links',
                 colors: ['#55d6aa', '#DD4477', '#316395'],
-                width: 650,
-                height: 400,
+                width: 550,
+                height: 350,
                 titleTextStyle: {
                     fontSize: 16, // 12, 18 whatever you want (don't specify px)
                     bold: true,    // true or false
