@@ -528,11 +528,11 @@ img {
 } */
 
 #topcountries {
-    margin-left: 30px;
+    margin-left: 60px;
 }
 
 #sociallyreferred {
-    margin-left: 200px;
+    margin-left: 0px;
 }
 
 #avgvisitors {
@@ -541,6 +541,10 @@ img {
 
 #avgpageviews {
     margin-left: 6%;
+}
+
+#socialchart {
+    margin-left: 170px;
 }
 
 * {

@@ -102,7 +102,7 @@ function drawColumnChart() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Top Websites Daily average Page views',
+                title: 'Top Websites with daily average page views',
                 colors: ['#55d6aa'],
                 width: 450,
                 height: 400,
@@ -233,7 +233,7 @@ function drawChart_bar() {
             var options = {
                 title: 'Most Socially Referred websites',
                 vAxis: { title: "No. of refereneces in Social networks( in millions)" },
-                width: 450,
+                width: 650,
                 height: 400,
                 legend: { position: "none" },
                 titleTextStyle: {
