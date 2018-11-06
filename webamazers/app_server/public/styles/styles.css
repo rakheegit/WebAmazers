@@ -340,7 +340,24 @@ img {
     margin: 10px 25px 40px 10px;
 }
 
-/* 
+#columnchart {
+    width: 550px;
+    height: 500px;
+    margin: 10px;
+}
+
+#columnchart1 {
+    width: 550px;
+    height: 500px;
+    margin: 10px;
+}
+
+#barchart {
+    width: 600px;
+    height: 500px;
+    margin: 0;
+}
+
 .chartdiv {
     float: left;
     width: 40%;
@@ -351,37 +368,4 @@ img {
     float: right;
     width: 40%;
     border: none;
-}
-
-.topcountries {
-    float: left
-}
-
-.chartContainer {
-    float: left;
-}
-
-.chartContainer #avgpageviews{
-    float: left;
-    width: 40%;
-    border: none;
-} */
-
-
-.mainContainer {
-    margin:  10px auto;
-}
-.mainContainer > div {
-    width: 33%;
-}
-#avgpageviews {
-    float: left;
-}
-#sociallyreferred {
-    float: right;
-}
-#avgvisitors {
-    margin: auto;
-    position: relative;
-    margin-left: 27%;
 }
