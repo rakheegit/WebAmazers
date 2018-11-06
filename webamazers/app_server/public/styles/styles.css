@@ -535,6 +535,14 @@ img {
     margin-left: 200px;
 }
 
+#avgvisitors {
+    margin-left: -10%;
+}
+
+#avgpageviews {
+    margin-left: 6%;
+}
+
 * {
     box-sizing: border-box;
 }

@@ -100,7 +100,7 @@ function drawColumnChart() {
             var options = {
                 title: 'Top Websites with daily average Page views',
                 colors: ['#DD4477'],
-                width: 400,
+                width: 450,
                 height: 400,
                 vAxis:{title:"(in millions)"},
                 legend: { position: 'none' },
@@ -161,7 +161,7 @@ function drawColumnChart1() {
                 title: 'Top Websites with daily average Visitors',
                 colors: ['#DD4477'],
                 opacity: [0.2],
-                width: 400,
+                width: 450,
                 height: 400,
                 vAxis:{title:"(in millions)"},
                 legend: { position: 'none' },
