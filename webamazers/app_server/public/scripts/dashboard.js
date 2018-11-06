@@ -273,7 +273,7 @@ function drawChart_social() {
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'FaceBook Likes Vs Twitter mentions',
-                colors: ['red', 'blue', 'green'],
+                colors: ['#22AA99', '#DD4477', '#316395'],
                 width: 400,
                 height: 400,
             };
