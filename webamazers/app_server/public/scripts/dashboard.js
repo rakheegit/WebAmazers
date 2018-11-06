@@ -3,6 +3,7 @@ google.charts.setOnLoadCallback(drawLineChart);
 google.charts.setOnLoadCallback(drawColumnChart);
 google.charts.setOnLoadCallback(drawColumnChart1);
 google.charts.setOnLoadCallback(drawChart_bar);
+google.charts.setOnLoadCallback(drawChart_social);
 
 function drawLineChart() {
 
@@ -18,7 +19,7 @@ function drawLineChart() {
                 var tableRow = [];
                 columns.forEach(function(col) {
                     if (col == "Total_Views") {
-                        result[col] = parseInt(result[col]/1000000);
+                        result[col] = parseInt(result[col] / 1000000);
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "_id") {
                         tableRow.splice(0, 0, result[col]);
@@ -28,13 +29,13 @@ function drawLineChart() {
             });
             var tableRow = [];
             columns.forEach(function(col) {
-                if(col=="Total_Views"){
-                    col="Total_Views in Millions"
+                if (col == "Total_Views") {
+                    col = "Total_Views in Millions"
                 }
                 tableRow.push(col);
             })
             data.splice(0, 0, tableRow);
-        
+
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Top Countries in Web Usage',
@@ -55,7 +56,7 @@ function drawColumnChart() {
         url: "/dashboardGraph1",
         type: 'GET',
         success: function(resData) {
-            
+
             var results = resData.webs;
             var columns = Object.keys(results[0]);
 
@@ -86,7 +87,7 @@ function drawColumnChart() {
             })
 
             data.splice(0, 0, tableRow);
-           
+
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Top Websites with daily average Page views',
@@ -145,7 +146,7 @@ function drawColumnChart1() {
             })
 
             data.splice(0, 0, tableRow);
-            
+
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Top Websites with daily average Visitors',
@@ -174,7 +175,7 @@ function drawChart_bar() {
     $.ajax({
         url: "/dashboardbar",
         type: 'GET',
-        success: function (resData) {
+        success: function(resData) {
             var results = resData.webs;
             var columns = Object.keys(results[0]);
             var data = results.map(function(result) {
@@ -198,8 +199,8 @@ function drawChart_bar() {
             columns.forEach(function(col) {
                 tableRow.push(col);
             })
-            data.splice(0,0,tableRow);
-           
+            data.splice(0, 0, tableRow);
+
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Most Socially Referred websites',
@@ -210,6 +211,64 @@ function drawChart_bar() {
             };
 
             var chart = new google.visualization.ColumnChart(document.getElementById('barchart'));
+            chart.draw(chartData, options);
+        }
+    })
+}
+
+function drawChart_social() {
+
+    $.ajax({
+        url: "/dashboardsocial",
+        type: 'GET',
+        success: function(resData) {
+            console.log(resData.webs);
+            var results = resData.webs;
+            var columns = Object.keys(results[0]);
+
+            var temp = [
+                ['Chart thing', 'Chart amount'],
+                ['Lorem ipsum', 60],
+                ['Dolor sit', 22],
+                ['Sit amet', 18]
+            ];
+
+            var data = results.map(function(result) {
+                var tableRow = [];
+                columns.forEach(function(col) {
+                    if (col == "Facebook_likes") {
+                        result[col] = parseInt(result[col]);
+                        tableRow.splice(3, 0, result[col]);
+                    }
+                    /*   if (col == "Google_Pluses") {
+                           result[col] = parseInt(result[col]);
+                           tableRow.splice(2, 0, result[col]);
+                       } */
+                    if (col == "Twitter_mentions") {
+                        result[col] = parseInt(result[col]);
+                        tableRow.splice(1, 0, result[col]);
+                    } else if (col == "Website") {
+                        tableRow.splice(0, 0, result[col]);
+                    }
+                });
+                return tableRow;
+            });
+            var tableRow = [];
+            columns.forEach(function(col) {
+                tableRow.push(col);
+            })
+            data.splice(0, 0, tableRow);
+
+            var chartData = google.visualization.arrayToDataTable(data);
+            var options = {
+                title: 'FaceBook Likes Vs Twitter mentions',
+                colors: ['red', 'blue', 'green'],
+                width: 400,
+                height: 400,
+                legend: { position: "none" },
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('socialchart'));
             chart.draw(chartData, options);
         }
     })
