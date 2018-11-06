@@ -44,7 +44,21 @@ header::after {
 nav {
     float: left;
 }
-
+#childsafe{
+    height: 100px;
+    width: 100px;
+    margin-top:30px;
+    margin-right:10px;
+    margin-left:10px;
+}
+#trendsTitle{
+    margin-left:10px;
+    margin-top:50px;
+    font-size: 15px;
+}
+#socialchart1{
+    font-size: 15px;
+}
 nav ul {
     margin: 0;
     padding: 0;

@@ -4,47 +4,65 @@ google.charts.setOnLoadCallback(drawColumnChart);
 google.charts.setOnLoadCallback(drawColumnChart1);
 google.charts.setOnLoadCallback(drawChart_bar);
 google.charts.setOnLoadCallback(drawChart_social);
+google.charts.setOnLoadCallback(get_total);
 google.charts.setOnLoadCallback(getPercentage);
+google.charts.setOnLoadCallback(getPercentagePrivacy);
 
-
-function getPercentage(){
-    var total = 0;
-    var us_only = 0;
+var total = 0
+function get_total() {
     $.ajax({
         url: "/get_all_us",
         type: 'GET',
-        success: function(resData) {
-            console.log(resData.webs[0].us_all)
+        success: function (resData) {
             total = resData.webs[0].us_all
-            $.ajax({
-                url: "/get_childsafety",
-                type: 'GET',
-                success: function(resData) {
-                    console.log(resData.webs[0].total)
-                    us_only = resData.webs[0].total
-                    console.log(us_only/total*100)
-                }})
-        }})
+        }
+    })
+}
+
+function getPercentage() {
+    var us_only = 0;
+    $.ajax({
+        url: "/get_childsafety",
+        type: 'GET',
+        success: function (resData) {
+            us_only = resData.webs[0].total
+            var elemnt = document.getElementById('socialchart1')
+            elemnt.innerHTML = "Child Safety : " + us_only / total * 100 + "%";
+        }
+    })
+}
+function getPercentagePrivacy() {
+    var us_only = 0;
+    $.ajax({
+        url: "/get_privacy",
+        type: 'GET',
+        success: function (resData) {
+            us_only = resData.webs[0].total
+            console.log(us_only)
+            var elemnt = document.getElementById('privacy')
+            elemnt.innerHTML = "User Privacy : " + us_only / total * 100 + "%";
+        }
+    })
 }
 function drawLineChart() {
 
     $.ajax({
         url: "/dashboardTopCountries",
         type: 'GET',
-        success: function(resData) {
+        success: function (resData) {
             var results = resData.webs;
             var columns = Object.keys(results[0]);
             var colors = ["red", "blue", "green", "orange", "skyblue"];
             var i = 0;
-            var data = results.map(function(result) {
+            var data = results.map(function (result) {
                 var tableRow = [];
-                columns.forEach(function(col) {
+                columns.forEach(function (col) {
                     if (col == "Total_Views") {
                         result[col] = parseInt(result[col] / 1000000);
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "_id") {
-                        if (result[col]=="NA"){
-                            result[col]="India";
+                        if (result[col] == "NA") {
+                            result[col] = "India";
                         }
                         tableRow.splice(0, 0, result[col]);
                     }
@@ -54,7 +72,7 @@ function drawLineChart() {
                 return tableRow;
             });
             var tableRow = [];
-            columns.forEach(function(col) {
+            columns.forEach(function (col) {
                 if (col == "Total_Views") {
                     col = "Total_Views in Millions"
                 }
@@ -83,7 +101,7 @@ function drawColumnChart() {
     $.ajax({
         url: "/dashboardGraph1",
         type: 'GET',
-        success: function(resData) {
+        success: function (resData) {
 
             var results = resData.webs;
             var columns = Object.keys(results[0]);
@@ -95,9 +113,9 @@ function drawColumnChart() {
                 ['Sit amet', 18]
             ];
 
-            var data = results.map(function(result) {
+            var data = results.map(function (result) {
                 var tableRow = [];
-                columns.forEach(function(col) {
+                columns.forEach(function (col) {
                     if (col == "Avg_Daily_Pageviews") {
                         result[col] = parseInt(result[col] / 1000000);
                         tableRow.splice(1, 0, result[col]);
@@ -110,7 +128,7 @@ function drawColumnChart() {
 
             });
             var tableRow = [];
-            columns.forEach(function(col) {
+            columns.forEach(function (col) {
                 tableRow.push(col);
             })
 
@@ -122,7 +140,7 @@ function drawColumnChart() {
                 colors: ['#DD4477'],
                 width: 400,
                 height: 400,
-                vAxis:{title:"(in millions)"},
+                vAxis: { title: "(in millions)" },
                 legend: { position: 'none' },
             };
 
@@ -144,7 +162,7 @@ function drawColumnChart1() {
     $.ajax({
         url: "/dashboardGraph2",
         type: 'GET',
-        success: function(resData) {
+        success: function (resData) {
             var results = resData.webs;
             var columns = Object.keys(results[0]);
 
@@ -155,9 +173,9 @@ function drawColumnChart1() {
                 ['Sit amet', 18]
             ];
 
-            var data = results.map(function(result) {
+            var data = results.map(function (result) {
                 var tableRow = [];
-                columns.forEach(function(col) {
+                columns.forEach(function (col) {
                     if (col == "Avg_Daily_Visitors") {
                         result[col] = parseInt(result[col] / 1000000);
                         tableRow.splice(1, 0, result[col]);
@@ -170,7 +188,7 @@ function drawColumnChart1() {
 
             });
             var tableRow = [];
-            columns.forEach(function(col) {
+            columns.forEach(function (col) {
                 tableRow.push(col);
             })
 
@@ -183,7 +201,7 @@ function drawColumnChart1() {
                 opacity: [0.2],
                 width: 400,
                 height: 400,
-                vAxis:{title:"(in millions)"},
+                vAxis: { title: "(in millions)" },
                 legend: { position: 'none' },
             };
 
@@ -205,14 +223,14 @@ function drawChart_bar() {
     $.ajax({
         url: "/dashboardbar",
         type: 'GET',
-        success: function(resData) {
+        success: function (resData) {
             var results = resData.webs;
             var columns = Object.keys(results[0]);
             var colors = ["#00b300", "grey", "grey", "grey", "grey"];
             var i = 0;
-            var data = results.map(function(result) {
+            var data = results.map(function (result) {
                 var tableRow = [];
-                columns.forEach(function(col) {
+                columns.forEach(function (col) {
                     if (col == "Website") {
                         result[col] = parseInt(result[col]);
                         tableRow.splice(5, 0, result[col]);
@@ -231,7 +249,7 @@ function drawChart_bar() {
                 return tableRow;
             });
             var tableRow = [];
-            columns.forEach(function(col) {
+            columns.forEach(function (col) {
                 tableRow.push(col);
             })
             tableRow.push({ role: 'style' });
@@ -258,7 +276,7 @@ function drawChart_social() {
     $.ajax({
         url: "/dashboardsocial",
         type: 'GET',
-        success: function(resData) {
+        success: function (resData) {
             console.log(resData.webs);
             var results = resData.webs;
             var columns = Object.keys(results[0]);
@@ -270,9 +288,9 @@ function drawChart_social() {
                 ['Sit amet', 18]
             ];
 
-            var data = results.map(function(result) {
+            var data = results.map(function (result) {
                 var tableRow = [];
-                columns.forEach(function(col) {
+                columns.forEach(function (col) {
                     if (col == "Facebook_likes") {
                         result[col] = parseInt(result[col]);
                         tableRow.splice(3, 0, result[col]);
@@ -291,7 +309,7 @@ function drawChart_social() {
                 return tableRow;
             });
             var tableRow = [];
-            columns.forEach(function(col) {
+            columns.forEach(function (col) {
                 tableRow.push(col);
             })
             data.splice(0, 0, tableRow);

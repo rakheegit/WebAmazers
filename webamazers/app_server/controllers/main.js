@@ -25,6 +25,20 @@ module.exports.get_childsafety = function (req, res) {
         return res.send({ webs: webs });
     })
 }
+module.exports.get_privacy = function (req, res) {
+    var q = schemaWebsite.aggregate([{
+        $match: { Privacy: "Excellent", country: "United States" }
+    },
+    {
+        $group: { _id: "$country", total: { $sum: 1 } }
+    }
+    ])
+    q.exec(function (err, webs) {
+        console.log(webs)
+        return res.send({ webs: webs });
+    })
+}
+
 module.exports.get_all_us = function (req, res) {
     var q = schemaWebsite.aggregate([
         {
