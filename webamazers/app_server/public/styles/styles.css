@@ -44,21 +44,25 @@ header::after {
 nav {
     float: left;
 }
-#childsafe{
+
+#childsafe {
     height: 100px;
     width: 100px;
-    margin-top:30px;
-    margin-right:10px;
-    margin-left:10px;
+    margin-top: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
-#trendsTitle{
-    margin-left:10px;
-    margin-top:50px;
+
+#trendsTitle {
+    margin-left: 30px;
+    margin-top: 50px;
     font-size: 15px;
 }
-#socialchart1{
+
+#socialchart1 {
     font-size: 15px;
 }
+
 nav ul {
     margin: 0;
     padding: 0;
@@ -110,6 +114,7 @@ nav a:hover::before {
 
 .row {
     display: flex;
+    width: 100%;
 }
 
 .col {
@@ -462,7 +467,6 @@ img {
     margin: 10px 25px 40px 10px;
 }
 
-
 /* 
 .chartdiv {
     float: left;
@@ -489,6 +493,7 @@ img {
     width: 40%;
     border: none;
 } */
+
 /* 
 .mainContainer {
     margin: 10px auto;
@@ -542,32 +547,37 @@ img {
 } */
 
 #topcountries {
-    margin-left: 30px;
+    margin-left: 5%;
 }
 
 #sociallyreferred {
-    margin-left: 200px;
+    margin-left: 5%;
 }
 
 #avgvisitors {
-    margin-left: -10%;
+    /* margin-left: -10%; */
 }
 
 #avgpageviews {
-    margin-left: 6%;
+    margin-left: 5%;
+}
+
+#differentStatus {
+    margin-left: 5%;
 }
 
 * {
     box-sizing: border-box;
 }
 
-.column {
+/* .column {
     float: left;
     width: 33.33%;
     padding-left: 45px;
-}
+} */
 
 /* Clearfix (clear floats) */
+
 .row::after {
     content: "";
     clear: both;
