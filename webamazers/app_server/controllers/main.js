@@ -7,7 +7,7 @@ module.exports.index = function(req, res) {
 };
 
 module.exports.get_websites = function(req, res) {
-    var q = schemaWebsite.find().limit(100);
+    var q = schemaWebsite.find().limit(10);
     q.exec(function(err, webs) {
         res.render('websites', { title: 'Express', websites: webs });
     })

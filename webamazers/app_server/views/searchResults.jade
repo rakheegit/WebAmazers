@@ -1,9 +1,10 @@
 extends layout
 block searchResults
-    link(href='/styles/styles.css', rel='stylesheet')
+    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap-theme.min.css')
+    
     div
         table.table
-            thead.thead-dark
+            thead
                 th(scope='col') Website
                 th(scope='col') Country Rank
                 th(scope='col') Child Safety

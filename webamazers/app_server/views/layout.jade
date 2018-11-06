@@ -7,32 +7,29 @@ html
     script(src='https://www.gstatic.com/charts/loader.js')
 
     link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap-theme.min.css')
+    link(href='/styles/styles.css', rel='stylesheet')
     link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css')
     link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
+
     
   body
-  block navBar
-    nav(class='navbar navbar-default', role='navigation')
-        .container-fluid
-            .navbar-header
-                button(class='navbar-toggle', data-toggle='collapse', data-target='#navbar')
-                    span.sronly
-                    span.icon-bar
-                    span.icon-bar
-                    span.icon-bar
-                a(class='navbar-brand', href='/#') 
-                    i.fa.fa-home
-            #navbar(class='collapse navbar-collapse')
-                ul(class='nav navbar-nav')
+    header
+        .container
+            nav
+                ul
+                    li
+                        a(class='nav navbar-nav', href='/#') 
+                            i.fa.fa-home
                     li
                         a(class='nav navbar-nav', href='/dashboard') Websites Traffic
                     li
                         a(class='nav navbar-nav', href='/dashboardData') Dashboard Data
                     li
                         a(class='nav navbar-nav', href='/websites') Tabular view
-
                     li
-                        a(class='nav navbar-nav', href='/logout') Log out 
+                        a(class='nav navbar-nav', href='/logout') Logout 
+
     block websites
     block searchResults
     block dashboard
+    block index

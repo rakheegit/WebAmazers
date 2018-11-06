@@ -1,5 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+@import url('https://fonts.googleapis.com/css?family=Calligraffitti|Coming+Soon|Josefin+Slab|Montserrat+Alternates|Nanum+Brush+Script|Neucha|Open+Sans+Condensed:300|Philosopher|Poiret+One|Reenie+Beanie|Sarala|Sintony|Syncopate|Yrsa');
 body {
-    margin: 12px 12px;
+    margin: 0;
+    background: #222;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 800;
+}
+
+.container {
+    width: 80%;
+    height: 70px;
+    margin: 0 auto;
+}
+
+.tableContent {
+    font-family: 'Josefin Slab', serif;
+    font-size: 20px;
+}
+
+p {
+    padding-left: 2%;
+    padding-top: 1%;
+    padding-right: 3%;
+    font-family: 'Poiret One', cursive;
+    font-size: 30px;
+}
+
+header {
+    background: #55d6aa;
+}
+
+header::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.logo {
+    float: left;
+    padding: 10px 0;
+}
+
+nav {
+    float: left;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-left: 30px;
+    padding-top: 20px;
+    height: 20px;
+    position: relative;
+}
+
+.fa.fa-home {
+    margin-bottom: 60px;
+    font-size: 40px;
+}
+
+nav a {
+    color: #444;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+nav a:hover {
+    color: #000;
+}
+
+nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background-color: #444;
+    position: absolute;
+    top: 0;
+    width: 0%;
+    transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+    width: 100%;
 }
 
 .indexBlock {
@@ -52,79 +140,111 @@ h2 {
 
 .editButton {
     background-color: DodgerBlue;
-    /* Blue background */
     border: none;
-    /* Remove borders */
     color: white;
-    /* White text */
     padding: 10px 14px;
-    /* Some padding */
     font-size: 15px;
-    /* Set a font size */
     cursor: pointer;
+}
+
+.nav.navbar-nav {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 30px;
 }
 
 .addButton {
     background-color: #4CAF50;
-    /* Blue background */
     border: none;
-    /* Remove borders */
     color: white;
-    /* White text */
     padding: 10px 14px;
-    /* Some padding */
+    margin-left: 30px;
+    margin-bottom: 30px;
     font-size: 20px;
-    /* Set a font size */
     cursor: pointer;
 }
 
 .deleteButton {
     background-color: red;
-    /* Blue background */
     border: none;
-    /* Remove borders */
     color: white;
-    /* White text */
-    padding: 10px 14px;
-    /* Some padding */
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
     font-size: 15px;
-    /* Set a font size */
     cursor: pointer;
+}
+
+#deleteText {
+    font-family: 'Neucha', cursive;
+    margin-left: 5px;
+    font-size: 15px;
+}
+
+#addText {
+    font-family: 'Neucha', cursive;
+    margin-left: 5px;
+    font-size: 25px;
+}
+
+#editText {
+    font-family: 'Neucha', cursive;
+    margin-left: 5px;
+    font-size: 15px;
+}
+
+#columnHeading {
+    font-family: 'Neucha', cursive;
+    font-size: 30px;
 }
 
 #searchInDB {
     background-color: lightseagreen;
-    /* Blue background */
     border: none;
-    /* Remove borders */
     color: white;
-    /* White text */
-    padding: 10px 14px;
-    /* Some padding */
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
     font-size: 15px;
-    /* Set a font size */
     cursor: pointer;
 }
 
-#websiteName {
-    width: 1000px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border-style: ridge
+#searchDiv {
+    background: lightseagreen;
+    height: 50px;
+    margin-top: 25px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    border-radius: 40px;
+    padding-top: 5px;
+    padding-left: 10px;
+    width: 70%;
 }
 
 .search {
     background-color: lightseagreen;
-    /* Green */
+    height: 40px;
+    width: 50px;
+    margin-left: 10px;
+    margin-bottom: 15px;
     border: none;
     color: white;
-    padding: 10px 14px;
-    /* Some padding */
-    font-size: 15px;
+    font-size: 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+}
+
+#websiteName {
+    border-radius: 40px;
+    padding-left: 20px;
+    font-size: 20px;
+    height: 40px;
+    border: 2px solid lightseagreen;
+    float: top;
+    width: 92%;
+    background: #f1f1f1;
 }
 
 #insert {
@@ -224,8 +344,7 @@ button {
     margin-left: 12px;
 }
 
-#searchTable th,
-#searchTable td {
+#searchTable th, #searchTable td {
     text-align: left;
     padding: 12px;
 }
@@ -234,13 +353,11 @@ button {
     border-bottom: 1px solid #ddd;
 }
 
-#searchTable tr.header,
-#searchTable tr:hover {
+#searchTable tr.header, #searchTable tr:hover {
     background-color: linen;
 }
 
-button:disabled,
-button[disabled] {
+button:disabled, button[disabled] {
     border: 1px solid #999999;
     background-color: #cccccc;
     color: #666666;
@@ -250,6 +367,13 @@ button[disabled] {
     position: absolute;
     margin-left: 8px;
     margin-top: 8px;
+}
+
+#frontmainImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 #passmatch {
@@ -272,19 +396,6 @@ button[disabled] {
     width: 150px;
     margin-left: 10px;
     float: left;
-}
-
-div img {
-    width: 120px;
-    height: 150px;
-    float: left;
-}
-
-#imgid {
-    width: 120px;
-    height: 95px;
-    float: left;
-    border: 1px solid black;
 }
 
 .text {

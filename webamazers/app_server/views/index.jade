@@ -1,9 +1,16 @@
 extends layout
-block content
-  head
-    title Olympics - Home
-  body
-    link(href='/styles/styles.css', rel='stylesheet')
+block index
+  body(onload='loadrings()')
+    canvas#ring-canvas(height='100', width='1662', style='border: solid white 1px;')
+    img#frontmainImage(src='/images/logo.png')
+    p Web analytics is the measurement, collection, analysis and reporting of web data for purposes of understanding and optimizing web usage. Web analytics applications can also help companies measure the results of traditional print or broadcast advertising campaigns. Our website helps you understand how your website is performing in the world of web. It helps one to estimate how traffic to a website changes after the launch of a new advertising campaign. We provides information about the number of visitors to a website and the number of page views. It helps gauge traffic and popularity trends which is useful for market research.
 
-    .topright Welcome #{name}
-    
+
+  script.
+      window.requestAnimFrame = (function(callback) {
+      return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+      function(callback) {
+        window.setTimeout(callback, 1000 / 60);
+      };
+      })();
+  script(src='/scripts/animation.js')

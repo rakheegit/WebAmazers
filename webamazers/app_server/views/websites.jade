@@ -1,19 +1,17 @@
 extends layout
 block websites
-    link(href='/styles/styles.css', rel='stylesheet')
-    //- link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css", rel="stylesheet", crossorigin="anonymous")
     link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
 
     div
        form(action='/searchFromDB',method='get')
-            input#websiteName(type='text', name='websiteName' placeholder='Search for a website')
-            button.search()
-                i.fa.fa-search
-                    input#searchInDB(type='submit' value=" Search ")
+            div#searchDiv
+                input#websiteName(type='text', name='websiteName' placeholder='Search for a website')
+                button.search
+                    i.fa.fa-search
 
         table.table.table-hover
             thead
-                tr  
+                tr#columnHeading  
                     td='Website'
                     td='Country Rank'
                     td='Child Safety'
@@ -24,19 +22,22 @@ block websites
             tbody
                 each website,index in websites
                     tr(id=website._id)
-                        td.table-active(name=website._id,id="Website"+website._id, contentEditable=true)=website.Website 
-                        td(name=website._id, contentEditable=true)=website.Country_Rank 
-                        td(name=website._id, contentEditable=true)=website.Child_Safety
-                        td(name=website._id, contentEditable=true)=website.Trustworthiness
-                        td(name=website._id, contentEditable=true)=website.Avg_Daily_Pageviews
-                        td(name=website._id, contentEditable=true)=website.Privacy
+                        td.tableContent(name=website._id,id="Website"+website._id, contentEditable=true)=website.Website 
+                        td.tableContent(name=website._id, contentEditable=true)=website.Country_Rank 
+                        td.tableContent(name=website._id, contentEditable=true)=website.Child_Safety
+                        td.tableContent(name=website._id, contentEditable=true)=website.Trustworthiness
+                        td.tableContent(name=website._id, contentEditable=true)=website.Avg_Daily_Pageviews
+                        td.tableContent(name=website._id, contentEditable=true)=website.Privacy
                         td 
                             div
                                 button.deleteButton
-                                    i.fa.fa-trash  Delete
+                                    i.fa.fa-trash  
+                                    span#deleteText Delete
                                 button.editButton
-                                    i.fa.fa-pencil-square-o  Edit
+                                    i.fa.fa-pencil-square-o  
+                                    span#editText Edit
         button.addButton(onclick="onInsert()")
-            i.fa.fa-plus  Add new row
+            i.fa.fa-plus  
+            span#addText Add new row
 
     script(src='/scripts/websites.js')
