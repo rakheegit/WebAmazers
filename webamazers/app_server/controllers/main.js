@@ -87,30 +87,39 @@ module.exports.get_dashboard_graph2 = function(req, res) {
 }
 
 
-module.exports.get_dashboardbar = function(req, res){
-    var q = schemaWebsite.aggregate([ 
-        {$match: {'country':"United States"}},
+module.exports.get_dashboardbar = function(req, res) {
+    var q = schemaWebsite.aggregate([
+        { $match: { 'country': "United States" } },
 
-        { 
-        $project: { 
-            _id:"$Website",
-            'Social reference': { $add: ["$Facebook_likes","$Twitter_mentions","$Google_Pluses","$Linkedin_Links","$Pinterest_Pins"] }
-           }
-    },
-    {$limit:5},
-    {$sort:{"Social reference":-1}}  ] )
-    q.exec(function(err, webs){
-        return res.send({webs:webs});
+        {
+            $project: {
+                _id: "$Website",
+                'Social reference': { $add: ["$Facebook_likes", "$Twitter_mentions", "$Google_Pluses", "$Linkedin_Links", "$Pinterest_Pins"] }
+            }
+        },
+        { $limit: 5 },
+        { $sort: { "Social reference": -1 } }
+    ])
+    q.exec(function(err, webs) {
+        return res.send({ webs: webs });
     })
 }
 
-module.exports.get_dashboard_top_countries = function(req,res){
-    
+module.exports.get_dashboard_social = function(req, res) {
+    var q = schemaWebsite.find({ country: { $in: ['United States'] }, Website: { $in: ['www.youtube.com', 'www.google.com'] } }).select({ "Website": 1, "Facebook_likes": 1, "Twitter_mentions": 1, "Linkedin_Links": 1, "_id": 0 }).limit(3);
+    q.exec(function(err, webs) {
+        return res.send({ webs: webs });
+    })
+}
 
-    var q = schemaWebsite.aggregate([ 
-        {$group: {_id: '$Location', Total_Views: {$sum: '$Avg_Daily_Pageviews'}}}, {$sort: {Total_Views: -1}},{$limit:5}  ] )
-    q.exec(function(err, webs){
-        return res.send({webs:webs});
+module.exports.get_dashboard_top_countries = function(req, res) {
+
+
+    var q = schemaWebsite.aggregate([
+        { $group: { _id: '$Location', Total_Views: { $sum: '$Avg_Daily_Pageviews' } } }, { $sort: { Total_Views: -1 } }, { $limit: 5 }
+    ])
+    q.exec(function(err, webs) {
+        return res.send({ webs: webs });
     })
 
 }
@@ -118,4 +127,3 @@ module.exports.get_dashboard_top_countries = function(req,res){
 module.exports.get_dashboard = function(req, res) {
     res.render('dashboard')
 }
-
