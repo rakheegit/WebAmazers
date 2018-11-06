@@ -102,7 +102,7 @@ module.exports.get_dashboardbar = function(req, res) {
 }
 
 module.exports.get_dashboard_social = function(req, res) {
-    var q = schemaWebsite.find({ country: { $in: ['United States'] }, Website: { $in: ['www.youtube.com', 'www.google.com'] } }).select({ "Website": 1, "Facebook_likes": 1, "Twitter_mentions": 1, "_id": 0 }).limit(2);
+    var q = schemaWebsite.find({ country: { $in: ['United States'] }, Website: { $in: ['www.youtube.com', 'www.google.com'] } }).select({ "Website": 1, "Facebook_likes": 1, "Twitter_mentions": 1, "Linkedin_Links": 1, "_id": 0 }).limit(3);
     q.exec(function(err, webs) {
         return res.send({ webs: webs });
     })

@@ -13,8 +13,8 @@ function drawLineChart() {
         success: function(resData) {
             var results = resData.webs;
             var columns = Object.keys(results[0]);
-            var colors=["red","blue","green","orange","skyblue"];
-            var i=0;
+            var colors = ["red", "blue", "green", "orange", "skyblue"];
+            var i = 0;
             var data = results.map(function(result) {
                 var tableRow = [];
                 columns.forEach(function(col) {
@@ -155,7 +155,7 @@ function drawColumnChart1() {
             var options = {
                 title: 'Top Websites with daily average Visitors',
                 colors: ['#C5A5CF'],
-                opacity: 0.5,
+                opacity: [0.2],
                 width: 400,
                 height: 400,
                 legend: { position: 'none' },
@@ -251,11 +251,11 @@ function drawChart_social() {
                         result[col] = parseInt(result[col]);
                         tableRow.splice(3, 0, result[col]);
                     }
-                    /*   if (col == "Google_Pluses") {
-                           result[col] = parseInt(result[col]);
-                           tableRow.splice(2, 0, result[col]);
-                       } */
                     if (col == "Twitter_mentions") {
+                        result[col] = parseInt(result[col]);
+                        tableRow.splice(2, 0, result[col]);
+                    }
+                    if (col == "Linkedin_Links") {
                         result[col] = parseInt(result[col]);
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "Website") {
@@ -276,7 +276,6 @@ function drawChart_social() {
                 colors: ['red', 'blue', 'green'],
                 width: 400,
                 height: 400,
-                legend: { position: "none" },
             };
 
             var chart = new google.visualization.ColumnChart(document.getElementById('socialchart'));
