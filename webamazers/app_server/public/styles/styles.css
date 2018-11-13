@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
 @import url('https://fonts.googleapis.com/css?family=Calligraffitti|Coming+Soon|Josefin+Slab|Montserrat+Alternates|Nanum+Brush+Script|Neucha|Open+Sans+Condensed:300|Philosopher|Poiret+One|Reenie+Beanie|Sarala|Sintony|Syncopate|Yrsa');
+
+
+
 body {
     margin: 0;
     background: #222;
     font-family: 'Work Sans', sans-serif;
     font-weight: 800;
+}
+
+.modal-scrollfix.modal-scrollfix {
+    overflow-y: hidden;
 }
 
 .container {
@@ -185,7 +192,8 @@ h2 {
     background-color: DodgerBlue;
     border: none;
     color: white;
-    padding: 10px 14px;
+    width: 85px;
+    height: 43px;
     font-size: 15px;
     cursor: pointer;
 }
@@ -210,14 +218,26 @@ h2 {
     background-color: red;
     border: none;
     color: white;
-    padding-left: 10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
+    width: 85px;
+    height: 43px;
     font-size: 15px;
     cursor: pointer;
 }
 
+.showButton {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    width: 85px;
+    height: 43px;
+    font-size: 15px;
+    cursor: pointer;
+}
+#showText{
+    font-family: 'Neucha', cursive;
+    margin-left: 5px;
+    font-size: 15px;
+}
 #deleteText {
     font-family: 'Neucha', cursive;
     margin-left: 5px;
@@ -363,43 +383,6 @@ button {
     color: lightgray
 }
 
-* {
-    box-sizing: border-box;
-}
-
-#searchInput {
-    background-image: url('/images/crystal_search.png');
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    width: 95%;
-    font-size: 16px;
-    padding: 12px 20px 12px 40px;
-    border: 1px solid #ddd;
-    margin-bottom: 12px;
-    margin-left: 12px;
-}
-
-#searchTable {
-    border-collapse: collapse;
-    width: 95%;
-    border: 1px solid rgba(221, 221, 221, 0.932);
-    font-size: 16px;
-    margin-left: 12px;
-}
-
-#searchTable th, #searchTable td {
-    text-align: left;
-    padding: 12px;
-}
-
-#searchTable tr {
-    border-bottom: 1px solid #ddd;
-}
-
-#searchTable tr.header, #searchTable tr:hover {
-    background-color: linen;
-}
-
 button:disabled, button[disabled] {
     border: 1px solid #999999;
     background-color: #cccccc;
@@ -449,16 +432,6 @@ form {
     clear: both;
 }
 
-#makeMeDroppable {
-    width: 500px;
-    height: 500px;
-    border: 10px solid rgb(117, 51, 51);
-    float: left;
-    margin-top: 25px;
-    margin-bottom: 200px;
-    margin-left: 150px;
-}
-
 ul {
     list-style-type: none;
     margin-left: 5px;
@@ -469,106 +442,10 @@ img {
     border: 1px solid #000;
 }
 
-#slider label {
-    position: absolute;
-    width: 20px;
-    margin-top: 20px;
-    text-align: center;
-}
-
-.slider {
-    margin-left: 120px;
-}
-
-.yearSliderLabel {
-    float: left;
-    width: 100px;
-    margin-bottom: -10px;
-}
-
 .parentDiv {
     width: 90%;
     margin: 10px 25px 40px 10px;
 }
-
-/* 
-.chartdiv {
-    float: left;
-    width: 40%;
-    border: none;
-}
-
-.chartdiv1 {
-    float: right;
-    width: 40%;
-    border: none;
-}
-
-.topcountries {
-    float: left
-}
-
-.chartContainer {
-    float: left;
-}
-
-.chartContainer #avgpageviews{
-    float: left;
-    width: 40%;
-    border: none;
-} */
-
-/* 
-.mainContainer {
-    margin: 10px auto;
-}
-
-.mainContainer>div {
-    width: 33%;
-}
-
-#avgpageviews {
-    float: left;
-}
-
-#sociallyreferred {
-    float: right;
-}
-
-#avgvisitors {
-    margin: auto;
-    position: relative;
-}
-
-.topContainer {
-    margin:  10px auto;
-}
-.topContainer > div {
-    width: 50%;
-}
-#topcountries {
-    float: left;
-}
-#socialchart {
-    float: right; 
-}
-
-.mainContainer {
-    margin-top:  23%;
-}
-.mainContainer > div {
-    width: 33%;
-}
-#avgpageviews {
-    float: left;
-}
-#sociallyreferred {
-    float: right; 
-    
-}
-#avgvisitors {
-    margin-left: 25%;
-} */
 
 #topcountries {
     margin-left: 2%;
@@ -593,14 +470,6 @@ img {
 * {
     box-sizing: border-box;
 }
-
-/* .column {
-    float: left;
-    width: 33.33%;
-    padding-left: 45px;
-} */
-
-/* Clearfix (clear floats) */
 
 .row::after {
     content: "";

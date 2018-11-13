@@ -1,11 +1,12 @@
 extends layout
 block websites
     link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
-
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
     div
        form(action='/searchFromDB',method='get')
             div#searchDiv
-                input#websiteName(type='text', name='websiteName' placeholder='Search for a website')
+                input#websiteName(name='websiteName', type='text', placeholder='Search for a website')
                 button.search
                     i.fa.fa-search
 
@@ -22,7 +23,7 @@ block websites
             tbody
                 each website,index in websites
                     tr(id=website._id)
-                        td.tableContent(name=website._id,id="Website"+website._id, contentEditable=true)=website.Website 
+                        td.tableContent(id="Website"+website._id, name=website._id, contentEditable=false)=website.Website 
                         td.tableContent(name=website._id, contentEditable=true)=website.Country_Rank 
                         td.tableContent(name=website._id, contentEditable=true)=website.Child_Safety
                         td.tableContent(name=website._id, contentEditable=true)=website.Trustworthiness
@@ -30,14 +31,17 @@ block websites
                         td.tableContent(name=website._id, contentEditable=true)=website.Privacy
                         td 
                             div
-                                button.deleteButton
-                                    i.fa.fa-trash  
-                                    span#deleteText Delete
+                                button.showButton
+                                    i.fa.fa-eye 
+                                    span#showText Show
                                 button.editButton
-                                    i.fa.fa-pencil-square-o  
+                                    i.fa.fa-pencil-square-o   
                                     span#editText Edit
+                                button.deleteButton
+                                    i.fa.fa-trash
+                                    span#deleteText Destroy
         button.addButton(onclick="onInsert()")
             i.fa.fa-plus  
             span#addText Add new row
-
     script(src='/scripts/websites.js')
+    script(src='/scripts/bootstrap_popup.js')

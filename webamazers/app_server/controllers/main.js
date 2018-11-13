@@ -13,6 +13,17 @@ module.exports.get_websites = function (req, res) {
     })
 };
 
+
+
+module.exports.get_websites_by_id = function (req, res) {
+    console.log(req.params.id)
+    var q = schemaWebsite.find({ _id: req.params.id }).limit(10);
+    q.exec(function (err, webs) {
+        console.log(webs)
+        return res.send({websites: webs});
+    })
+};
+
 module.exports.get_childsafety = function (req, res) {
     var q = schemaWebsite.aggregate([{
         $match: { Child_Safety: "Excellent", country: "United States" }
