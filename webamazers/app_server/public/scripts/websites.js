@@ -52,11 +52,21 @@ function loadM(webdata) {
     title: "Edit Values for : " + webdata.Website ,
     body:
     "<ul>" +
-    "<li>Country_Rank:    <input type=\"text\" name=\"Country_Rank\" value="+webdata.Country_Rank+"><br></li>" +
-    "<li>Child_Safety:    <input type=\"text\" name=\"Child_Safety\" value="+webdata.Child_Safety+"><br></li>" +
-    "<li>Trustworthiness: <input type=\"text\" name=\"Trustworthiness\" value="+webdata.Trustworthiness+"><br></li>" +
-    "<li>Avg_Daily_Pageviews: <input type=\"text\" name=\"Avg_Daily_Pageviews\" value="+webdata.Avg_Daily_Pageviews+"><br></li>" +
-    "<li>Privacy: <input type=\"text\" name=\"Privacy\" value="+webdata.Privacy+"><br></li>" ,
+    "<li>Country_Rank:    <input type=\"text\" name=\"Country_Rank\" value="
+    +webdata.Country_Rank+
+    "><br></li>" +
+    "<li>Child_Safety:    <input type=\"text\" name=\"Child_Safety\" value="
+    +webdata.Child_Safety+
+    "><br></li>" +
+    "<li>Trustworthiness: <input type=\"text\" name=\"Trustworthiness\" value="
+    +webdata.Trustworthiness+
+    "><br></li>" +
+    "<li>Avg_Daily_Pageviews: <input type=\"text\" name=\"Avg_Daily_Pageviews\" value="
+    +webdata.Avg_Daily_Pageviews+
+    "><br></li>" +
+    "<li>Privacy: <input type=\"text\" name=\"Privacy\" value="
+    +webdata.Privacy+
+    "><br></li>" ,
     
     
     actions: [
