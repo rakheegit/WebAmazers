@@ -49,7 +49,7 @@ $(function() {
 //added
 function loadM(webdata) {
   showBSModal({
-    title: webdata.Website,
+    title: "Edit Values for : " + webdata.Website ,
     body:
     "<ul>" +
     "<li>Country_Rank:    <input type=\"text\" name=\"Country_Rank\" value="+webdata.Country_Rank+"><br></li>" +
