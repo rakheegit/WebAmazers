@@ -84,8 +84,8 @@ function loadM(webdata) {
         cssClass: "btn-success",
         onClick: function(e) {
           
-        $rows = $(this).closest("tr")[0];
-        $webId = $(this).closest("tr")[0].id;
+        //$rows = $(this).closest("tr")[0];
+        //$webId = $(this).closest("tr")[0].id;
         var WebsiteData = {
           _id: $webId,
           Website: $rows[0].textContent,
