@@ -244,17 +244,18 @@ h2 {
     font-size: 15px;
 }
 
-#addText {
-    font-family: 'Neucha', cursive;
-    margin-left: 5px;
-    font-size: 25px;
-}
 
 #editText {
     font-family: 'Neucha', cursive;
     margin-left: 5px;
     font-size: 15px;
 }
+#addText {
+    font-family: 'Neucha', cursive;
+    margin-left: 5px;
+    font-size: 25px;
+}
+
 
 #columnHeading {
     font-family: 'Neucha', cursive;

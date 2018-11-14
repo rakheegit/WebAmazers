@@ -13,7 +13,20 @@ module.exports.get_websites = function (req, res) {
     })
 };
 
+module.exports.get_add_new_from = function(req, res){
+    return res.send({
+        body : 
+        "<ul>" +
+        "<li>Country_Rank:    <input type=\"text\" name=\"Country_Rank\" ><br></li>" +
+        "<li>Child_Safety:    <input type=\"text\" name=\"Child_Safety\" ><br></li>" +
+        "<li>Trustworthiness: <input type=\"text\" name=\"Trustworthiness\" ><br></li>" +
+        "<li>Avg_Daily_Pageviews: <input type=\"text\" name=\"Avg_Daily_Pageviews\"><br></li>" +
+        "<li>Privacy: <input type=\"text\" name=\"Privacy\"><br></li>" +
+        "<ul>",
+    }
+    )
 
+}
 
 module.exports.get_websites_by_id = function (req, res) {
     console.log(req.params.id)

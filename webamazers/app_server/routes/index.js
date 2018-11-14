@@ -8,6 +8,7 @@ var ctrlMain = require("../controllers/main");
 
 router.get("/", ctrlMain.index);
 router.get("/websites/:id", ctrlMain.get_websites_by_id);
+router.get("/newwebsite", ctrlMain.get_add_new_from);
 router.get("/websites", ctrlMain.get_websites);
 router.post("/insertDbData", ctrlMain.post_db_data);
 router.get("/get_childsafety", ctrlMain.get_childsafety);

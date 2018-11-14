@@ -40,8 +40,9 @@ block websites
                                 button.deleteButton
                                     i.fa.fa-trash
                                     span#deleteText Destroy
-        button.addButton(onclick="onInsert()")
+        button.addButton(onclick="add_website()")
             i.fa.fa-plus  
             span#addText Add new row
     script(src='/scripts/websites.js')
     script(src='/scripts/bootstrap_popup.js')
+    script(src='/scripts/modal_load.js')
