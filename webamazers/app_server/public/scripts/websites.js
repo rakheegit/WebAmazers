@@ -2,25 +2,7 @@ $(function() {
     $("table").on("click", ".editButton", function(e) {
         $rows = $(this).closest("tr")[0].children;
         $webId = $(this).closest("tr")[0].id;
-        /*
-        var WebsiteData = {
-            _id: $webId,
-            Website: $rows[0].textContent,
-            Country_Rank: $rows[1].textContent,
-            Child_Safety: $rows[2].textContent,
-            Trustworthiness: $rows[3].textContent,
-            Avg_Daily_Pageviews: $rows[4].textContent,
-            Privacy: $rows[5].textContent
-        };
-        e.preventDefault(); // cancel the link itself
-        $.post({
-            url: "/editDbData",
-            data: WebsiteData,
-            success: function(data) {
-                alert(data.msg);
-            }
-        });
-        */
+        
        $.get({
         url: "/websites/" + $webId,
         success: function(data) {
@@ -52,19 +34,19 @@ function loadM(webdata) {
     title: "Edit Values for : " + webdata.Website ,
     body:
     "<ul>" +
-    "<li>Country_Rank:    <input type=\"text\" name=\"Country_Rank\" value="
+    "<li>Country_Rank:    <input type=\"text\" name=\"Country_Rank\" id = \"Country_Rank\" value="
     +webdata.Country_Rank+
     "><br></li>" +
-    "<li>Child_Safety:    <input type=\"text\" name=\"Child_Safety\" value="
+    "<li>Child_Safety:    <input type=\"text\" name=\"Child_Safety\" id = \"Child_Safety\" value="
     +webdata.Child_Safety+
     "><br></li>" +
-    "<li>Trustworthiness: <input type=\"text\" name=\"Trustworthiness\" value="
+    "<li>Trustworthiness: <input type=\"text\" name=\"Trustworthiness\" id = \"Trustworthiness\" value="
     +webdata.Trustworthiness+
     "><br></li>" +
-    "<li>Avg_Daily_Pageviews: <input type=\"text\" name=\"Avg_Daily_Pageviews\" value="
+    "<li>Avg_Daily_Pageviews: <input type=\"text\" name=\"Avg_Daily_Pageviews\" id = \"Avg_Daily_Pageviews\" value="
     +webdata.Avg_Daily_Pageviews+
     "><br></li>" +
-    "<li>Privacy: <input type=\"text\" name=\"Privacy\" value="
+    "<li>Privacy: <input type=\"text\" name=\"Privacy\" id = \"Privacy\" value="
     +webdata.Privacy+
     "><br></li>" ,
     
@@ -84,23 +66,24 @@ function loadM(webdata) {
         cssClass: "btn-success",
         onClick: function(e) {
           
-        //$rows = $(this).closest("tr")[0];
-        //$webId = $(this).closest("tr")[0].id;
+      
         var WebsiteData = {
-          _id: $webId,
-          Website: $rows[0].textContent,
-          Country_Rank: $rows[1].textContent,
-          Child_Safety: $rows[2].textContent,
-          Trustworthiness: $rows[3].textContent,
-          Avg_Daily_Pageviews: $rows[4].textContent,
-          Privacy: $rows[5].textContent
+          _id: webdata._id,
+          Website: webdata.Website,
+          Country_Rank: $("#Country_Rank")[0].value,
+          Child_Safety: $("#Child_Safety")[0].value,
+          Trustworthiness: $("#Trustworthiness")[0].value,
+          Avg_Daily_Pageviews: $("#Avg_Daily_Pageviews")[0].value,
+          Privacy: $("#Privacy")[0].value
         };
+          
           //alert("Save button clicked");
           $.post({
             url: "/editDbData",
             data: WebsiteData,
             success: function(data) {
               alert(data.msg);
+              window.location.reload();
             }
           });
         }
