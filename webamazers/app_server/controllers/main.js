@@ -92,7 +92,7 @@ module.exports.post_db_data = function (req, res) {
 
 }
 
-module.exports.edit_db_data = function (req, res) {
+module.exports.edit_db_data_id = function (req, res) {
     var data = new schemaWebsite(req.body)
     console.log(req.body)
     var q = schemaWebsite.replaceOne({ _id: data._id }, data)

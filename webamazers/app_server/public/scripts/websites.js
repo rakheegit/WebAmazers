@@ -79,7 +79,7 @@ function loadM(webdata) {
           
           //alert("Save button clicked");
           $.post({
-            url: "/editDbData",
+            url: "/editDbData/" + $webId,
             data: WebsiteData,
             success: function(data) {
               alert(data.msg);
