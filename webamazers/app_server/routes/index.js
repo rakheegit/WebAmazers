@@ -16,7 +16,7 @@ router.put("/editDbData/:id", ctrlMain.edit_db_data_id);
 
 router.get("/searchFromDB", ctrlMain.search_DB);
 
-router.delete("/deleteFromDB", ctrlMain.delete_DB);
+router.delete("/deleteFromDB/:id", ctrlMain.delete_DB);
 router.get("/get_privacy", ctrlMain.get_privacy);
 
 router.get("/dashboard", ctrlMain.get_dashboard);

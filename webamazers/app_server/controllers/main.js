@@ -104,7 +104,6 @@ module.exports.edit_db_data_id = function (req, res) {
 
 module.exports.delete_DB = function (req, res) {
     var q = schemaWebsite.remove({ _id: req.body._id })
-    console.log(req.body)
     q.exec(function (err, doc) {
         if (err) return res.send(500, { error: err });
         return res.send({ msg: "deleted successfully" });
