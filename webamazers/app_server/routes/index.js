@@ -17,7 +17,6 @@ router.get("/websites/:id", ctrlMain.get_websites_by_id);
 router.get("/editDbData/:id", ctrlMain.get_websites_by_id_for_edit);
 router.post("/insertDbData", ctrlMain.post_db_data);
 router.put("/editDbData/:id", ctrlMain.edit_db_data_id);
-router.delete("/deleteFromDB/:id", ctrlMain.delete_DB);
 
 router.get("/searchFromDB", ctrlMain.search_DB);
 router.get("/get_childsafety", ctrlMain.get_childsafety);

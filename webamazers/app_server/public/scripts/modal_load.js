@@ -43,8 +43,9 @@ function loadM(webdata) {
             Avg_Daily_Pageviews: $("#Avg_Daily_Pageviews")[0].value,
             Privacy: $("#Privacy")[0].value
           };
-          $.post({
-            url: "/editDbData",
+          $.ajax({
+            url: "/editDbData/" + $webId,
+            type:"PUT",
             data: WebsiteData,
             success: function(data) {
               alert(data.msg);
