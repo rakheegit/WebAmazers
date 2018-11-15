@@ -6,8 +6,10 @@ var ctrlMain = require("../controllers/main");
  * GET login page.
  */
 
+ 
 router.get("/", ctrlMain.index);
 router.get("/newwebsite", ctrlMain.get_add_new_from);
+router.delete("/deleteFromDB/:id", ctrlMain.delete_DB);
 
 router.get("/websites", ctrlMain.get_websites);
 router.get("/websites/:id", ctrlMain.get_websites_by_id);
