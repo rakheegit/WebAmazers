@@ -4,7 +4,7 @@ $(function() {
         $webId = $(this).closest("tr")[0].id;
         
        $.get({
-        url: "/websites/" + $webId,
+        url: "/editDbData/" + $webId,
         success: function(data) {
           
           loadM(data.websites[0]);
