@@ -78,8 +78,9 @@ function loadM(webdata) {
         };
           
           //alert("Save button clicked");
-          $.post({
+          $.ajax({
             url: "/editDbData/" + $webId,
+            type:"PUT",
             data: WebsiteData,
             success: function(data) {
               alert(data.msg);
