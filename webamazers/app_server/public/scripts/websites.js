@@ -4,7 +4,7 @@ $(function() {
         $webId = $(this).closest("tr")[0].id;
         
        $.get({
-        url: "/websites/" + $webId,
+        url: "/editDbData/" + $webId,
         success: function(data) {
           
           loadM(data.websites[0]);
@@ -78,8 +78,9 @@ function loadM(webdata) {
         };
           
           //alert("Save button clicked");
-          $.post({
-            url: "/editDbData",
+          $.ajax({
+            url: "/editDbData/" + $webId,
+            type:"PUT",
             data: WebsiteData,
             success: function(data) {
               alert(data.msg);
@@ -129,14 +130,11 @@ function loadModel(webdata) {
 $(function() {
     $("table").on("click", ".deleteButton", function(e) {
         $webId = $(this).closest("tr")[0].id;
-        website = {
-            _id: $webId
-        };
+        
         e.preventDefault(); // cancel the link itself
         $.ajax({
-            url: "/deleteFromDB",
+            url: "/deleteFromDB/"+$webId,
             type: "DELETE",
-            data: website,
             success: function(data) {
                 alert(data.msg);
                 window.location.reload();
