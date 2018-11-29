@@ -1,0 +1,23 @@
+
+extends layout
+block dashboard
+   
+    div(class="row")
+        div#topcountries
+        div(class="column")#avgpageviews
+        div(class="column")#avgvisitors
+    
+    div(class="row")
+        div(class="column")#sociallyreferred
+        div(class="column")#socialchart
+        div(class="column")#differentStatus
+            div#trendsTitle Website trends in United States
+            div#childSafety
+                img#childsafe(src='/images/childsafe.png')
+                div#socialchart1
+            div#userPrivacy
+                img#childsafe(src='/images/privacy.png')
+                div#privacy
+
+    
+    script(src='/scripts/dashboard.js')
