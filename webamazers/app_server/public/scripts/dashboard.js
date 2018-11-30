@@ -4,7 +4,7 @@ google.charts.load('current', { 'packages': ['corechart'] });
 //google.charts.setOnLoadCallback(drawColumnChart1);
 google.charts.setOnLoadCallback(drawChart_bar);
 google.charts.setOnLoadCallback(drawChart_bouncerate);
-//google.charts.setOnLoadCallback(drawChart_social);
+google.charts.setOnLoadCallback(drawChart_ppv_all);
 //google.charts.setOnLoadCallback(get_total);
 //google.charts.setOnLoadCallback(getPercentage);
 //google.charts.setOnLoadCallback(getPercentagePrivacy);
@@ -74,17 +74,17 @@ function drawChart_bouncerate() {
         type: 'GET',
         success: function(resData) {
             var results = resData.webs;
-            
-            
+
+
             var columns = Object.keys(results[0]);
             var colors = ["#55d6aa", "grey", "grey", "grey", "grey"];
             var i = 0;
             var data = results.map(function(result) {
                 var tableRow = [];
                 columns.forEach(function(col) {
-                    
-                    
-                    
+
+
+
                     if (col == "Bounce_Rate") {
 
                         result[col] = parseInt(result[col]);
@@ -93,20 +93,20 @@ function drawChart_bouncerate() {
                         tableRow.splice(0, 0, result[col]);
                     }
                 });
-                
+
                 tableRow.splice(2, 0, colors[i]);
                 i += 1;
                 return tableRow;
-                
+
             });
-            
+
             var tableRow = [];
             columns.forEach(function(col) {
                 tableRow.push(col);
             })
             tableRow.push({ role: 'style' });
             data.splice(0, 0, tableRow);
-            
+
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Most Bouncing Users',
@@ -126,10 +126,10 @@ function drawChart_bouncerate() {
     })
 }
 
-function drawChart_social() {
+function drawChart_ppv_all() {
 
     $.ajax({
-        url: "/dashboardsocial",
+        url: "/dashboard_ppv_all",
         type: 'GET',
         success: function(resData) {
             console.log(resData.webs);
@@ -146,18 +146,11 @@ function drawChart_social() {
             var data = results.map(function(result) {
                 var tableRow = [];
                 columns.forEach(function(col) {
-                    if (col == "Facebook_likes") {
-                        result[col] = parseInt(result[col]);
-                        tableRow.splice(3, 0, result[col]);
-                    }
-                    if (col == "Twitter_mentions") {
-                        result[col] = parseInt(result[col]);
-                        tableRow.splice(2, 0, result[col]);
-                    }
-                    if (col == "Linkedin_Links") {
+
+                    if (col == "Pages_Per_Visit") {
                         result[col] = parseInt(result[col]);
                         tableRow.splice(1, 0, result[col]);
-                    } else if (col == "Website") {
+                    } else if (col == "Domain") {
                         tableRow.splice(0, 0, result[col]);
                     }
                 });
@@ -171,8 +164,8 @@ function drawChart_social() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'FaceBook Likes Vs Twitter mentions Vs LinkedIn Links',
-                colors: ['#55d6aa', '#DD4477', '#316395'],
+                title: 'Pages per visit',
+                colors: ['#55d6aa'],
                 width: 550,
                 height: 350,
                 titleTextStyle: {

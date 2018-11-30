@@ -6,7 +6,7 @@ var ctrlMain = require("../controllers/main");
  * GET login page.
  */
 
-router.get("/test",ctrlMain.test);
+router.get("/test", ctrlMain.test);
 
 router.get("/", ctrlMain.index);
 router.get("/newwebsite", ctrlMain.get_add_new_from);
@@ -31,7 +31,7 @@ router.get("/dashboardGraph1", ctrlMain.get_dashboard_graph1);
 router.get("/dashboardGraph2", ctrlMain.get_dashboard_graph2);
 
 router.get("/dashboardbar", ctrlMain.get_dashboardbar);
-router.get("/dashboardsocial", ctrlMain.get_dashboard_social);
+router.get("/dashboard_ppv_all", ctrlMain.get_dashboard_ppv_all);
 router.get("/dashboardTopCountries", ctrlMain.get_dashboard_top_countries);
 
 router.get("/dashboard_bouncerate", ctrlMain.get_dashboard_bouncerate);

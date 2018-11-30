@@ -6,16 +6,17 @@ var registeredUsers = [
 var schemaWebsite = require("../model/websitesSchema");
 var userSchema = require("../model/user");
 
-var allWebsitesSchema = require("../model/webSchemaAll").educationSchema;
+var generalWebsitesSchema = require("../model/webSchemaAll").allWebsitesSchema;
+var eduWebsitesSchema = require("../model/webSchemaAll").educationSchema;
 var carRentalsSchema = require("../model/webSchemaAll").carRentalsSchema;
-module.exports.test = function (req,res) {
-  var q = allWebsitesSchema.find().limit(10);
-  q.exec(function(err, webs) {
-    if(err){
-      res.send(err);
-    }
-    res.send({ title: "Express", websites: webs });
-  });
+module.exports.test = function(req, res) {
+    var q = allWebsitesSchema.find().limit(10);
+    q.exec(function(err, webs) {
+        if (err) {
+            res.send(err);
+        }
+        res.send({ title: "Express", websites: webs });
+    });
 }
 
 module.exports.index = function(req, res) {
@@ -221,7 +222,7 @@ module.exports.get_dashboardbar = function(req, res) {
 };
 
 module.exports.get_dashboard_bouncerate = function(req, res) {
-    var q = allWebsitesSchema.find({},{Domain:1,Bounce_Rate:1,_id:0},{ $sort: { "Traffic_Share": -1 } }).limit(5);
+    var q = carRentalsSchema.find({}, { Domain: 1, Bounce_Rate: 1, _id: 0 }, { $sort: { "Traffic_Share": -1 } }).limit(5);
     q.exec(function(err, webs) {
         //console.log(webs);
         return res.send({ webs: webs });
@@ -229,21 +230,11 @@ module.exports.get_dashboard_bouncerate = function(req, res) {
 };
 
 
-module.exports.get_dashboard_social = function(req, res) {
-    var q = schemaWebsite
-        .find({
-            country: { $in: ["United States"] },
-            Website: { $in: ["www.youtube.com", "www.google.com"] }
-        })
-        .select({
-            Website: 1,
-            Facebook_likes: 1,
-            Twitter_mentions: 1,
-            Linkedin_Links: 1,
-            _id: 0
-        })
-        .limit(3);
+module.exports.get_dashboard_ppv_all = function(req, res) {
+    var q = generalWebsitesSchema
+        .find({}, { Domain: 1, Pages_Per_Visit: 1, _id: 0 }, { $sort: { "Traffic_Share": -1 } }).limit(10);
     q.exec(function(err, webs) {
+        console.log(webs);
         return res.send({ webs: webs });
     });
 };
