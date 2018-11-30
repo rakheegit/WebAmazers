@@ -35,5 +35,6 @@ router.get("/dashboard_ppv_all", ctrlMain.get_dashboard_ppv_all);
 router.get("/dashboardTopCountries", ctrlMain.get_dashboard_top_countries);
 
 router.get("/dashboard_newuser", ctrlMain.get_dashboard_newuser);
+router.get("/dashboard_timetraffic_all", ctrlMain.get_dashboard_timetraffic_all);
 
 module.exports = router;
