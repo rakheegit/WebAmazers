@@ -89,7 +89,7 @@ function drawChart_timetraffic_all() {
 
                         result[col] = parseInt(result[col]);
                         tableRow.splice(2, 0, result[col]);
-                    } 
+                    } else
                      if (col == "Avg_Visit_Duration") {
 
                         result[col] = parseInt(result[col]/60);
@@ -116,7 +116,7 @@ function drawChart_timetraffic_all() {
             var options = {
                 title: 'Domains where people spend considerable time',
                 //vAxis: { title: "Measure" },
-                width: 550,
+                width: 850,
                 height: 350,
                 legend: { position: "right" },
                 colors:['#f4a142','#55d6aa'],
