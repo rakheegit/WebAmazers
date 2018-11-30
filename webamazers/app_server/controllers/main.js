@@ -6,10 +6,13 @@ var registeredUsers = [
 var schemaWebsite = require("../model/websitesSchema");
 var userSchema = require("../model/user");
 
-var allWebsitesSchema = require("../model/webSchemaAll").allWebsitesSchema;
+var allWebsitesSchema = require("../model/webSchemaAll").educationSchema;
 module.exports.test = function (req,res) {
   var q = allWebsitesSchema.find().limit(10);
   q.exec(function(err, webs) {
+    if(err){
+      res.send(err);
+    }
     res.send({ title: "Express", websites: webs });
   });
 }

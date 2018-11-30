@@ -42,7 +42,7 @@ const schemaWebsite = mongoose.Schema({
 });
 exports.allWebsitesSchema = mongoose.model('all_websites',schemaWebsite);
 exports.carRentalsSchema = mongoose.model('car_rentals',schemaWebsite);
-exports.educationSchema = mongoose.model('education',schemaWebsite);
+exports.educationSchema = mongoose.model('education_websites',schemaWebsite);
 exports.moviesSchema = mongoose.model('movies',schemaWebsite);
 exports.restaurantsSchema = mongoose.model('restaurants',schemaWebsite);
 
