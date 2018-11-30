@@ -6,6 +6,14 @@ var registeredUsers = [
 var schemaWebsite = require("../model/websitesSchema");
 var userSchema = require("../model/user");
 
+var allWebsitesSchema = require("../model/webSchemaAll").allWebsitesSchema;
+module.exports.test = function (req,res) {
+  var q = allWebsitesSchema.find().limit(10);
+  q.exec(function(err, webs) {
+    res.send({ title: "Express", websites: webs });
+  });
+}
+
 module.exports.index = function(req, res) {
   res.render("index", { title: "Website Data" });
 };
