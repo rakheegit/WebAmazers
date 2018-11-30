@@ -221,8 +221,8 @@ module.exports.get_dashboardbar = function(req, res) {
     });
 };
 
-module.exports.get_dashboard_bouncerate = function(req, res) {
-    var q = carRentalsSchema.find({}, { Domain: 1, Bounce_Rate: 1, _id: 0 }, { $sort: { "Traffic_Share": -1 } }).limit(5);
+module.exports.get_dashboard_newuser = function(req, res) {
+    var q = carRentalsSchema.find({}, { Domain: 1, Unique_Users: 1, _id: 0 }, { $sort: { "Traffic_Share": -1 } }).limit(5);
     q.exec(function(err, webs) {
         //console.log(webs);
         return res.send({ webs: webs });

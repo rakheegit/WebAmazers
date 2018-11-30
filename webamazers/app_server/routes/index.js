@@ -34,6 +34,6 @@ router.get("/dashboardbar", ctrlMain.get_dashboardbar);
 router.get("/dashboard_ppv_all", ctrlMain.get_dashboard_ppv_all);
 router.get("/dashboardTopCountries", ctrlMain.get_dashboard_top_countries);
 
-router.get("/dashboard_bouncerate", ctrlMain.get_dashboard_bouncerate);
+router.get("/dashboard_newuser", ctrlMain.get_dashboard_newuser);
 
 module.exports = router;

@@ -2,15 +2,15 @@ google.charts.load('current', { 'packages': ['corechart'] });
 //google.charts.setOnLoadCallback(drawLineChart);
 //google.charts.setOnLoadCallback(drawColumnChart);
 //google.charts.setOnLoadCallback(drawColumnChart1);
-google.charts.setOnLoadCallback(drawChart_bar);
-google.charts.setOnLoadCallback(drawChart_bouncerate);
+//google.charts.setOnLoadCallback(drawChart_bar);
+google.charts.setOnLoadCallback(drawChart_newuser);
 google.charts.setOnLoadCallback(drawChart_ppv_all);
 //google.charts.setOnLoadCallback(get_total);
 //google.charts.setOnLoadCallback(getPercentage);
 //google.charts.setOnLoadCallback(getPercentagePrivacy);
 /*
 
-*/
+
 function drawChart_bar() {
 
     $.ajax({
@@ -66,18 +66,18 @@ function drawChart_bar() {
         }
     })
 }
-
-function drawChart_bouncerate() {
+*/
+function drawChart_newuser() {
 
     $.ajax({
-        url: "/dashboard_bouncerate",
+        url: "/dashboard_newuser",
         type: 'GET',
         success: function(resData) {
             var results = resData.webs;
 
 
             var columns = Object.keys(results[0]);
-            var colors = ["#55d6aa", "grey", "grey", "grey", "grey"];
+            var colors = ["#f4a142", "grey", "grey", "grey", "grey"];
             var i = 0;
             var data = results.map(function(result) {
                 var tableRow = [];
@@ -85,9 +85,9 @@ function drawChart_bouncerate() {
 
 
 
-                    if (col == "Bounce_Rate") {
+                    if (col == "Unique_Users") {
 
-                        result[col] = parseInt(result[col]);
+                        result[col] = parseInt(result[col]/100000);
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "Domain") {
                         tableRow.splice(0, 0, result[col]);
@@ -109,8 +109,8 @@ function drawChart_bouncerate() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Most Bouncing Users',
-                vAxis: { title: "No. of bouncing users( in millions)" },
+                title: 'New User Favorites',
+                vAxis: { title: "No. of New users" },
                 width: 550,
                 height: 350,
                 legend: { position: "none" },
@@ -120,7 +120,7 @@ function drawChart_bouncerate() {
                 }
             };
 
-            var chart = new google.visualization.ColumnChart(document.getElementById('mostbounced'));
+            var chart = new google.visualization.ColumnChart(document.getElementById('newuser'));
             chart.draw(chartData, options);
         }
     })
