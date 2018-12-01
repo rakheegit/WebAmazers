@@ -9,7 +9,7 @@ var userSchema = require("../model/user");
 var generalWebsitesSchema = require("../model/webSchemaAll").allWebsitesSchema;
 var eduWebsitesSchema = require("../model/webSchemaAll").educationSchema;
 var carRentalsSchema = require("../model/webSchemaAll").carRentalsSchema;
- 
+
 module.exports.test = function(req, res) {
     var q = allWebsitesSchema.find().limit(10);
     q.exec(function(err, webs) {
@@ -231,19 +231,32 @@ module.exports.get_dashboard_newuser = function(req, res) {
 };
 
 module.exports.get_dashboard_timetraffic_all = function(req, res) {
-    var q = generalWebsitesSchema.find({},{"Domain":1, "Avg_Visit_Duration":1,"Pages_Per_Visit":1, "_id":0}).sort({ "Pages_Per_Visit": -1 }).limit(10);
+    var q = generalWebsitesSchema.find({}, { "Domain": 1, "Avg_Visit_Duration": 1, "Pages_Per_Visit": 1, "_id": 0 }).sort({ "Pages_Per_Visit": -1 }).limit(10);
     q.exec(function(err, webs) {
-        console.log(webs);
+        //console.log(webs);
         return res.send({ webs: webs });
     });
 };
 
-
 module.exports.get_dashboard_ppv_all = function(req, res) {
-    var q = generalWebsitesSchema
-        .find({}, { Domain: 1, Pages_Per_Visit: 1, _id: 0 }, { $sort: { "Traffic_Share": -1 } }).limit(10);
+    var q = generalWebsitesSchema.aggregate([{
+            $project: {
+                Domain: 1,
+                _id: 0,
+                traffic_percent: {
+                    $multiply: [
+                        "$Traffic_Share", 100
+                    ]
+                }
+
+            }
+        },
+        { $limit: 20 },
+        { $sort: { "traffic_percent": -1 } }
+    ]);
+
     q.exec(function(err, webs) {
-        //console.log(webs);
+        console.log(webs);
         return res.send({ webs: webs });
     });
 };
@@ -268,4 +281,4 @@ module.exports.get_dashboard = function(req, res) {
 };
 module.exports.get_dashboardOld = function(req, res) {
     res.render("dashboardOld");
-};
+}

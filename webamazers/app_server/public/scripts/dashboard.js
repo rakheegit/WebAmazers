@@ -31,7 +31,7 @@ function drawChart_newuser() {
 
                     if (col == "Unique_Users") {
 
-                        result[col] = parseInt(result[col]/100000);
+                        result[col] = parseInt(result[col] / 100000);
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "Domain") {
                         tableRow.splice(0, 0, result[col]);
@@ -80,7 +80,7 @@ function drawChart_timetraffic_all() {
 
 
             var columns = Object.keys(results[0]);
-            var colors = ["#f4a142","#55d6aa"];
+            var colors = ["#f4a142", "#55d6aa"];
             var i = 0;
             var data = results.map(function(result) {
                 var tableRow = [];
@@ -90,9 +90,9 @@ function drawChart_timetraffic_all() {
                         result[col] = parseInt(result[col]);
                         tableRow.splice(2, 0, result[col]);
                     } else
-                     if (col == "Avg_Visit_Duration") {
+                    if (col == "Avg_Visit_Duration") {
 
-                        result[col] = parseInt(result[col]/60);
+                        result[col] = parseInt(result[col] / 60);
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "Domain") {
                         tableRow.splice(0, 0, result[col]);
@@ -119,12 +119,12 @@ function drawChart_timetraffic_all() {
                 width: 850,
                 height: 350,
                 legend: { position: "right" },
-                colors:['#f4a142','#55d6aa'],
+                colors: ['#f4a142', '#55d6aa'],
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
                 }
-                
+
             };
 
             var chart = new google.visualization.ColumnChart(document.getElementById('timetraffic_all'));
@@ -156,8 +156,9 @@ function drawChart_ppv_all() {
                 var tableRow = [];
                 columns.forEach(function(col) {
 
-                    if (col == "Pages_Per_Visit") {
-                        result[col] = parseInt(result[col]);
+                    if (col == "traffic_percent") {
+                        //   result[col] = parseInt(result[col] * 100);
+                        result[col] = parseFloat(result[col]);
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "Domain") {
                         tableRow.splice(0, 0, result[col]);
@@ -173,14 +174,17 @@ function drawChart_ppv_all() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Pages per visit',
-                colors: ['#55d6aa'],
-                width: 550,
-                height: 350,
+                title: 'High Traffic Websites - Top 20',
+                colors: ['#DD4132'],
+                width: 1250,
+                height: 850,
+                legend: { position: "none" },
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
-                }
+                },
+                vAxis: { title: "Percentage of Total Web traffic" },
+                //  vAxis: { format: 'percent' }
 
             };
 
@@ -189,4 +193,3 @@ function drawChart_ppv_all() {
         }
     })
 }
-
