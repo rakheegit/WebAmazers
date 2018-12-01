@@ -4,6 +4,7 @@ google.charts.load('current', { 'packages': ['corechart'] });
 //google.charts.setOnLoadCallback(drawColumnChart1);
 //google.charts.setOnLoadCallback(drawChart_bar);
 google.charts.setOnLoadCallback(drawChart_newuser);
+google.charts.setOnLoadCallback(drawChart_stackedchart);
 google.charts.setOnLoadCallback(drawChart_ppv_all);
 google.charts.setOnLoadCallback(drawChart_timetraffic_all);
 //google.charts.setOnLoadCallback(drawChart_social);
@@ -69,6 +70,72 @@ function drawChart_newuser() {
         }
     })
 }
+
+function drawChart_stackedchart() {
+
+    $.ajax({
+        url: "/dashboard_stackedchart",
+        type: 'GET',
+        success: function(resData) {
+            var results = resData.webs;
+
+
+            var columns = Object.keys(results[0]);
+            var colors = ["#f4a142", "grey", "grey", "grey", "grey"];
+            var i = 0;
+            var data = results.map(function(result) {
+                var tableRow = [];
+                columns.forEach(function(col) {
+
+                    if (col == "Unique_Visitors") {
+
+                        result[col] = parseInt(result[col] / 100000);
+                        tableRow.splice(2, 0, result[col]);
+                    }else 
+
+                    if (col == "Avg_Month_Visits") {
+
+                        result[col] = parseInt(result[col] / 100000);
+                        tableRow.splice(1, 0, result[col]);
+                    } else if (col == "Domain") {
+                        tableRow.splice(0, 0, result[col]);
+                    }
+                });
+
+                tableRow.splice(3, 0, colors[i]);
+                i += 1;
+                return tableRow;
+
+            });
+
+            var tableRow = [];
+            columns.forEach(function(col) {
+                tableRow.push(col);
+            })
+            tableRow.push({ role: 'style' });
+            data.splice(0, 0, tableRow);
+
+            var chartData = google.visualization.arrayToDataTable(data);
+            var options = {
+                title: 'Want to Expand your User base? Here is the way!',
+                isStacked:true,
+                vAxis: { title: "No. of New users" },
+                width: 550,
+                height: 350,
+                legend: { position: "none" },
+                titleTextStyle: {
+                    fontSize: 14, // 12, 18 whatever you want (don't specify px)
+                    bold: true, // true or false
+                }
+            };
+
+            var chart = new google.visualization.BarChart(document.getElementById('stackedchart'));
+            chart.draw(chartData, options);
+        }
+    })
+}
+
+
 
 function drawChart_timetraffic_all() {
 
@@ -176,7 +243,7 @@ function drawChart_ppv_all() {
             var options = {
                 title: 'High Traffic Websites - Top 20',
                 colors: ['#DD4132'],
-                width: 1550,
+                width: 1250,
                 height: 850,
                 legend: { position: "none" },
                 titleTextStyle: {

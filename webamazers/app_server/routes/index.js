@@ -36,5 +36,6 @@ router.get("/dashboardTopCountries", ctrlMain.get_dashboard_top_countries);
 
 router.get("/dashboard_newuser", ctrlMain.get_dashboard_newuser);
 router.get("/dashboard_timetraffic_all", ctrlMain.get_dashboard_timetraffic_all);
+router.get("/dashboard_stackedchart", ctrlMain.get_dashboard_stackedchart);
 
 module.exports = router;
