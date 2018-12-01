@@ -82,7 +82,7 @@ function drawChart_stackedchart() {
 
 
             var columns = Object.keys(results[0]);
-            var colors = ["#f4a142", "grey", "grey", "grey", "grey"];
+            var colors = [];
             var i = 0;
             var data = results.map(function(result) {
                 var tableRow = [];
@@ -147,7 +147,7 @@ function drawChart_stackedchart_mobdesk_all() {
 
 
             var columns = Object.keys(results[0]);
-            var colors = ["#f4a142"];
+            var colors = [];
             var i = 0;
             var data = results.map(function(result) {
                 var tableRow = [];
