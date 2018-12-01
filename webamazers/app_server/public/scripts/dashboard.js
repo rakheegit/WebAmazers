@@ -183,13 +183,14 @@ function drawChart_stackedchart_mobdesk_all() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Percentage of Desktop Vs Mobile Visitors',
+                title: 'Desktop Vs Mobile Visitors',
                 isStacked: true,
                 //     vAxis: { title: "Domain" },
                 width: 1250,
                 height: 650,
                 bar: { groupWidth: "50%" },
                 legend: { position: "right" },
+                vAxis: { title: "Percentage %" },
                 colors: ["#8D9440", "#FF6F61"],
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
@@ -258,6 +259,7 @@ function drawChart_timetraffic_all() {
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
+
                 }
 
             };
