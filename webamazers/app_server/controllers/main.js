@@ -21,7 +21,7 @@ module.exports.test = function(req, res) {
 }
 
 module.exports.index = function(req, res) {
-    res.render("index", { title: "Website Data" });
+    res.render("home", { title: "Website Data" });
 };
 
 module.exports.get_websites = function(req, res) {

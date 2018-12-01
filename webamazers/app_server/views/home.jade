@@ -29,7 +29,6 @@ html
     link(type='text/css', href='/styles/menu-mobile.css', rel='stylesheet', media='all')
     link(type='text/css', href='/styles/content.css', rel='stylesheet', media='all')
     link(href='/styles/floating_icons.css', rel='stylesheet')
-    link(type='text/css', href='/styles/modal.css', rel='stylesheet', media='all')
     
     //scripts
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
@@ -67,8 +66,6 @@ html
               a.nav-js.nav-js--vlog.color-light-text(href='#vlog', onclick='nav(this); return false;') Vlog
             li
               a.nav-js.nav-js--contacts.color-light-text(href='#contacts', onclick='nav(this); return false;') Contacts
-            li
-              a.color-light-text.call-to-action.call-to-action--facebook.color-light-border.tr.tr--opacity(href='https://www.facebook.com/groups/fitswap/') Join our Facebook group
             li
               a.color-light-text.header__social.tr.tr--opacity(href='#')
                 svg.color-light-fill(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewBox='0 0 612 612', xml:space='preserve')
@@ -237,25 +234,36 @@ html
             svg.footer__next.color-main-fill.floating(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewBox='0 0 21.825 21.825', style='enable-background:new 0 0 21.825 21.825;', xml:space='preserve')
               path(d='M16.791,13.254c0.444-0.444,1.143-0.444,1.587,0c0.429,0.444,0.429,1.143,0,1.587l-6.65,6.651 c-0.206,0.206-0.492,0.333-0.809,0.333c-0.317,0-0.603-0.127-0.81-0.333l-6.65-6.651c-0.444-0.444-0.444-1.143,0-1.587 s1.143-0.444,1.587,0l4.746,4.762V1.111C9.791,0.492,10.299,0,10.918,0c0.619,0,1.111,0.492,1.111,1.111v16.904L16.791,13.254z')
       section#vlog.section.section--vlog
-        .section__content.wrap
+        .section__content.wrap-team
           .cols
-            .col.col--two.margin-r-large
-              h2.text-xxlarge.text-title.text-strong.margin-b JUST SHOW UP | FITSWAP VLOG 010
-              p.text-default
-                a(href='https://ruwikmann.typeform.com/to/brdA7U') https://ruwikmann.typeform.com/to/brdA7U
-                |  Please fill out the one minute survey to help us build Fitswap!
-              p.text-default
-                | Just a quick one this week. It's all about showing up and getting 1% better every day.
-            .col.col--two
-              a.text-small.text-upper.text-strong.color-main-text.color-main-border.call-to-action.call-to-action--youtube.tr.tr--opacity(href='https://www.youtube.com/watch?v=P4SRpVV4kb4&list=PLAbYDth8Atchk5NXqNOo_SqSfxuLFRUb0')
-                | See all episodes
-              p.text-small.text-upper.text-strong.text-right Our latest VLOG post on youtube
-              p.text-xsmall.text-upper.text-strong.text-right.margin-b Published on Dec 10, 2017
-              .video
-                iframe(src='https://www.youtube.com/embed/8pRRNoHVV1o', frameborder='0', allowfullscreen='')
-            .col.col--full.margin-t-large
-              .text-upper
-                a.call-to-action.call-to-action--main.call-to-action--about.color-light-text.color-main-bg.text-center.text-medium.tr.tr--bgcolor(href='http://www.fitswap.london/') Try Fitswap Now
+            .col.col--full
+              .col.col--two.margin-b-xlarge
+               h2.text-xxlarge.text-title.text-strong.margin-b.text-center The team
+              .margin-b
+                #about-novice.col.col--about
+                .about-title.margin-b
+                  .about-icon.margin-r
+                    img(src='/images/radhika.jpeg')
+                  p.text-large
+                    strong Radhika Srinivasan
+                  #about-novice.col.col--about
+                  .about-title.margin-b
+                    .about-icon.margin-r
+                      img(src='/images/rakhee.jpeg')
+                    p.text-large
+                      strong    Rakhee N Singh
+                  #about-novice.col.col--about
+                  .about-title.margin-b
+                    .about-icon.margin-r
+                      img(src='/images/ashish.jpeg')
+                    p.text-large
+                      strong Ashish Virani
+                  #about-novice.col.col--about
+                  .about-title.margin-b
+                    .about-icon.margin-r
+                      img(src='/images/anudeepa.jpeg')
+                    p.text-large
+                      strong Anudeepa Dinesh
         .footer.text-center
           a.color-main-text.text-small(href='#contacts', onclick="scrollToPosition('contacts', true); return false;")
             br
@@ -268,27 +276,13 @@ html
               .margin-b.color-light-text
                 h2.text-xxlarge.text-title.text-strong.margin-b Contacts
                 p.text-medium.margin-b
-                  | We are based in London (UK) and Riga (LV).
+                  | We are based in United States (USA)
                   br
                   |  Contact our team via E-mail:
                 p.text-large
-                  a.color-light-text(href='mailto:hello@fitswap.com') hello@fitswap.com
+                  a.color-light-text.color-dark-text(href='mailto:hello@webmaze.com') hello@webmaze.com
               p.text-large.text-strong.margin-b.color-dark-text
-                | Our mission is to improve lives by making
-                br
-                | quality personal training accessible.
-              p.text-default.color-dark-text Let's do it together! #letsfitswap
+              p.text-default.color-dark-text
               .text-upper.margin-t
-                a.call-to-action.call-to-action--main.call-to-action--about.color-light-text.color-dark-bg.text-center.text-medium.tr.tr--bgcolor(href='http://www.fitswap.london/') Try Fitswap Now
+                a.call-to-action.call-to-action--main.call-to-action--about.color-light-text.color-dark-bg.text-center.text-medium.tr.tr--bgcolor(href='/login') signup now
         .footer.footer--last.color-main-dark-bg.color-light-text.text-center.text-small
-          div © 2018. Fitswap Limited. All rights reserved.
-    #modal.modal
-      .modal__container
-        #modal-content.modal__content
-        .modal__close.color-light-bg(onclick='modalWindowClose(); return false;')
-          svg.color-dark-fill(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewBox='0 0 174.239 174.239', xml:space='preserve')
-            g
-              path(d='M87.12,0C39.082,0,0,39.082,0,87.12s39.082,87.12,87.12,87.12s87.12-39.082,87.12-87.12S135.157,0,87.12,0z M87.12,159.305 c-39.802,0-72.185-32.383-72.185-72.185S47.318,14.935,87.12,14.935s72.185,32.383,72.185,72.185S126.921,159.305,87.12,159.305z')
-              path(d='M120.83,53.414c-2.917-2.917-7.647-2.917-10.559,0L87.12,76.568L63.969,53.414c-2.917-2.917-7.642-2.917-10.559,0 s-2.917,7.642,0,10.559l23.151,23.153L53.409,110.28c-2.917,2.917-2.917,7.642,0,10.559c1.458,1.458,3.369,2.188,5.28,2.188 c1.911,0,3.824-0.729,5.28-2.188L87.12,97.686l23.151,23.153c1.458,1.458,3.369,2.188,5.28,2.188c1.911,0,3.821-0.729,5.28-2.188 c2.917-2.917,2.917-7.642,0-10.559L97.679,87.127l23.151-23.153C123.747,61.057,123.747,56.331,120.83,53.414z')
-        a.modal__access.color-main-bg.color-light-text.call-to-action.call-to-action--main.text-default.text-upper(href='http://www.fitswap.london/')
-          | Try Fitswap Now
