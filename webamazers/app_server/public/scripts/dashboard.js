@@ -176,7 +176,7 @@ function drawChart_ppv_all() {
             var options = {
                 title: 'High Traffic Websites - Top 20',
                 colors: ['#DD4132'],
-                width: 1250,
+                width: 1550,
                 height: 850,
                 legend: { position: "none" },
                 titleTextStyle: {

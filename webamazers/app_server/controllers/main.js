@@ -242,7 +242,9 @@ module.exports.get_dashboard_ppv_all = function(req, res) {
     var q = generalWebsitesSchema.aggregate([{
             $project: {
                 Domain: 1,
+                //                Traffic_Share: 1,
                 _id: 0,
+
                 traffic_percent: {
                     $multiply: [
                         "$Traffic_Share", 100
@@ -250,10 +252,10 @@ module.exports.get_dashboard_ppv_all = function(req, res) {
                 }
 
             }
-        },
-        { $limit: 20 },
-        { $sort: { "traffic_percent": -1 } }
-    ]);
+
+        }
+        //      { $sort: { "traffic_percent": -1 } }
+    ]).sort({ traffic_percent: -1 }).limit(20);
 
     q.exec(function(err, webs) {
         console.log(webs);
