@@ -5,6 +5,7 @@ google.charts.load('current', { 'packages': ['corechart'] });
 //google.charts.setOnLoadCallback(drawChart_bar);
 google.charts.setOnLoadCallback(drawChart_newuser);
 google.charts.setOnLoadCallback(drawChart_stackedchart);
+google.charts.setOnLoadCallback(drawChart_stackedchart_mobdesk_all);
 google.charts.setOnLoadCallback(drawChart_ppv_all);
 google.charts.setOnLoadCallback(drawChart_timetraffic_all);
 //google.charts.setOnLoadCallback(drawChart_social);
@@ -119,10 +120,11 @@ function drawChart_stackedchart() {
             var options = {
                 title: 'Want to Expand your User base? Target websites with lot of new users!!',
                 isStacked:true,
-                vAxis: { title: "No. of New users" },
+                vAxis: { title: "Domain" },
+                
                 width: 550,
                 height: 350,
-                legend: { position: "none" },
+                legend: { position: "right" },
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
@@ -130,6 +132,70 @@ function drawChart_stackedchart() {
             };
 
             var chart = new google.visualization.BarChart(document.getElementById('stackedchart'));
+            chart.draw(chartData, options);
+        }
+    })
+}
+
+function drawChart_stackedchart_mobdesk_all() {
+
+    $.ajax({
+        url: "/dashboard_stackedchart_mobdesk_all",
+        type: 'GET',
+        success: function(resData) {
+            var results = resData.webs;
+
+
+            var columns = Object.keys(results[0]);
+            var colors = ["#f4a142"];
+            var i = 0;
+            var data = results.map(function(result) {
+                var tableRow = [];
+                columns.forEach(function(col) {
+
+                    if (col == "Desktop_Share") {
+
+                        result[col] = parseInt(result[col]*100);
+                        tableRow.splice(2, 0, result[col]);
+                    }else 
+
+                    if (col == "Mobile_Share") {
+
+                        result[col] = parseInt(result[col]*100);
+                        tableRow.splice(1, 0, result[col]);
+                    } else if (col == "Domain") {
+                        tableRow.splice(0, 0, result[col]);
+                    }
+                });
+
+                tableRow.splice(3, 0, colors[i]);
+                i += 1;
+                return tableRow;
+
+            });
+
+            var tableRow = [];
+            columns.forEach(function(col) {
+                tableRow.push(col);
+            })
+            tableRow.push({ role: 'style' });
+            data.splice(0, 0, tableRow);
+
+            var chartData = google.visualization.arrayToDataTable(data);
+            var options = {
+                title: 'Desktop Vs Mobile Users',
+                isStacked:true,
+                vAxis: { title: "Domain" },
+                width: 550,
+                height: 350,
+                legend: { position: "right" },
+                titleTextStyle: {
+                    fontSize: 14, // 12, 18 whatever you want (don't specify px)
+                    bold: true, // true or false
+                }
+            };
+
+            var chart = new google.visualization.BarChart(document.getElementById('stackedchart_mobdesk_all'));
             chart.draw(chartData, options);
         }
     })
