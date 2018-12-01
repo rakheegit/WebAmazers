@@ -123,7 +123,7 @@ function drawChart_stackedchart() {
                 vAxis: { title: "Domain" },
                 
                 width: 550,
-                height: 350,
+                height: 550,
                 legend: { position: "right" },
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
@@ -187,7 +187,7 @@ function drawChart_stackedchart_mobdesk_all() {
                 isStacked:true,
                 vAxis: { title: "Domain" },
                 width: 550,
-                height: 350,
+                height: 550,
                 legend: { position: "right" },
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
