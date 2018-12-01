@@ -187,7 +187,7 @@ function drawChart_stackedchart_mobdesk_all() {
                 isStacked: true,
                 //     vAxis: { title: "Domain" },
                 width: 1250,
-                height: 850,
+                height: 650,
                 bar: { groupWidth: "50%" },
                 legend: { position: "right" },
                 colors: ["#8D9440", "#FF6F61"],
@@ -312,7 +312,7 @@ function drawChart_ppv_all() {
                 title: 'High Traffic Websites - Top 20',
                 colors: ['#EC9787'],
                 width: 1250,
-                height: 850,
+                height: 650,
                 legend: { position: "none" },
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
