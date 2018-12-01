@@ -92,7 +92,7 @@ function drawChart_stackedchart() {
 
                         result[col] = parseInt(result[col] / 100000);
                         tableRow.splice(2, 0, result[col]);
-                    }else 
+                    } else
 
                     if (col == "Avg_Month_Visits") {
 
@@ -119,9 +119,9 @@ function drawChart_stackedchart() {
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'Want to Expand your User base? Target websites with lot of new users!!',
-                isStacked:true,
-                vAxis: { title: "Domain" },
-                
+                isStacked: true,
+                //      vAxis: { title: "Domain" },
+
                 width: 550,
                 height: 550,
                 legend: { position: "right" },
@@ -155,13 +155,13 @@ function drawChart_stackedchart_mobdesk_all() {
 
                     if (col == "Desktop_Share") {
 
-                        result[col] = parseInt(result[col]*100);
+                        result[col] = parseInt(result[col] * 100);
                         tableRow.splice(2, 0, result[col]);
-                    }else 
+                    } else
 
                     if (col == "Mobile_Share") {
 
-                        result[col] = parseInt(result[col]*100);
+                        result[col] = parseInt(result[col] * 100);
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "Domain") {
                         tableRow.splice(0, 0, result[col]);
@@ -183,19 +183,21 @@ function drawChart_stackedchart_mobdesk_all() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Desktop Vs Mobile Users',
-                isStacked:true,
-                vAxis: { title: "Domain" },
-                width: 550,
-                height: 550,
+                title: 'Percentage of Desktop Vs Mobile Visitors',
+                isStacked: true,
+                //     vAxis: { title: "Domain" },
+                width: 1250,
+                height: 850,
+                bar: { groupWidth: "50%" },
                 legend: { position: "right" },
+                colors: ["#8D9440", "#FF6F61"],
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
                 }
             };
 
-            var chart = new google.visualization.BarChart(document.getElementById('stackedchart_mobdesk_all'));
+            var chart = new google.visualization.ColumnChart(document.getElementById('stackedchart_mobdesk_all'));
             chart.draw(chartData, options);
         }
     })
@@ -308,7 +310,7 @@ function drawChart_ppv_all() {
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'High Traffic Websites - Top 20',
-                colors: ['#DD4132'],
+                colors: ['#EC9787'],
                 width: 1250,
                 height: 850,
                 legend: { position: "none" },
