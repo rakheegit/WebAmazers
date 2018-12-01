@@ -231,7 +231,7 @@ module.exports.get_dashboard_newuser = function(req, res) {
 };
 
 module.exports.get_dashboard_stackedchart = function(req, res) {
-    var q = generalWebsitesSchema.find({},{"Domain":1, "Unique_Visitors":1,"Avg_Month_Visits":1, "_id":0}).sort({ "Unique_Visitors": -1 }).limit(20);
+    var q = generalWebsitesSchema.find({},{"Domain":1, "Unique_Users":1,"Avg_Month_Visits":1, "_id":0}).sort({ "Unique_Visitors": -1 }).limit(20);
     q.exec(function(err, webs) {
         //console.log(webs);
         return res.send({ webs: webs });

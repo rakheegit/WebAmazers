@@ -87,7 +87,7 @@ function drawChart_stackedchart() {
                 var tableRow = [];
                 columns.forEach(function(col) {
 
-                    if (col == "Unique_Visitors") {
+                    if (col == "Unique_Users") {
 
                         result[col] = parseInt(result[col] / 100000);
                         tableRow.splice(2, 0, result[col]);
@@ -117,7 +117,7 @@ function drawChart_stackedchart() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Want to Expand your User base? Here is the way!',
+                title: 'Want to Expand your User base? Target websites with lot of new users!!',
                 isStacked:true,
                 vAxis: { title: "No. of New users" },
                 width: 550,
