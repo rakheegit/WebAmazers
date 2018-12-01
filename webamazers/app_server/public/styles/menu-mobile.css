@@ -1,0 +1,362 @@
+/* ------------------------------
+
+	remove scroll
+
+------------------------------ */
+
+.no-scroll {
+	overflow: hidden;
+	touch-action: none;
+}
+
+
+
+
+
+/* ------------------------------
+
+	mobile menu & burger menu
+	https://codepen.io/designcouch/pen/Atyop
+
+------------------------------ */
+
+/* menu container */
+.mobile-menu {
+	display: none;
+	/* align to the right */ 
+	position: absolute;
+	height: 40px;
+	top: 50%;
+	margin-top: -20px;
+	right: 0;
+}
+	
+	/* text + icon */
+	.mobile-menu__icon,
+	.mobile-menu > span {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.mobile-menu > span {
+		letter-spacing: 0.2em;
+		position: relative;
+		z-index: 1115;
+	}
+
+	/* icon */
+	.mobile-menu__icon {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		position: relative;
+	}
+
+	/* animated background for the menu */
+	.mobile-menu__icon:after {
+		z-index: 1100;
+		content: '';
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		display: block;
+		background: inherit;
+		top: 50%;
+		right: 50%;
+		position: absolute;
+		-webkit-transition: .5s ease-in-out;
+		   -moz-transition: .5s ease-in-out;
+				transition: .5s ease-in-out;
+		-webkit-transform: translate3d(50%, -50%, 0);
+				transform: translate3d(50%, -50%, 0);
+		-webkit-transform-origin: center center;
+				transform-origin: center center;
+	}
+
+		/* when active increase size */
+		.mobile-menu--active .mobile-menu__icon:after {
+			width: 400vw;
+			height: 400vw;
+		}
+
+	.mobile-menu__button {
+		width: 100%;
+		height: 40px;
+		top: 0;
+		left: 0;
+		z-index: 1120;
+		position: absolute;
+	}
+
+/**
+ * Burger
+ */
+
+.burger {
+	z-index: 1110;
+	width: 50%;
+	height: 20px;
+	position: relative;
+	margin: 11px auto 0 auto;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: .5s ease-in-out;
+	-moz-transition: .5s ease-in-out;
+	-o-transition: .5s ease-in-out;
+	transition: .5s ease-in-out;
+}
+
+.burger span {
+	display: block;
+	position: absolute;
+	height: 2px;
+	width: 100%;
+	background: #fff;
+	border-radius: 9px;
+	opacity: 1;
+	left: 0;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: .25s ease-in-out;
+	-moz-transition: .25s ease-in-out;
+	-o-transition: .25s ease-in-out;
+	transition: .25s ease-in-out;
+}
+
+.burger span:nth-child(1) {
+	top: 0px;
+}
+
+.burger span:nth-child(2),
+.burger span:nth-child(3) {
+	top: 8px;
+}
+
+.burger span:nth-child(4) {
+	top: 16px;
+}
+
+.mobile-menu--active .burger span:nth-child(1) {
+	top: 8px;
+	width: 0%;
+	left: 50%;
+}
+
+.mobile-menu--active .burger span:nth-child(2) {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.mobile-menu--active .burger span:nth-child(3) {
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.mobile-menu--active .burger span:nth-child(4) {
+	top: 8px;
+	width: 0%;
+	left: 50%;
+}
+
+/* mobile */
+@media (max-width: 1023px) {
+
+	/* add animation to nav */
+	nav {
+		overflow: auto;
+		display: block;
+		visibility: hidden;
+		opacity: 0;
+		position: absolute;
+		top: 70px;
+		left: 0;
+		width: 100%;
+		height: calc(100vh - 70px);
+		-webkit-transition: opacity .5s ease-in-out .15s;
+		   -moz-transition: opacity .5s ease-in-out .15s;
+				transition: opacity .5s ease-in-out .15s;
+	}
+
+	/* show mobile menu */
+	.mobile-menu {
+		display: block;
+		right: 2.500rem;
+	}
+
+	/* show nav when active */
+	.mobile-menu--active ~ nav {
+		visibility: visible;
+		z-index: 1500;
+		opacity: 1;
+	}
+
+	/* change list item visual */
+	.mobile-menu--active ~ nav .header__nav > li {
+		display: block;
+		text-align: center;
+		margin: 2.500rem 0;
+	}
+
+		/* update facebook call to action */
+		.mobile-menu--active ~ nav .header__nav > li .call-to-action {
+			display: inline-block;
+			width: auto;
+			padding: 1.500rem 3.000rem;
+		}
+
+	/* change font size */
+	.mobile-menu--active ~ nav .text-small {
+		font-size: 22px;
+		letter-spacing: 0.1em;
+	}
+
+	/* make icons in nav larger */
+	.header__social svg {
+		width: 32px;
+		height: 32px;
+	}
+
+		/* clear padding on social icons */
+		.header__nav > li > a.header__social {
+			padding-top: 0;
+		}
+
+}
+
+/* mobile */
+@media (max-width: 767px) {
+
+	/* nav postion */
+	nav {
+		top: 70px;
+		height: calc(100vh - 70px);
+	}
+
+	/* menu container */
+	.mobile-menu {
+		right: 2.000rem;
+	}
+
+	/* change list item visual */
+	.mobile-menu--active ~ nav .header__nav > li {
+		margin: 1.250rem 0;
+	}
+
+		/* update facebook call to action */
+		.mobile-menu--active ~ nav .header__nav > li .call-to-action {
+			padding: 1.000rem 1.500rem;
+		}
+
+	/* change font size */
+	.mobile-menu--active ~ nav .text-small {
+		font-size: 14px;
+		letter-spacing: 0.05em;
+	}
+
+	/* make icons in nav larger */
+	.header__social svg {
+		width: 24px;
+		height: 24px;
+	}
+
+}
+
+/* mobile */
+@media (max-width: 411px) {
+	
+	/* nav postion */
+	nav {
+		top: 60px;
+		height: calc(100vh - 60px);
+	}
+
+	/* menu container */
+	.mobile-menu { right: 1.300rem; }
+
+}
+
+/* mobile */
+@media (max-width: 374px) {
+	
+	/* nav postion */
+	nav {
+		top: 50px;
+		height: calc(100vh - 50px);
+	}
+
+	/* change font size */
+	.mobile-menu--active ~ nav .text-small {
+		font-size: 12px;
+	}
+
+	/* change list item visual */
+	.mobile-menu--active ~ nav .header__nav > li {
+		margin: 0.850rem 0;
+	}
+
+		/* update facebook call to action */
+		.mobile-menu--active ~ nav .header__nav > li .call-to-action {
+			padding: 0.750rem 1.500rem;
+		}
+
+}
+
+/* mobile devices */
+@media (pointer: coarse) {
+
+	/* need to clear hover */
+	.header__nav > li > a:not(.call-to-action--facebook):not(.active):hover {
+		text-decoration: none;
+	}
+
+}
+
+/* mobile landscape */
+@media (max-height: 480px) and (orientation: landscape) {
+
+	/* menu in-line for landscapes */
+
+	/* change list item visual */
+	.mobile-menu--active ~ nav {
+		text-align: center;
+	}
+	.mobile-menu--active ~ nav .header__nav > li {
+		display: inline-block;
+		margin: 0.500rem 0.750rem;
+		font-size: 12px;
+	}
+
+		/* update facebook call to action */
+		.mobile-menu--active ~ nav .header__nav > li .call-to-action {
+			display: inline-block;
+			width: auto;
+			padding: 0.750rem 1.500rem;
+		}
+
+}
+
+/* iPhoneX portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) {
+
+	.mobile-menu--active ~ nav .header__nav > li {
+		font-size: 16px;
+		margin: 1.750rem 0;
+	}
+
+}
+
+
+
+

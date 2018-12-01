@@ -1,0 +1,318 @@
+/* ------------------------------
+
+	Border box
+	https://css-tricks.com/box-sizing/
+
+------------------------------ */
+
+html {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+			box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	-webkit-box-sizing: inherit;
+	   -moz-box-sizing: inherit;
+			box-sizing: inherit;
+}
+
+
+
+
+
+/* ------------------------------
+
+	Content container
+
+------------------------------ */
+
+html,
+body,
+.content {
+	width: 100%;
+	height: 100%;
+}
+
+.content {
+	height: auto;
+}
+
+
+
+
+
+/* ------------------------------
+
+	Margins
+
+------------------------------ */
+
+/* margins are based on font size */
+html, body { font-size: 15px; }
+
+/* medium destkops */
+@media (min-height: 700px) and (min-width: 1024px) and (orientation: landscape) { html, body { font-size: 16px; } }
+/* large desktops */
+@media (min-height: 800px) and (min-width: 1024px) and (orientation: landscape) { html, body { font-size: 20px; } }
+
+/* default */
+.margin-b { margin-bottom: 1.250rem; }
+.margin-r { margin-right: 1.250rem; }
+.margin-l { margin-left: 1.250rem; }
+.margin-t { margin-top: 1.250rem; }
+
+/* half */
+.margin-b-half { margin-bottom: 0.625rem; }
+.margin-r-half { margin-right: 0.625rem; }
+.margin-l-half { margin-left: 0.625rem; }
+.margin-t-half { margin-top: 0.625rem; }
+
+/* large */
+.margin-b-large { margin-bottom: 2.500rem; }
+.margin-r-large { margin-right: 2.500rem; }
+.margin-l-large { margin-left: 2.500rem; }
+.margin-t-large { margin-top: 2.500rem; }
+
+/* extra large */
+.margin-b-xlarge { margin-bottom: 4.000rem; }
+.margin-r-xlarge { margin-right: 4.000rem; }
+.margin-l-xlarge { margin-left: 4.000rem; }
+.margin-t-xlarge { margin-top: 4.000rem; }
+
+
+
+
+
+/* ------------------------------
+
+	Wrap of content
+
+------------------------------ */
+
+.wrap {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+/* large destkops */
+@media (min-height: 800px) and (min-width: 1300px) and (orientation: landscape) { .wrap { width: 1100px; } }
+
+/* small destkops */
+@media (min-width: 1024px) and (max-width: 1099px) { .wrap { width: 900px; } }
+
+/* tablet portrait */
+@media (min-width: 768px) and (max-width: 1023px) { .wrap { width: calc(100% - 6.000rem); } }
+
+/* mobiles */
+@media (max-width: 767px) { .wrap { width: calc(100% - 5.000rem); } }
+
+/* mobile */
+@media (max-width: 411px) { .wrap { width: calc(100% - 4.000rem); } }
+
+
+
+
+
+/* ------------------------------
+
+	Section
+
+------------------------------ */
+
+/* section container */
+.section {
+	display: block;
+	height: 100vh;
+	width: 100%;
+	position: relative;
+	min-height: 500px;
+}
+
+	/* hide overflow for home */
+	.section--home {
+		overflow: hidden;
+	}
+
+	/* set z-index for home */
+	.section--home > .section__content {
+		position: relative;
+		z-index: 550;
+	}
+
+/* section content container */
+.section__content {
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+/* mobile */
+@media (max-width: 767px) {
+
+}
+
+/* mobile */
+@media (max-width: 411px) {
+
+}
+
+/* mobile */
+@media (max-width: 374px) {
+
+	/* add padding header height + margin */
+	.section--team,
+	.section--vlog {
+		padding-top: calc(50px + 2.500rem);
+		padding-bottom: calc(50px + 2.500rem);
+	}
+
+}
+
+/* mobile landscape */
+@media (max-width: 812px) and (orientation: landscape) {
+
+	.section {
+		/* we need auto height in mobile landscape */
+		height: auto;
+		min-height: 100%;
+		/* add padding header height + margin */
+		padding-top: calc(70px + 2.500rem);
+		padding-bottom: calc(70px + 2.500rem);
+	}
+
+}
+
+/*
+
+Height on mobiles is jumping becouse of toolbars showing/hiding.
+So we can't use 100% height or 100vh. We need to calculalte
+the height based on width and using aspect ratios
+Taken form here:
+https://stackoverflow.com/questions/24944925/background-image-jumps-when-address-bar-hides-ios-android-mobile-chrome
+
+This is for mobile portraits
+
+*/
+
+@media (max-width: 767px) and (orientation: portrait) and (max-device-aspect-ratio: 3/4)   {
+
+	/* default */
+	.section { height: calc(100vw * 1.333); }
+
+}
+
+@media (max-width: 767px) and (orientation: portrait) and (max-device-aspect-ratio: 2/3)   { 
+
+	/* default */
+	.section { height: calc(100vw * 1.500); }
+
+}
+
+@media (max-width: 767px) and (orientation: portrait) and (max-device-aspect-ratio: 10/16) {
+
+	/* default */
+	.section { height: calc(100vw * 1.600); }
+
+}
+
+@media (max-width: 767px) and (orientation: portrait) and (max-device-aspect-ratio: 9/16)  {
+
+	/* default */
+	.section { height: calc(100vw * 1.778); }
+
+}
+
+/* iPhoneX portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) {
+
+	/* default */
+	.section { height: calc(100vw * 2.000); }
+
+}
+
+
+/*
+cards from bootstrap in the how it workd section
+*/
+.container{
+	max-width:1000px;
+	width:100%
+}
+.card{
+	height:50%
+}
+
+
+/* ------------------------------
+
+	Cols
+
+------------------------------ */
+
+/* col container */
+.cols {
+	width: 100%;
+	display: flex;
+    flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+/* default col */
+.col {  }
+
+	/* two cols */
+	.col--two { flex: 1; }
+
+	/* full width col */
+	.col--full { width: 100%; }
+
+	/* auto width col */
+	.col--auto + .col { flex: 1; }
+
+	/* col in about section */
+	.col.col--about { width: 380px; }
+
+	/* distribute equaly */
+	.col--three { flex: 1; }
+
+/* responsive */
+
+/* small destkops */
+@media (min-height: 650px) and (min-width: 1024px) { .col.col--about { width: 750px; } }
+/* large destkops */
+@media (min-height: 800px) and (min-width: 1024px) { .col.col--about { width: 750px; } }
+/* tablet portrait */
+@media (min-width: 768px) and (max-width: 1023px) {
+	.col.col--about { width: 300px; }
+	.col--auto { flex: 1; }
+}
+/* mobile */
+@media (max-width: 767px) {
+
+	.col.col--about { width: auto; }
+
+	.section--home .col,
+	.section--team .col,
+	.section--team .col--auto,
+	.section--vlog .col {
+		flex: auto;
+		width: 100%;
+		margin-right: 0;
+	}
+}
+/* mobile */
+@media (max-width: 567px) { .col.col--three { flex: auto; width: 100%; } }
+
+/* mobile landscape */
+@media (max-width: 767px) and (orientation: landscape) {
+}
+
+
+
+

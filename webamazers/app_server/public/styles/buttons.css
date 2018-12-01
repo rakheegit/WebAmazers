@@ -1,0 +1,148 @@
+/* ------------------------------
+
+	Call to action buttons
+
+------------------------------ */
+
+/* default style */
+.call-to-action {
+	display: block;
+	width: 100%;
+	text-decoration: none;
+}
+
+	.call-to-action--off {
+		opacity: 0.3;
+	}
+
+/* main large button on home section */
+.call-to-action--main {
+	padding: 1.300rem;
+	border-radius: 40px;
+	width: 320px;
+	letter-spacing: 0.10em;
+}
+
+/* facebook button in the menu */
+.call-to-action--facebook {
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 2.000rem;
+	padding-left: 1.000rem;
+	padding-right: 1.000rem;
+}
+
+	/* hover */
+	.call-to-action--facebook:hover {
+		text-decoration: none;
+		opacity: 0.5;
+	}
+
+/* on about page need to center */
+.call-to-action--about {
+	margin: auto;
+}
+
+/* youtube button */
+.call-to-action--youtube {
+	width: auto;
+	float: right;
+	border-width: 2px;
+	border-style: solid;
+	padding: 6px 20px;
+	border-radius: 20px;
+	margin-left: 1.000rem;
+}
+
+	/* youtube button */
+	.call-to-action--youtube:hover {
+		opacity: 0.5;
+	}
+
+/* case studies button */
+.call-to-action--case-studies {
+	border-width: 2px;
+	border-style: solid;
+	padding: 1em 0;
+	border-radius: 30px;
+}
+
+/* inline border button */
+.call-to-action--border {
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 2em;
+	display: inline-block;
+	width: auto;
+	padding: 0.5em 1em;
+}
+
+/* large destkops */
+@media (min-height: 700px) and (min-width: 1024px) and (orientation: landscape) {
+	/* resize main call to action button */
+	.call-to-action--main { width: 360px; }
+}
+
+/* super large destkops */
+@media (min-height: 800px) and (min-width: 1024px) and (orientation: landscape) {
+	/* resize main call to action button */
+	.call-to-action--main { width: 400px; }
+}
+
+/* super small destkops in height */
+@media (max-height: 549px) and (min-width: 1024px) and (orientation: landscape) {
+
+	/* resize main call to action button */
+	.call-to-action--main {
+		padding: 1.000rem;
+		width: 280px;
+		font-size: 14px;
+	}
+
+}
+
+/* small destkops */
+@media (max-height: 599px) and (min-width: 1024px),
+(min-width: 1024px) and (max-width: 1099px) {
+	.call-to-action--youtube {
+		line-height: 16px;
+	}
+}
+
+/* mobile */
+@media (max-width: 767px) {
+	
+	.call-to-action--main {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.call-to-action--case-studies {
+		display: inline-block;
+		width: auto;
+		border-radius: 2em;
+		padding: 0.5em 1em;
+	}
+
+}
+
+/* mobile */
+@media (max-width: 767px) and (orientation: portrait) {
+	.call-to-action--main {
+		width: 100%;
+		max-width: 420px;
+	}
+}
+
+/* small and old mobiles */
+@media (max-width: 374px) {
+	.call-to-action--border {
+		border-width: 2px;
+		border-style: solid;
+		padding: 0.4em 1em;
+	}
+}
+
+
+
+

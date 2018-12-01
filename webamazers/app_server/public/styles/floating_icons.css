@@ -1,0 +1,94 @@
+/* ------------------------------
+
+	Dumbbell icons
+	https://codepen.io/brandondward/pen/yMxPYZ
+
+------------------------------ */
+
+/* container for dumbels */
+.dumbells {
+	width: 100%;
+  	height: 100%;
+	margin: 0 auto;
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	z-index: 500;
+}
+
+.dumbbell {
+	position: relative;
+}
+
+/* dumbbell icon */
+.dumbbell:before,
+.dumbbell:after {
+	content: '';
+	display: block;
+	background-image: url("../images/icon_twitter.svg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	opacity: 0.40;
+}
+
+.dumbbell:after {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+	/* icon sizes */
+	.dumbbell--1:before, .dumbbell--1:after  { width: 1.600rem; height: 1.600rem; }
+	.dumbbell--2:before, .dumbbell--2:after  { width: 2.400rem; height: 2.400rem; }
+	.dumbbell--3:before, .dumbbell--3:after  { width: 1.400rem; height: 1.400rem; }
+	.dumbbell--4:before, .dumbbell--4:after  { width: 1.600rem; height: 1.600rem; }
+	.dumbbell--5:before, .dumbbell--5:after  { width: 0.800rem; height: 0.800rem; }
+	.dumbbell--6:before, .dumbbell--6:after  { width: 2.000rem; height: 2.000rem; }
+	.dumbbell--7:before, .dumbbell--7:after  { width: 1.100rem; height: 1.100rem; }
+	.dumbbell--8:before, .dumbbell--8:after  { width: 1.600rem; height: 1.600rem; }
+	.dumbbell--9:before, .dumbbell--9:after  { width: 0.900rem; height: 0.900rem; }
+	.dumbbell--10:before, .dumbbell--10:after { width: 1.700rem; height: 1.700rem; }
+
+/* change some with on elements */
+.dumbbell--6 { width: 50%; margin-left: 25%; }
+.dumbbell--8 { width: 70%; margin-left: 15%; }
+
+
+/* ------------------------------
+
+	Animations
+
+------------------------------ */
+
+.dumbbell {
+	backface-visibility: hidden;
+	perspective: 1000;
+}
+
+/* set the animations for each icon */
+.dumbbell--1  { animation: dumbbell-1 32s linear infinite; }
+.dumbbell--2  { animation: dumbbell-2 42s linear infinite; }
+.dumbbell--3  { animation: dumbbell-3 47s linear infinite; }
+.dumbbell--4  { animation: dumbbell-4 50s linear infinite; }
+.dumbbell--5  { animation: dumbbell-5 46s linear infinite; }
+.dumbbell--6  { animation: dumbbell-6 21s linear infinite; }
+.dumbbell--7  { animation: dumbbell-7 47s linear infinite; }
+.dumbbell--8  { animation: dumbbell-8 13s linear infinite; }
+.dumbbell--9  { animation: dumbbell-9 42s linear infinite; }
+.dumbbell--10 { animation: dumbbell-10 47s linear infinite; }
+
+/* animations */
+@keyframes dumbbell-1  { 0% { transform: translate3d(0, 0, 0) rotate(50deg);  } 100% { transform: translate3d(0, 0, 0) rotate(360deg); } }
+@keyframes dumbbell-2  { 0% { transform: translate3d(0, 0, 0) rotate(260deg); } 100% { transform: translate3d(0, 0, 0) rotate(620deg); } }
+@keyframes dumbbell-3  { 0% { transform: translate3d(0, 0, 0) rotate(90deg);  } 100% { transform: translate3d(0, 0, 0) rotate(450deg); } }
+@keyframes dumbbell-4  { 0% { transform: translate3d(0, 0, 0) rotate(357deg); } 100% { transform: translate3d(0, 0, 0) rotate(717deg); } }
+@keyframes dumbbell-5  { 0% { transform: translate3d(0, 0, 0) rotate(320deg); } 100% { transform: translate3d(0, 0, 0) rotate(680deg); } }
+@keyframes dumbbell-6  { 0% { transform: translate3d(0, 0, 0) rotate(360deg); } 100% { transform: translate3d(0, 0, 0) rotate(0deg); } }
+@keyframes dumbbell-7  { 0% { transform: translate3d(0, 0, 0) rotate(131deg); } 100% { transform: translate3d(0, 0, 0) rotate(491deg); } }
+@keyframes dumbbell-8  { 0% { transform: translate3d(0, 0, 0) rotate(172deg); } 100% { transform: translate3d(0, 0, 0) rotate(32deg); } }
+@keyframes dumbbell-9  { 0% { transform: translate3d(0, 0, 0) rotate(173deg); } 100% { transform: translate3d(0, 0, 0) rotate(533deg); } }
+@keyframes dumbbell-10 { 0% { transform: translate3d(0, 0, 0) rotate(199deg); } 100% { transform: translate3d(0, 0, 0) rotate(559deg); } }
+
+
+
+

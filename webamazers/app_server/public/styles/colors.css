@@ -1,0 +1,57 @@
+/* ------------------------------
+
+	Light color
+	#ffffff
+
+------------------------------ */
+
+.color-light-bg     { background: #fff; }
+.color-light-text   { color: #fff; }
+.color-light-fill   { fill: #fff; }
+.color-light-border { border-color: #fff; }
+
+/* ------------------------------
+
+	Main color
+	#00ad77
+
+------------------------------ */
+
+.color-main-bg     { background: #00ad77; }
+.color-main-text   { color: #00ad77; }
+.color-main-fill   { fill: #00ad77; }
+.color-main-border { border-color: #00ad77; }
+
+/* call to action hover color */
+.call-to-action.color-main-bg:hover { background: #007a54; }
+
+/* ------------------------------
+
+	Main Darker
+	#17a377
+
+------------------------------ */
+
+.color-main-dark-bg     { background: #17a377; }
+.color-main-dark-text   { color: #17a377; }
+.color-main-dark-fill   { fill: #17a377; }
+.color-main-dark-border { border-color: #17a377; }
+
+/* ------------------------------
+
+	Dark
+	#002e1f
+
+------------------------------ */
+
+.color-dark-bg     { background: #002e1f; }
+.color-dark-text   { color: #002e1f; }
+.color-dark-fill   { fill: #002e1f; }
+.color-dark-border { border-color: #002e1f; }
+
+/* call to action hover color */
+.call-to-action.color-dark-bg:hover { background: #000; }
+
+
+
+

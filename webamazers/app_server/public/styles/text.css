@@ -1,0 +1,115 @@
+/* ------------------------------
+
+	Default
+
+------------------------------ */
+
+#logo-title
+html,
+body{
+	font-family: 'Open Sans', sans-serif;
+	line-height: 100%;
+	letter-spacing: 0.025em;
+	/* tur off ios font adjustment */
+	-webkit-text-size-adjust: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+	line-height: 1.5em;
+}
+
+h1.text-title,
+h2.text-title,
+h3.text-title,
+.text-title {
+	line-height: 1.3em;
+}
+
+/* default hover */
+a:hover {
+	text-decoration: none;
+}
+
+
+
+
+
+/* ------------------------------
+
+	Text sizes
+
+------------------------------ */
+
+.text-xsmall  { font-size: 9px; }
+.text-small   { font-size: 11px; }
+.text-default { font-size: 14px; }
+.text-medium  { font-size: 18px; }
+.text-large   { font-size: 22px; }
+.text-xlarge  { font-size: 32px; }
+.text-xxlarge { font-size: 46px; }
+
+/* large destkops */
+@media (min-height: 800px) and (min-width: 1024px) and (orientation: landscape) {
+
+	.text-xsmall  { font-size: 10px; }
+	.text-small   { font-size: 12px; }
+	.text-default { font-size: 16px; }
+	.text-medium  { font-size: 20px; }
+	.text-large   { font-size: 22px; }
+	.text-xlarge  { font-size: 36px; }
+	.text-xxlarge { font-size: 50px; }
+
+}
+
+/* small destkops in height */
+@media (max-height: 649px) and (min-width: 1024px) and (orientation: landscape) {
+	
+	.text-default { font-size: 12px; }
+
+}
+
+/* super small destkops in height */
+@media (max-height: 549px) and (min-width: 1024px) and (orientation: landscape) {
+	
+	.text-xlarge  { font-size: 26px; }
+	.text-xxlarge { font-size: 38px; }
+
+}
+
+
+
+
+
+/* ------------------------------
+
+	Text styles
+
+------------------------------ */
+
+.text-upper {
+	text-transform: uppercase;
+}
+
+.text-strong,
+strong {
+	font-weight: bold;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-left {
+	text-align: left;
+}
+
+
+
+

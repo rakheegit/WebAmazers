@@ -1,0 +1,1249 @@
+/* ------------------------------
+
+	Home page
+
+------------------------------ */
+
+.fitswap-phone-mockup {
+	height: 60vh;
+	min-height: 300px;
+	max-height: 500px;
+	width: auto;
+}
+
+.fitswap-code {
+	width: 100%;
+	height: auto;
+}
+
+.fitswap-code--default {
+	display: block;
+}
+
+.link-to-code {
+	display: none;
+}
+
+/* small destkops */
+
+@media (max-height: 649px) and (min-width: 1024px) and (orientation: landscape) {
+	.fitswap-code {
+		width: auto;
+		height: 55vh;
+		margin: auto;
+	}
+	.section--home .text-default {
+		font-size: 11px;
+	}
+}
+
+/* tablets and desktops */
+
+@media (min-width: 1024px) {
+	/* add a line break for subtitle */
+	.section--home .col--two:nth-child(1) .text-large span {
+		display: block;
+	}
+	.section--home .col--two:nth-child(1) .text-default span {
+		display: block;
+	}
+}
+
+/* tablets and desktops */
+
+@media (min-width: 768px) {
+	.section--home .text-medium {
+		max-width: 500px;
+	}
+}
+
+/* tablet portrait */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+	.section--home .text-xxlarge {
+		font-size: 36px;
+	}
+}
+
+/* tablet portrait */
+
+@media (min-width: 768px) and (min-height: 900px) and (orientation: portrait) {
+	.section--home .cols {
+		flex-direction: column;
+		justify-content: center;
+	}
+	.fitswap-code {
+		width: auto;
+		height: 35vh;
+	}
+	.section--home .col--two:nth-child(1) {
+		text-align: center;
+		margin-right: 0;
+	}
+	.section--home .call-to-action {
+		margin: 0 auto 2.500rem auto;
+	}
+}
+
+/* mobile */
+
+@media (max-width: 767px) {
+	.section--home .text-xxlarge {
+		font-size: 36px;
+	}
+}
+
+/* mobile portrait */
+
+@media (max-width: 767px) and (orientation: portrait) {
+	.section--home {
+		height: auto;
+	}
+	/* create layout for code to be in its own screen */
+	.section--home .col--two:nth-child(1) {
+		padding-top: 22vh;
+		padding-bottom: 5vh
+	}
+	.section--home .col--two:nth-child(2) {
+		padding-bottom: 16vh
+	}
+	.section--home .col--two:nth-child(2) h3.text-default {
+		margin-top: 90px;
+	}
+	.section--home .col--two:nth-child(2) .text-default span {
+		display: block;
+		font-size: 22px;
+	}
+	.fitswap-code--default {
+		display: none;
+	}
+	/* set smaller large margin */
+	.section--home .col--two:nth-child(1) .margin-b-large {
+		margin-bottom: 1.250rem;
+	}
+	/* link to fitswap code */
+	.link-to-code {
+		display: block;
+		margin-top: 5vh;
+	}
+}
+
+/* mobile */
+
+@media (max-width: 411px) {
+	.section--home .text-xxlarge {
+		font-size: 32px;
+	}
+}
+
+/* small mobiles */
+
+@media (max-width: 374px) {
+	.section--home .text-xxlarge {
+		font-size: 24px;
+	}
+	.section--home .text-medium {
+		font-size: 16px;
+	}
+	.section--home .col--two:nth-child(1) .margin-b {
+		margin-bottom: 0.750rem;
+	}
+	.section--home .col--two:nth-child(1) .text-default {
+		font-size: 11px;
+	}
+	.section--home .col--two:nth-child(1) .text-large {
+		font-size: 16px;
+	}
+}
+
+/* iPhoneX portrait */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+	.section--home .col--two:nth-child(2) {
+		padding-bottom: 30vh;
+	}
+	.section--home .footer {
+		bottom: 15vh;
+	}
+}
+
+/* ------------------------------
+
+	About page
+
+------------------------------ */
+
+/* title container for icon + text */
+
+.about-title {
+	height: 6rem;
+	display: flex;
+	align-items: center;
+}
+
+/* ninja icon align to right */
+
+.about-title--ninja {
+	justify-content: flex-end;
+}
+
+/* icon container */
+.list-unstyled{
+	list-style: none;
+}
+.listed-items{
+	position: relative;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    line-height: 1.2;
+}
+
+.listed-items::before {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    content: "";
+    background-image: url('../images/check.svg');
+    background-size: contain;
+}
+.about-icon {
+	width: 120px;
+	height: 120px;
+	border-radius: 3rem;
+	position: relative;
+}
+
+/* icon image */
+
+.about-icon>img {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: block;
+}
+
+/* icon image */
+
+.card-icon {
+	width: 100%;
+	height: 70%;
+	display: flex;
+	justify-content: center;
+}
+.card-title{
+	width:100%;
+	height: 30%;
+}
+.card-header {
+	width:100%;
+	height: 30%;
+}
+
+.card-icon>img {
+	width: 100%;
+	height: 100%;
+	position: center;
+}
+
+/* hide mobile more info button */
+
+.section--about .col--about .call-to-action {
+	display: none;
+}
+
+/* change some margins for this section */
+
+.section--about .margin-t-large {
+	margin-top: 1.750rem;
+}
+
+.section--about .col--full .text-xlarge.margin-b {
+	margin-bottom: 0.500rem;
+}
+
+.section--about .cols .col:first-child .text-medium {
+	font-size: 16px;
+}
+
+.section--about .col--full:nth-child(2) {
+	display: flex;
+	justify-content: center;
+}
+
+/* small destkops */
+
+@media (max-height: 649px) and (min-width: 1024px) and (orientation: landscape) {
+	/* resize icon */
+	.about-title {
+		height: 5rem;
+	}
+	.about-icon {
+		width: 5rem;
+		height: 5rem;
+	}
+}
+
+/* super small destkops in height */
+
+@media (max-height: 549px) and (min-width: 1024px) and (orientation: landscape) {
+	/* resize icon */
+	.about-title {
+		height: 4rem;
+	}
+	.about-icon {
+		width: 4rem;
+		height: 4rem;
+		border: 2px solid #00ad77;
+	}
+}
+
+/* tablet landscape */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+	/* increase font size for text under icons */
+	.about-title+.text-default {
+		font-size: 15px;
+	}
+	/* first col with page title (get what you want) smaller width */
+	.section--about .cols .col--full:first-child {
+		width: 600px;
+	}
+}
+
+/* mobile */
+
+@media (max-width: 767px) {
+	/* set smaller font sizes */
+	.section--about .text-xlarge {
+		font-size: 23px;
+	}
+	.section--about .text-default {
+		font-size: 14px;
+	}
+	.section--about .about-title .text-large {
+		font-size: 16px;
+	}
+	.section--about .cols .col:first-child .text-medium {
+		font-size: 15px;
+	}
+	/* rearrange items */
+	.about-title {
+		height: auto;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	/* rearrange ninja icon */
+	.about-title--ninja {
+		flex-direction: column-reverse;
+		align-items: flex-end;
+	}
+	/* resize icon */
+	.about-icon {
+		width: 5rem;
+		height: 5rem;
+		border: 2px solid #00ad77;
+		margin-left: 0;
+		margin-right: 0;
+		margin-bottom: 0.500rem;
+	}
+	/* show mobile more info button */
+	.section--about .col--about .call-to-action {
+		display: inline-block;
+	}
+	/* set smaller margins */
+	.section--about .cols .col--full:first-child>.margin-b {
+		margin-bottom: 2.000rem;
+	}
+	.col--full.margin-t-large {
+		margin-top: 2.000rem;
+	}
+	.col--about.margin-r-large {
+		margin-right: 1.500rem;
+	}
+	.about-title.margin-b {
+		margin-bottom: 0.500rem;
+	}
+	/* todo: popup */
+	.col--about .text-default {
+		display: none;
+	}
+}
+
+/* mobile */
+
+@media (max-width: 411px) {
+	/* set smaller font sizes */
+	.section--about .text-xlarge {
+		font-size: 20px;
+	}
+	.section--about .text-default {
+		font-size: 13px;
+	}
+	.section--about .about-title .text-large {
+		font-size: 15px;
+	}
+	.section--about .cols .col:first-child .text-medium {
+		font-size: 12px;
+	}
+}
+
+/* mobile */
+
+@media (max-width: 374px) {
+	/* set smaller font sizes */
+	.section--about .text-xlarge {
+		font-size: 18px;
+	}
+	.section--about .text-default {
+		font-size: 12px;
+	}
+	.section--about .about-title .text-large {
+		font-size: 14px;
+	}
+	.section--about .cols .col:first-child .text-medium {
+		font-size: 9px;
+	}
+	/* resize icon */
+	.about-icon {
+		width: 4rem;
+		height: 4rem;
+	}
+	.section--about .cols .col--full:first-child>.margin-b {
+		margin-bottom: 1.000rem;
+	}
+}
+
+/* iPhoneX portrait */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+	.section--about .text-xlarge {
+		font-size: 22px;
+	}
+	.section--about .about-title .text-large {
+		font-size: 16px;
+	}
+	.section--about .cols .col:first-child .text-medium {
+		font-size: 14px;
+	}
+}
+
+/* ------------------------------
+
+	Case studies
+
+------------------------------ */
+
+.case-studies-image {
+	width: 2.500rem;
+	height: 2.500rem;
+	border-radius: 50%;
+	float: left;
+}
+
+/* set temp col size while we have just one case studie */
+
+/* can delete this later on */
+
+.col--three-temp {
+	flex: none;
+	width: 320px;
+	margin-bottom: 1.500rem;
+}
+
+@media (min-height: 700px) and (min-width: 1024px) and (orientation: landscape) {
+	.col--three-temp {
+		width: 360px;
+	}
+}
+
+@media (min-height: 800px) and (min-width: 1024px) and (orientation: landscape) {
+	.col--three-temp {
+		width: 400px;
+	}
+}
+
+@media (max-height: 549px) and (min-width: 1024px) and (orientation: landscape) {
+	.col--three-temp {
+		width: 280px;
+	}
+}
+
+/* super small destkops in height */
+
+@media (min-height: 650px) and (min-width: 1024px) and (max-width: 1099px) and (orientation: landscape) {
+	.section--case-studies .text-default {
+		font-size: 14px;
+	}
+}
+
+/* super small destkops in height */
+
+@media (max-height: 599px) and (min-width: 1024px) and (orientation: landscape) {
+	.section--case-studies .margin-t-large {
+		margin-top: 1.500rem;
+	}
+	.section--case-studies .margin-b-large {
+		margin-bottom: 1.500rem;
+	}
+	.section--case-studies .text-xlarge.margin-b-half {
+		margin-bottom: 0;
+	}
+	.section--case-studies .col--three .text-medium {
+		font-size: 16px;
+	}
+	.section--case-studies .col--three .margin-b {
+		margin-bottom: 1.000rem;
+	}
+}
+
+/* mobile landscape */
+
+@media (max-width: 767px) and (orientation: landscape) {
+	.section--case-studies .col--three .text-medium {
+		font-size: 16px;
+	}
+	.section--case-studies .col--three .text-default {
+		font-size: 12px;
+	}
+}
+
+/* mobile landscape */
+
+@media (max-width: 666px) and (orientation: landscape) {
+	.section--case-studies .col--three .text-default {
+		font-size: 10px;
+	}
+	.section--case-studies .col--three.margin-r-large {
+		margin-right: 2.000rem;
+	}
+}
+
+/* mobile */
+
+@media (max-width: 767px) {
+	/* set smaller font sizes */
+	.section--case-studies .text-xlarge {
+		font-size: 23px;
+	}
+	.section--case-studies .text-default {
+		font-size: 14px;
+	}
+	.section--case-studies .cols .col:first-child .text-medium {
+		font-size: 17px;
+	}
+}
+
+/* mobile */
+
+@media (max-width: 567px) {
+	.col.col--three.margin-r-large {
+		margin-right: 0;
+		margin-bottom: 1.000rem;
+	}
+	.case-studies-image {
+		width: 3.000rem;
+		height: 3.000rem;
+	}
+	.section--case-studies .text-default {
+		display: none;
+	}
+	.section--case-studies .col--three {
+		position: relative;
+	}
+	.call-to-action--case-studies {
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: block;
+		height: 3.000rem;
+		padding: 0.850rem 1.500rem 0 1.500rem;
+	}
+	.section--case-studies .case-studies-image+.text-medium {
+		width: 170px;
+	}
+}
+
+/* mobile */
+
+@media (max-width: 411px) {
+	/* set smaller font sizes */
+	.section--case-studies .text-xlarge {
+		font-size: 20px;
+	}
+	.section--case-studies .text-default {
+		font-size: 13px;
+	}
+	.section--case-studies .cols .col:first-child .text-medium {
+		font-size: 15px;
+	}
+	.section--case-studies .col--three .text-medium {
+		font-size: 16px;
+	}
+	/* change image size */
+	.case-studies-image {
+		width: 2.750rem;
+		height: 2.750rem;
+	}
+	.call-to-action--case-studies {
+		height: 2.750rem;
+		padding: 0.750rem 1.300rem 0 1.300rem;
+	}
+}
+
+/* mobile */
+
+@media (max-width: 374px) {
+	/* set smaller font sizes */
+	.section--case-studies .text-xlarge {
+		font-size: 18px;
+	}
+	.section--case-studies .text-default {
+		font-size: 12px;
+	}
+	.section--case-studies .cols .col:first-child .text-medium {
+		font-size: 12px;
+	}
+	.section--case-studies .col--three .text-medium {
+		font-size: 14px;
+	}
+	.section--case-studies .case-studies-image+.text-medium {
+		width: 150px;
+	}
+	/* change image size */
+	.case-studies-image {
+		width: 2.500rem;
+		height: 2.500rem;
+	}
+	.section--case-studies .margin-b-large {
+		margin-bottom: 1.500rem;
+	}
+	.call-to-action--case-studies {
+		height: 2.500rem;
+		padding: 0.625rem 1.000rem 0 1.000rem;
+		font-size: 9px;
+	}
+}
+
+/* iPhoneX portrait */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+	.section--case-studies .text-xlarge {
+		font-size: 28px;
+	}
+}
+
+/* ------------------------------
+
+	Case studies - Open
+
+------------------------------ */
+
+.section--case-studies-open .col--two>.text-default {
+	font-size: 15px;
+}
+
+.section--case-studies-open .col--two {
+	height: 355px;
+}
+
+.section--case-studies-open .col--two:first-child {
+	padding-top: 5px;
+}
+
+/* large destkops */
+
+@media (min-height: 800px) and (min-width: 1300px) and (orientation: landscape) {
+	.section--case-studies-open .col--two {
+		height: 400px;
+	}
+	.section--case-studies-open .col--two>.text-default {
+		font-size: 16px;
+	}
+	.section--case-studies-open .col--two>.text-default>.text-medium {
+		font-size: 22px;
+	}
+}
+
+/* small destkops in height */
+
+@media (max-height: 649px) and (min-width: 1024px) and (orientation: landscape) {
+	.section--case-studies-open {
+		padding-top: 70px;
+	}
+	.section--case-studies-open .col--full.margin-t-large {
+		margin-top: 1.000rem;
+	}
+}
+
+/* super small destkops in height */
+
+@media (max-height: 549px) and (min-width: 1024px) and (orientation: landscape) {
+	.section--case-studies-open .col--two {
+		height: 345px;
+	}
+	.section--case-studies-open {
+		padding-top: 60px;
+	}
+	.section--case-studies-open .col--two>.text-default {
+		font-size: 14px;
+	}
+	.section--case-studies-open .col--two>.text-default>.text-medium {
+		font-size: 18px;
+	}
+}
+
+/* small destkops */
+
+@media (min-width: 1024px) and (max-width: 1099px) {
+	.section--case-studies-open .col--two {
+		height: 330px;
+	}
+	.section--case-studies-open .col--two>.text-default {
+		font-size: 13px;
+	}
+	.section--case-studies-open .col--two>.text-default>.text-medium {
+		font-size: 18px;
+	}
+}
+
+/* mobiles */
+
+@media (max-width: 1023px) {
+	.section--case-studies-open .col--two {
+		height: auto;
+		max-width: 500px;
+		flex: auto;
+	}
+	.section--case-studies-open .col--two.margin-r-large {
+		margin-right: 0;
+		margin-bottom: 1.250rem;
+	}
+	.section--case-studies-open {
+		/* we need auto height in mobile landscape */
+		height: auto;
+		min-height: 100%;
+		/* add padding header height + margin */
+		padding-top: calc(70px + 2.500rem);
+		padding-bottom: 70px;
+	}
+}
+
+/* mobile */
+
+@media (max-width: 411px) {
+	.section--case-studies-open {
+		padding-top: calc(60px + 2.000rem);
+		padding-bottom: 60px;
+	}
+}
+
+@media (max-width: 374px) {
+	.section--case-studies-open {
+		padding-top: calc(50px + 2.000rem);
+		padding-bottom: 50px;
+	}
+}
+
+/* ------------------------------
+
+	Team
+
+------------------------------ */
+
+.fitswap-team {
+	height: 60vh;
+	max-height: 540px;
+	min-height: 300px;
+	width: auto;
+}
+
+.section--team .margin-b {
+	margin-bottom: 1.000rem;
+}
+
+.section--team .margin-b-large {
+	margin-bottom: 2.000rem;
+}
+
+.section--team .text-title>span {
+	display: block;
+}
+
+.section--team .call-to-action--border {
+	display: none;
+}
+
+.section--team .text-default {
+	font-size: 14px;
+	letter-spacing: 0;
+}
+
+/* destkops */
+
+@media (min-width: 1100px) and (max-width: 1299px) {
+	.section--team .text-xxlarge {
+		font-size: 46px;
+	}
+	.section--team .col--auto.margin-r-xlarge {
+		margin-right: 2.500rem;
+	}
+}
+
+/* destkops */
+
+@media (min-width: 1024px) and (max-width: 1099px) {
+	.section--team .text-xxlarge {
+		font-size: 36px;
+	}
+	.section--team .col--auto.margin-r-xlarge {
+		margin-right: 2.000rem;
+	}
+	.fitswap-team {
+		max-height: 500px;
+	}
+}
+
+/* destkops */
+
+@media (min-height: 800px) and (min-width: 1024px) and (max-width: 1299px) {
+	.section--team .text-default {
+		font-size: 14px;
+	}
+}
+
+/* small destkops */
+
+@media (max-height: 699px) and (min-width: 1024px) and (orientation: landscape) {
+	.section--team .text-default {
+		font-size: 12px;
+	}
+}
+
+/* small destkops */
+
+@media (max-height: 649px) and (min-width: 1024px) and (orientation: landscape) {
+	.section--team .text-xxlarge {
+		font-size: 36px;
+	}
+}
+
+/* super small destkops */
+
+@media (max-height: 599px) and (min-width: 1024px) and (orientation: landscape) {
+	.section--team .text-xxlarge {
+		font-size: 36px;
+	}
+	.section--team .text-title>span {
+		display: inline;
+	}
+}
+
+/* super small destkops */
+
+@media (max-height: 599px) and (min-width: 1024px) and (max-width: 1099px) and (orientation: landscape) {
+	.section--team .text-xxlarge {
+		font-size: 30px;
+	}
+}
+
+/* tablet portrait */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+	.fitswap-team {
+		height: auto;
+		max-height: auto;
+		min-height: auto;
+		width: 100%;
+	}
+	.section--team .text-xxlarge {
+		font-size: 30px;
+	}
+}
+
+/* tablet portrait */
+
+@media (min-width: 768px) and (min-height: 900px) and (orientation: portrait) {
+	.section--team .text-xxlarge {
+		font-size: 24px;
+	}
+	.section--team .text-default {
+		font-size: 12px;
+	}
+}
+
+/* mobile */
+
+@media (max-width: 767px) {
+	/* clear margins and align items */
+	.section--team .col {
+		margin-right: 0;
+		text-align: center;
+	}
+	/* change size of the image */
+	.fitswap-team {
+		height: auto;
+		min-height: auto;
+		width: 180px;
+	}
+	/* set title font size */
+	.section--team .text-xxlarge {
+		font-size: 26px;
+	}
+	/* align text to left */
+	.section--team .text-default {
+		text-align: left;
+	}
+}
+
+/* mobile portrait */
+
+@media (max-width: 767px) and (orientation: portrait) {
+	/* hide text and show button */
+	.section--team .text-default {
+		display: none;
+	}
+	.section--team .call-to-action--border {
+		display: inline-block;
+	}
+}
+
+/* mobile */
+
+@media (max-width: 374px) {
+	/* change size of the image */
+	.fitswap-team {
+		width: 120px;
+	}
+	/* set title font size */
+	.section--team .text-xxlarge {
+		font-size: 20px;
+	}
+	.section--team .text-default {
+		font-size: 12px;
+	}
+}
+
+/* iPhoneX portrait */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+	/* change size of the image */
+	.fitswap-team {
+		width: 260px;
+	}
+	/* read more button font size */
+	.section--team .call-to-action--border {
+		font-size: 14px;
+	}
+}
+
+/* ------------------------------
+
+	Vlog
+
+------------------------------ */
+
+.video {
+	width: 100%;
+	padding-top: 56.25%;
+	position: relative;
+}
+
+.video>iframe {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* small destkops */
+
+@media (max-height: 699px) and (min-width: 1024px) and (orientation: landscape) {
+	.section--vlog .col:not(.col--auto):not(.col--about).margin-r-large {
+		width: calc(60% - (2.500rem / 2));
+	}
+	.section--vlog .col.margin-r-large+.col {
+		width: calc(40% - (2.500rem / 2));
+	}
+}
+
+/* destkops */
+
+@media (min-width: 1024px) and (max-width: 1099px) {
+	.section--vlog .text-xxlarge {
+		font-size: 36px;
+	}
+}
+
+/* destkops */
+
+@media (min-width: 1100px) and (max-width: 1299px) {
+	.section--vlog .text-xxlarge {
+		font-size: 40px;
+	}
+}
+
+/* small destkops */
+
+@media (max-height: 599px) and (min-width: 1024px), (min-width: 1024px) and (max-width: 1099px) {
+	.section--vlog .text-small {
+		font-size: 9px;
+	}
+	.section--vlog .text-xsmall {
+		font-size: 8px;
+	}
+}
+
+/* mobile */
+
+@media (max-width: 767px) {
+	.section--vlog .text-xxlarge {
+		font-size: 24px;
+	}
+	.section--vlog .text-default {
+		display: none;
+	}
+	.section--vlog .text-xxlarge.margin-b {
+		margin-bottom: 0;
+	}
+	.section--vlog .call-to-action--youtube~.text-small, .section--vlog .call-to-action--youtube~.text-xsmall {
+		display: none;
+	}
+	.call-to-action--youtube {
+		display: block;
+		float: none;
+		margin-left: 0;
+		text-align: center;
+		margin-top: 0.750rem;
+		margin-bottom: 1.000rem;
+	}
+	.section--vlog .text-right {
+		text-align: center;
+	}
+	.section--vlog .margin-t-large {
+		margin-top: 1.000rem;
+	}
+}
+
+/* mobile */
+
+@media (max-width: 411px) {
+	.section--vlog .text-xxlarge {
+		font-size: 20px;
+	}
+}
+
+/* mobile */
+
+@media (max-width: 374px) {
+	.section--vlog .text-xxlarge {
+		font-size: 18px;
+	}
+}
+
+/* iPhoneX portrait */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+	.section--vlog .text-default {
+		display: block;
+	}
+	.section--vlog .text-default {
+		font-size: 13px;
+	}
+	.section--vlog .text-xxlarge {
+		font-size: 28px;
+	}
+	.section--vlog .margin-t-large {
+		margin-top: 2.500rem;
+	}
+	.section--vlog .text-xxlarge.margin-b {
+		margin-bottom: 0.500rem;
+	}
+}
+
+/* ------------------------------
+
+	Contacts
+
+------------------------------ */
+
+.contacts {
+	background-image: url("../images/fitswap-logo-no-text.svg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-background-size: auto 100%;
+	-moz-background-size: auto 100%;
+	-o-background-size: auto 100%;
+	background-size: auto 100%;
+}
+
+/* small destkops */
+
+@media (max-height: 649px) and (min-width: 1024px) and (orientation: landscape) {
+	.section--contacts h2.text-xxlarge {
+		font-size: 36px;
+	}
+	.section--contacts p.text-large {
+		font-size: 18px;
+	}
+	.section--contacts p.text-medium {
+		font-size: 14px;
+	}
+	.section--contacts h2.text-xxlarge.margin-b {
+		margin-bottom: 0.750rem;
+	}
+}
+
+/* mobile */
+
+@media (max-width: 767px) {
+	.section--contacts h2.text-xxlarge {
+		font-size: 30px;
+	}
+	.section--contacts p.text-large {
+		font-size: 14px;
+	}
+	.section--contacts p.text-medium {
+		font-size: 14px;
+	}
+}
+
+/* mobile */
+
+@media (max-width: 411px) {
+	.section--contacts h2.text-xxlarge {
+		font-size: 26px;
+	}
+	.section--contacts p.text-large {
+		font-size: 13px;
+	}
+	.section--contacts p.text-medium {
+		font-size: 13px;
+	}
+}
+
+/* mobile */
+
+@media (max-width: 374px) {
+	.section--contacts h2.text-xxlarge {
+		font-size: 26px;
+	}
+	.section--contacts p.text-large {
+		font-size: 11px;
+	}
+	.section--contacts p.text-medium {
+		font-size: 11px;
+	}
+}
+
+/* iPhoneX portrait */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+	.section--contacts h2.text-xxlarge {
+		font-size: 36px;
+	}
+	.section--contacts p.text-large {
+		font-size: 20px;
+	}
+	.section--contacts p.text-medium {
+		font-size: 20px;
+	}
+	.section--contacts p.text-large br, .section--contacts p.text-medium br {
+		display: none;
+	}
+}
+
+/* ------------------------------
+
+	Logo page
+
+------------------------------ */
+
+.logo-page {
+	padding: 2.000rem;
+}
+
+.logo-icon>div, .logo-full>div {
+	border: 1px solid;
+}
+
+.logo-icon>div>div, .logo-full>div>div {
+	width: 100%;
+	padding-top: 100%;
+	position: relative;
+}
+
+.logo-full>div>div {
+	padding-top: 30%;
+}
+
+.logo-full>div>div>div, .logo-icon>div>div>div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.logo-icon img, .logo-full img {
+	width: 50%;
+	height: auto;
+	display: block;
+}
+
+/* ipad portraits and up */
+
+@media (min-width: 768px) {
+	.logo-icon, .logo-full {
+		display: flex;
+	}
+	.logo-icon>div, .logo-full>div {
+		flex: 1;
+	}
+}
+
+/* ipad portraits */
+
+@media (min-width: 768px) and (max-width: 999px) {
+	.logo-full>div>div {
+		padding-top: 40%;
+	}
+	.logo-icon img {
+		width: 40%;
+	}
+	.logo-full img {
+		width: 60%;
+	}
+	.logo-icon>div>div {
+		padding-top: 110%;
+	}
+	.logo-icon>div>div>div {
+		padding: 0 10px;
+	}
+}
+
+/* ipad landscape */
+
+@media (min-width: 1000px) and (max-width: 1024px) {
+	.logo-icon img {
+		width: 40%;
+	}
+	.logo-full img {
+		width: 50%;
+	}
+}
+
+@media (max-width: 767px) {
+	.logo-full>div>div {
+		padding-top: 70%;
+	}
+	.logo-full img {
+		width: 80%;
+	}
+}
