@@ -28,18 +28,19 @@ router.get("/get_privacy", ctrlMain.get_privacy);
 
 router.get("/dashboard", ctrlMain.get_dashboard);
 router.get("/dashboardOld", ctrlMain.get_dashboardOld);
+router.get("/allcategories", ctrlMain.get_allcategories);
 router.get("/dashboardData", ctrlMain.get_dashboard_data);
 router.get("/dashboardGraph1", ctrlMain.get_dashboard_graph1);
 router.get("/dashboardGraph2", ctrlMain.get_dashboard_graph2);
 
 router.get("/dashboardbar", ctrlMain.get_dashboardbar);
-router.get("/dashboard_ppv_all", ctrlMain.get_dashboard_ppv_all);
+router.get("/allcategories_ppv_all", ctrlMain.get_allcategories_ppv_all);
 router.get("/dashboardTopCountries", ctrlMain.get_dashboard_top_countries);
 
 router.get("/dashboard_newuser", ctrlMain.get_dashboard_newuser);
-router.get("/dashboard_timetraffic_all", ctrlMain.get_dashboard_timetraffic_all);
-router.get("/dashboard_stackedchart", ctrlMain.get_dashboard_stackedchart);
-router.get("/dashboard_stackedchart_mobdesk_all", ctrlMain.get_dashboard_stackedchart_mobdesk_all);
+router.get("/allcategories_timetraffic_all", ctrlMain.get_allcategories_timetraffic_all);
+router.get("/allcategories_stackedchart", ctrlMain.get_allcategories_stackedchart);
+router.get("/allcategories_stackedchart_mobdesk_all", ctrlMain.get_allcategories_stackedchart_mobdesk_all);
 
 
 module.exports = router;

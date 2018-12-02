@@ -75,7 +75,7 @@ function drawChart_newuser() {
 function drawChart_stackedchart() {
 
     $.ajax({
-        url: "/dashboard_stackedchart",
+        url: "/allcategories_stackedchart",
         type: 'GET',
         success: function(resData) {
             var results = resData.webs;
@@ -140,7 +140,7 @@ function drawChart_stackedchart() {
 function drawChart_stackedchart_mobdesk_all() {
 
     $.ajax({
-        url: "/dashboard_stackedchart_mobdesk_all",
+        url: "/allcategories_stackedchart_mobdesk_all",
         type: 'GET',
         success: function(resData) {
             var results = resData.webs;
@@ -209,7 +209,7 @@ function drawChart_stackedchart_mobdesk_all() {
 function drawChart_timetraffic_all() {
 
     $.ajax({
-        url: "/dashboard_timetraffic_all",
+        url: "/allcategories_timetraffic_all",
         type: 'GET',
         success: function(resData) {
             var results = resData.webs;
@@ -275,7 +275,7 @@ function drawChart_timetraffic_all() {
 function drawChart_ppv_all() {
 
     $.ajax({
-        url: "/dashboard_ppv_all",
+        url: "/allcategories_ppv_all",
         type: 'GET',
         success: function(resData) {
             console.log(resData.webs);
