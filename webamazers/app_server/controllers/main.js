@@ -262,7 +262,7 @@ module.exports.get_allcategories_timetraffic_all = function(req, res) {
     });
 };
 
-module.exports.get_allcategories_ppv_all = function(req, res) {
+module.exports.get_allcategories_hightraffic_all = function(req, res) {
     var q = generalWebsitesSchema.aggregate([{
             $project: {
                 Domain: 1,

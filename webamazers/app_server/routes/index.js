@@ -34,7 +34,7 @@ router.get("/dashboardGraph1", ctrlMain.get_dashboard_graph1);
 router.get("/dashboardGraph2", ctrlMain.get_dashboard_graph2);
 
 router.get("/dashboardbar", ctrlMain.get_dashboardbar);
-router.get("/allcategories_ppv_all", ctrlMain.get_allcategories_ppv_all);
+router.get("/allcategories_hightraffic_all", ctrlMain.get_allcategories_hightraffic_all);
 router.get("/dashboardTopCountries", ctrlMain.get_dashboard_top_countries);
 
 router.get("/dashboard_newuser", ctrlMain.get_dashboard_newuser);

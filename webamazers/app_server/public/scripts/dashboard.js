@@ -6,7 +6,7 @@ google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawChart_newuser);
 google.charts.setOnLoadCallback(drawChart_stackedchart);
 google.charts.setOnLoadCallback(drawChart_stackedchart_mobdesk_all);
-google.charts.setOnLoadCallback(drawChart_ppv_all);
+google.charts.setOnLoadCallback(drawChart_hightraffic_all);
 google.charts.setOnLoadCallback(drawChart_timetraffic_all);
 //google.charts.setOnLoadCallback(drawChart_social);
 //google.charts.setOnLoadCallback(get_total);
@@ -272,10 +272,10 @@ function drawChart_timetraffic_all() {
     })
 }
 
-function drawChart_ppv_all() {
+function drawChart_hightraffic_all() {
 
     $.ajax({
-        url: "/allcategories_ppv_all",
+        url: "/allcategories_hightraffic_all",
         type: 'GET',
         success: function(resData) {
             console.log(resData.webs);
@@ -320,12 +320,12 @@ function drawChart_ppv_all() {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
                 },
-                vAxis: { title: "Percentage of Total Web traffic" },
+                vAxis: { title: "Percentage of Total Web traffic" }
                 //  vAxis: { format: 'percent' }
 
             };
 
-            var chart = new google.visualization.ColumnChart(document.getElementById('socialchart'));
+            var chart = new google.visualization.ColumnChart(document.getElementById('hightraffic'));
             chart.draw(chartData, options);
         }
     })
