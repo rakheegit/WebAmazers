@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
 @import url('https://fonts.googleapis.com/css?family=Calligraffitti|Coming+Soon|Josefin+Slab|Montserrat+Alternates|Nanum+Brush+Script|Neucha|Open+Sans+Condensed:300|Philosopher|Poiret+One|Reenie+Beanie|Sarala|Sintony|Syncopate|Yrsa');
-
-
-
 body {
     margin: 0;
     background: #222;
@@ -149,8 +146,8 @@ nav a:hover::before {
 .col {
     flex: 1;
     padding: 0em;
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     border: groove;
 }
 
@@ -233,29 +230,30 @@ h2 {
     font-size: 15px;
     cursor: pointer;
 }
-#showText{
+
+#showText {
     font-family: 'Neucha', cursive;
     margin-left: 5px;
     font-size: 15px;
 }
+
 #deleteText {
     font-family: 'Neucha', cursive;
     margin-left: 5px;
     font-size: 15px;
 }
 
-
 #editText {
     font-family: 'Neucha', cursive;
     margin-left: 5px;
     font-size: 15px;
 }
+
 #addText {
     font-family: 'Neucha', cursive;
     margin-left: 5px;
     font-size: 25px;
 }
-
 
 #columnHeading {
     font-family: 'Neucha', cursive;
@@ -384,7 +382,8 @@ button {
     color: lightgray
 }
 
-button:disabled, button[disabled] {
+button:disabled,
+button[disabled] {
     border: 1px solid #999999;
     background-color: #cccccc;
     color: #666666;
