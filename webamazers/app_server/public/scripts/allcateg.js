@@ -32,14 +32,10 @@ function drawChart_stackedchart() {
                     if (col == "Unique_Users") {
 
                         result[col] = parseInt(result[col] / 100000);
-                        tableRow.splice(2, 0, result[col]);
+                        tableRow.splice(1, 0, result[col]);
                     } else
 
-                    if (col == "Avg_Month_Visits") {
-
-                        result[col] = parseInt(result[col] / 100000);
-                        tableRow.splice(1, 0, result[col]);
-                    } else if (col == "Domain") {
+                    if (col == "Domain") {
                         tableRow.splice(0, 0, result[col]);
                     }
                 });
@@ -59,13 +55,13 @@ function drawChart_stackedchart() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Want to Expand your User base? Target websites with lot of new users!!',
-                isStacked: true,
+                title: 'Want to Expand your User base? Target websites with High Unique Users!!',
+                //isStacked: true,
                 //      vAxis: { title: "Domain" },
-
+                colors:["#e242f4"],
                 width: 550,
                 height: 550,
-                legend: { position: "right" },
+                legend: { position: "none" },
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
