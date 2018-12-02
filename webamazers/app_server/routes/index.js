@@ -35,8 +35,9 @@ router.get("/dashboardGraph2", ctrlMain.get_dashboard_graph2);
 
 router.get("/dashboardbar", ctrlMain.get_dashboardbar);
 router.get("/allcategories_hightraffic_all", ctrlMain.get_allcategories_hightraffic_all);
-router.get("/dashboardTopCountries", ctrlMain.get_dashboard_top_countries);
 
+router.get("/dashboardTopCountries", ctrlMain.get_dashboard_top_countries);
+router.get("/dashboard_bouncerate_edu", ctrlMain.get_dashboard_bouncerate_edu);
 router.get("/dashboard_newuser", ctrlMain.get_dashboard_newuser);
 router.get("/allcategories_timetraffic_all", ctrlMain.get_allcategories_timetraffic_all);
 router.get("/allcategories_stackedchart", ctrlMain.get_allcategories_stackedchart);

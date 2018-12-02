@@ -264,25 +264,35 @@ module.exports.get_allcategories_timetraffic_all = function(req, res) {
 
 module.exports.get_allcategories_hightraffic_all = function(req, res) {
     var q = generalWebsitesSchema.aggregate([{
-            $project: {
-                Domain: 1,
-                //                Traffic_Share: 1,
-                _id: 0,
+        $project: {
+            Domain: 1,
+            //                Traffic_Share: 1,
+            _id: 0,
 
-                traffic_percent: {
-                    $multiply: [
-                        "$Traffic_Share", 100
-                    ]
-                }
-
+            traffic_percent: {
+                $multiply: [
+                    "$Traffic_Share", 100
+                ]
             }
 
         }
-        //      { $sort: { "traffic_percent": -1 } }
-    ]).sort({ traffic_percent: -1 }).limit(20);
 
+    }]).sort({ traffic_percent: -1 }).limit(20);
     q.exec(function(err, webs) {
-        // console.log(webs);
+        console.log(webs);
+        return res.send({ webs: webs });
+    });
+};
+
+module.exports.get_dashboard_bouncerate_edu = function(req, res) {
+    var q = eduWebsitesSchema.find({}, {
+        Domain: 1,
+        Bounce_Rate: 1,
+        _id: 0
+
+    }).sort({ Bounce_Rate: 1 }).limit(20);
+    q.exec(function(err, webs) {
+        console.log(webs);
         return res.send({ webs: webs });
     });
 };
