@@ -127,7 +127,7 @@ function drawChart_stackedchart_mobdesk_all() {
                 title: 'Desktop Vs Mobile Visitors',
                 isStacked: true,
                 //     vAxis: { title: "Domain" },
-                width: 1250,
+                width: 1150,
                 height: 650,
                 bar: { groupWidth: "88%" },
                 legend: { position: "right" },
@@ -194,8 +194,8 @@ function drawChart_timetraffic_all() {
             var options = {
                 title: 'Domains where people spend considerable time',
                 //vAxis: { title: "Measure" },
-                width: 850,
-                height: 350,
+                width: 1150,
+                height: 650,
                 legend: { position: "right" },
                 colors: ['#f4a142', '#55d6aa'],
                 titleTextStyle: {
@@ -255,7 +255,7 @@ function drawChart_hightraffic_all() {
             var options = {
                 title: 'High Traffic Websites - Top 20',
                 colors: ['#EC9787'],
-                width: 1250,
+                width: 1150,
                 height: 650,
                 legend: { position: "none" },
                 titleTextStyle: {
