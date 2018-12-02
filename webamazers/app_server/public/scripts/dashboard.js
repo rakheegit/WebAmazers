@@ -4,7 +4,7 @@ google.charts.load('current', { 'packages': ['corechart'] });
 //google.charts.setOnLoadCallback(drawColumnChart1);
 //google.charts.setOnLoadCallback(drawChart_bar);
 google.charts.setOnLoadCallback(drawChart_newuser);
-google.charts.setOnLoadCallback(drawChart_bouncerate_edu);
+google.charts.setOnLoadCallback(drawChart_bouncerate_movies);
 //google.charts.setOnLoadCallback(drawChart_social);
 //google.charts.setOnLoadCallback(get_total);
 //google.charts.setOnLoadCallback(getPercentage);
@@ -69,7 +69,7 @@ function drawChart_newuser() {
     })
 }
 
-function drawChart_bouncerate_edu() {
+function drawChart_bouncerate_movies() {
 
     $.ajax({
         url: "/dashboard_bouncerate_edu",
@@ -115,7 +115,7 @@ function drawChart_bouncerate_edu() {
 
             };
 
-            var chart = new google.visualization.ColumnChart(document.getElementById('bouncerate_edu'));
+            var chart = new google.visualization.ColumnChart(document.getElementById('bounceRate'));
             chart.draw(chartData, options);
         }
     })
