@@ -361,5 +361,3 @@ module.exports.get_dashboard_newuser_movies = function(req, res) {
     });
 };
 
-
-}
