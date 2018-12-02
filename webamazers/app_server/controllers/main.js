@@ -282,7 +282,7 @@ module.exports.get_allcategories_ppv_all = function(req, res) {
     ]).sort({ traffic_percent: -1 }).limit(20);
 
     q.exec(function(err, webs) {
-        console.log(webs);
+        // console.log(webs);
         return res.send({ webs: webs });
     });
 };
