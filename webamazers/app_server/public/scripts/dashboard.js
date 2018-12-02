@@ -216,7 +216,7 @@ function drawChart_timetraffic_all() {
 
 
             var columns = Object.keys(results[0]);
-            var colors = ["#f4a142", "#55d6aa"];
+            var colors = [];
             var i = 0;
             var data = results.map(function(result) {
                 var tableRow = [];
