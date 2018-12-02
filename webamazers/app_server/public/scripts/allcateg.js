@@ -129,9 +129,10 @@ function drawChart_stackedchart_mobdesk_all() {
                 //     vAxis: { title: "Domain" },
                 width: 1250,
                 height: 650,
-                bar: { groupWidth: "50%" },
+                bar: { groupWidth: "88%" },
                 legend: { position: "right" },
                 vAxis: { title: "Percentage %" },
+                hAxis: { title: 'Top 100 High Traffic Websites of the world', textPosition: 'none' },
                 colors: ["#8D9440", "#FF6F61"],
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
