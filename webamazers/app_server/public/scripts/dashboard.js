@@ -52,8 +52,8 @@ function drawChart_newuser() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'New User Favorites',
-                vAxis: { title: "No. of New users" },
+                title: ' User Favorites to rent Cars',
+                vAxis: { title: "No. of Unique users" },
                 width: 550,
                 height: 350,
                 legend: { position: "none" },
