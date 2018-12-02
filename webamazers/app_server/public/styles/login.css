@@ -72,25 +72,14 @@ input:focus {
 
 .btn {
     display: inline-block;
-    background: blue;
-    border: 1px solid darken(blue, 5%);
     padding: .5em 2em;
     color: white;
     margin-right: .5em;
     box-shadow: inset 0px 1px 0px fadeout(white, 80%);
 }
 
-.btn:hover {
-    background: lighten(blue, 5%);
-}
-
-.btn:active {
-    background: blue;
-    box-shadow: inset 0px 1px 1px fadeout(black, 90%);
-}
-
-.btn:focus {
-    outline: none;
+.color-main-dark-bg.btn:hover {
+    background: lighten(black, 5%);
 }
 
 .forgot {
@@ -105,8 +94,8 @@ input:focus {
     float: right;
 }
 
-.forgot:hover {
+forgot:hover {
     color: darken(blue, 5%);
 }
 
-.forgot:active {}
+forgot:active {}

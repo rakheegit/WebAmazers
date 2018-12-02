@@ -24,6 +24,14 @@ module.exports.index = function(req, res) {
     res.render("home", { title: "Website Data" });
 };
 
+module.exports.signup = function(req, res) {
+    res.render("signup", { title: "Website Data" });
+};
+
+module.exports.login = function(req, res) {
+    res.render("login", { title: "Website Data" });
+};
+
 module.exports.get_websites = function(req, res) {
     var q = schemaWebsite.find().limit(10);
     q.exec(function(err, webs) {
