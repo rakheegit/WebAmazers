@@ -9,7 +9,7 @@ var userSchema = require("../model/user");
 var generalWebsitesSchema = require("../model/webSchemaAll").allWebsitesSchema;
 var eduWebsitesSchema = require("../model/webSchemaAll").educationSchema;
 var carRentalsSchema = require("../model/webSchemaAll").carRentalsSchema;
-
+var moviesSchema = require("../model/webSchemaAll").moviesSchema;
 module.exports.test = function(req, res) {
     var q = allWebsitesSchema.find().limit(10);
     q.exec(function(err, webs) {
@@ -321,3 +321,22 @@ module.exports.get_dashboardOld = function(req, res) {
 module.exports.get_allcategories = function(req, res) {
     res.render("allcategories")
 }
+
+module.exports.get_movies = function(req, res) {
+    res.render("movies");
+}
+
+module.exports.get_traffic_share = function(req, res) {
+    var q = moviesSchema.find({"Adsense":true},
+    {
+        Domain: 1,
+        Traffic_Share: 1,
+        _id: 0
+    }
+    ).sort({"Traffic_Share":-1})
+    .limit(10);
+    q.exec(function(err, webs) {
+        return res.send({ webs: webs });
+    });
+}
+

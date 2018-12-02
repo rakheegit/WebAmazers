@@ -43,5 +43,8 @@ router.get("/allcategories_timetraffic_all", ctrlMain.get_allcategories_timetraf
 router.get("/allcategories_stackedchart", ctrlMain.get_allcategories_stackedchart);
 router.get("/allcategories_stackedchart_mobdesk_all", ctrlMain.get_allcategories_stackedchart_mobdesk_all);
 
+router.get("/movies", ctrlMain.get_movies);
+router.get("/get_movies_traffic_share", ctrlMain.get_traffic_share);
+
 
 module.exports = router;
