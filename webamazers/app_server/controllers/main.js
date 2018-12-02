@@ -239,7 +239,7 @@ module.exports.get_dashboard_newuser = function(req, res) {
 };
 
 module.exports.get_allcategories_stackedchart = function(req, res) {
-    var q = generalWebsitesSchema.find({}, { "Domain": 1, "Unique_Users": 1, "Avg_Month_Visits": 1, "_id": 0 }).sort({ "Unique_Users": -1 }).limit(20);
+    var q = generalWebsitesSchema.find({}, { "Domain": 1, "Unique_Users": 1, "_id": 0 }).sort({ "Unique_Users": -1 }).limit(20);
     q.exec(function(err, webs) {
         //console.log(webs);
         return res.send({ webs: webs });
@@ -247,7 +247,7 @@ module.exports.get_allcategories_stackedchart = function(req, res) {
 };
 
 module.exports.get_allcategories_stackedchart_mobdesk_all = function(req, res) {
-    var q = generalWebsitesSchema.find({}, { "Domain": 1, "Desktop_Share": 1, "Mobile_Share": 1, "_id": 0 }).sort({ "Traffic_Share": -1 }).limit(20);;
+    var q = generalWebsitesSchema.find({}, { "Domain": 1, "Desktop_Share": 1, "Mobile_Share": 1, "_id": 0 }).sort({ "Traffic_Share": -1 });
     q.exec(function(err, webs) {
         //console.log(webs);
         return res.send({ webs: webs });
@@ -327,14 +327,12 @@ module.exports.get_movies = function(req, res) {
 }
 
 module.exports.get_traffic_share = function(req, res) {
-    var q = moviesSchema.find({"Adsense":true},
-    {
-        Domain: 1,
-        Traffic_Share: 1,
-        _id: 0
-    }
-    ).sort({"Traffic_Share":-1})
-    .limit(10);
+    var q = moviesSchema.find({ "Adsense": true }, {
+            Domain: 1,
+            Traffic_Share: 1,
+            _id: 0
+        }).sort({ "Traffic_Share": -1 })
+        .limit(10);
     q.exec(function(err, webs) {
         return res.send({ webs: webs });
     });
@@ -364,3 +362,4 @@ module.exports.get_dashboard_newuser_movies = function(req, res) {
 };
 
 
+}
