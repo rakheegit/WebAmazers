@@ -226,3 +226,69 @@ function drawChart_website_change_movies() {
         }
     })
 }
+
+function drawChart_dashboard_timespent() {
+
+    $.ajax({
+        url: "/dashboard_timespent",
+        type: 'GET',
+        success: function(resData) {
+            var results = resData.webs;
+
+
+            var columns = Object.keys(results[0]);
+            var colors = [];
+            var i = 0;
+            var data = results.map(function(result) {
+                var tableRow = [];
+                columns.forEach(function(col) {
+                    if (col == "Pages_Per_Visit") {
+
+                        result[col] = parseInt(result[col]);
+                        tableRow.splice(2, 0, result[col]);
+                    } else
+                    if (col == "Avg_Visit_Duration") {
+
+                        result[col] = parseInt(result[col] / 60);
+                        tableRow.splice(1, 0, result[col]);
+                    } else if (col == "Domain") {
+                        tableRow.splice(0, 0, result[col]);
+                    }
+                });
+
+                tableRow.splice(3, 0, colors[i]);
+                i += 1;
+                return tableRow;
+
+            });
+
+            var tableRow = [];
+            columns.forEach(function(col) {
+                tableRow.push(col);
+            })
+            tableRow.push({ role: 'style' });
+            data.splice(0, 0, tableRow);
+
+            var chartData = google.visualization.arrayToDataTable(data);
+            var options = {
+                title: 'Domains where people spend considerable time',
+                //vAxis: { title: "Measure" },
+                width: 1150,
+                height: 650,
+                legend: { position: "right" },
+                colors: ['#f4a142', '#55d6aa'],
+                titleTextStyle: {
+                    fontSize: 14, // 12, 18 whatever you want (don't specify px)
+                    bold: true, // true or false
+
+                }
+
+            };
+
+            var chart = new google.visualization.ScatterChart(document.getElementById('timespent'));
+            //var chart = new google.charts.Bar(document.getElementById('timetraffic_all'));
+
+            chart.draw(chartData, options);
+        }
+    })
+}

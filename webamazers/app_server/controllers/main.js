@@ -247,7 +247,7 @@ module.exports.get_allcategories_stackedchart = function(req, res) {
 };
 
 module.exports.get_allcategories_bouncestack = function(req, res) {
-    var q = generalWebsitesSchema.aggregate([{$match:{"Domain":{$nin:["google.com","youtube.com","facebook.com","baidu.com"]}}},{
+    var q = generalWebsitesSchema.aggregate([{ $match: { "Domain": { $nin: ["google.com", "youtube.com", "facebook.com", "baidu.com"] } } }, {
         $project: {
             Domain: 1,
             Avg_Month_Visits: 1,
@@ -452,6 +452,15 @@ module.exports.get_dashboard_website_change_movies = function(req, res) {
         .limit(10);
     q.exec(function(err, webs) {
         //console.log(webs);
+        return res.send({ webs: webs });
+    });
+};
+
+module.exports.get_dashboard_timespent = function(req, res) {
+    var q = eduWebsitesSchema.find({}, { "Domain": 1, "Avg_Visit_Duration": 1, "Pages_Per_Visit": 1, "_id": 0 })
+        .sort({ "Pages_Per_Visit": -1 }).limit(20);
+    q.exec(function(err, webs) {
+        console.log(webs);
         return res.send({ webs: webs });
     });
 };

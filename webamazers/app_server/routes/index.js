@@ -53,4 +53,5 @@ router.get("/dashboard_website_change_movies", ctrlMain.get_dashboard_website_ch
 router.get("/dashboard_edu_mobdesk", ctrlMain.get_dashboard_edu_mobdesk)
 router.get("/allcategories_change_in_traffic", ctrlMain.get_allcategories_change_in_traffic)
 router.get("/allcategories_social_avg_monthly", ctrlMain.get_allcategories_social_avg_monthly)
+router.get("/dashboard_timespent", ctrlMain.get_dashboard_timespent)
 module.exports = router;
