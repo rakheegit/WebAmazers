@@ -42,6 +42,7 @@ router.get("/dashboard_newuser", ctrlMain.get_dashboard_newuser);
 router.get("/allcategories_timetraffic_all", ctrlMain.get_allcategories_timetraffic_all);
 router.get("/allcategories_stackedchart", ctrlMain.get_allcategories_stackedchart);
 router.get("/allcategories_stackedchart_mobdesk_all", ctrlMain.get_allcategories_stackedchart_mobdesk_all);
+router.get("/allcategories_bouncestack", ctrlMain.get_allcategories_bouncestack);
 
 router.get("/movies", ctrlMain.get_movies);
 router.get("/get_movies_traffic_share", ctrlMain.get_traffic_share);

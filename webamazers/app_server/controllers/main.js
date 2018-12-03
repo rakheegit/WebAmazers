@@ -246,6 +246,29 @@ module.exports.get_allcategories_stackedchart = function(req, res) {
     });
 };
 
+module.exports.get_allcategories_bouncestack = function(req, res) {
+    var q = generalWebsitesSchema.aggregate([{
+        $project: {
+            Domain: 1,
+            Avg_Month_Visits:1,
+           
+            _id: 0,
+
+            Bouncing_Visits: {
+                $multiply: [
+                    "$Bounce_Rate", "$Avg_Month_Visits"
+                ]
+            }
+
+        }
+
+    }]);
+    q.exec(function(err, webs) {
+        //console.log(webs);
+        return res.send({ webs: webs });
+    });
+};
+
 module.exports.get_allcategories_stackedchart_mobdesk_all = function(req, res) {
     var q = generalWebsitesSchema.find({}, { "Domain": 1, "Desktop_Share": 1, "Mobile_Share": 1, "_id": 0 }).sort({ "Traffic_Share": -1 });
     q.exec(function(err, webs) {

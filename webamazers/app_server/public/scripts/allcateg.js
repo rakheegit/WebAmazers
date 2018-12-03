@@ -7,6 +7,8 @@ google.charts.setOnLoadCallback(drawChart_stackedchart);
 google.charts.setOnLoadCallback(drawChart_stackedchart_mobdesk_all);
 google.charts.setOnLoadCallback(drawChart_hightraffic_all);
 google.charts.setOnLoadCallback(drawChart_timetraffic_all);
+google.charts.setOnLoadCallback(drawChart_bouncestack);
+
 //google.charts.setOnLoadCallback(drawChart_social);
 //google.charts.setOnLoadCallback(get_total);
 //google.charts.setOnLoadCallback(getPercentage);
@@ -69,6 +71,75 @@ function drawChart_stackedchart() {
             };
 
             var chart = new google.visualization.BarChart(document.getElementById('stackedchart'));
+            chart.draw(chartData, options);
+        }
+    })
+}
+
+function drawChart_bouncestack() {
+
+    $.ajax({
+        url: "/allcategories_bouncestack",
+        type: 'GET',
+        success: function(resData) {
+            var results = resData.webs;
+
+
+            var columns = Object.keys(results[0]);
+            var colors = [];
+            var i = 0;
+            var data = results.map(function(result) {
+                var tableRow = [];
+                columns.forEach(function(col) {
+
+                    if (col == "Avg_Month_Visits") {
+
+                        result[col] = parseInt(result[col] /100000);
+                        tableRow.splice(2, 0, result[col]);
+                    } else
+                    if (col == "Bouncing_Visits") {
+
+                        result[col] = parseInt(result[col] /100000);
+                        tableRow.splice(1, 0, result[col]);
+                    } else
+
+                    
+
+                    if (col == "Domain") {
+                        tableRow.splice(0, 0, result[col]);
+                    }
+                });
+
+                tableRow.splice(3, 0, colors[i]);
+                i += 1;
+                return tableRow;
+
+            });
+
+            var tableRow = [];
+            columns.forEach(function(col) {
+                tableRow.push(col);
+            })
+            tableRow.push({ role: 'style' });
+            data.splice(0, 0, tableRow);
+
+            var chartData = google.visualization.arrayToDataTable(data);
+            var options = {
+                title: 'Ratio of Unimpressed Visits who exit after one page',
+                isStacked: true,
+                //      vAxis: { title: "Domain" },
+                colors:["#99ccff","#ff99cc"],
+                width: 1150,
+                height: 650,
+                bar: { groupWidth: "88%" },
+                legend: { position: "right" },
+                titleTextStyle: {
+                    fontSize: 14, // 12, 18 whatever you want (don't specify px)
+                    bold: true, // true or false
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('bouncestack'));
             chart.draw(chartData, options);
         }
     })
