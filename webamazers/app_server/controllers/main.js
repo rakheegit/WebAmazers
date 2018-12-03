@@ -457,8 +457,9 @@ module.exports.get_dashboard_website_change_movies = function(req, res) {
 };
 
 module.exports.get_dashboard_timespent = function(req, res) {
-    var q = eduWebsitesSchema.find({}, { "Domain": 1, "Avg_Visit_Duration": 1, "Pages_Per_Visit": 1, "_id": 0 })
-        .sort({ "Pages_Per_Visit": -1 }).limit(20);
+    //   var q = eduWebsitesSchema.find({}, { "Domain": 1, "Avg_Visit_Duration": 1, "Pages_Per_Visit": 1, "_id": 0 })
+    var q = eduWebsitesSchema.find({}, { "Avg_Visit_Duration": 1, "Pages_Per_Visit": 1, "_id": 0 })
+        .sort({ "Pages_Per_Visit": -1 }).limit(30);
     q.exec(function(err, webs) {
         console.log(webs);
         return res.send({ webs: webs });
