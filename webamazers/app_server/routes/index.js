@@ -49,5 +49,5 @@ router.get("/dashboard_bouncerate_movies", ctrlMain.get_dashboard_bouncerate_mov
 router.get("/dashboard_newuser_movies", ctrlMain.get_dashboard_newuser_movies);
 router.get("/dashboard_avg_monthly_visits", ctrlMain.get_dashboard_avg_monthly_visits);
 router.get("/dashboard_website_change_movies", ctrlMain.get_dashboard_website_change_movies)
-
+router.get("/dashboard_edu_mobdesk", ctrlMain.get_dashboard_edu_mobdesk)
 module.exports = router;
