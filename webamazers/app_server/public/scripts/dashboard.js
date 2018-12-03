@@ -50,8 +50,8 @@ function drawChart_newuser() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'New User Favorites',
-                vAxis: { title: "No. of New users" },
+                title: 'Number of Unique visitors in October',
+                vAxis: { title: "Unique visitors" },
                 width: 550,
                 height: 350,
                 legend: { position: "none" },

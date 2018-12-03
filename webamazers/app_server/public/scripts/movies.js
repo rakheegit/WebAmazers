@@ -20,7 +20,7 @@ function drawChart_traffic_share_movies() {
 
                     if (col == "Traffic_Share") {
 
-                        result[col] = parseFloat(result[col]);
+                        result[col] = parseFloat(result[col]) * 100;
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "Domain") {
                         tableRow.splice(0, 0, result[col]);
@@ -169,4 +169,3 @@ function drawChart_newuser_movies() {
         }
     })
 }
-
