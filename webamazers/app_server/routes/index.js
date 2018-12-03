@@ -46,6 +46,8 @@ router.get("/allcategories_stackedchart_mobdesk_all", ctrlMain.get_allcategories
 router.get("/movies", ctrlMain.get_movies);
 router.get("/get_movies_traffic_share", ctrlMain.get_traffic_share);
 router.get("/dashboard_bouncerate_movies", ctrlMain.get_dashboard_bouncerate_movies);
-router.get("/dashboard_newuser_movies",ctrlMain.get_dashboard_newuser_movies);
-
+router.get("/dashboard_newuser_movies", ctrlMain.get_dashboard_newuser_movies);
+router.get("/dashboard_avg_monthly_visits", ctrlMain.get_dashboard_avg_monthly_visits);
+router.get("/dashboard_website_change_movies", ctrlMain.get_dashboard_website_change_movies)
+router.get("/dashboard_edu_mobdesk", ctrlMain.get_dashboard_edu_mobdesk)
 module.exports = router;

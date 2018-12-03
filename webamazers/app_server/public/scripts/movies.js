@@ -3,6 +3,7 @@ google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawChart_traffic_share_movies);
 google.charts.setOnLoadCallback(drawChart_bouncerate_movies);
 google.charts.setOnLoadCallback(drawChart_newuser_movies);
+google.charts.setOnLoadCallback(drawChart_website_change_movies);
 
 function drawChart_traffic_share_movies() {
 
@@ -20,7 +21,7 @@ function drawChart_traffic_share_movies() {
 
                     if (col == "Traffic_Share") {
 
-                        result[col] = parseFloat(result[col]);
+                        result[col] = parseFloat(result[col]) * 100;
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "Domain") {
                         tableRow.splice(0, 0, result[col]);
@@ -170,3 +171,58 @@ function drawChart_newuser_movies() {
     })
 }
 
+function drawChart_website_change_movies() {
+
+    $.ajax({
+        url: "/dashboard_website_change_movies",
+        type: 'GET',
+        success: function(resData) {
+            var results = resData.webs;
+
+
+            var columns = Object.keys(results[0]);
+            var colors = ["#f4a142", "grey", "grey", "grey", "grey"];
+            var i = 0;
+            var data = results.map(function(result) {
+                var tableRow = [];
+                columns.forEach(function(col) {
+                    if (col == "Website_Change") {
+
+                        result[col] = parseInt(result[col] * 100);
+                        tableRow.splice(1, 0, result[col]);
+                    } else if (col == "Domain") {
+                        tableRow.splice(0, 0, result[col]);
+                    }
+                });
+
+                tableRow.splice(2, 0, colors[i]);
+                i += 1;
+                return tableRow;
+
+            });
+
+            var tableRow = [];
+            columns.forEach(function(col) {
+                tableRow.push(col);
+            })
+            tableRow.push({ role: 'style' });
+            data.splice(0, 0, tableRow);
+
+            var chartData = google.visualization.arrayToDataTable(data);
+            var options = {
+                title: 'Website that doing better than Past Month',
+                vAxis: { title: "Change in Monthly Visits" },
+                width: 550,
+                height: 350,
+                legend: { position: "none" },
+                titleTextStyle: {
+                    fontSize: 14, // 12, 18 whatever you want (don't specify px)
+                    bold: true, // true or false
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('websiteChange'));
+            chart.draw(chartData, options);
+        }
+    })
+}
