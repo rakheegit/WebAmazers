@@ -247,7 +247,7 @@ module.exports.get_allcategories_stackedchart = function(req, res) {
 };
 
 module.exports.get_allcategories_bouncestack = function(req, res) {
-    var q = generalWebsitesSchema.aggregate([{
+    var q = generalWebsitesSchema.aggregate([{$match:{"Domain":{$nin:["google.com","youtube.com","facebook.com","baidu.com"]}}},{
         $project: {
             Domain: 1,
             Avg_Month_Visits: 1,
@@ -262,7 +262,7 @@ module.exports.get_allcategories_bouncestack = function(req, res) {
 
         }
 
-    }]);
+    }, { $sort: { "Avg_Month_Visits": -1 } }])
     q.exec(function(err, webs) {
         //console.log(webs);
         return res.send({ webs: webs });
