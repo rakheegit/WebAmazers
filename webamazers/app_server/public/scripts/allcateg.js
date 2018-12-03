@@ -126,7 +126,7 @@ function drawChart_bouncestack() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Ratio of Unimpressed Visits who exit after one page',
+                title: 'Ratio of Unimpressed Visits (who exit after one page)',
                 isStacked: true,
                 //      vAxis: { title: "Domain" },
                 colors:["#99ccff","#ff99cc"],
