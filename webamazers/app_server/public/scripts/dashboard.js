@@ -1,8 +1,9 @@
 google.charts.load('current', { 'packages': ['corechart'] });
+google.charts.load('current', { 'packages': ['bar'] });
 //google.charts.setOnLoadCallback(drawLineChart);
 //google.charts.setOnLoadCallback(drawColumnChart);
 //google.charts.setOnLoadCallback(drawColumnChart1);
-google.charts.setOnLoadCallback(drawChart_dashboard_timespent);
+//google.charts.setOnLoadCallback(drawChart_dashboard_timespent);
 google.charts.setOnLoadCallback(drawChart_edu_mobdesk);
 google.charts.setOnLoadCallback(drawChart_newuser);
 google.charts.setOnLoadCallback(drawChart_bouncerate_movies);
@@ -10,6 +11,8 @@ google.charts.setOnLoadCallback(drawChart_avg_monthly_visits);
 //google.charts.setOnLoadCallback(get_total);
 //google.charts.setOnLoadCallback(getPercentage);
 //google.charts.setOnLoadCallback(getPercentagePrivacy);
+google.charts.load('current', { 'packages': ['scatter'] });
+google.charts.setOnLoadCallback(drawChart_dashboard_timespent);
 
 function drawChart_newuser() {
 
@@ -51,7 +54,13 @@ function drawChart_newuser() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: ' User Favorites to rent Cars',
+                chart: {
+                    //    vAxis: { title: "No. of Unique users" },
+                    title: ' User Favorites to rent Cars'
+                        //  subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+                },
+                //title: ' User Favorites to rent Cars',
+
                 vAxis: { title: "No. of Unique users" },
                 width: 550,
                 height: 350,
@@ -62,8 +71,11 @@ function drawChart_newuser() {
                 }
             };
 
-            var chart = new google.visualization.ColumnChart(document.getElementById('newuser'));
-            chart.draw(chartData, options);
+            /*    var chart = new google.visualization.ColumnChart(document.getElementById('newuser'));
+                chart.draw(chartData, options);*/
+            var chart = new google.charts.Bar(document.getElementById('newuser'));
+
+            chart.draw(chartData, google.charts.Bar.convertOptions(options));
         }
     })
 }
@@ -256,58 +268,71 @@ function drawChart_dashboard_timespent() {
 
 
             var columns = Object.keys(results[0]);
-            var colors = [];
-            var i = 0;
+            //   var colors = [];
+            //    var i = 0;
             var data = results.map(function(result) {
                 var tableRow = [];
                 columns.forEach(function(col) {
+                    /*
+                          if (col == "Pages_Per_Visit") {
+
+                              result[col] = parseInt(result[col]);
+                              tableRow.splice(2, 0, result[col]);
+                          } else
+                          */
                     if (col == "Pages_Per_Visit") {
 
                         result[col] = parseInt(result[col]);
-                        tableRow.splice(2, 0, result[col]);
-                    } else
-                    if (col == "Avg_Visit_Duration") {
-
-                        result[col] = parseInt(result[col] / 60);
                         tableRow.splice(1, 0, result[col]);
-                    } else if (col == "Domain") {
-                        tableRow.splice(0, 0, result[col]);
+                    } else if (col == "Avg_Visit_Duration") {
+                        tableRow.splice(0, 0, result[col] / 60);
                     }
                 });
 
-                tableRow.splice(3, 0, colors[i]);
-                i += 1;
+                //     tableRow.splice(3, 0, colors[i]);
+                //   i += 1;
                 return tableRow;
 
             });
 
             var tableRow = [];
             columns.forEach(function(col) {
-                tableRow.push(col);
-            })
-            tableRow.push({ role: 'style' });
+                    tableRow.push(col);
+                })
+                //     tableRow.push({ role: 'style' });
             data.splice(0, 0, tableRow);
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Domains where people spend considerable time',
+                width: 650,
+                height: 500,
+                colors: ['#CE3175'],
+                legend: { position: "none" },
+                chart: {
+                    title: 'Average Time spent / Pages viewed for Educational Websites'
+                        //     subtitle: 'based on hours studied'
+                },
+                hAxis: { title: 'Pages Per Visit' },
+                vAxis: { title: 'Average Visit Duration' }
+            };
+            /*      var options = {
+                title: 'Average Time spent / Pages viewed for Educational Websites ',
                 //vAxis: { title: "Measure" },
-                width: 1150,
+                width: 750,
                 height: 650,
-                legend: { position: "right" },
-                colors: ['#f4a142', '#55d6aa'],
+                legend: { position: "none" },
+                colors: ['#FF6F61'],
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
-
                 }
+*/
 
-            };
 
-            var chart = new google.visualization.ScatterChart(document.getElementById('timespent'));
+            var chart = new google.charts.Scatter(document.getElementById('timespent'));
             //var chart = new google.charts.Bar(document.getElementById('timetraffic_all'));
 
-            chart.draw(chartData, options);
+            chart.draw(chartData, google.charts.Scatter.convertOptions(options));
         }
     })
 }
