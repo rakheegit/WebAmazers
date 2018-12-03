@@ -92,14 +92,15 @@ function drawChart_bouncestack() {
                 var tableRow = [];
                 columns.forEach(function(col) {
 
-                    if (col == "Avg_Month_Visits") {
-
-                        result[col] = parseInt(result[col] /100000);
-                        tableRow.splice(2, 0, result[col]);
-                    } else
+                    
                     if (col == "Bouncing_Visits") {
 
-                        result[col] = parseInt(result[col] /100000);
+                        result[col] = parseInt(result[col] /1000000);
+                        tableRow.splice(2, 0, result[col]);
+                    } else
+                    if (col == "Avg_Month_Visits") {
+
+                        result[col] = parseInt(result[col] /1000000);
                         tableRow.splice(1, 0, result[col]);
                     } else
 
