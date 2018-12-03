@@ -51,4 +51,6 @@ router.get("/dashboard_newuser_movies", ctrlMain.get_dashboard_newuser_movies);
 router.get("/dashboard_avg_monthly_visits", ctrlMain.get_dashboard_avg_monthly_visits);
 router.get("/dashboard_website_change_movies", ctrlMain.get_dashboard_website_change_movies)
 router.get("/dashboard_edu_mobdesk", ctrlMain.get_dashboard_edu_mobdesk)
+router.get("/allcategories_change_in_traffic", ctrlMain.get_allcategories_change_in_traffic)
+router.get("/allcategories_social_avg_monthly", ctrlMain.get_allcategories_social_avg_monthly)
 module.exports = router;

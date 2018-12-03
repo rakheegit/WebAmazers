@@ -1,8 +1,8 @@
 google.charts.load('current', { 'packages': ['corechart'] });
 //google.charts.setOnLoadCallback(drawLineChart);
 //google.charts.setOnLoadCallback(drawColumnChart);
-//google.charts.setOnLoadCallback(drawColumnChart1);
-//google.charts.setOnLoadCallback(drawChart_bar);
+google.charts.setOnLoadCallback(drawChart_social_avg_monthly);
+google.charts.setOnLoadCallback(drawChart_change_in_traffic);
 google.charts.setOnLoadCallback(drawChart_stackedchart);
 google.charts.setOnLoadCallback(drawChart_stackedchart_mobdesk_all);
 google.charts.setOnLoadCallback(drawChart_hightraffic_all);
@@ -60,7 +60,7 @@ function drawChart_stackedchart() {
                 title: 'Want to Expand your User base? Target websites with High Unique Users!!',
                 //isStacked: true,
                 //      vAxis: { title: "Domain" },
-                colors:["#e242f4"],
+                colors: ["#e242f4"],
                 width: 550,
                 height: 550,
                 legend: { position: "none" },
@@ -92,19 +92,19 @@ function drawChart_bouncestack() {
                 var tableRow = [];
                 columns.forEach(function(col) {
 
-                    
+
                     if (col == "Bouncing_Visits") {
 
-                        result[col] = parseInt(result[col] /1000000);
+                        result[col] = parseInt(result[col] / 1000000);
                         tableRow.splice(2, 0, result[col]);
                     } else
                     if (col == "Avg_Month_Visits") {
 
-                        result[col] = parseInt(result[col] /1000000);
+                        result[col] = parseInt(result[col] / 1000000);
                         tableRow.splice(1, 0, result[col]);
                     } else
 
-                    
+
 
                     if (col == "Domain") {
                         tableRow.splice(0, 0, result[col]);
@@ -129,7 +129,7 @@ function drawChart_bouncestack() {
                 title: 'Ratio of Unimpressed Visits (who exit after one page)',
                 isStacked: true,
                 //      vAxis: { title: "Domain" },
-                colors:["#99ccff","#ff99cc"],
+                colors: ["#99ccff", "#ff99cc"],
                 width: 1150,
                 height: 650,
                 bar: { groupWidth: "88%" },
@@ -141,6 +141,133 @@ function drawChart_bouncestack() {
             };
 
             var chart = new google.visualization.ColumnChart(document.getElementById('bouncestack'));
+            chart.draw(chartData, options);
+        }
+    })
+}
+
+function drawChart_social_avg_monthly() {
+
+    $.ajax({
+        url: "/allcategories_social_avg_monthly",
+        type: 'GET',
+        success: function(resData) {
+            var results = resData.webs;
+
+
+            var columns = Object.keys(results[0]);
+            var colors = ["#CE3175", "#CE3175", "#DBB1CD", "#DBB1CD", "#DBB1CD", "#DBB1CD", "#DBB1CD"];
+            var i = 0;
+            var data = results.map(function(result) {
+                var tableRow = [];
+                columns.forEach(function(col) {
+                    if (col == "Avg_Month_Visits") {
+
+                        result[col] = parseFloat(result[col]);
+                        tableRow.splice(1, 0, result[col]);
+                    } else if (col == "Domain") {
+                        tableRow.splice(0, 0, result[col]);
+                    }
+                });
+
+                tableRow.splice(3, 0, colors[i]);
+                i += 1;
+                return tableRow;
+
+            });
+
+            var tableRow = [];
+            columns.forEach(function(col) {
+                tableRow.push(col);
+            })
+            tableRow.push({ role: 'style' });
+            data.splice(0, 0, tableRow);
+
+            var chartData = google.visualization.arrayToDataTable(data);
+            var options = {
+                title: 'Most Popular Social Netwroking Sites',
+                //isStacked: true,
+                //     vAxis: { title: "Domain" },
+                width: 850,
+                height: 550,
+                bar: { groupWidth: "60%" },
+                legend: { position: "none" },
+                vAxis: { title: 'Average Monthly visits' },
+                hAxis: { title: 'Social Networking Sites' },
+                //   colors: ["#CE3175"],
+                titleTextStyle: {
+                    fontSize: 14, // 12, 18 whatever you want (don't specify px)
+                    bold: true, // true or false
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('socialmonthlyvisitors'));
+            chart.draw(chartData, options);
+        }
+    })
+}
+
+function drawChart_change_in_traffic() {
+
+    $.ajax({
+        url: "/allcategories_change_in_traffic",
+        type: 'GET',
+        success: function(resData) {
+            var results = resData.webs;
+
+
+            var columns = Object.keys(results[0]);
+            var colors = ["#DBB1CD", "#DBB1CD", "#CE3175", "#DBB1CD", "#DBB1CD", "#CE3175", "#DBB1CD"];
+            var i = 0;
+            var data = results.map(function(result) {
+                var tableRow = [];
+                columns.forEach(function(col) {
+                    if (col == "increase_from_lastmonth") {
+
+                        result[col] = parseFloat(result[col]);
+                        tableRow.splice(1, 0, result[col]);
+                    } else
+                    if (col == "Website_Change") {
+
+                        result[col] = parseFloat(result[col]);
+                        tableRow.splice(2, 0, result[col]);
+                    } else if (col == "Domain") {
+                        tableRow.splice(0, 0, result[col]);
+                    }
+                });
+
+                tableRow.splice(3, 0, colors[i]);
+                i += 1;
+                return tableRow;
+
+            });
+
+            var tableRow = [];
+            columns.forEach(function(col) {
+                tableRow.push(col);
+            })
+            tableRow.push({ role: 'style' });
+            data.splice(0, 0, tableRow);
+
+            var chartData = google.visualization.arrayToDataTable(data);
+            var options = {
+                title: 'Who attracts New Traffic on a monthly basis?',
+                //isStacked: true,
+                //     vAxis: { title: "Domain" },
+                width: 850,
+                height: 550,
+                bar: { groupWidth: "60%" },
+                legend: { position: "none" },
+                vAxis: { title: '% of Increase in Traffic from last month' },
+                hAxis: { title: 'Most Popular Social Networking Sites' },
+                colors: ["#CE3175"],
+                titleTextStyle: {
+                    fontSize: 14, // 12, 18 whatever you want (don't specify px)
+                    bold: true, // true or false
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('stackedchart_change'));
             chart.draw(chartData, options);
         }
     })

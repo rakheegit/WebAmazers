@@ -250,8 +250,8 @@ module.exports.get_allcategories_bouncestack = function(req, res) {
     var q = generalWebsitesSchema.aggregate([{
         $project: {
             Domain: 1,
-            Avg_Month_Visits:1,
-           
+            Avg_Month_Visits: 1,
+
             _id: 0,
 
             Bouncing_Visits: {
@@ -310,7 +310,46 @@ module.exports.get_allcategories_hightraffic_all = function(req, res) {
 
     }]).sort({ traffic_percent: -1 }).limit(20);
     q.exec(function(err, webs) {
-        console.log(webs);
+        //    console.log(webs);
+        return res.send({ webs: webs });
+    });
+};
+module.exports.get_allcategories_change_in_traffic = function(req, res) {
+    var q = generalWebsitesSchema.aggregate([
+        { $match: { $or: [{ Domain: "facebook.com" }, { Domain: "youtube.com" }, { Domain: "instagram.com" }, { Domain: "twitter.com" }, { Domain: "reddit.com" }, { Domain: "whatsapp.com" }, { Domain: "pinterest.com" }] } },
+        {
+            $project: {
+                Domain: 1,
+                _id: 0,
+
+                increase_from_lastmonth: {
+                    $multiply: ["$Website_Change", 100]
+                }
+
+
+            }
+        }
+    ]).sort({ Avg_Month_Visits: -1 }).limit(20);
+    q.exec(function(err, webs) {
+        //console.log(webs);
+        return res.send({ webs: webs });
+    });
+};
+
+module.exports.get_allcategories_social_avg_monthly = function(req, res) {
+    var q = generalWebsitesSchema.aggregate([
+        { $match: { $or: [{ Domain: "facebook.com" }, { Domain: "youtube.com" }, { Domain: "instagram.com" }, { Domain: "twitter.com" }, { Domain: "reddit.com" }, { Domain: "whatsapp.com" }, { Domain: "pinterest.com" }] } },
+        {
+            $project: {
+                Domain: 1,
+                _id: 0,
+                Avg_Month_Visits: 1
+            }
+
+        }
+    ]).sort({ Avg_Month_Visits: -1 }).limit(20);
+    q.exec(function(err, webs) {
+        //   console.log(webs);
         return res.send({ webs: webs });
     });
 };
@@ -340,6 +379,8 @@ module.exports.get_dashboard_avg_monthly_visits = function(req, res) {
         return res.send({ webs: webs });
     });
 };
+
+
 
 module.exports.get_dashboard_top_countries = function(req, res) {
     var q = schemaWebsite.aggregate([{
@@ -390,7 +431,7 @@ module.exports.get_dashboard_bouncerate_movies = function(req, res) {
 
     }).sort({ Bounce_Rate: 1 }).limit(20);
     q.exec(function(err, webs) {
-        console.log(webs);
+        // console.log(webs);
         return res.send({ webs: webs });
     });
 };
