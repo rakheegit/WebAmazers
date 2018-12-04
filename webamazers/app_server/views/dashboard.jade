@@ -3,28 +3,33 @@ extends layout
 block dashboard
     head
         title Dashboard
-    div(class="row")
-        div#topcountries
-        div(class="column")#avg_monthly_visits
-        div(class="column")#newuser
-        
+    body
+        div(class="row")
+            div(class="column",style="margin-top:100px; margin-left:1400px")
+                doctype html
+                html.
+                    <div class="dropdown">
+                        <button class="btn btn-success" type="button" id="dropdownMenu" data-toggle="dropdown">
+                            Select Category
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+                            <a class="dropdown-item" href="#" id="moviesDD">Movies</a>
+                            <a class="dropdown-item" href="#" id="educationDD">Educarion</a>
+                            <a class="dropdown-item" href="#" id="carrentalsDD">Car Rentals</a>
+                        </div>
+                    </div>
 
-    div(class="row")
-        div#topcountries
-        div(class="column")#avgpageviews
-        div(class="column")#avgvisitors
-        div(class="column")#edu_mobdesk
-        div(class="column")#timespent
-
-             
-        
-
-        
-    
-    
-        
+        div(class="row")
+            div#topcountries
+            div(class="column")#avg_monthly_visits
+            div(class="column")#newuser
             
-            
 
-    
+        div(class="row")
+            div#topcountries
+            div(class="column")#avgpageviews
+            div(class="column")#avgvisitors
+            div(class="column")#edu_mobdesk
+            div(class="column")#timespent
+        
     script(src='/scripts/dashboard.js')
