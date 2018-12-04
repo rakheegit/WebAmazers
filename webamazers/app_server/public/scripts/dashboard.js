@@ -2,7 +2,7 @@
 var curretCategory = "movies";
 
 function loadCharts(){
-    $("#loader").fadeIn("slow");
+    $("#loader").fadeIn("fast");
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.load('current', { 'packages': ['bar'] });
     google.charts.load('current', { 'packages': ['scatter'] });
@@ -29,7 +29,7 @@ $("#carrentalsDD").click(function(){
 // google.charts.setOnLoadCallback(drawChart_dashboard_timespent);
 loadCharts();
 $(window).ready(function() {
-    $("#loader").fadeOut("slow");
+    $("#loader").fadeOut("fast");
 });
 
 function drawChart_newuser() {
@@ -72,16 +72,16 @@ function drawChart_newuser() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                chart: {
-                    //    vAxis: { title: "No. of Unique users" },
-                    title: ' User Favorites for ' + curretCategory
-                        //  subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-                },
+                // chart: {
+                //     //    vAxis: { title: "No. of Unique users" },
+                //     title: ' User Favorites for ' + curretCategory
+                //         //  subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+                // },
                 //title: ' User Favorites to rent Cars',
-
+                title: ' User Favorites for ' + curretCategory,
                 vAxis: { title: "No. of Unique users" },
-                width: 550,
-                height: 350,
+                width: 600,
+                height: 400,
                 legend: { position: "none" },
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
@@ -138,14 +138,15 @@ function drawChart_avg_monthly_visits() {
             var options = {
                 title: 'Averaga Monthly Visits',
                 //colors: ['#BC70A4'],
-                width: 550,
-                height: 350,
+                width: 600,
+                height: 400,
                 legend: { position: "none" },
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
                 },
-                vAxis: { title: "Monthly Visits" }
+                vAxis: { title: "Monthly Visits" },
+                
                 //  vAxis: { format: 'percent' }
 
             };
@@ -207,8 +208,8 @@ function drawChart_edu_mobdesk() {
                 title: 'Desktop Vs Mobile Visitors',
                 isStacked: true,
                 //     vAxis: { title: "Domain" },
-                width: 550,
-                height: 350,
+                width: 600,
+                height: 400,
                 bar: { groupWidth: "75%" },
                 legend: { position: "right" },
                 vAxis: { title: "Percentage %" },
@@ -272,8 +273,8 @@ function drawChart_dashboard_timespent() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                width: 650,
-                height: 500,
+                width: 600,
+                height: 400,
                 colors: ['#CE3175'],
                 legend: { position: "none" },
                 chart: {
@@ -281,7 +282,11 @@ function drawChart_dashboard_timespent() {
                         //     subtitle: 'based on hours studied'
                 },
                 hAxis: { title: 'Pages Per Visit' },
-                vAxis: { title: 'Average Visit Duration' }
+                vAxis: { title: 'Average Visit Duration' },
+                titleTextStyle: {
+                    fontSize: 14, // 12, 18 whatever you want (don't specify px)
+                    bold: true, // true or false
+                },
             };
             /*      var options = {
                 title: 'Average Time spent / Pages viewed for Educational Websites ',
