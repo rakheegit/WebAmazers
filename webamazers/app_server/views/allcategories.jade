@@ -1,44 +1,120 @@
 
+//- extends layout
+//- block allcategories
+    
+//-     div(class="row")
+//-     h3 Open new doors to your Business with Mobile traffic
+//-     p The picture says it all! Now is the time to optimize your website for more engagement and sales from mobile visitors.
+//-     P Get rewarded for page loading speed on mobile, and a responsive web design.
+//-         div(class="column")#stackedchart_mobdesk_all
+             
+//-     br
+//-     h3 Why get your website to appear on Google?
+//-     p Because the data says so!
+//-     p Promote your website, get your content in top search results, and much more; all through Google SEO.
+//-     h3 Know you Advertising Options from these top traffic makers.
+//-     div(class="row")
+//-         div(class="column")#hightraffic
+//-         div(class="column")#differentStatus
+
+//-     br
+//-     h3 What do these websites have special that Engage customers so long?
+//-     p It's not enough if users found your website. You need to Engage them to stay longer!
+//-     p Credibilty, Relevant Content, Personalization, Speed Optimization, Improved Readability and lot more to look into.
+//-     div(class="row")
+//-         div(class="column")#timetraffic_all
+
+//-     div(class="row")
+//-         div(class="column")#stackedchart
+    
+//-     div(class="row")
+//-         div(class="column")#bouncestack
+
+//-     div(class="row")
+//-         div(class="column")#socialmonthlyvisitors
+//-         div(class="column")#stackedchart_change
+        
+    
+    
+        
+            
+    
 extends layout
 block allcategories
-    
-    div(class="row")
-    h3 Open new doors to your Business with Mobile traffic
-    p The picture says it all! Now is the time to optimize your website for more engagement and sales from mobile visitors.
-    P Get rewarded for page loading speed on mobile, and a responsive web design.
-        div(class="column")#stackedchart_mobdesk_all
-             
-    br
-    h3 Why get your website to appear on Google?
-    p Because the data says so!
-    p Promote your website, get your content in top search results, and much more; all through Google SEO.
-    h3 Know you Advertising Options from these top traffic makers.
-    div(class="row")
-        div(class="column")#hightraffic
-        div(class="column")#differentStatus
-
-    br
-    h3 What do these websites have special that Engage customers so long?
-    p It's not enough if users found your website. You need to Engage them to stay longer!
-    p Credibilty, Relevant Content, Personalization, Speed Optimization, Improved Readability and lot more to look into.
-    div(class="row")
-        div(class="column")#timetraffic_all
-
-    div(class="row")
-        div(class="column")#stackedchart
-    
-    div(class="row")
-        div(class="column")#bouncestack
-
-    div(class="row")
-        div(class="column")#socialmonthlyvisitors
-        div(class="column")#stackedchart_change
+    head
+        // Bootstrap core CSS
+        link(href='/lib/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+        // Custom styles for this template
         
-    
-    
+    body
         
-            
-            
+        section.py-5
+            .container
+                h1 Open new doors to your Business with Mobile traffic
+                h3 The picture says it all! Now is the time to optimize your website for more engagement and sales from mobile visitors.
+                h3 Get rewarded for page loading speed on mobile, and a responsive web design.
 
-    
-    script(src='/scripts/allcateg.js')
+        br
+        br
+        br
+        section.py-5#stackedchart_mobdesk_all
+
+        section.py-5
+            .container
+                h1 Why get your website to appear on Google?
+                h3 Because the data says so!
+                h3 Promote your website, get your content in top search results, and much more; all through Google SEO.
+                h3 Know you Advertising Options from these top traffic makers.
+        
+        br
+        br
+        br
+        section.py-5#hightraffic
+
+        section.py-5
+            .container
+                h1 What do these websites have special that Engage customers so long?
+                h3 It's not enough if users found your website. You need to Engage them to stay longer!
+                h3 Credibilty, Relevant Content, Personalization, Speed Optimization, Improved Readability and lot more to look into.
+        
+        br
+        br
+        br
+        section.py-5#timetraffic_all
+
+        section.py-5
+            .container
+                h1 Unique Users
+        
+        br
+        br
+        section.py-5#stackedchart
+
+        section.py-5
+            .container
+                h1 Bouncr Rate
+        
+        br
+        br
+        section.py-5#bouncestack
+
+        section.py-5
+            .container
+                h1 Social Networking Site
+        
+        br
+        br
+        section.py-5#socialmonthlyvisitors
+
+        section.py-5
+            .container
+                h1 New Traffic Site
+        
+        br
+        br
+        section.py-5#stackedchart_change
+        
+
+        script(src='/lib/jquery/jquery.js')
+        script(src='/lib/bootstrap/js/bootstrap.bundle.min.js')
+        script(src='/scripts/allcateg.js')
