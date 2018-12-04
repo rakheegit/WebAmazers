@@ -11,6 +11,7 @@ router.post("/createuser", ctrlMain.createuser);
 // router.post("/userexists", ctrlMain.userexists);
 router.get("/", ctrlMain.index);
 router.get("/login", ctrlMain.login);
+router.get("/home", ctrlMain.userhome);
 router.get("/loginuser", ctrlMain.loginuser);
 
 router.get("/signup", ctrlMain.signup);

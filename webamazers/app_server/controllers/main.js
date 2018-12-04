@@ -66,6 +66,11 @@ module.exports.signup = function(req, res) {
   res.render("signup");
 };
 
+module.exports.userhome = function(req, res) {
+  res.render("index");
+};
+
+
 module.exports.login = function(req, res) {
   res.render("login");
 };
@@ -81,7 +86,7 @@ module.exports.loginuser = function(req, res) {
     } else if (data[0].pass != req.query.pass) {
       return res.send({ msg: "invalid username or password" });
     } else {
-      return res.send({ msg: "success" });
+      return res.send({ msg: data });
     }
   });
 };
