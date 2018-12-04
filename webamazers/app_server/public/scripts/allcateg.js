@@ -129,7 +129,7 @@ function drawChart_bouncestack() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Ratio of Unimpressed Visits (who exit after one page)',
+                title: 'Ratio of Bounced Visitis to Total Visits',
                 isStacked: true,
                 //    vAxis: { title: "Domain" },
                 hAxis: { title: 'Top 100 Most Visited sites', textPosition: 'none' },
@@ -190,7 +190,7 @@ function drawChart_social_avg_monthly() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Most Popular Social Netwroking Sites',
+                title: 'Most Visited Social Networking Sites',
                 //isStacked: true,
                 //     vAxis: { title: "Domain" },
                 width: 750,
@@ -256,7 +256,7 @@ function drawChart_change_in_traffic() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Who attracts New Traffic on a monthly basis?',
+                title: 'Social Networking sites that attract New Traffic',
                 //isStacked: true,
                 //     vAxis: { title: "Domain" },
                 width: 750,
@@ -264,7 +264,7 @@ function drawChart_change_in_traffic() {
                 bar: { groupWidth: "60%" },
                 legend: { position: "none" },
                 vAxis: { title: '% of Increase in Traffic from last month' },
-                hAxis: { title: 'Most Popular Social Networking Sites' },
+                hAxis: { title: 'Social Networking Sites' },
                 colors: ["#CE3175"],
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
