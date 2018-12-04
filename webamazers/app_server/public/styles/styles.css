@@ -1,7 +1,7 @@
 body {
     margin: 0;
     background: #FFF;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 800;
 }
 
@@ -16,7 +16,7 @@ body {
 }
 
 .tableContent {
-    font-family: 'Josefin Slab', serif;
+    font-family: 'Open Sans', serif;
     font-size: 20px;
 }
 
@@ -24,8 +24,9 @@ p {
     padding-left: 2%;
     padding-top: 1%;
     padding-right: 3%;
-    font-family: 'Poiret One', cursive;
-    font-size: 30px;
+    font-family: 'Open Sans', cursive;
+    font-size: 27px;
+    font-weight: normal;
 }
 
 header {
@@ -84,12 +85,6 @@ header::after {
     background: #55d6aa;
 }
 
-
-.fa.fa-home {
-    margin-bottom: 60px;
-    font-size: 40px;
-}
-
 .indexBlock {
     background-color: #f7f7f7;
 }
@@ -116,14 +111,14 @@ header::after {
 
 h3 {
     color: brown;
-    font-family: georgia;
+    font-family: 'Open Sans';
     margin-left: 12px;
 }
 
 h2 {
     text-align: center;
     color: brown;
-    font-family: georgia
+    font-family: 'Open Sans'
 }
 
 .main {
@@ -142,7 +137,7 @@ h2 {
 }
 
 #columnHeading {
-    font-family: 'Neucha', cursive;
+    font-family: 'Open Sans', cursive;
     font-size: 30px;
 }
 
@@ -322,10 +317,6 @@ ul {
     list-style-type: none;
     margin-left: 5px;
     padding-left: 15px;
-}
-
-img {
-    border: 1px solid #000;
 }
 
 .parentDiv {

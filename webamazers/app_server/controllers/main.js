@@ -41,14 +41,20 @@ module.exports.createuser = function(req, res) {
     req,
     function(existinguser) {
       if (existinguser.length != 0) {
-        return res.send({ msg: "Username already taken. Please try some other name." , type: "error"});
+        return res.send({
+          msg: "Username already taken. Please try some other name.",
+          type: "error"
+        });
       } else {
         var user = new userSchema(req.body);
         user.save(function(err) {
           if (err) {
             return res.send(500, { error: err });
           }
-          return res.send({ msg: "Successfully signed in. Please login." , type: "success"});
+          return res.send({
+            msg: "Successfully signed in. Please login.",
+            type: "success"
+          });
         });
       }
     },
@@ -90,10 +96,18 @@ module.exports.userhome = function(req, res) {
 
 module.exports.compare = function(req, res) {
   if (req.session.user) {
-    res.render("compare");
+    var q = generalWebsitesSchema.find();
+    q.exec(function(err, webs) {
+      res.render("compare", { websites: webs });
+    });
   } else {
     res.render("login", { logedin: true });
   }
+  // if (req.session.user) {
+  //   res.render("compare", {websites: webs});
+  // } else {
+  //   res.render("login", { logedin: true });
+  // }
 };
 
 module.exports.login = function(req, res) {
@@ -114,7 +128,7 @@ module.exports.loginuser = function(req, res) {
     if (data.length == 0) {
       return res.send({ msg: "User not signed up", valid: false });
     } else if (data[0].pass != req.query.pass) {
-      return res.send({ msg: "Invalid username or password" , valid: false});
+      return res.send({ msg: "Invalid username or password", valid: false });
     } else {
       req.session.user = data[0];
       return res.send({ msg: data, valid: true });
