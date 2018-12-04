@@ -1,6 +1,8 @@
-var curretCategory = "carrentals";
+
+var curretCategory = "movies";
 
 function loadCharts(){
+    $("#loader").fadeIn("slow");
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.load('current', { 'packages': ['bar'] });
     google.charts.load('current', { 'packages': ['scatter'] });
@@ -8,6 +10,7 @@ function loadCharts(){
     google.charts.setOnLoadCallback(drawChart_newuser);
     google.charts.setOnLoadCallback(drawChart_avg_monthly_visits);
     google.charts.setOnLoadCallback(drawChart_dashboard_timespent);
+    $("#loader").fadeOut("fast");
 }
 
 $("#moviesDD").click(function(){
@@ -25,6 +28,10 @@ $("#carrentalsDD").click(function(){
 
 // google.charts.setOnLoadCallback(drawChart_dashboard_timespent);
 loadCharts();
+$(window).ready(function() {
+    $("#loader").fadeOut("slow");
+});
+
 function drawChart_newuser() {
 
     $.ajax({

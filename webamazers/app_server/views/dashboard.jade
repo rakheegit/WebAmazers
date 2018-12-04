@@ -4,20 +4,18 @@ block dashboard
     head
         title Dashboard
     body
+        div(class="center")#loader
         div(class="row")
             div(class="column",style="margin-top:100px; margin-left:1400px")
-                doctype html
-                html.
-                    <div class="dropdown">
-                        <button class="btn btn-success" type="button" id="dropdownMenu" data-toggle="dropdown">
-                            Select Category
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-                            <a class="dropdown-item" href="#" id="moviesDD">Movies</a>
-                            <a class="dropdown-item" href="#" id="educationDD">Educarion</a>
-                            <a class="dropdown-item" href="#" id="carrentalsDD">Car Rentals</a>
-                        </div>
-                    </div>
+                .dropdown
+                button#dropdownMenu.btn.btn-success(type='button', data-toggle='dropdown')
+                    | Select Category
+                .dropdown-menu(aria-labelledby='dropdownMenu')
+                    a#moviesDD.dropdown-item(href='#') Movies
+                    a#educationDD.dropdown-item(href='#') Educarion
+                    a#carrentalsDD.dropdown-item(href='#') Car Rentals
+
+                    
 
         div(class="row")
             div#topcountries
