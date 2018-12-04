@@ -50,6 +50,7 @@ router.get("/allcategories_stackedchart_mobdesk_all", ctrlMain.get_allcategories
 router.get("/allcategories_bouncestack", ctrlMain.get_allcategories_bouncestack);
 
 router.get("/movies", ctrlMain.get_movies);
+router.get("/compare", ctrlMain.compare);
 router.get("/get_movies_traffic_share", ctrlMain.get_traffic_share);
 router.get("/dashboard_bouncerate_movies", ctrlMain.get_dashboard_bouncerate_movies);
 router.get("/dashboard_newuser_movies", ctrlMain.get_dashboard_newuser_movies);

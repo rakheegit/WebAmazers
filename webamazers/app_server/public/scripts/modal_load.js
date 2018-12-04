@@ -4,20 +4,20 @@ function loadM(webdata) {
     title: "Edit Values for : " + webdata.Website,
     body:
       "<ul>" +
-      '<li>Country_Rank:    <input type="text" name="Country_Rank" id = "Country_Rank" value=' +
-      webdata.Country_Rank +
+      '<li>Rank:    <input type="text" name="Rank" id = "Rank" value=' +
+      webdata.Rank +
       "><br></li>" +
-      '<li>Child_Safety:    <input type="text" name="Child_Safety" id = "Child_Safety" value=' +
-      webdata.Child_Safety +
+      '<li>Domain:    <input type="text" name="Domain" id = "Domain" value=' +
+      webdata.Domain +
       "><br></li>" +
-      '<li>Trustworthiness: <input type="text" name="Trustworthiness" id = "Trustworthiness" value=' +
-      webdata.Trustworthiness +
+      '<li>Desktop_Users: <input type="text" name="Desktop_Users" id = "Desktop_Users" value=' +
+      webdata.Desktop_Users +
       "><br></li>" +
-      '<li>Avg_Daily_Pageviews: <input type="text" name="Avg_Daily_Pageviews" id = "Avg_Daily_Pageviews" value=' +
-      webdata.Avg_Daily_Pageviews +
+      '<li>Traffic_Share: <input type="text" name="Traffic_Share" id = "Traffic_Share" value=' +
+      webdata.Traffic_Share +
       "><br></li>" +
-      '<li>Privacy: <input type="text" name="Privacy" id = "Privacy" value=' +
-      webdata.Privacy +
+      '<li>Bounce_Rate: <input type="text" name="Bounce_Rate" id = "Bounce_Rate" value=' +
+      webdata.Bounce_Rate +
       "><br></li>",
 
     actions: [
@@ -59,33 +59,35 @@ function loadM(webdata) {
 }
 //added
 
+// Domain	Traffic_Share	Rank	Monthly Visits	Bounce_Rate	Desktop_Users	Mobile_Users	Pages_Per_Visit	Average_Duration_per_visit	Data_Change	Data_Favicon	Google_adsense_enabled	 Unique_Visitors													
+
 function loadModel(webdata) {
   showBSModal({
     title: "Displaying the selected record",
     body:
       "<ul><li>" +
       "Website: " +
-      webdata.Website +
+      webdata.Domain +
       "</li>" +
       "<li>" +
-      "Country Rank: " +
-      webdata.Country_Rank +
+      "Rank: " +
+      webdata.Rank +
       "</li>" +
       "<li>" +
-      "Child Sefety: " +
-      webdata.Child_Safety +
+      "Desktop_Users: " +
+      webdata.Desktop_Users +
       "</li>" +
       "<li>" +
-      "Trustworthiness: " +
-      webdata.Trustworthiness +
+      "Mobile_Users: " +
+      webdata.Mobile_Users +
       "</li>" +
       "<li>" +
-      "Average Daily Views: " +
-      webdata.Avg_Daily_Pageviews +
+      "Traffic_Share: " +
+      webdata.Traffic_Share +
       "</li>" +
       "<li>" +
-      "Privacy: " +
-      webdata.Privacy +
+      "Bounce_Rate: " +
+      webdata.Bounce_Rate +
       "</li>" +
       "</ul>",
     actions: [

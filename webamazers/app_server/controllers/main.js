@@ -88,6 +88,14 @@ module.exports.userhome = function(req, res) {
   }
 };
 
+module.exports.compare = function(req, res) {
+  if (req.session.user) {
+    res.render("compare");
+  } else {
+    res.render("login", { logedin: false });
+  }
+};
+
 module.exports.login = function(req, res) {
   if (req.session.user) {
     if (req.session.user.name === "admin") {
@@ -116,7 +124,7 @@ module.exports.loginuser = function(req, res) {
 
 module.exports.get_websites = function(req, res) {
   if (req.session.user) {
-    var q = schemaWebsite.find().limit(10);
+    var q = generalWebsitesSchema.find();
     q.exec(function(err, webs) {
       res.render("websites", { title: "Express", websites: webs });
     });
@@ -140,14 +148,14 @@ module.exports.get_add_new_from = function(req, res) {
 };
 
 module.exports.get_websites_by_id = function(req, res) {
-  var q = schemaWebsite.find({ _id: req.params.id }).limit(10);
+  var q = generalWebsitesSchema.find({ _id: req.params.id });
   q.exec(function(err, webs) {
     return res.send({ websites: webs });
   });
 };
 
 module.exports.get_websites_by_id_for_edit = function(req, res) {
-  var q = schemaWebsite.find({ _id: req.params.id }).limit(10);
+  var q = generalWebsitesSchema.find({ _id: req.params.id });
   q.exec(function(err, webs) {
     return res.send({ websites: webs });
   });
