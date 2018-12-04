@@ -56,7 +56,7 @@ function drawChart_newuser() {
             var options = {
                 chart: {
                     //    vAxis: { title: "No. of Unique users" },
-                    title: ' User Favorites to rent Cars'
+                    title: ' User Favorites'
                         //  subtitle: 'Sales, Expenses, and Profit: 2014-2017',
                 },
                 //title: ' User Favorites to rent Cars',

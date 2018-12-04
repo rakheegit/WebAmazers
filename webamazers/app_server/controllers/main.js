@@ -294,7 +294,7 @@ module.exports.get_dashboardbar = function(req, res) {
 };
 
 module.exports.get_dashboard_newuser = function(req, res) {
-  var q = carRentalsSchema
+  var q = eduWebsitesSchema
     .find(
       {},
       { Domain: 1, Unique_Users: 1, _id: 0 },
