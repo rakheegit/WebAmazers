@@ -13,6 +13,7 @@ router.get("/", ctrlMain.index);
 router.get("/login", ctrlMain.login);
 router.get("/home", ctrlMain.userhome);
 router.get("/loginuser", ctrlMain.loginuser);
+router.get("/logout", ctrlMain.logout);
 
 router.get("/signup", ctrlMain.signup);
 router.get("/newwebsite", ctrlMain.get_add_new_from);
