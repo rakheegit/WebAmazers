@@ -50,10 +50,10 @@ $("#signupbutton").on("click", function(e) {
     pass: $("#password")[0].value,
     pref: []
   };
-  if (userdetails.name == "") {
+  if (userdetails.name == "" || userdetails.pass == "") {
     var error = {
       title: "Empty username",
-      body: "Username cannot be empty"
+      body: "Username or password cannot be empty"
     };
     prompt(error);
   } else if (userdetails.name == userdetails.pass) {
