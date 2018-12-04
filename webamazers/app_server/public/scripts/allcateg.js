@@ -61,8 +61,8 @@ function drawChart_stackedchart() {
                 //isStacked: true,
                 //      vAxis: { title: "Domain" },
                 colors: ["#e242f4"],
-                width: 550,
-                height: 550,
+                width: 1150,
+                height: 650,
                 legend: { position: "none" },
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
@@ -132,8 +132,8 @@ function drawChart_bouncestack() {
                 hAxis: { title: 'Top 100 Most Visited sites', textPosition: 'none' },
                 //  hAxis: { title: 'Top 100 Most Visited sites', slantedText: true, textPosition: 'out' },
                 colors: ["#99ccff", "#ff99cc"],
-                width: 1750,
-                height: 900,
+                width: 1350,
+                height: 600,
                 bar: { groupWidth: "88%" },
                 legend: { position: "right" },
                 titleTextStyle: {
@@ -324,8 +324,8 @@ function drawChart_stackedchart_mobdesk_all() {
                 title: 'Desktop Vs Mobile Visitors',
                 isStacked: true,
                 //     vAxis: { title: "Domain" },
-                width: 1150,
-                height: 650,
+                width: 1350,
+                height: 600,
                 bar: { groupWidth: "88%" },
                 legend: { position: "right" },
                 vAxis: { title: "Percentage %" },
