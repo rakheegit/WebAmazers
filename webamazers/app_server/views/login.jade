@@ -1,6 +1,6 @@
 html
   head
-    title Web Maze | Home
+    title WebMaze | Login
     // meta
     meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, viewport-fit=cover')
@@ -82,9 +82,10 @@ html
           .shape-container.shape-container--10.dumbbell.dumbbell--10
         .log-form
             h2 Login to your account
-            form
-                input(type='text', title='username', placeholder='username')
-                input(type='password', title='username', placeholder='password')
-                button.color-main-dark-bg.btn(type='submit') Login
+            form()
+                input(type='text', title='username', id='username', placeholder='username')
+                input(type='password', title='username', id='password', placeholder='password')
+                button.color-main-dark-bg.btn(id="loginbutton") Login
                 <a class="forgot" href="/signup">No account? Signup here</a>
             // end log form
+    script(src='/scripts/login.js', type='text/javascript')

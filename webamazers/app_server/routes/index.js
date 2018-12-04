@@ -7,9 +7,12 @@ var ctrlMain = require("../controllers/main");
  */
 
 router.get("/test", ctrlMain.test);
-
+router.post("/createuser", ctrlMain.createuser);
+// router.post("/userexists", ctrlMain.userexists);
 router.get("/", ctrlMain.index);
 router.get("/login", ctrlMain.login);
+router.get("/loginuser", ctrlMain.loginuser);
+
 router.get("/signup", ctrlMain.signup);
 router.get("/newwebsite", ctrlMain.get_add_new_from);
 router.delete("/deleteFromDB/:id", ctrlMain.delete_DB);
