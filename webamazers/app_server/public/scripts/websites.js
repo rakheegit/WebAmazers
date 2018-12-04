@@ -14,10 +14,9 @@ $(function() {
 });
 
 $(function() {
-    $("table").on("click", ".showButton", function(e) {
+    $("table").on("click", "#showButton", function(e) {
         e.preventDefault(); // cancel the link itself
         $webId = $(this).closest("tr")[0].id;
-        // alert($webId)
         $.get({
             url: "/websites/" + $webId,
             success: function(data) {
@@ -26,8 +25,23 @@ $(function() {
         });
     });
 });
-
-
+$(function(){
+    $("#websiteName").on("keyup", function() {
+        var value = $(this).val();
+        $("table tr").each(function(index) {
+            if (index != 0) {
+                $row = $(this);
+                var id = $row.find("td:first").text();
+                if (id.indexOf(value) != 0) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            }
+        });
+    })
+});
 $(function() {
     $("table").on("click", ".deleteButton", function(e) {
         $webId = $(this).closest("tr")[0].id;
