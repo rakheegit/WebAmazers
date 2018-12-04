@@ -57,9 +57,9 @@ function drawChart_stackedchart() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Want to Expand your User base? Target websites with High Unique Users!!',
+                title: 'Websites with Highes Unique Visitors Count',
                 //isStacked: true,
-                //      vAxis: { title: "Domain" },
+                hAxis: { title: "in millions" },
                 colors: ["#e242f4"],
                 width: 1150,
                 height: 650,
