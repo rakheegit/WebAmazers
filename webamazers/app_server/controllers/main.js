@@ -52,7 +52,7 @@ module.exports.createuser = function(req, res) {
             return res.send(500, { error: err });
           }
           return res.send({
-            msg: "Successfully signed in. Please login.",
+            msg: "Successfully signed up. Please login.",
             type: "success"
           });
         });
