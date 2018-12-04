@@ -57,12 +57,12 @@ function drawChart_stackedchart() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Want to Expand your User base? Target websites with High Unique Users!!',
+                title: 'Websites with Highes Unique Visitors Count',
                 //isStacked: true,
-                //      vAxis: { title: "Domain" },
+                hAxis: { title: "in millions" },
                 colors: ["#e242f4"],
-                width: 550,
-                height: 550,
+                width: 600,
+                height: 700,
                 legend: { position: "none" },
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
