@@ -3,35 +3,37 @@ block websites
     link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
-    div
+    link(rel="stylesheet" href="/styles/websites.css")
+    div#tablediv
        form(action='/searchFromDB',method='get')
             div#searchDiv
-                input#websiteName(name='websiteName', type='text', placeholder='Search for a website')
                 button.search
                     i.fa.fa-search
+                input#websiteName(name='websiteName', type='text', placeholder='Search for a website')
+                
 
         table.table.table-hover
             thead
                 tr#columnHeading  
-                    td='Website'
-                    td='Country Rank'
-                    td='Child Safety'
-                    td='Trustworthiness'
-                    td='Average Daily Page Views'
-                    td='Privacy'
+                    td#domain='Domain'
+                    td#rank='Rank'
+                    td='Traffic Share'
+                    td='Average Pages Per Visit'
+                    td='Bounce Rate'
+                    td='Average Duration Per Visit'
                     td='Actions'
             tbody
                 each website,index in websites
                     tr(id=website._id)
-                        td.tableContent(id="Website"+website._id, name=website._id, contentEditable=false)=website.Website 
-                        td.tableContent(name=website._id, contentEditable=true)=website.Country_Rank 
-                        td.tableContent(name=website._id, contentEditable=true)=website.Child_Safety
-                        td.tableContent(name=website._id, contentEditable=true)=website.Trustworthiness
-                        td.tableContent(name=website._id, contentEditable=true)=website.Avg_Daily_Pageviews
-                        td.tableContent(name=website._id, contentEditable=true)=website.Privacy
+                        td.tableContent(id="Website"+website._id, name=website._id, contentEditable=false)=website.Domain 
+                        td.tableContent(name=website._id, contentEditable=true)=website.Rank 
+                        td.tableContent(name=website._id, contentEditable=true)=website.Traffic_Share
+                        td.tableContent(name=website._id, contentEditable=true)=website.Pages_Per_Visit
+                        td.tableContent(name=website._id, contentEditable=true)=website.Bounce_Rate
+                        td.tableContent(name=website._id, contentEditable=true)=website.Average_Duration_per_visit
                         td 
                             div
-                                button.showButton
+                                button#showButton
                                     i.fa.fa-eye 
                                     span#showText Show
                                 button.editButton

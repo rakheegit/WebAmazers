@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
-@import url('https://fonts.googleapis.com/css?family=Calligraffitti|Coming+Soon|Josefin+Slab|Montserrat+Alternates|Nanum+Brush+Script|Neucha|Open+Sans+Condensed:300|Philosopher|Poiret+One|Reenie+Beanie|Sarala|Sintony|Syncopate|Yrsa');
 body {
     margin: 0;
-    background: #222;
-    font-family: 'Work Sans', sans-serif;
+    background: #FFF;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 800;
 }
 
@@ -18,7 +16,7 @@ body {
 }
 
 .tableContent {
-    font-family: 'Josefin Slab', serif;
+    font-family: 'Open Sans', serif;
     font-size: 20px;
 }
 
@@ -26,8 +24,9 @@ p {
     padding-left: 2%;
     padding-top: 1%;
     padding-right: 3%;
-    font-family: 'Poiret One', cursive;
-    font-size: 30px;
+    font-family: 'Open Sans', cursive;
+    font-size: 27px;
+    font-weight: normal;
 }
 
 header {
@@ -45,9 +44,6 @@ header::after {
     padding: 10px 0;
 }
 
-nav {
-    float: left;
-}
 
 #childsafe {
     height: 30px;
@@ -89,51 +85,6 @@ nav {
     background: #55d6aa;
 }
 
-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-nav li {
-    display: inline-block;
-    margin-left: 30px;
-    padding-top: 20px;
-    height: 20px;
-    position: relative;
-}
-
-.fa.fa-home {
-    margin-bottom: 60px;
-    font-size: 40px;
-}
-
-nav a {
-    color: #444;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 20px;
-}
-
-nav a:hover {
-    color: #000;
-}
-
-nav a::before {
-    content: '';
-    display: block;
-    height: 5px;
-    background-color: #444;
-    position: absolute;
-    top: 0;
-    width: 0%;
-    transition: all ease-in-out 250ms;
-}
-
-nav a:hover::before {
-    width: 100%;
-}
-
 .indexBlock {
     background-color: #f7f7f7;
 }
@@ -160,14 +111,14 @@ nav a:hover::before {
 
 h3 {
     color: brown;
-    font-family: georgia;
+    font-family: 'Open Sans';
     margin-left: 12px;
 }
 
 h2 {
     text-align: center;
     color: brown;
-    font-family: georgia
+    font-family: 'Open Sans'
 }
 
 .main {
@@ -185,78 +136,8 @@ h2 {
     margin: 12px 12px !important;
 }
 
-.editButton {
-    background-color: DodgerBlue;
-    border: none;
-    color: white;
-    width: 85px;
-    height: 43px;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.nav.navbar-nav {
-    font-family: 'Reenie Beanie', cursive;
-    font-size: 30px;
-}
-
-.addButton {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 10px 14px;
-    margin-left: 30px;
-    margin-bottom: 30px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.deleteButton {
-    background-color: red;
-    border: none;
-    color: white;
-    width: 85px;
-    height: 43px;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.showButton {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    width: 85px;
-    height: 43px;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-#showText {
-    font-family: 'Neucha', cursive;
-    margin-left: 5px;
-    font-size: 15px;
-}
-
-#deleteText {
-    font-family: 'Neucha', cursive;
-    margin-left: 5px;
-    font-size: 15px;
-}
-
-#editText {
-    font-family: 'Neucha', cursive;
-    margin-left: 5px;
-    font-size: 15px;
-}
-
-#addText {
-    font-family: 'Neucha', cursive;
-    margin-left: 5px;
-    font-size: 25px;
-}
-
 #columnHeading {
-    font-family: 'Neucha', cursive;
+    font-family: 'Open Sans', cursive;
     font-size: 30px;
 }
 
@@ -436,10 +317,6 @@ ul {
     list-style-type: none;
     margin-left: 5px;
     padding-left: 15px;
-}
-
-img {
-    border: 1px solid #000;
 }
 
 .parentDiv {

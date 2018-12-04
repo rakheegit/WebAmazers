@@ -13,6 +13,7 @@ router.get("/", ctrlMain.index);
 router.get("/login", ctrlMain.login);
 router.get("/home", ctrlMain.userhome);
 router.get("/loginuser", ctrlMain.loginuser);
+router.get("/logout", ctrlMain.logout);
 
 router.get("/signup", ctrlMain.signup);
 router.get("/newwebsite", ctrlMain.get_add_new_from);
@@ -49,6 +50,7 @@ router.get("/allcategories_stackedchart_mobdesk_all", ctrlMain.get_allcategories
 router.get("/allcategories_bouncestack", ctrlMain.get_allcategories_bouncestack);
 
 router.get("/movies", ctrlMain.get_movies);
+router.get("/compare", ctrlMain.compare);
 router.get("/get_movies_traffic_share", ctrlMain.get_traffic_share);
 router.get("/dashboard_bouncerate_movies", ctrlMain.get_dashboard_bouncerate_movies);
 router.get("/dashboard_newuser_movies", ctrlMain.get_dashboard_newuser_movies);
@@ -58,4 +60,29 @@ router.get("/dashboard_edu_mobdesk", ctrlMain.get_dashboard_edu_mobdesk)
 router.get("/allcategories_change_in_traffic", ctrlMain.get_allcategories_change_in_traffic)
 router.get("/allcategories_social_avg_monthly", ctrlMain.get_allcategories_social_avg_monthly)
 router.get("/dashboard_timespent", ctrlMain.get_dashboard_timespent)
+
+// Common APIs
+// new user
+router.get("/dashboard_newuser_movies", ctrlMain.get_dashboard_newuser_movies);
+router.get("/dashboard_newuser_education", ctrlMain.get_dashboard_newuser_education);
+router.get("/dashboard_newuser_carrentals", ctrlMain.get_dashboard_newuser_carrentals);
+// end of new user -------------
+
+// Mobile desktop
+router.get("/dashboard_mobdesk_movies", ctrlMain.get_dashboard_mobdesk_movies);
+router.get("/dashboard_mobdesk_education", ctrlMain.get_dashboard_mobdesk_education);
+router.get("/dashboard_mobdesk_carrentals", ctrlMain.get_dashboard_mobdesk_carrentals);
+// end of Mobile Desktop -------------
+
+// Avg monthly Visits
+router.get("/dashboard_avg_monthly_visits_movies", ctrlMain.get_dashboard_avg_monthly_visits_movies);
+router.get("/dashboard_avg_monthly_visits_education", ctrlMain.get_dashboard_avg_monthly_visits_education);
+router.get("/dashboard_avg_monthly_visits_carrentals", ctrlMain.get_dashboard_avg_monthly_visits_carrentals);
+// Avg monthly visits -------------
+
+// time spent 
+router.get("/dashboard_timespent_movies", ctrlMain.get_dashboard_timespent_movies);
+router.get("/dashboard_timespent_education", ctrlMain.get_dashboard_timespent_education);
+router.get("/dashboard_timespent_carrentals", ctrlMain.get_dashboard_timespent_carrentals);
+// timespent ends -----------------
 module.exports = router;

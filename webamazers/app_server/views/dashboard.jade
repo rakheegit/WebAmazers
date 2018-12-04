@@ -1,29 +1,25 @@
 
 extends layout
 block dashboard
-
-    div(class="row")
-        div#topcountries
-        div(class="column")#avg_monthly_visits
-        div(class="column")#newuser
+    head
+        title Dashboard
+        link(href='/styles/dashboard.css', rel='stylesheet')
+    div(style='padding-top:6%;width:99%;height:99%')
+        div(class="center")#loader
+        div(class="row")
+            div(class="col-md-5 col-md-offset-1")#avg_monthly_visits
+            div(class="col-md-5")#newuser
+            div(class="col-md-1")
+                .dropdown
+                button#dropdownMenu.btn.btn-success(data-toggle='dropdown', type='button')
+                    | Select Category
+                #dropdowncss.dropdown-menu(aria-labelledby='dropdownMenu')
+                    a#moviesDD.dropdown-item(href='#') Movies
+                    a#educationDD.dropdown-item(href='#') Education
+                    a#carrentalsDD.dropdown-item(href='#') Car Rentals
         
-
-    div(class="row")
-        div#topcountries
-        div(class="column")#avgpageviews
-        div(class="column")#avgvisitors
-        div(class="column")#edu_mobdesk
-        div(class="column")#timespent
-
-             
-        
-
-        
-    
-    
-        
-            
-            
-
-    
+        div(style="padding-top:10px")
+        div(class="row")
+            div(class="col-md-5 col-md-offset-1")#edu_mobdesk
+            div(class="col-md-5")#timespent
     script(src='/scripts/dashboard.js')
