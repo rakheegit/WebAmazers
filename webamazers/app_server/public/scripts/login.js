@@ -1,6 +1,5 @@
 $("#loginbutton").on("click", function(e) {
   //   alert("clicked");
-  debugger;
   e.preventDefault();
   var userdetails = {
     name: $("#username")[0].value,
