@@ -1,23 +1,34 @@
-google.charts.load('current', { 'packages': ['corechart'] });
-google.charts.load('current', { 'packages': ['bar'] });
-//google.charts.setOnLoadCallback(drawLineChart);
-//google.charts.setOnLoadCallback(drawColumnChart);
-//google.charts.setOnLoadCallback(drawColumnChart1);
-//google.charts.setOnLoadCallback(drawChart_dashboard_timespent);
-google.charts.setOnLoadCallback(drawChart_edu_mobdesk);
-google.charts.setOnLoadCallback(drawChart_newuser);
-google.charts.setOnLoadCallback(drawChart_bouncerate_movies);
-google.charts.setOnLoadCallback(drawChart_avg_monthly_visits);
-//google.charts.setOnLoadCallback(get_total);
-//google.charts.setOnLoadCallback(getPercentage);
-//google.charts.setOnLoadCallback(getPercentagePrivacy);
-google.charts.load('current', { 'packages': ['scatter'] });
-google.charts.setOnLoadCallback(drawChart_dashboard_timespent);
+var curretCategory = "carrentals";
 
+function loadCharts(){
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.load('current', { 'packages': ['bar'] });
+    google.charts.load('current', { 'packages': ['scatter'] });
+    google.charts.setOnLoadCallback(drawChart_edu_mobdesk);
+    google.charts.setOnLoadCallback(drawChart_newuser);
+    google.charts.setOnLoadCallback(drawChart_avg_monthly_visits);
+    google.charts.setOnLoadCallback(drawChart_dashboard_timespent);
+}
+
+$("#moviesDD").click(function(){
+    curretCategory="movies";
+    loadCharts();
+})
+$("#educationDD").click(function(){
+    curretCategory="education";
+    loadCharts();
+})
+$("#carrentalsDD").click(function(){
+    curretCategory="carrentals";
+    loadCharts();
+})
+
+// google.charts.setOnLoadCallback(drawChart_dashboard_timespent);
+loadCharts();
 function drawChart_newuser() {
 
     $.ajax({
-        url: "/dashboard_newuser",
+        url: "/dashboard_newuser_"+curretCategory,
         type: 'GET',
         success: function(resData) {
             var results = resData.webs;
@@ -56,7 +67,7 @@ function drawChart_newuser() {
             var options = {
                 chart: {
                     //    vAxis: { title: "No. of Unique users" },
-                    title: ' User Favorites to rent Cars'
+                    title: ' User Favorites for ' + curretCategory
                         //  subtitle: 'Sales, Expenses, and Profit: 2014-2017',
                 },
                 //title: ' User Favorites to rent Cars',
@@ -83,7 +94,7 @@ function drawChart_newuser() {
 function drawChart_avg_monthly_visits() {
 
     $.ajax({
-        url: "/dashboard_avg_monthly_visits",
+        url: "/dashboard_avg_monthly_visits_"+curretCategory,
         type: 'GET',
         success: function(resData) {
             console.log(resData.webs);
@@ -138,62 +149,12 @@ function drawChart_avg_monthly_visits() {
     })
 }
 
-function drawChart_bouncerate_movies() {
 
-    $.ajax({
-        url: "/dashboard_bouncerate_edu",
-        type: 'GET',
-        success: function(resData) {
-            console.log(resData.webs);
-            var results = resData.webs;
-            var columns = Object.keys(results[0]);
-
-            var data = results.map(function(result) {
-                var tableRow = [];
-                columns.forEach(function(col) {
-
-                    if (col == "Bounce_Rate") {
-                        result[col] = parseInt(result[col] * 100);
-                        //  result[col] = parseFloat(result[col]);
-                        tableRow.splice(1, 0, result[col]);
-                    } else if (col == "Domain") {
-                        tableRow.splice(0, 0, result[col]);
-                    }
-                });
-                return tableRow;
-            });
-            var tableRow = [];
-            columns.forEach(function(col) {
-                tableRow.push(col);
-            })
-            data.splice(0, 0, tableRow);
-
-            var chartData = google.visualization.arrayToDataTable(data);
-            var options = {
-                title: 'Percentage of visitors who view only one page before exiting website',
-                colors: ['#EC9787'],
-                width: 1150,
-                height: 550,
-                legend: { position: "none" },
-                titleTextStyle: {
-                    fontSize: 14, // 12, 18 whatever you want (don't specify px)
-                    bold: true, // true or false
-                },
-                vAxis: { title: "Bounce Rate (%)" }
-                //  vAxis: { format: 'percent' }
-
-            };
-
-            var chart = new google.visualization.ColumnChart(document.getElementById('bounceRate'));
-            chart.draw(chartData, options);
-        }
-    })
-}
 
 function drawChart_edu_mobdesk() {
 
     $.ajax({
-        url: "/dashboard_edu_mobdesk",
+        url: "/dashboard_mobdesk_"+curretCategory,
         type: 'GET',
         success: function(resData) {
             var results = resData.webs;
@@ -261,7 +222,7 @@ function drawChart_edu_mobdesk() {
 function drawChart_dashboard_timespent() {
 
     $.ajax({
-        url: "/dashboard_timespent",
+        url: "/dashboard_timespent_"+curretCategory,
         type: 'GET',
         success: function(resData) {
             var results = resData.webs;
@@ -333,6 +294,59 @@ function drawChart_dashboard_timespent() {
             //var chart = new google.charts.Bar(document.getElementById('timetraffic_all'));
 
             chart.draw(chartData, google.charts.Scatter.convertOptions(options));
+        }
+    })
+}
+
+
+function drawChart_bouncerate_movies() {
+
+    $.ajax({
+        url: "/dashboard_bouncerate_edu",
+        type: 'GET',
+        success: function(resData) {
+            console.log(resData.webs);
+            var results = resData.webs;
+            var columns = Object.keys(results[0]);
+
+            var data = results.map(function(result) {
+                var tableRow = [];
+                columns.forEach(function(col) {
+
+                    if (col == "Bounce_Rate") {
+                        result[col] = parseInt(result[col] * 100);
+                        //  result[col] = parseFloat(result[col]);
+                        tableRow.splice(1, 0, result[col]);
+                    } else if (col == "Domain") {
+                        tableRow.splice(0, 0, result[col]);
+                    }
+                });
+                return tableRow;
+            });
+            var tableRow = [];
+            columns.forEach(function(col) {
+                tableRow.push(col);
+            })
+            data.splice(0, 0, tableRow);
+
+            var chartData = google.visualization.arrayToDataTable(data);
+            var options = {
+                title: 'Percentage of visitors who view only one page before exiting website',
+                colors: ['#EC9787'],
+                width: 1150,
+                height: 550,
+                legend: { position: "none" },
+                titleTextStyle: {
+                    fontSize: 14, // 12, 18 whatever you want (don't specify px)
+                    bold: true, // true or false
+                },
+                vAxis: { title: "Bounce Rate (%)" }
+                //  vAxis: { format: 'percent' }
+
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('bounceRate'));
+            chart.draw(chartData, options);
         }
     })
 }

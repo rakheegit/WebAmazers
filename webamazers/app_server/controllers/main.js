@@ -622,3 +622,184 @@ module.exports.get_dashboard_timespent = function(req, res) {
     return res.send({ webs: webs });
   });
 };
+
+
+// Common APIs
+// start new user
+module.exports.get_dashboard_newuser_movies = function(req, res) {
+  var q = moviesSchema
+    .find(
+      {},
+      { Domain: 1, Unique_Users: 1, _id: 0 },
+      { $sort: { Traffic_Share: -1 } }
+    )
+    .limit(5);
+  q.exec(function(err, webs) {
+    //console.log(webs);
+    return res.send({ webs: webs });
+  });
+};
+
+module.exports.get_dashboard_newuser_education = function(req, res) {
+  var q = eduWebsitesSchema
+    .find(
+      {},
+      { Domain: 1, Unique_Users: 1, _id: 0 },
+      { $sort: { Traffic_Share: -1 } }
+    )
+    .limit(5);
+  q.exec(function(err, webs) {
+    //console.log(webs);
+    return res.send({ webs: webs });
+  });
+};
+
+module.exports.get_dashboard_newuser_carrentals = function(req, res) {
+  var q = carRentalsSchema
+    .find(
+      {},
+      { Domain: 1, Unique_Users: 1, _id: 0 },
+      { $sort: { Traffic_Share: -1 } }
+    )
+    .limit(5);
+  q.exec(function(err, webs) {
+    //console.log(webs);
+    return res.send({ webs: webs });
+  });
+};
+
+// ------------ end new user ----------------
+
+// mob desk //
+
+module.exports.get_dashboard_mobdesk_movies = function(req, res) {
+  var q = moviesSchema
+    .find({}, { Domain: 1, Desktop_Share: 1, Mobile_Share: 1, _id: 0 })
+    .sort({ Rank: 1 })
+    .limit(10);
+  q.exec(function(err, webs) {
+    //console.log(webs);
+    return res.send({ webs: webs });
+  });
+};
+
+module.exports.get_dashboard_mobdesk_education = function(req, res) {
+  var q = eduWebsitesSchema
+    .find({}, { Domain: 1, Desktop_Share: 1, Mobile_Share: 1, _id: 0 })
+    .sort({ Rank: 1 })
+    .limit(10);
+  q.exec(function(err, webs) {
+    //console.log(webs);
+    return res.send({ webs: webs });
+  });
+};
+
+module.exports.get_dashboard_mobdesk_carrentals = function(req, res) {
+  var q = carRentalsSchema
+    .find({}, { Domain: 1, Desktop_Share: 1, Mobile_Share: 1, _id: 0 })
+    .sort({ Rank: 1 })
+    .limit(10);
+  q.exec(function(err, webs) {
+    //console.log(webs);
+    return res.send({ webs: webs });
+  });
+};
+
+// -------------------- end mob desk ------------------
+
+// start avg monthly visits
+
+module.exports.get_dashboard_avg_monthly_visits_movies = function(req, res) {
+  var q = moviesSchema
+    .find(
+      {},
+      {
+        Domain: 1,
+        Avg_Month_Visits: 1,
+        _id: 0
+      }
+    )
+    .sort({ Avg_Month_Visits: -1 })
+    .limit(10);
+  q.exec(function(err, webs) {
+    //console.log(webs);
+    return res.send({ webs: webs });
+  });
+};
+
+module.exports.get_dashboard_avg_monthly_visits_education = function(req, res) {
+  var q = eduWebsitesSchema
+    .find(
+      {},
+      {
+        Domain: 1,
+        Avg_Month_Visits: 1,
+        _id: 0
+      }
+    )
+    .sort({ Avg_Month_Visits: -1 })
+    .limit(10);
+  q.exec(function(err, webs) {
+    //console.log(webs);
+    return res.send({ webs: webs });
+  });
+};
+
+module.exports.get_dashboard_avg_monthly_visits_carrentals = function(req, res) {
+  var q = carRentalsSchema
+    .find(
+      {},
+      {
+        Domain: 1,
+        Avg_Month_Visits: 1,
+        _id: 0
+      }
+    )
+    .sort({ Avg_Month_Visits: -1 })
+    .limit(10);
+  q.exec(function(err, webs) {
+    //console.log(webs);
+    return res.send({ webs: webs });
+  });
+};
+
+// ------------------- end of avg monthly visits ---------------------
+
+// timespent --
+
+module.exports.get_dashboard_timespent_movies = function(req, res) {
+  //   var q = eduWebsitesSchema.find({}, { "Domain": 1, "Avg_Visit_Duration": 1, "Pages_Per_Visit": 1, "_id": 0 })
+  var q = moviesSchema
+    .find({}, { Avg_Visit_Duration: 1, Pages_Per_Visit: 1, _id: 0 })
+    .sort({ Pages_Per_Visit: -1 })
+    .limit(30);
+  q.exec(function(err, webs) {
+    console.log(webs);
+    return res.send({ webs: webs });
+  });
+};
+
+module.exports.get_dashboard_timespent_education = function(req, res) {
+  //   var q = eduWebsitesSchema.find({}, { "Domain": 1, "Avg_Visit_Duration": 1, "Pages_Per_Visit": 1, "_id": 0 })
+  var q = eduWebsitesSchema
+    .find({}, { Avg_Visit_Duration: 1, Pages_Per_Visit: 1, _id: 0 })
+    .sort({ Pages_Per_Visit: -1 })
+    .limit(30);
+  q.exec(function(err, webs) {
+    console.log(webs);
+    return res.send({ webs: webs });
+  });
+};
+
+module.exports.get_dashboard_timespent_carrentals = function(req, res) {
+  //   var q = eduWebsitesSchema.find({}, { "Domain": 1, "Avg_Visit_Duration": 1, "Pages_Per_Visit": 1, "_id": 0 })
+  var q = carRentalsSchema
+    .find({}, { Avg_Visit_Duration: 1, Pages_Per_Visit: 1, _id: 0 })
+    .sort({ Pages_Per_Visit: -1 })
+    .limit(30);
+  q.exec(function(err, webs) {
+    console.log(webs);
+    return res.send({ webs: webs });
+  });
+};
+// ------------------- end of timespent ------------
