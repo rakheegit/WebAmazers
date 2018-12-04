@@ -1,3 +1,6 @@
+$(window).load(function() {
+    $("#loader").fadeOut("slow");
+});
 google.charts.load('current', { 'packages': ['corechart'] });
 //google.charts.setOnLoadCallback(drawLineChart);
 //google.charts.setOnLoadCallback(drawColumnChart);
@@ -469,3 +472,4 @@ function drawChart_hightraffic_all() {
         }
     })
 }
+
