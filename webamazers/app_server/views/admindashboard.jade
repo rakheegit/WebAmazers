@@ -1,0 +1,29 @@
+
+extends adminlayout
+block admindashboard
+    head
+        title Dashboard
+        link(href='/styles/dashboard.css', rel='stylesheet')
+    div(style='padding-top:6%;width:99%;height:99%')
+        div(class="center")#loader
+        div(class="row")
+            div(class="col-lg-10")
+            div(class="col-lg-1")
+                .dropdown
+                button#dropdownMenu.btn.btn-success(data-toggle='dropdown', type='button')
+                    | Select Category
+                #dropdowncss.dropdown-menu(aria-labelledby='dropdownMenu')
+                    a#moviesDD.dropdown-item(href='#') Movies
+                    a#educationDD.dropdown-item(href='#') Education
+                    a#carrentalsDD.dropdown-item(href='#') Car Rentals
+
+        div(class="row")
+            div(class="col-lg-5 col-lg-offset-1")#avg_monthly_visits
+            div(class="col-mlg-5")#newuser
+            
+        
+        div(style="padding-top:10px")
+        div(class="row")
+            div(class="col-lg-5 col-lg-offset-1")#edu_mobdesk
+            div(class="col-lg-5")#timespent
+    script(src='/scripts/dashboard.js')
