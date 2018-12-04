@@ -3,41 +3,23 @@ extends layout
 block dashboard
     head
         title Dashboard
-    body
+        link(href='/styles/dashboard.css', rel='stylesheet')
+    div(style='padding-top:6%;width:99%;height:99%')
         div(class="center")#loader
-
-        div(style="padding-top:110px")
         div(class="row")
             div(class="col-md-5 col-md-offset-1")#avg_monthly_visits
             div(class="col-md-5")#newuser
             div(class="col-md-1")
                 .dropdown
-                button#dropdownMenu.btn.btn-success(type='button', data-toggle='dropdown')
+                button#dropdownMenu.btn.btn-success(data-toggle='dropdown', type='button')
                     | Select Category
-                .dropdown-menu(aria-labelledby='dropdownMenu')
+                #dropdowncss.dropdown-menu(aria-labelledby='dropdownMenu')
                     a#moviesDD.dropdown-item(href='#') Movies
-                    a#educationDD.dropdown-item(href='#') Educarion
+                    a#educationDD.dropdown-item(href='#') Education
                     a#carrentalsDD.dropdown-item(href='#') Car Rentals
         
-        hr
         div(style="padding-top:10px")
         div(class="row")
             div(class="col-md-5 col-md-offset-1")#edu_mobdesk
             div(class="col-md-5")#timespent
-
-                    
-
-        //- div(class="row")
-        //-     div#topcountries
-        //-     div(class="column")#avg_monthly_visits
-        //-     div(class="column")#newuser
-            
-
-        //- div(class="row")
-        //-     div#topcountries
-        //-     div(class="column")#avgpageviews
-        //-     div(class="column")#avgvisitors
-        //-     div(class="column")#edu_mobdesk
-        //-     div(class="column")#timespent
-        
     script(src='/scripts/dashboard.js')
