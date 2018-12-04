@@ -23,9 +23,3 @@ $("#loginbutton").on("click", function(e) {
   });
 });
 
-$(document).ready(function(){
-  debugger;
-  if(window.localStorage.length != 0){
-    window.location.href = '/home'
-  }
-})

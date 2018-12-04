@@ -24,11 +24,22 @@ module.exports.index = function(req, res) {
   res.render("home", { title: "Website Data" });
 };
 
+module.exports.logout = function(req, res) {
+  console.log(req.session.user);
+  if (req.session.user) {
+    var name = req.session.user.username;
+    req.session.destroy(function() {
+      res.render("login", { message: "Login" });
+    });
+  } else {
+    res.send("Nobody is currently logged in!");
+  }
+};
+
 module.exports.createuser = function(req, res) {
   userexists(
     req,
     function(existinguser) {
-        console.log(existinguser.length)
       if (existinguser.length != 0) {
         return res.send({ msg: "user name already taken" });
       } else {
@@ -43,7 +54,6 @@ module.exports.createuser = function(req, res) {
     },
     function(err) {
       if (err) {
-        console.log(err);
         return res.send(500, { error: err });
       }
     }
@@ -56,8 +66,7 @@ function userexists(req, callback, errorcallback) {
     if (err) {
       errorcallback(err);
     } else {
-        console.log("data in user exists" + data)
-        callback(data);
+      callback(data);
     }
   });
 }
@@ -67,35 +76,53 @@ module.exports.signup = function(req, res) {
 };
 
 module.exports.userhome = function(req, res) {
-  res.render("index");
+  if (req.session.user) {
+    console.log(req.session.user);
+    if (req.session.user.name === "admin") {
+      res.render("admin");
+    } else {
+      res.render("index");
+    }
+  } else {
+    res.render("login", { logedin: false });
+  }
 };
 
-
 module.exports.login = function(req, res) {
-  res.render("login");
+  if (req.session.user) {
+    if (req.session.user.name === "admin") {
+      res.render("admin");
+    } else {
+      res.render("index");
+    }
+  } else {
+    res.render("login", { logedin: false });
+  }
 };
 
 module.exports.loginuser = function(req, res) {
-  console.log(req.query.name);
   var q = userSchema.find({ name: req.query.name });
   q.exec(function(err, data) {
-    // console.log(data);
-
     if (data.length == 0) {
       return res.send({ msg: "user not signed up" });
     } else if (data[0].pass != req.query.pass) {
       return res.send({ msg: "invalid username or password" });
     } else {
+      req.session.user = data[0];
       return res.send({ msg: data });
     }
   });
 };
 
 module.exports.get_websites = function(req, res) {
-  var q = schemaWebsite.find().limit(10);
-  q.exec(function(err, webs) {
-    res.render("websites", { title: "Express", websites: webs });
-  });
+  if (req.session.user) {
+    var q = schemaWebsite.find().limit(10);
+    q.exec(function(err, webs) {
+      res.render("websites", { title: "Express", websites: webs });
+    });
+  } else {
+    res.render("login", { logedin: false });
+  }
 };
 
 module.exports.get_add_new_from = function(req, res) {
@@ -113,19 +140,15 @@ module.exports.get_add_new_from = function(req, res) {
 };
 
 module.exports.get_websites_by_id = function(req, res) {
-  console.log(req.params.id);
   var q = schemaWebsite.find({ _id: req.params.id }).limit(10);
   q.exec(function(err, webs) {
-    console.log(webs);
     return res.send({ websites: webs });
   });
 };
 
 module.exports.get_websites_by_id_for_edit = function(req, res) {
-  console.log(req.params.id);
   var q = schemaWebsite.find({ _id: req.params.id }).limit(10);
   q.exec(function(err, webs) {
-    console.log(webs);
     return res.send({ websites: webs });
   });
 };
@@ -152,7 +175,6 @@ module.exports.get_privacy = function(req, res) {
     }
   ]);
   q.exec(function(err, webs) {
-    console.log(webs);
     return res.send({ webs: webs });
   });
 };
@@ -188,11 +210,9 @@ module.exports.post_db_data = function(req, res) {
     Avg_Daily_Pageviews: data.pageview,
     Privacy: data.privacy
   };
-  console.log(req.body);
   var webData = new schemaWebsite(WebsiteData);
   webData.save(function(err, data) {
     if (err) {
-      console.log(err);
       return res.send(500, { error: err });
     }
     return res.send({ msg: "inserted Successfully" });
@@ -201,7 +221,6 @@ module.exports.post_db_data = function(req, res) {
 
 module.exports.edit_db_data_id = function(req, res) {
   var data = new schemaWebsite(req.body);
-  console.log(req.body);
   var q = schemaWebsite.replaceOne({ _id: data._id }, data);
   q.exec(function(err, doc) {
     if (err) return res.send(500, { error: err });
@@ -211,14 +230,12 @@ module.exports.edit_db_data_id = function(req, res) {
 
 module.exports.delete_DB = function(req, res) {
   var q = schemaWebsite.remove({ _id: req.params.id });
-  console.log(req.body);
   q.exec(function(err, doc) {
     if (err) return res.send(500, { error: err });
     return res.send({ msg: "deleted successfully" });
   });
 };
 module.exports.search_DB = function(req, res) {
-  console.log(req.query);
   schemaWebsite.find({ Website: req.query.websiteName }, function(
     err,
     response
@@ -302,7 +319,6 @@ module.exports.get_dashboard_newuser = function(req, res) {
     )
     .limit(5);
   q.exec(function(err, webs) {
-    //console.log(webs);
     return res.send({ webs: webs });
   });
 };
@@ -313,7 +329,6 @@ module.exports.get_allcategories_stackedchart = function(req, res) {
     .sort({ Unique_Users: -1 })
     .limit(20);
   q.exec(function(err, webs) {
-    //console.log(webs);
     return res.send({ webs: webs });
   });
 };
@@ -342,7 +357,6 @@ module.exports.get_allcategories_bouncestack = function(req, res) {
     { $sort: { Avg_Month_Visits: -1 } }
   ]);
   q.exec(function(err, webs) {
-    //console.log(webs);
     return res.send({ webs: webs });
   });
 };
@@ -352,7 +366,6 @@ module.exports.get_allcategories_stackedchart_mobdesk_all = function(req, res) {
     .find({}, { Domain: 1, Desktop_Share: 1, Mobile_Share: 1, _id: 0 })
     .sort({ Traffic_Share: -1 });
   q.exec(function(err, webs) {
-    //console.log(webs);
     return res.send({ webs: webs });
   });
 };
@@ -363,7 +376,6 @@ module.exports.get_dashboard_edu_mobdesk = function(req, res) {
     .sort({ Rank: 1 })
     .limit(10);
   q.exec(function(err, webs) {
-    //console.log(webs);
     return res.send({ webs: webs });
   });
 };
@@ -374,7 +386,6 @@ module.exports.get_allcategories_timetraffic_all = function(req, res) {
     .sort({ Pages_Per_Visit: -1 })
     .limit(20);
   q.exec(function(err, webs) {
-    //console.log(webs);
     return res.send({ webs: webs });
   });
 };
@@ -397,7 +408,6 @@ module.exports.get_allcategories_hightraffic_all = function(req, res) {
     .sort({ traffic_percent: -1 })
     .limit(20);
   q.exec(function(err, webs) {
-    //    console.log(webs);
     return res.send({ webs: webs });
   });
 };
@@ -431,7 +441,6 @@ module.exports.get_allcategories_change_in_traffic = function(req, res) {
     .sort({ Avg_Month_Visits: -1 })
     .limit(20);
   q.exec(function(err, webs) {
-    //console.log(webs);
     return res.send({ webs: webs });
   });
 };
@@ -463,7 +472,6 @@ module.exports.get_allcategories_social_avg_monthly = function(req, res) {
     .sort({ Avg_Month_Visits: -1 })
     .limit(20);
   q.exec(function(err, webs) {
-    //   console.log(webs);
     return res.send({ webs: webs });
   });
 };
@@ -481,7 +489,6 @@ module.exports.get_dashboard_bouncerate_edu = function(req, res) {
     .sort({ Bounce_Rate: 1 })
     .limit(20);
   q.exec(function(err, webs) {
-    //console.log(webs);
     return res.send({ webs: webs });
   });
 };
@@ -499,7 +506,6 @@ module.exports.get_dashboard_avg_monthly_visits = function(req, res) {
     .sort({ Avg_Month_Visits: -1 })
     .limit(10);
   q.exec(function(err, webs) {
-    //console.log(webs);
     return res.send({ webs: webs });
   });
 };
@@ -521,13 +527,23 @@ module.exports.get_dashboard_top_countries = function(req, res) {
 };
 
 module.exports.get_dashboard = function(req, res) {
-  res.render("dashboard");
+  console.log(req.session.user);
+  if (req.session.user) {
+    res.render("dashboard");
+  } else {
+    res.render("login", { logedin: false });
+  }
 };
 module.exports.get_dashboardOld = function(req, res) {
   res.render("dashboardOld");
 };
 module.exports.get_allcategories = function(req, res) {
-  res.render("allcategories");
+  console.log(req.session.user);
+  if (req.session.user) {
+    res.render("allcategories");
+  } else {
+    res.render("login", { logedin: false });
+  }
 };
 
 module.exports.get_movies = function(req, res) {
@@ -564,7 +580,6 @@ module.exports.get_dashboard_bouncerate_movies = function(req, res) {
     .sort({ Bounce_Rate: 1 })
     .limit(20);
   q.exec(function(err, webs) {
-    // console.log(webs);
     return res.send({ webs: webs });
   });
 };
@@ -575,7 +590,6 @@ module.exports.get_dashboard_newuser_movies = function(req, res) {
     .sort({ Unique_Users: -1 })
     .limit(10);
   q.exec(function(err, webs) {
-    //console.log(webs);
     return res.send({ webs: webs });
   });
 };
@@ -586,7 +600,6 @@ module.exports.get_dashboard_website_change_movies = function(req, res) {
     .sort({ Website_Change: -1 })
     .limit(10);
   q.exec(function(err, webs) {
-    //console.log(webs);
     return res.send({ webs: webs });
   });
 };
@@ -598,7 +611,6 @@ module.exports.get_dashboard_timespent = function(req, res) {
     .sort({ Pages_Per_Visit: -1 })
     .limit(30);
   q.exec(function(err, webs) {
-    console.log(webs);
     return res.send({ webs: webs });
   });
 };
