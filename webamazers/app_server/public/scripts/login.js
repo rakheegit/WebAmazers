@@ -12,8 +12,8 @@ $("#loginbutton").on("click", function(e) {
     data: userdetails,
     success: function(res) {
       if (res.msg instanceof Object) {
-        window.localStorage.username = res.msg[0].name;
-        window.localStorage.pref = res.msg[0].pref;
+        window.localStorage.setItem("username", res.msg[0].name)
+        window.localStorage.setItem("pref", res.msg[0].pref)
         window.location.href = "/home";
       }
     },
@@ -22,3 +22,10 @@ $("#loginbutton").on("click", function(e) {
     }
   });
 });
+
+$(document).ready(function(){
+  debugger;
+  if(window.localStorage.length != 0){
+    window.location.href = '/home'
+  }
+})
