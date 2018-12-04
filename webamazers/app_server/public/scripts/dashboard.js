@@ -1,6 +1,7 @@
 
 var curretCategory = "movies";
 
+
 function loadCharts(){
     $("#loader").fadeIn("fast");
     google.charts.load('current', { 'packages': ['corechart'] });

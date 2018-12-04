@@ -32,7 +32,9 @@ p {
 header {
     background: #55d6aa;
 }
-
+#ring-canvas{
+    padding-top:5%
+}
 header::after {
     content: '';
     display: table;

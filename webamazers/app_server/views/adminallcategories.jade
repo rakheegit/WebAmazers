@@ -1,5 +1,5 @@
-extends layout
-block allcategories
+extends adminlayout
+block adminallcategories
     head
         // Bootstrap core CSS
         link(href='/lib/bootstrap/css/bootstrap.min.css', rel='stylesheet')
@@ -40,14 +40,14 @@ block allcategories
             div.col.col--full.text-center#stackedchart
 
         div.margin-b.text-center
-            h2.text-xlarge.text-strong.margin-b-half.margin-t Bounce Rate
-            p.text-large You can not impress a large audience with these websites.
+            h2.text-xlarge.text-strong.margin-b-half.margin-t Bounce rates are not neccesarily bad.
+            p.text-large It can be a good sign, because people found what they were looking for in the first page. Example - look at Wikipedia and Search Engines.
          div.section__content.wrap(style='width: 1365px;height:620px')
             div.col.col--full.text-center#bouncestack
 
         div.margin-b.text-center    
-            h2.text-xlarge.text-strong.margin-b-half.margin-t Social Networking Site
-            p.text-large Find the right place to network and spread you ideas.
+            h2.text-xlarge.text-strong.margin-b-half.margin-t Choose the best Social Media Platform for promoting your Business.
+            p.text-large Websites with highest visitors Or those with highest percentage of increase in Visitors? We have visualized it for your easy decision making.
          div.section__content.wrap(style='width: 1365px;height:620px')
             div(class="col-md-5")#socialmonthlyvisitors
             div(class="col-md-5")#stackedchart_change

@@ -19,7 +19,6 @@ html
     link(type='text/css', href='/styles/buttons.css', rel='stylesheet', media='all')
     link(type='text/css', href='/styles/menu.css', rel='stylesheet', media='all')
     link(type='text/css', href='/styles/menu-mobile.css', rel='stylesheet', media='all')
-    link(type='text/css', href='/styles/login.css', rel='stylesheet', media='all')
     link(type='text/css', href='/styles/content.css', rel='stylesheet', media='all')
     link(type='text/css', href='/styles/floating_icons.css', rel='stylesheet', media='all')
     
@@ -66,16 +65,10 @@ html
             li
               a.nav-js.nav-js--contacts.color-light-text(href='/websites') All Websites
             li
-              a.nav-js.nav-js--contacts.color-light-text(href='/compare') Compare
-            li
               a.nav-js.nav-js--contacts.color-light-text(href='/logout') Logout
             
-    block websites
-    block allcategories
-    block searchResults
-    block dashboardOld
-    block dashboard
-    block movies
-    block index
-    block compare
-
+    block adminwebsites
+    block adminallcategories
+    block admindashboard
+    block adminmovies
+    block indexadmin

@@ -85,7 +85,7 @@ module.exports.userhome = function(req, res) {
   if (req.session.user) {
     console.log(req.session.user);
     if (req.session.user.name === "admin") {
-      res.render("admin");
+      res.render("indexadmin");
     } else {
       res.render("index");
     }
@@ -131,14 +131,20 @@ module.exports.loginuser = function(req, res) {
       return res.send({ msg: "Invalid username or password", valid: false });
     } else {
       req.session.user = data[0];
-      return res.send({ msg: data, valid: true });
+      return res.send({ msg: data, valid: true, uname: req.query.name });
     }
   });
 };
 
 module.exports.get_websites = function(req, res) {
+  var q = generalWebsitesSchema.find();
   if (req.session.user) {
-    var q = generalWebsitesSchema.find();
+    if (req.session.user.name === "admin") {
+      q.exec(function(err, webs) {
+        res.render("adminwebsites", { title: "Express", websites: webs });
+      });
+    }
+
     q.exec(function(err, webs) {
       res.render("websites", { title: "Express", websites: webs });
     });
@@ -551,7 +557,11 @@ module.exports.get_dashboard_top_countries = function(req, res) {
 module.exports.get_dashboard = function(req, res) {
   console.log(req.session.user);
   if (req.session.user) {
-    res.render("dashboard");
+    if (req.session.user.name === "admin") {
+      res.render("admindashboard");
+    } else {
+      res.render("dashboard");
+    }
   } else {
     res.render("login", { logedin: true });
   }
@@ -562,14 +572,26 @@ module.exports.get_dashboardOld = function(req, res) {
 module.exports.get_allcategories = function(req, res) {
   console.log(req.session.user);
   if (req.session.user) {
-    res.render("allcategories");
+    if (req.session.user.name === "admin") {
+      res.render("adminallcategories");
+    } else {
+      res.render("allcategories");
+    }
   } else {
     res.render("login", { logedin: true });
   }
 };
 
 module.exports.get_movies = function(req, res) {
-  res.render("movies");
+  if (req.session.user) {
+    if (req.session.user.name === "admin") {
+      res.render("adminmovies");
+    } else {
+      res.render("movies");
+    }
+  } else {
+    res.render("login", { logedin: false });
+  }
 };
 
 module.exports.get_traffic_share = function(req, res) {
