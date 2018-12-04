@@ -1,3 +1,6 @@
+$(window).load(function() {
+    $("#loader").fadeOut("slow");
+});
 google.charts.load('current', { 'packages': ['corechart'] });
 //google.charts.setOnLoadCallback(drawLineChart);
 //google.charts.setOnLoadCallback(drawColumnChart);
@@ -57,12 +60,12 @@ function drawChart_stackedchart() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Want to Expand your User base? Target websites with High Unique Users!!',
+                title: 'Websites with Highes Unique Visitors Count',
                 //isStacked: true,
-                //      vAxis: { title: "Domain" },
-                colors: ["#e242f4"],
-                width: 550,
-                height: 550,
+                hAxis: { title: "in millions" },
+                colors: ["#9999ff"],
+                width: 1150,
+                height: 650,
                 legend: { position: "none" },
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
@@ -128,11 +131,12 @@ function drawChart_bouncestack() {
             var options = {
                 title: 'Ratio of Unimpressed Visits (who exit after one page)',
                 isStacked: true,
-                //      vAxis: { title: "Domain" },
+                //    vAxis: { title: "Domain" },
                 hAxis: { title: 'Top 100 Most Visited sites', textPosition: 'none' },
-                colors: ["#99ccff", "#ff99cc"],
-                width: 1150,
-                height: 650,
+                //  hAxis: { title: 'Top 100 Most Visited sites', slantedText: true, textPosition: 'out' },
+                colors: ["#9999ff", "#ffcc00"],
+                width: 1350,
+                height: 600,
                 bar: { groupWidth: "88%" },
                 legend: { position: "right" },
                 titleTextStyle: {
@@ -323,13 +327,13 @@ function drawChart_stackedchart_mobdesk_all() {
                 title: 'Desktop Vs Mobile Visitors',
                 isStacked: true,
                 //     vAxis: { title: "Domain" },
-                width: 1150,
-                height: 650,
+                width: 1350,
+                height: 600,
                 bar: { groupWidth: "88%" },
                 legend: { position: "right" },
                 vAxis: { title: "Percentage %" },
                 hAxis: { title: 'Top 100 High Traffic Websites of the world', textPosition: 'none' },
-                colors: ["#8D9440", "#FF6F61"],
+                colors: ["#9999ff", "#ff99cc"],
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
@@ -393,7 +397,7 @@ function drawChart_timetraffic_all() {
                 width: 1150,
                 height: 650,
                 legend: { position: "right" },
-                colors: ['#f4a142', '#55d6aa'],
+                colors: ['#99ffcc', '#ffcc99'],
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
@@ -450,7 +454,7 @@ function drawChart_hightraffic_all() {
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
                 title: 'High Traffic Websites - Top 20',
-                colors: ['#EC9787'],
+                colors: ['#ff99cc'],
                 width: 1150,
                 height: 650,
                 legend: { position: "none" },
