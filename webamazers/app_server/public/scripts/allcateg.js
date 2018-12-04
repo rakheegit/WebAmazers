@@ -128,11 +128,12 @@ function drawChart_bouncestack() {
             var options = {
                 title: 'Ratio of Unimpressed Visits (who exit after one page)',
                 isStacked: true,
-                //      vAxis: { title: "Domain" },
+                //    vAxis: { title: "Domain" },
                 hAxis: { title: 'Top 100 Most Visited sites', textPosition: 'none' },
+                //  hAxis: { title: 'Top 100 Most Visited sites', slantedText: true, textPosition: 'out' },
                 colors: ["#99ccff", "#ff99cc"],
-                width: 1150,
-                height: 650,
+                width: 1750,
+                height: 900,
                 bar: { groupWidth: "88%" },
                 legend: { position: "right" },
                 titleTextStyle: {
