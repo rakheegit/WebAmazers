@@ -57,14 +57,27 @@ $("#signupbutton").on("click", function(e) {
     }
   }
   if (count < 1) {
-    alert("please choose at least one category from the perfernce");
+    var error = {
+      title: "Error while signing up",
+      body: "Please choose at least one category from the perference"
+    };
+    prompt(error);
   } else {
     $.ajax({
       type: "POST",
       url: "/createuser",
       data: userdetails,
       success: function(res) {
-        alert(res.msg);
+        var error = {
+          title: "",
+          body: res.msg
+        };
+        if(res.type == "error"){
+          error.title = "Error while signing up"
+        } else {
+          error.title = "Success!!!"
+        }
+        prompt(error);
       }
     });
   }

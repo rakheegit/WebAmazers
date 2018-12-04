@@ -29,7 +29,7 @@ module.exports.logout = function(req, res) {
   if (req.session.user) {
     var name = req.session.user.username;
     req.session.destroy(function() {
-      res.render("login", { message: "Login" });
+      res.render("login", { message: "Login", logedin: true });
     });
   } else {
     res.send("Nobody is currently logged in!");
@@ -41,14 +41,14 @@ module.exports.createuser = function(req, res) {
     req,
     function(existinguser) {
       if (existinguser.length != 0) {
-        return res.send({ msg: "user name already taken" });
+        return res.send({ msg: "Username already taken. Please try some other name." , type: "error"});
       } else {
         var user = new userSchema(req.body);
         user.save(function(err) {
           if (err) {
             return res.send(500, { error: err });
           }
-          return res.send({ msg: "inserted Successfully" });
+          return res.send({ msg: "Successfully signed in. Please login." , type: "success"});
         });
       }
     },
@@ -84,7 +84,7 @@ module.exports.userhome = function(req, res) {
       res.render("index");
     }
   } else {
-    res.render("login", { logedin: false });
+    res.render("login", { logedin: true });
   }
 };
 
@@ -92,7 +92,7 @@ module.exports.compare = function(req, res) {
   if (req.session.user) {
     res.render("compare");
   } else {
-    res.render("login", { logedin: false });
+    res.render("login", { logedin: true });
   }
 };
 
@@ -104,7 +104,7 @@ module.exports.login = function(req, res) {
       res.render("index");
     }
   } else {
-    res.render("login", { logedin: false });
+    res.render("login", { logedin: true });
   }
 };
 
@@ -112,12 +112,12 @@ module.exports.loginuser = function(req, res) {
   var q = userSchema.find({ name: req.query.name });
   q.exec(function(err, data) {
     if (data.length == 0) {
-      return res.send({ msg: "user not signed up" });
+      return res.send({ msg: "User not signed up", valid: false });
     } else if (data[0].pass != req.query.pass) {
-      return res.send({ msg: "invalid username or password" });
+      return res.send({ msg: "Invalid username or password" , valid: false});
     } else {
       req.session.user = data[0];
-      return res.send({ msg: data });
+      return res.send({ msg: data, valid: true });
     }
   });
 };
@@ -129,7 +129,7 @@ module.exports.get_websites = function(req, res) {
       res.render("websites", { title: "Express", websites: webs });
     });
   } else {
-    res.render("login", { logedin: false });
+    res.render("login", { logedin: true });
   }
 };
 
@@ -539,7 +539,7 @@ module.exports.get_dashboard = function(req, res) {
   if (req.session.user) {
     res.render("dashboard");
   } else {
-    res.render("login", { logedin: false });
+    res.render("login", { logedin: true });
   }
 };
 module.exports.get_dashboardOld = function(req, res) {
@@ -550,7 +550,7 @@ module.exports.get_allcategories = function(req, res) {
   if (req.session.user) {
     res.render("allcategories");
   } else {
-    res.render("login", { logedin: false });
+    res.render("login", { logedin: true });
   }
 };
 
@@ -622,7 +622,6 @@ module.exports.get_dashboard_timespent = function(req, res) {
     return res.send({ webs: webs });
   });
 };
-
 
 // Common APIs
 // start new user
@@ -745,7 +744,10 @@ module.exports.get_dashboard_avg_monthly_visits_education = function(req, res) {
   });
 };
 
-module.exports.get_dashboard_avg_monthly_visits_carrentals = function(req, res) {
+module.exports.get_dashboard_avg_monthly_visits_carrentals = function(
+  req,
+  res
+) {
   var q = carRentalsSchema
     .find(
       {},
