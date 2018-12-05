@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
 @import url('https://fonts.googleapis.com/css?family=Calligraffitti|Coming+Soon|Josefin+Slab|Montserrat+Alternates|Nanum+Brush+Script|Neucha|Open+Sans+Condensed:300|Philosopher|Poiret+One|Reenie+Beanie|Sarala|Sintony|Syncopate|Yrsa');
-
-#tablediv{
-    padding-top:10em;
+#tablediv {
+    padding-top: 10em;
+    margin-left: 2%;
+    margin-right: 2%;
 }
-
 
 #searchDiv {
     height: 40px;
@@ -13,6 +13,37 @@
     margin-bottom: 10px;
     width: 50%;
     display: flex;
+}
+
+.tablecontent {
+    cursor: pointer;
+}
+.modal-header{
+    cursor:-webkit-grab;
+}
+
+
+#tooltip {
+    position: relative;
+    height: 17px;
+    width: 18px;
+}
+
+tr .tooltiptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+tr:hover .tooltiptext {
+    visibility: visible;
 }
 
 .search {
@@ -31,7 +62,9 @@
 #websiteName {
     font-size: 20px;
     height: 20px;
-    width: 92%;
+    width: 30%;
+    border-bottom: solid 1px grey;
+    border-bottom-width: 75%;
 }
 
 #insert {
@@ -57,16 +90,19 @@
     height: 43px;
     font-size: 15px;
     cursor: pointer;
+    margin-right: 10px;
 }
+
 .addButton {
     background-color: #4CAF50;
     border: none;
     color: white;
-    padding: 10px 14px;
-    margin-left: 30px;
-    margin-bottom: 30px;
+    width: 250px;
+    padding: 7px 7px;
     font-size: 20px;
     cursor: pointer;
+    float: right;
+    margin-bottom: 2%;
 }
 
 .deleteButton {
@@ -77,22 +113,6 @@
     height: 43px;
     font-size: 15px;
     cursor: pointer;
-}
-
-#showButton {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    width: 85px;
-    height: 43px;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-#showText {
-    font-family: 'Neucha', cursive;
-    margin-left: 5px;
-    font-size: 15px;
 }
 
 #deleteText {
