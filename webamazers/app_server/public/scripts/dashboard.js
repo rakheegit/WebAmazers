@@ -73,11 +73,11 @@ function drawChart_newuser() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                // chart: {
-                //     //    vAxis: { title: "No. of Unique users" },
-                //     title: ' User Favorites for ' + curretCategory
-                //         //  subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-                // },
+                chart: {
+                    //    vAxis: { title: "No. of Unique users" },
+                    title: ' User Favorites'
+                        //  subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+                },
                 //title: ' User Favorites to rent Cars',
                 title: ' User Favorites for ' + curretCategory,
                 vAxis: { title: "No. of Unique users" },
