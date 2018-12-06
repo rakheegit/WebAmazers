@@ -32,12 +32,12 @@ $("#carrentalsDD").click(function(){
 function changeTiles(){
     if(curretCategory==="movies"){
         $("#traffic_change").html("+4%");
-        $("#total_traffic").html("87M");
+        $("#total_traffic").html("1143M");
         $("#adsense_enabled").html("68");
     }
     else if(curretCategory==="carrentals"){
         $("#traffic_change").html("+7%");
-        $("#total_traffic").html("60M");
+        $("#total_traffic").html("63M");
         $("#adsense_enabled").html("32");
     }
     else if(curretCategory==="education"){
