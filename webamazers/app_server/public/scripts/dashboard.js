@@ -9,6 +9,7 @@ function loadCharts(){
     google.charts.setOnLoadCallback(drawChart_newuser);
     google.charts.setOnLoadCallback(drawChart_avg_monthly_visits);
     google.charts.setOnLoadCallback(drawChart_dashboard_timespent);
+    $("#dropdownMenu").html("Select Category: "+curretCategory.charAt(0).toUpperCase() + curretCategory.slice(1));
     $("#loader").fadeOut("fast");
 }
 
