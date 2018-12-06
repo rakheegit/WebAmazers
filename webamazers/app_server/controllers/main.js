@@ -154,14 +154,55 @@ module.exports.comparesites = function(req, res) {
 module.exports.get_add_new_from = function(req, res) {
   return res.send({
     body:
-      "<ul>" +
-      '<li>Website Name:<input id="website" type="text" name="Website"></li>' +
-      '<li>Website Country Rank:<input id="country_rank" min="1" type="number" name="Website"></li>' +
-      '<li>Safety Rating:<input id="safety" type="text" name="Website"></li>' +
-      '<li>trustworthiness Rating:<input id="trust" type="text" name="Website"></li>' +
-      '<li>Average Daily Pageviews:<input id="pageviews" min="1" type="number" name="Website"></li>' +
-      '<li>Privacy Rating:<input id="privacy" type="text" name="Website"></li>' +
-      "</ul>"
+    "<ul><li>" +
+        "Website: " +
+        '<input id="Domain" type="text" name="Domain">' +
+        "</li>" +
+        "<li>" +
+        "Rank: " +
+        '<input id="Rank" type="text" name="Rank">' +
+        "</li>" +
+        "<li>" +
+        "Traffic Share: " +
+        '<input id="Traffic_Share" type="text" name="Traffic_Share">' +
+        "</li>" +
+        "<li>" +
+        "Bounce Rate: " +
+        '<input id="Bounce_Rate" type="text" name="Bounce_Rate">' +
+        "</li>" +
+        "<li>" +
+        "Number of pageviews per visit: " +
+        '<input id="Pages_Per_Visit" type="text" name="Pages_Per_Visit">' +
+        "</li>" +
+        "<li>" +
+        "Average Monthly Visits: " +
+        '<input id="Avg_Month_Visits" type="text" name="Avg_Month_Visits">' +
+        "</li>" +
+        "<li>" +
+        "Ratio of Mobile Device Users: " +
+        '<input id="Mobile_Share" type="text" name="Mobile_Share">' +
+        "</li>" +
+        "<li>" +
+        "Ratio of Desktop Device Users: " +
+        '<input id="Desktop_Share" type="text" name="Desktop_Share">' +
+        "</li>" +
+        "<li>" +
+        "Unique Users: " +
+        '<input id="Unique_Users" type="text" name="Unique_Users">' +
+        "</li>" +
+        "<li>" +
+        "Does it support Google Adsense: " +
+        '<input id="Adsense" type="text" name="Adsense">' +
+        "</li>" +
+        "<li>" +
+        "Changes in website from yesterday: " +
+        '<input id="Website_Change" type="text" name="Website_Change">' +
+        "</li>" +
+        "<li>" +
+        "Average Visit Duration: " +
+      '<input id="Avg_Visit_Duration" type="text" name="Avg_Visit_Duration">' +
+        "</li>" +
+        "</ul>"
   });
 };
 

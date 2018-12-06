@@ -6,18 +6,18 @@ block adminwebsites
     
     link(rel="stylesheet" href="/styles/websites.css")
     div#tablediv
-       form(action='/searchFromDB',method='get')
+            button.addButton()
+                i.fa.fa-plus  
+                    span#addText Add new website
             div#searchDiv
                 button.search
                     i.fa.fa-search
                 input#websiteName(name='websiteName', type='text', placeholder='Search for a website')
-            button.addButton(onclick="add_website()")
-                i.fa.fa-plus  
-                    span#addText Add new website
         table.table.table-hover
             thead
                 tr#columnHeading  
                     td.text-default.text-strong='Domain'
+                    td.text-default.text-strong
                         //- img#tooltip(src="/images/infotooltip.png")
                     td.text-default.text-strong='Rank'
                     td.text-default.text-strong='Traffic Share'
@@ -28,10 +28,10 @@ block adminwebsites
             tbody
                 each website,index in websites
                     tr(id=website._id) 
-                        td.tableContent(id="Website"+website._id, name=website._id, contentEditable=false)
-                            img(src=website.Icon_Url)
-                            website.Domain
+                        td.tableContent(id="Website"+website._id, name=website._id, contentEditable=false)=website.Domain
                             span.tooltiptext Click to know more
+                        td.tableContent()
+                            img(src=website.Icon_Url)
                         td.tableContent(name=website._id, contentEditable=true)=website.Rank 
                         td.tableContent(name=website._id, contentEditable=true)=website.Traffic_Share
                         td.tableContent(name=website._id, contentEditable=true)=website.Pages_Per_Visit
