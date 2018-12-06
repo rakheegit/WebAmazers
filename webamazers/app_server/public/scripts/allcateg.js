@@ -333,7 +333,7 @@ function drawChart_stackedchart_mobdesk_all() {
                 legend: { position: "right" },
                 vAxis: { title: "Percentage %" },
                 hAxis: { title: 'Top 100 High Traffic Websites of the world', textPosition: 'none' },
-                colors: ["#9999ff", "#ff99cc"],
+                colors: ['#17a377','#ffcc99'],
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
