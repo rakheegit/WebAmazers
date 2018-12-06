@@ -87,4 +87,6 @@ router.get("/dashboard_timespent_movies", ctrlMain.get_dashboard_timespent_movie
 router.get("/dashboard_timespent_education", ctrlMain.get_dashboard_timespent_education);
 router.get("/dashboard_timespent_carrentals", ctrlMain.get_dashboard_timespent_carrentals);
 // timespent ends -----------------
+
+router.get("/get_prefs", ctrlMain.get_prefs)
 module.exports = router;
