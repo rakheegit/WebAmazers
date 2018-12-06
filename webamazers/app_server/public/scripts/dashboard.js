@@ -279,7 +279,7 @@ function drawChart_dashboard_timespent() {
                 colors: ['#CE3175'],
                 legend: { position: "none" },
                 chart: {
-                    title: 'Average Time spent / Pages viewed for Educational Websites'
+                    title: 'Average Time spent / Pages viewed for '+curretCategory+ ' Websites'
                         //     subtitle: 'based on hours studied'
                 },
                 hAxis: { title: 'Pages Per Visit' },
