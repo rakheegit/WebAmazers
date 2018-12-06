@@ -212,7 +212,7 @@ function drawChart_edu_mobdesk() {
                 legend: { position: "right" },
                 vAxis: { title: "Percentage %" },
                 hAxis: { title: 'Top 10 Ranked Websites' },
-                colors: ['#17a377','#ffcc99'],
+                colors: ['#DBB1CD', '#CE3175'],
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
@@ -273,7 +273,7 @@ function drawChart_dashboard_timespent() {
             var options = {
                 width: 580,
                 height: 320,
-                colors: ['#CE3175'],
+                colors: ['#17a377'],
                 legend: { position: "none" },
                 chart: {
                     title: 'Average Time spent / Pages viewed for '+curretCategory+ ' Websites'
