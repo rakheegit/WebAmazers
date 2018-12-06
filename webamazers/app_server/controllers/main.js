@@ -140,6 +140,17 @@ module.exports.get_websites = function(req, res) {
   }
 };
 
+module.exports.comparesites = function(req, res) {
+  var q = schemaWebsite.find();
+  if (req.session.user) {
+    q.exec(function(err, webs) {
+      res.send({ websites: webs });
+    });
+  } else {
+    res.render("login", { logedin: true });
+  }
+};
+
 module.exports.get_add_new_from = function(req, res) {
   return res.send({
     body:
@@ -231,6 +242,16 @@ module.exports.post_db_data = function(req, res) {
       return res.send(500, { error: err });
     }
     return res.send({ msg: "inserted Successfully" });
+  });
+};
+
+module.exports.comparewebsites = function(req, res) {
+  var q = generalWebsitesSchema.find({
+    $or: [{ _id: req.params.left }, { _id: req.params.right }]
+  });
+  q.exec(function(err, data) {
+    console.log(data);
+    res.send({webs: data});
   });
 };
 
