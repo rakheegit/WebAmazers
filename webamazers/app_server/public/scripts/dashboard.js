@@ -1,6 +1,5 @@
 
 var curretCategory = "movies";
-
 function loadCharts(){
     $("#loader").fadeIn("fast");
     google.charts.load('current', { 'packages': ['corechart'] });
@@ -47,11 +46,30 @@ function changeTiles(){
     }
 }
 
-
+function checkCategories(){
+    $.ajax({
+        url: "/get_prefs",
+        type: 'GET',
+        success: function(data) {
+            var categories = data.prefs;
+            if(categories.indexOf("movies")===-1){
+                $("#moviesDD").remove();
+            }
+            if(categories.indexOf("education")===-1){
+                $("#educationDD").remove();
+            }
+            if(categories.indexOf("carrentals")===-1){
+                $("#carrentalsDD").remove();
+            }
+        }
+    });
+    
+}
 
 // google.charts.setOnLoadCallback(drawChart_dashboard_timespent);
 loadCharts();
 changeTiles();
+checkCategories();
 $(window).ready(function() {
     $("#loader").fadeOut("fast");
 });

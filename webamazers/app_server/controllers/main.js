@@ -278,6 +278,9 @@ module.exports.get_dashboard_data = function(req, res) {
   });
 };
 
+
+
+
 module.exports.get_dashboard_graph1 = function(req, res) {
   //var us_rows = schemaWebsite.find({ country: 'United States' });
   var q = schemaWebsite
@@ -816,3 +819,13 @@ module.exports.get_dashboard_timespent_carrentals = function(req, res) {
   });
 };
 // ------------------- end of timespent ------------
+
+module.exports.get_prefs = function(req, res) {
+  var q = userSchema
+    .find({_id:req.session.user._id})
+    .select({ pref: 1, _id: 0 });
+  q.exec(function(err, data) {
+    console.log("this ; ",data);
+    return res.send({ prefs: data[0].pref });
+  });
+};
