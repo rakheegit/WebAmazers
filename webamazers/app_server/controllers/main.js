@@ -640,9 +640,9 @@ module.exports.get_dashboard_newuser_movies = function(req, res) {
   var q = moviesSchema
     .find(
       {},
-      { Domain: 1, Unique_Users: 1, _id: 0 },
-      { $sort: { Traffic_Share: -1 } }
+      { Domain: 1, Unique_Users: 1, _id: 0 }
     )
+    .sort({ Unique_Users: -1 })
     .limit(5);
   q.exec(function(err, webs) {
     //console.log(webs);
@@ -654,9 +654,9 @@ module.exports.get_dashboard_newuser_education = function(req, res) {
   var q = eduWebsitesSchema
     .find(
       {},
-      { Domain: 1, Unique_Users: 1, _id: 0 },
-      { $sort: { Traffic_Share: -1 } }
+      { Domain: 1, Unique_Users: 1, _id: 0 }
     )
+    .sort({ Unique_Users: -1 })
     .limit(5);
   q.exec(function(err, webs) {
     //console.log(webs);
@@ -668,9 +668,9 @@ module.exports.get_dashboard_newuser_carrentals = function(req, res) {
   var q = carRentalsSchema
     .find(
       {},
-      { Domain: 1, Unique_Users: 1, _id: 0 },
-      { $sort: { Traffic_Share: -1 } }
+      { Domain: 1, Unique_Users: 1, _id: 0 }
     )
+    .sort({ Unique_Users: -1 })
     .limit(5);
   q.exec(function(err, webs) {
     //console.log(webs);

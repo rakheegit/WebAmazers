@@ -134,7 +134,7 @@ function drawChart_avg_monthly_visits() {
             var chartData = google.visualization.arrayToDataTable(data);
 
             var options = {
-                title: 'Averaga Monthly Visits',
+                title: 'Average Monthly Visits',
                 //colors: ['#BC70A4'],
                 width: 500,
                 height: 320,
@@ -144,7 +144,7 @@ function drawChart_avg_monthly_visits() {
                     bold: true, // true or false
                 },
                 vAxis: { title: "Monthly Visits" },
-                
+                hAxis: { title: "" },
                 //  vAxis: { format: 'percent' }
 
             };
