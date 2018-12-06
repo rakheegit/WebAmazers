@@ -36,12 +36,12 @@ function changeTiles(){
         $("#adsense_enabled").html("68");
     }
     else if(curretCategory==="carrentals"){
-        $("#traffic_change").html("+10%");
+        $("#traffic_change").html("+7%");
         $("#total_traffic").html("60M");
         $("#adsense_enabled").html("32");
     }
     else if(curretCategory==="education"){
-        $("#traffic_change").html("+19%");
+        $("#traffic_change").html("+8%");
         $("#total_traffic").html("107M");
         $("#adsense_enabled").html("12");
     }
