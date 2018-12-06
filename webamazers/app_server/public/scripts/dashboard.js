@@ -73,21 +73,18 @@ function drawChart_newuser() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                chart: {
-                    //    vAxis: { title: "No. of Unique users" },
-                    title: ' User Favorites'
-                        //  subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-                },
+                
                 //title: ' User Favorites to rent Cars',
                 title: ' User Favorites for ' + curretCategory,
                 vAxis: { title: "No. of Unique users" },
-                width: 500,
+                width: 580,
                 height: 320,
                 legend: { position: "none" },
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
-                }
+                },
+                
             };
 
             /*    var chart = new google.visualization.ColumnChart(document.getElementById('newuser'));
@@ -274,7 +271,7 @@ function drawChart_dashboard_timespent() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                width: 500,
+                width: 580,
                 height: 320,
                 colors: ['#CE3175'],
                 legend: { position: "none" },
