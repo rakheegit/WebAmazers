@@ -25,12 +25,14 @@ router.get("/websites/:id", ctrlMain.get_websites_by_id);
 router.get("/editDbData/:id", ctrlMain.get_websites_by_id_for_edit);
 router.post("/insertDbData", ctrlMain.post_db_data);
 router.put("/editDbData/:id", ctrlMain.edit_db_data_id);
+router.get("/comparewebsites/:left/vs/:right", ctrlMain.comparewebsites);
 
+
+router.get("/comparesites", ctrlMain.comparesites);
 router.get("/searchFromDB", ctrlMain.search_DB);
 router.get("/get_childsafety", ctrlMain.get_childsafety);
 router.get("/get_all_us", ctrlMain.get_all_us);
 router.get("/get_privacy", ctrlMain.get_privacy);
-
 router.get("/dashboard", ctrlMain.get_dashboard);
 router.get("/dashboardOld", ctrlMain.get_dashboardOld);
 router.get("/allcategories", ctrlMain.get_allcategories);
@@ -85,4 +87,6 @@ router.get("/dashboard_timespent_movies", ctrlMain.get_dashboard_timespent_movie
 router.get("/dashboard_timespent_education", ctrlMain.get_dashboard_timespent_education);
 router.get("/dashboard_timespent_carrentals", ctrlMain.get_dashboard_timespent_carrentals);
 // timespent ends -----------------
+
+router.get("/get_prefs", ctrlMain.get_prefs)
 module.exports = router;

@@ -1,55 +1,43 @@
 const mongoose = require('mongoose');
 const schemaWebsite = mongoose.Schema({
-    Country_Rank:{
-        type:Number
+    Domain:{
+        type:String
     }, 
-    Website: {
-        type: String
-    }, 
-    Trustworthiness: {
-        type: String
-    },
-    Avg_Daily_Visitors : {
-        type: Number
-    },
-    Child_Safety : {
-        type: String
-    },
-    Avg_Daily_Pageviews : {
-        type: Number
-    },
-    Privacy : {
-        type: String
-    },
-    Facebook_likes : {
-        type: Number
-    },
-    Twitter_mentions : {
+    Traffic_Share: {
         type: Number
     }, 
-    Google_Pluses : {
+    Rank: {
         type: Number
     },
-    Linkedin_Links : {
+    Bounce_Rate : {
         type: Number
     },
-    Pinterest_Pins : {
+    Pages_Per_Visit : {
         type: Number
     },
-    Traffic_rank : {
+    Unique_Visitors : {
         type: Number
     },
-    Daily_Pageviews_per_user :  {
+    Avg_Month_Visits : {
+        type: Number
+    },
+    Mobile_Share : {
+        type: Number
+    },
+    Avg_Visit_Duration : {
         type: Number
     }, 
-    Location: {
+    Website_Change : {
+        type: Number
+    },
+    Icon_Url : {
         type: String
     },
-    Hosted_by : {
-        type: String
+    Adsense : {
+        type: Boolean
     },
-    country: {
-        type: String
+    Unique_Users : {
+        type: Number
     }
 });
-const Website = module.exports = mongoose.model('websites',schemaWebsite);
+const Website = module.exports = mongoose.model('totalwebsites',schemaWebsite);

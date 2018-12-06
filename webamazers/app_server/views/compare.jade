@@ -1,7 +1,10 @@
 extends layout
 block compare
     link(href='/styles/compare.css', rel='stylesheet')
+    script(src="/scripts/bootstrap_popup.js")
+    script(src="/scripts/modal_load.js")
     script(src="/scripts/compare.js")
+    script(src='/scripts/alertmodal.js', type='text/javascript')
     .maindiv    
         #div1
             div.website1
@@ -9,14 +12,14 @@ block compare
                 div#searchDiv
                     button.search
                         i.fa.fa-search
-                    input#websiteName(name='websiteName', type='text', placeholder='Start typing....')
+                    input#leftwebsiteName(name='websiteName', type='text', placeholder='Start typing....')
                 div#resultDiv
-                    h4#infotip.text-center Choose a website to compare
-                    table.table
+                    h4#leftinfotip.text-center Choose a website to compare
+                    table#lefttable
                         tbody
                             each website,index in websites
                                 tr.leftwebsites(id=website._id) 
-                                    td.tableContent(id="Website"+website._id, name=website._id, contentEditable=false)=website.Domain
+                                    td.lefttableContent(id="Website"+website._id, name=website._id, contentEditable=false)=website.Domain
 
         #div2
             div.website2
@@ -24,6 +27,13 @@ block compare
                 div#searchDiv
                     button.search
                         i.fa.fa-search
-                    input#websiteName(name='websiteName', type='text', placeholder='Search for a website')
+                    input#rightwebsiteName(name='websiteName', type='text', placeholder='Start typing....')
                 div#resultDiv
-                    h4.text-center Choose a website to compare
+                    h4#rightinfotip.text-center Choose a website to compare
+                    table#righttable
+                        tbody
+                            each website,index in websites
+                                tr.rightwebsites(id=website._id) 
+                                    td.righttableContent(id="Website"+website._id, name=website._id, contentEditable=false)=website.Domain
+    .buttondiv
+        button#comparebutton.color-main-dark-bg.btn Compare

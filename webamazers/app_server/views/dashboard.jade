@@ -4,26 +4,63 @@ block dashboard
     head
         title Dashboard
         link(href='/styles/dashboard.css', rel='stylesheet')
-    div(style='padding-top:6%;width:99%;height:99%')
+    div.app-content(style='padding-top:6%')
         div(class="center")#loader
         div(class="row")
-            div(class="col-lg-10")
-            div(class="col-lg-1")
-                .dropdown
-                button#dropdownMenu.btn.btn-success(data-toggle='dropdown', type='button')
-                    | Select Category
-                #dropdowncss.dropdown-menu(aria-labelledby='dropdownMenu')
-                    a#moviesDD.dropdown-item(href='#') Movies
-                    a#educationDD.dropdown-item(href='#') Education
-                    a#carrentalsDD.dropdown-item(href='#') Car Rentals
+            div(class="col-lg-9")
+            div(class="col-lg-3")
+                .row
+                    .col-lg-3
+                    .col-lg-9
+                        .dropdown
+                        button#dropdownMenu.btn.btn-success(data-toggle='dropdown', type='button')
+                            | Select Category
+                        #dropdowncss.dropdown-menu(aria-labelledby='dropdownMenu')
+                            a#moviesDD.dropdown-item(href='#') Movies
+                            a#educationDD.dropdown-item(href='#') Education
+                            a#carrentalsDD.dropdown-item(href='#') Car Rentals
 
         div(class="row")
-            div(class="col-lg-5 col-lg-offset-1")#avg_monthly_visits
-            div(class="col-mlg-5")#newuser
+            div(class="col-md-9", style="margin-top:-2%")
+                div(class="row")
+                    div(class="col-lg-6")#avg_monthly_visits
+                    div(class="col-lg-6")#newuser
+                div(style="padding-top:10px")
+                div(class="row")
+                    div(class="col-lg-6")#edu_mobdesk
+                    div(class="col-lg-6")#timespent
             
-        
-        div(style="padding-top:10px")
-        div(class="row")
-            div(class="col-lg-5 col-lg-offset-1")#edu_mobdesk
-            div(class="col-lg-5")#timespent
+            div(class="col-md-3", style="margin-top:120px;")
+                
+                .row
+                    .col-md-3
+                    .col-md-9
+                        div(class="widget-small primary coloured-icon")
+                            i(style="margin-left:40%").icon.fa.fa-users.fa-3x
+                            .info
+                                h5(style="text-align:center") Total Traffic
+                                p(style="text-align:center")
+                                    b#total_traffic 110M
+
+                .row
+                    .col-md-3
+                    .col-md-9
+                        div(class="widget-small primary coloured-icon")
+                            i(style="margin-left:40%").icon.fa.fa-exchange.fa-3x
+                            .info
+                                h5(style="text-align:center") Traffic Change
+                                p(style="text-align:center")
+                                    b#traffic_change(style="color:green") 
+
+                .row
+                    .col-md-3
+                    .col-md-9
+                        div(class="widget-small primary coloured-icon")
+                            i(style="margin-left:40%").icon.fa.fa-buysellads.fa-3x
+                            .info
+                                h5(style="text-align:center") AdSense Enabled Sites
+                                p(style="text-align:center")
+                                    b#adsense_enabled 110M
+
+
     script(src='/scripts/dashboard.js')

@@ -1,7 +1,5 @@
 
 var curretCategory = "movies";
-
-
 function loadCharts(){
     $("#loader").fadeIn("fast");
     google.charts.load('current', { 'packages': ['corechart'] });
@@ -11,24 +9,68 @@ function loadCharts(){
     google.charts.setOnLoadCallback(drawChart_newuser);
     google.charts.setOnLoadCallback(drawChart_avg_monthly_visits);
     google.charts.setOnLoadCallback(drawChart_dashboard_timespent);
+    $("#dropdownMenu").html("Select Category: "+curretCategory.charAt(0).toUpperCase() + curretCategory.slice(1));
     $("#loader").fadeOut("fast");
 }
 
 $("#moviesDD").click(function(){
     curretCategory="movies";
     loadCharts();
+    changeTiles();
 })
 $("#educationDD").click(function(){
     curretCategory="education";
     loadCharts();
+    changeTiles();
 })
 $("#carrentalsDD").click(function(){
     curretCategory="carrentals";
     loadCharts();
+    changeTiles();
 })
+
+function changeTiles(){
+    if(curretCategory==="movies"){
+        $("#traffic_change").html("+4%");
+        $("#total_traffic").html("87M");
+        $("#adsense_enabled").html("68");
+    }
+    else if(curretCategory==="carrentals"){
+        $("#traffic_change").html("+10%");
+        $("#total_traffic").html("60M");
+        $("#adsense_enabled").html("32");
+    }
+    else if(curretCategory==="education"){
+        $("#traffic_change").html("+19%");
+        $("#total_traffic").html("107M");
+        $("#adsense_enabled").html("12");
+    }
+}
+
+function checkCategories(){
+    $.ajax({
+        url: "/get_prefs",
+        type: 'GET',
+        success: function(data) {
+            var categories = data.prefs;
+            if(categories.indexOf("movies")===-1){
+                $("#moviesDD").remove();
+            }
+            if(categories.indexOf("education")===-1){
+                $("#educationDD").remove();
+            }
+            if(categories.indexOf("carrentals")===-1){
+                $("#carrentalsDD").remove();
+            }
+        }
+    });
+    
+}
 
 // google.charts.setOnLoadCallback(drawChart_dashboard_timespent);
 loadCharts();
+changeTiles();
+checkCategories();
 $(window).ready(function() {
     $("#loader").fadeOut("fast");
 });

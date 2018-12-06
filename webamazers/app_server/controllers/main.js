@@ -140,17 +140,69 @@ module.exports.get_websites = function(req, res) {
   }
 };
 
+module.exports.comparesites = function(req, res) {
+  var q = schemaWebsite.find();
+  if (req.session.user) {
+    q.exec(function(err, webs) {
+      res.send({ websites: webs });
+    });
+  } else {
+    res.render("login", { logedin: true });
+  }
+};
+
 module.exports.get_add_new_from = function(req, res) {
   return res.send({
     body:
-      "<ul>" +
-      '<li>Website Name:<input id="website" type="text" name="Website"></li>' +
-      '<li>Website Country Rank:<input id="country_rank" min="1" type="number" name="Website"></li>' +
-      '<li>Safety Rating:<input id="safety" type="text" name="Website"></li>' +
-      '<li>trustworthiness Rating:<input id="trust" type="text" name="Website"></li>' +
-      '<li>Average Daily Pageviews:<input id="pageviews" min="1" type="number" name="Website"></li>' +
-      '<li>Privacy Rating:<input id="privacy" type="text" name="Website"></li>' +
-      "</ul>"
+    "<ul><li>" +
+        "Website: " +
+        '<input id="Domain" type="text" name="Domain">' +
+        "</li>" +
+        "<li>" +
+        "Rank: " +
+        '<input id="Rank" type="text" name="Rank">' +
+        "</li>" +
+        "<li>" +
+        "Traffic Share: " +
+        '<input id="Traffic_Share" type="text" name="Traffic_Share">' +
+        "</li>" +
+        "<li>" +
+        "Bounce Rate: " +
+        '<input id="Bounce_Rate" type="text" name="Bounce_Rate">' +
+        "</li>" +
+        "<li>" +
+        "Number of pageviews per visit: " +
+        '<input id="Pages_Per_Visit" type="text" name="Pages_Per_Visit">' +
+        "</li>" +
+        "<li>" +
+        "Average Monthly Visits: " +
+        '<input id="Avg_Month_Visits" type="text" name="Avg_Month_Visits">' +
+        "</li>" +
+        "<li>" +
+        "Ratio of Mobile Device Users: " +
+        '<input id="Mobile_Share" type="text" name="Mobile_Share">' +
+        "</li>" +
+        "<li>" +
+        "Ratio of Desktop Device Users: " +
+        '<input id="Desktop_Share" type="text" name="Desktop_Share">' +
+        "</li>" +
+        "<li>" +
+        "Unique Users: " +
+        '<input id="Unique_Users" type="text" name="Unique_Users">' +
+        "</li>" +
+        "<li>" +
+        "Does it support Google Adsense: " +
+        '<input id="Adsense" type="text" name="Adsense">' +
+        "</li>" +
+        "<li>" +
+        "Changes in website from yesterday: " +
+        '<input id="Website_Change" type="text" name="Website_Change">' +
+        "</li>" +
+        "<li>" +
+        "Average Visit Duration: " +
+      '<input id="Avg_Visit_Duration" type="text" name="Avg_Visit_Duration">' +
+        "</li>" +
+        "</ul>"
   });
 };
 
@@ -234,6 +286,16 @@ module.exports.post_db_data = function(req, res) {
   });
 };
 
+module.exports.comparewebsites = function(req, res) {
+  var q = generalWebsitesSchema.find({
+    $or: [{ _id: req.params.left }, { _id: req.params.right }]
+  });
+  q.exec(function(err, data) {
+    console.log(data);
+    res.send({webs: data});
+  });
+};
+
 module.exports.edit_db_data_id = function(req, res) {
   var data = new schemaWebsite(req.body);
   var q = schemaWebsite.replaceOne({ _id: data._id }, data);
@@ -277,6 +339,9 @@ module.exports.get_dashboard_data = function(req, res) {
     return res.send({ webs: webs });
   });
 };
+
+
+
 
 module.exports.get_dashboard_graph1 = function(req, res) {
   //var us_rows = schemaWebsite.find({ country: 'United States' });
@@ -816,3 +881,13 @@ module.exports.get_dashboard_timespent_carrentals = function(req, res) {
   });
 };
 // ------------------- end of timespent ------------
+
+module.exports.get_prefs = function(req, res) {
+  var q = userSchema
+    .find({_id:req.session.user._id})
+    .select({ pref: 1, _id: 0 });
+  q.exec(function(err, data) {
+    console.log("this ; ",data);
+    return res.send({ prefs: data[0].pref });
+  });
+};
