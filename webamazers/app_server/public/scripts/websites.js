@@ -14,7 +14,7 @@ $(function() {
 });
 
 $(function() {
-    $("table").on("click", "#showButton", function(e) {
+    $("table").on("click", ".tableContent", function(e) {
         e.preventDefault(); // cancel the link itself
         $webId = $(this).closest("tr")[0].id;
         $.get({

@@ -1,23 +1,23 @@
 //added
 function loadM(webdata) {
   showBSModal({
-    title: "Edit Values for : " + webdata.Website,
+    title: "Edit Values for : " + webdata.Domain,
     body:
       "<ul>" +
       '<li>Rank:    <input type="text" name="Rank" id = "Rank" value=' +
       webdata.Rank +
       "><br></li>" +
-      '<li>Domain:    <input type="text" name="Domain" id = "Domain" value=' +
-      webdata.Domain +
-      "><br></li>" +
-      '<li>Desktop_Users: <input type="text" name="Desktop_Users" id = "Desktop_Users" value=' +
-      webdata.Desktop_Users +
-      "><br></li>" +
-      '<li>Traffic_Share: <input type="text" name="Traffic_Share" id = "Traffic_Share" value=' +
+      '<li>Traffic Share:    <input type="text" name="Traffic_Share" id = "Traffic_Share" value=' +
       webdata.Traffic_Share +
       "><br></li>" +
-      '<li>Bounce_Rate: <input type="text" name="Bounce_Rate" id = "Bounce_Rate" value=' +
+      '<li>Bounce Rate: <input type="text" name="Bounce_Rate" id = "Bounce_Rate" value=' +
       webdata.Bounce_Rate +
+      "><br></li>" +
+      '<li>Average Visit Duration: <input type="text" name="Avg_Visit_Duration" id = "Avg_Visit_Duration" value=' +
+      webdata.Avg_Visit_Duration +
+      "><br></li>" +
+      '<li>Average Monthly Visits: <input type="text" name="Avg_Month_Visits" id = "Avg_Month_Visits" value=' +
+      webdata.Avg_Month_Visits +
       "><br></li>",
 
     actions: [
@@ -36,16 +36,16 @@ function loadM(webdata) {
         onClick: function(e) {
           WebsiteData = {
             _id: webdata._id,
-            Website: webdata.Website,
-            Country_Rank: $("#Country_Rank")[0].value,
-            Child_Safety: $("#Child_Safety")[0].value,
-            Trustworthiness: $("#Trustworthiness")[0].value,
-            Avg_Daily_Pageviews: $("#Avg_Daily_Pageviews")[0].value,
-            Privacy: $("#Privacy")[0].value
+            Website: webdata.Domain,
+            Rank: $("#Rank")[0].value,
+            Avg_Visit_Duration: $("#Avg_Visit_Duration")[0].value,
+            Avg_Month_Visits: $("#Avg_Month_Visits")[0].value,
+            Traffic_Share: $("#Traffic_Share")[0].value,
+            Bounce_Rate: $("#Bounce_Rate")[0].value
           };
           $.ajax({
             url: "/editDbData/" + $webId,
-            type:"PUT",
+            type: "PUT",
             data: WebsiteData,
             success: function(data) {
               alert(data.msg);
@@ -59,49 +59,62 @@ function loadM(webdata) {
 }
 //added
 
-// Domain	Traffic_Share	Rank	Monthly Visits	Bounce_Rate	Desktop_Users	Mobile_Users	Pages_Per_Visit	Average_Duration_per_visit	Data_Change	Data_Favicon	Google_adsense_enabled	 Unique_Visitors													
+// Domain	Traffic_Share	Rank	Monthly Visits	Bounce_Rate	Desktop_Users	Mobile_Users	Pages_Per_Visit	Average_Duration_per_visit	Data_Change	Data_Favicon	Google_adsense_enabled	 Unique_Visitors
 
 function loadModel(webdata) {
-  showBSModal({
-    title: "Displaying the selected record",
-    body:
-      "<ul><li>" +
-      "Website: " +
-      webdata.Domain +
-      "</li>" +
-      "<li>" +
-      "Rank: " +
-      webdata.Rank +
-      "</li>" +
-      "<li>" +
-      "Desktop_Users: " +
-      webdata.Desktop_Users +
-      "</li>" +
-      "<li>" +
-      "Mobile_Users: " +
-      webdata.Mobile_Users +
-      "</li>" +
-      "<li>" +
-      "Traffic_Share: " +
-      webdata.Traffic_Share +
-      "</li>" +
-      "<li>" +
-      "Bounce_Rate: " +
-      webdata.Bounce_Rate +
-      "</li>" +
-      "</ul>",
-    actions: [
-      {
-        label: "Close",
-        cssClass: "btn-success",
-        onClick: function(e) {
-          $(e.target)
-            .parents(".modal")
-            .modal("hide");
+  showBSModal(
+    {
+      title: "Displaying the selected record",
+      body:
+        "<ul><li>" +
+        "Website: " +
+        webdata.Domain +
+        "</li>" +
+        "<li>" +
+        "Rank: " +
+        webdata.Rank +
+        "</li>" +
+        "<li>" +
+        "Traffic Share: " +
+        webdata.Traffic_Share +
+        "</li>" +
+        "<li>" +
+        "Bounce Rate: " +
+        webdata.Bounce_Rate +
+        "</li>" +
+        "<li>" +
+        "Number of pages per visit: " +
+        webdata.Pages_Per_Visit +
+        "</li>" +
+        "<li>" +
+        "Average Monthly Visits: " +
+        webdata.Avg_Month_Visits +
+        "</li>" +
+        "<li>" +
+        "Average Visit Duration: " +
+        webdata.Avg_Visit_Duration +
+        "</li>" +
+        "<li>" +
+        "Unique Users: " +
+        webdata.Unique_Users +
+        "</li>" +
+        "</ul>",
+      actions: [
+        {
+          label: "Close",
+          cssClass: "btn-success",
+          onClick: function(e) {
+            $(e.target)
+              .parents(".modal")
+              .modal("hide");
+          }
         }
-      }
-    ]
-  });
+      ]
+    },
+    function() {
+      dragElement(document.getElementsByClassName("modal fade")[0].children[0]);
+    }
+  );
 }
 
 function load_new_web_form(form_body) {
@@ -146,9 +159,8 @@ function load_new_web_form(form_body) {
                 window.location.reload();
               }
             });
-          }
-          else{
-              alert
+          } else {
+            alert;
           }
         }
       }
