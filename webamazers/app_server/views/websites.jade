@@ -17,18 +17,21 @@ block websites
         table.table.table-hover
             thead
                 tr#columnHeading  
-                    td.text-large.text-strong='Domain'
-                        img#tooltip(src="/images/infotooltip.png")
-                    td.text-large.text-strong='Rank'
-                    td.text-large.text-strong='Traffic Share'
-                    td.text-large.text-strong='Average Pages Per Visit'
-                    td.text-large.text-strong='Bounce Rate'
-                    td.text-large.text-strong='Average Duration Per Visit(in secs)'
+                    td.text-default.text-strong='Domain'
+                        //- img#tooltip(src="/images/infotooltip.png")
+                    td.text-default.text-strong='Rank'
+                    td.text-default.text-strong='Traffic Share'
+                    td.text-default.text-strong='Average Pages Per Visit'
+                    td.text-default.text-strong='Bounce Rate'
+                    td.text-default.text-strong='Average Duration Per Visit(in secs)'
             tbody
                 each website,index in websites
                     tr(id=website._id) 
-                        td.tableContent(id="Website"+website._id, name=website._id, contentEditable=false)=website.Domain
+                        td.tableContent(id="Website"+website._id, name=website._id, contentEditable=false)
+                            img(src=website.Icon_Url)
+                            website.Domain
                             span.tooltiptext Click to know more
+                            
                         td.tableContent(name=website._id, contentEditable=true)=website.Rank 
                         td.tableContent(name=website._id, contentEditable=true)=website.Traffic_Share
                         td.tableContent(name=website._id, contentEditable=true)=website.Pages_Per_Visit

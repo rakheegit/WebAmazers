@@ -5,29 +5,37 @@ $("#loginbutton").on("click", function(e) {
     name: $("#username")[0].value,
     pass: $("#password")[0].value
   };
-  $.ajax({
-    type: "GET",
-    url: "/loginuser",
-    data: userdetails,
-    success: function(res) {
-      console.log(res.msg);
-      if (res.msg[0] instanceof Object) {
-        console.log(res.valid)
-        if (res.valid) {
-          window.location.href = "/home";
+  if (userdetails.name == "" || userdetails.pass == "") {
+    var error = {
+      title: "Empty username",
+      body: "Username or password cannot be empty"
+    };
+    prompt(error);
+  } else {
+    $.ajax({
+      type: "GET",
+      url: "/loginuser",
+      data: userdetails,
+      success: function(res) {
+        console.log(res.msg);
+        if (res.msg[0] instanceof Object) {
+          console.log(res.valid);
+          if (res.valid) {
+            window.location.href = "/home";
+          }
+        } else {
+          var error = {
+            title: "Error while logging in",
+            body: res.msg
+          };
+          prompt(error);
         }
-      } else {
-        var error = {
-          title: "Error while logging in",
-          body: res.msg
-        };
-        prompt(error);
+      },
+      error: function(e) {
+        console.log(e);
       }
-    },
-    error: function(e) {
-      console.log(e);
-    }
-  });
+    });
+  }
 });
 
 $(window).on("load", function() {
