@@ -1,7 +1,6 @@
 
 var curretCategory = "movies";
 
-
 function loadCharts(){
     $("#loader").fadeIn("fast");
     google.charts.load('current', { 'packages': ['corechart'] });
@@ -17,18 +16,42 @@ function loadCharts(){
 $("#moviesDD").click(function(){
     curretCategory="movies";
     loadCharts();
+    changeTiles();
 })
 $("#educationDD").click(function(){
     curretCategory="education";
     loadCharts();
+    changeTiles();
 })
 $("#carrentalsDD").click(function(){
     curretCategory="carrentals";
     loadCharts();
+    changeTiles();
 })
+
+function changeTiles(){
+    if(curretCategory==="movies"){
+        $("#traffic_change").html("+4%");
+        $("#total_traffic").html("87M");
+        $("#adsense_enabled").html("68");
+    }
+    else if(curretCategory==="carrentals"){
+        $("#traffic_change").html("+10%");
+        $("#total_traffic").html("60M");
+        $("#adsense_enabled").html("32");
+    }
+    else if(curretCategory==="education"){
+        $("#traffic_change").html("+19%");
+        $("#total_traffic").html("107M");
+        $("#adsense_enabled").html("12");
+    }
+}
+
+
 
 // google.charts.setOnLoadCallback(drawChart_dashboard_timespent);
 loadCharts();
+changeTiles();
 $(window).ready(function() {
     $("#loader").fadeOut("fast");
 });
@@ -73,21 +96,18 @@ function drawChart_newuser() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                chart: {
-                    //    vAxis: { title: "No. of Unique users" },
-                    title: ' User Favorites'
-                        //  subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-                },
+                
                 //title: ' User Favorites to rent Cars',
                 title: ' User Favorites for ' + curretCategory,
                 vAxis: { title: "No. of Unique users" },
-                width: 500,
+                width: 580,
                 height: 320,
                 legend: { position: "none" },
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
-                }
+                },
+                
             };
 
             /*    var chart = new google.visualization.ColumnChart(document.getElementById('newuser'));
@@ -137,7 +157,7 @@ function drawChart_avg_monthly_visits() {
             var chartData = google.visualization.arrayToDataTable(data);
 
             var options = {
-                title: 'Averaga Monthly Visits',
+                title: 'Average Monthly Visits',
                 //colors: ['#BC70A4'],
                 width: 500,
                 height: 320,
@@ -147,7 +167,7 @@ function drawChart_avg_monthly_visits() {
                     bold: true, // true or false
                 },
                 vAxis: { title: "Monthly Visits" },
-                
+                hAxis: { title: "" },
                 //  vAxis: { format: 'percent' }
 
             };
@@ -215,7 +235,7 @@ function drawChart_edu_mobdesk() {
                 legend: { position: "right" },
                 vAxis: { title: "Percentage %" },
                 hAxis: { title: 'Top 10 Ranked Websites' },
-                colors: ["#005960", "#9C9A40"],
+                colors: ['#DBB1CD', '#CE3175'],
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
@@ -274,12 +294,12 @@ function drawChart_dashboard_timespent() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                width: 500,
+                width: 580,
                 height: 320,
-                colors: ['#CE3175'],
+                colors: ['#17a377'],
                 legend: { position: "none" },
                 chart: {
-                    title: 'Average Time spent / Pages viewed for Educational Websites'
+                    title: 'Average Time spent / Pages viewed for '+curretCategory+ ' Websites'
                         //     subtitle: 'based on hours studied'
                 },
                 hAxis: { title: 'Pages Per Visit' },
