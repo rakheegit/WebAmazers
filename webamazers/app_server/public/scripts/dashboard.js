@@ -215,7 +215,7 @@ function drawChart_edu_mobdesk() {
                 legend: { position: "right" },
                 vAxis: { title: "Percentage %" },
                 hAxis: { title: 'Top 10 Ranked Websites' },
-                colors: ["#005960", "#9C9A40"],
+                colors: ['#17a377','#ffcc99'],
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
