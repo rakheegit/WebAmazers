@@ -1,40 +1,29 @@
-extends adminlayout
-block index
-    link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
-    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
-    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
-    div#comparecontent
-        div#leftcompare
-            div#tablediv
-                    #custom-select.custom-select Category Preferences 
-                    //- i#down-arrow(class="arrow down")
-                    #custom-select-option-box
-                      .custom-select-option
-                        div.categories-list
-                            table.table.table-hover
-                                tbody
-                                    each website,index in websites
-                                        tr.compare(id=website._id)
-                                            td.tableContent(id="Website"+website._id, name=website._id, contentEditable=false)=website.Domain 
-    //-     div#righcompare
-    //-         div#tablediv
-    //-             form()
-    //-                     div#searchDiv.comparesearch
-    //-                         button.search
-    //-                             i.fa.fa-search
-    //-                         input#websiteName(name='websiteName', type='text', placeholder='Search')
-                            
+extends layout
+block compare
+    link(href='/styles/compare.css', rel='stylesheet')
+    script(src="/scripts/compare.js")
+    .maindiv    
+        #div1
+            div.website1
+                h1.text-large.text-center Your Website
+                div#searchDiv
+                    button.search
+                        i.fa.fa-search
+                    input#websiteName(name='websiteName', type='text', placeholder='Start typing....')
+                div#resultDiv
+                    h4#infotip.text-center Choose a website to compare
+                    table.table
+                        tbody
+                            each website,index in websites
+                                tr.leftwebsites(id=website._id) 
+                                    td.tableContent(id="Website"+website._id, name=website._id, contentEditable=false)=website.Domain
 
-    //-                 table.table.table-hover
-    //-                     | Domain
-    //-                     thead
-    //-                         tr.compare#columnHeading 
-    //-                     tbody
-    //-                         each website,index in websites
-    //-                             tr.compare(id=website._id)
-    //-                                 td.tableContent(id="Website"+website._id, name=website._id, contentEditable=false)=website.Domain 
-    //- script(src="/scripts/websites.js")
-    script(src='/scripts/signup.js', type='text/javascript')
-    link(type='text/css', href='/styles/compare.css', rel='stylesheet')
-
-    
+        #div2
+            div.website2
+                h1.text-large.text-center Your Competitor's Website
+                div#searchDiv
+                    button.search
+                        i.fa.fa-search
+                    input#websiteName(name='websiteName', type='text', placeholder='Search for a website')
+                div#resultDiv
+                    h4.text-center Choose a website to compare

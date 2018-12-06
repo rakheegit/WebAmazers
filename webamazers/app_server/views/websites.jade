@@ -2,49 +2,38 @@ extends layout
 block websites
     link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
-    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
-    link(rel="stylesheet" href="/styles/websites.css")
+    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet")
+    
+    link(href="/styles/websites.css" rel="stylesheet")
     div#tablediv
        form(action='/searchFromDB',method='get')
             div#searchDiv
                 button.search
                     i.fa.fa-search
                 input#websiteName(name='websiteName', type='text', placeholder='Search for a website')
-                
-
+            button.addButton(onclick="add_website()")
+                i.fa.fa-plus  
+                    span#addText Add new website
         table.table.table-hover
             thead
                 tr#columnHeading  
-                    td#domain='Domain'
-                    td#rank='Rank'
-                    td='Traffic Share'
-                    td='Average Pages Per Visit'
-                    td='Bounce Rate'
-                    td='Average Duration Per Visit'
-                    td='Actions'
+                    td.text-large.text-strong='Domain'
+                        img#tooltip(src="/images/infotooltip.png")
+                    td.text-large.text-strong='Rank'
+                    td.text-large.text-strong='Traffic Share'
+                    td.text-large.text-strong='Average Pages Per Visit'
+                    td.text-large.text-strong='Bounce Rate'
+                    td.text-large.text-strong='Average Duration Per Visit(in secs)'
             tbody
                 each website,index in websites
-                    tr(id=website._id)
-                        td.tableContent(id="Website"+website._id, name=website._id, contentEditable=false)=website.Domain 
+                    tr(id=website._id) 
+                        td.tableContent(id="Website"+website._id, name=website._id, contentEditable=false)=website.Domain
+                            span.tooltiptext Click to know more
                         td.tableContent(name=website._id, contentEditable=true)=website.Rank 
                         td.tableContent(name=website._id, contentEditable=true)=website.Traffic_Share
                         td.tableContent(name=website._id, contentEditable=true)=website.Pages_Per_Visit
                         td.tableContent(name=website._id, contentEditable=true)=website.Bounce_Rate
-                        td.tableContent(name=website._id, contentEditable=true)=website.Average_Duration_per_visit
-                        td 
-                            div
-                                button#showButton
-                                    i.fa.fa-eye 
-                                    span#showText Show
-                                button.editButton
-                                    i.fa.fa-pencil-square-o   
-                                    span#editText Edit
-                                button.deleteButton
-                                    i.fa.fa-trash
-                                    span#deleteText Destroy
-        button.addButton(onclick="add_website()")
-            i.fa.fa-plus  
-            span#addText Add new website
+                        td.tableContent(name=website._id, contentEditable=true)=website.Avg_Visit_Duration
     script(src='/scripts/websites.js')
     script(src='/scripts/bootstrap_popup.js')
     script(src='/scripts/modal_load.js')

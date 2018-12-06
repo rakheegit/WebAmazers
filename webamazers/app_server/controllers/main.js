@@ -1,8 +1,3 @@
-var registeredUsers = [
-  { username: "admin@admin.com", password: "admin" },
-  { username: "ashish@gmail.com", password: "1234" },
-  { username: "a@g.co", password: "1" }
-];
 var schemaWebsite = require("../model/websitesSchema");
 var userSchema = require("../model/user");
 
@@ -84,11 +79,7 @@ module.exports.signup = function(req, res) {
 module.exports.userhome = function(req, res) {
   if (req.session.user) {
     console.log(req.session.user);
-    if (req.session.user.name === "admin") {
-      res.render("indexadmin");
-    } else {
-      res.render("index");
-    }
+    res.render("index");
   } else {
     res.render("login", { logedin: true });
   }
@@ -112,11 +103,7 @@ module.exports.compare = function(req, res) {
 
 module.exports.login = function(req, res) {
   if (req.session.user) {
-    if (req.session.user.name === "admin") {
-      res.render("admin");
-    } else {
-      res.render("index");
-    }
+    res.render("index");
   } else {
     res.render("login", { logedin: true });
   }
@@ -143,11 +130,11 @@ module.exports.get_websites = function(req, res) {
       q.exec(function(err, webs) {
         res.render("adminwebsites", { title: "Express", websites: webs });
       });
+    } else {
+      q.exec(function(err, webs) {
+        res.render("websites", { title: "Express", websites: webs });
+      });
     }
-
-    q.exec(function(err, webs) {
-      res.render("websites", { title: "Express", websites: webs });
-    });
   } else {
     res.render("login", { logedin: true });
   }
@@ -557,11 +544,7 @@ module.exports.get_dashboard_top_countries = function(req, res) {
 module.exports.get_dashboard = function(req, res) {
   console.log(req.session.user);
   if (req.session.user) {
-    if (req.session.user.name === "admin") {
-      res.render("admindashboard");
-    } else {
-      res.render("dashboard");
-    }
+    res.render("dashboard");
   } else {
     res.render("login", { logedin: true });
   }
@@ -572,11 +555,7 @@ module.exports.get_dashboardOld = function(req, res) {
 module.exports.get_allcategories = function(req, res) {
   console.log(req.session.user);
   if (req.session.user) {
-    if (req.session.user.name === "admin") {
-      res.render("adminallcategories");
-    } else {
-      res.render("allcategories");
-    }
+    res.render("allcategories");
   } else {
     res.render("login", { logedin: true });
   }
@@ -584,11 +563,7 @@ module.exports.get_allcategories = function(req, res) {
 
 module.exports.get_movies = function(req, res) {
   if (req.session.user) {
-    if (req.session.user.name === "admin") {
-      res.render("adminmovies");
-    } else {
-      res.render("movies");
-    }
+    res.render("movies");
   } else {
     res.render("login", { logedin: false });
   }
