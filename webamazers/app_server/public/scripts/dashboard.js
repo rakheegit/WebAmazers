@@ -1,7 +1,6 @@
 
 var curretCategory = "movies";
 
-
 function loadCharts(){
     $("#loader").fadeIn("fast");
     google.charts.load('current', { 'packages': ['corechart'] });
@@ -17,18 +16,42 @@ function loadCharts(){
 $("#moviesDD").click(function(){
     curretCategory="movies";
     loadCharts();
+    changeTiles();
 })
 $("#educationDD").click(function(){
     curretCategory="education";
     loadCharts();
+    changeTiles();
 })
 $("#carrentalsDD").click(function(){
     curretCategory="carrentals";
     loadCharts();
+    changeTiles();
 })
+
+function changeTiles(){
+    if(curretCategory==="movies"){
+        $("#traffic_change").html("+4%");
+        $("#total_traffic").html("87M");
+        $("#adsense_enabled").html("68");
+    }
+    else if(curretCategory==="carrentals"){
+        $("#traffic_change").html("+10%");
+        $("#total_traffic").html("60M");
+        $("#adsense_enabled").html("32");
+    }
+    else if(curretCategory==="education"){
+        $("#traffic_change").html("+19%");
+        $("#total_traffic").html("107M");
+        $("#adsense_enabled").html("12");
+    }
+}
+
+
 
 // google.charts.setOnLoadCallback(drawChart_dashboard_timespent);
 loadCharts();
+changeTiles();
 $(window).ready(function() {
     $("#loader").fadeOut("fast");
 });

@@ -82,3 +82,21 @@
   right: 0;
   transition: all 0.5s ease;
 }
+
+
+.widget-small.primary.coloured-icon {
+  background-color: #fff;
+  color: #2a2a2a;
+}
+
+
+.app-content {
+  min-height: calc(100vh - 50px);
+  padding: 30px;
+  background-color: #E5E5E5;
+  -webkit-transition: margin-left 0.3s ease;
+  -o-transition: margin-left 0.3s ease;
+  transition: margin-left 0.3s ease;
+  display: block;
+  height: 100vh;
+}
