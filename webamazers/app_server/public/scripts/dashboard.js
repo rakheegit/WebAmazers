@@ -236,10 +236,11 @@ function drawChart_edu_mobdesk() {
 
             });
 
-            var tableRow = [];
-            columns.forEach(function(col) {
-                tableRow.push(col);
-            })
+            var tableRow = ["Domain","Mobile_Share","Desktop_Share"];
+            // columns.forEach(function(col) {
+            //     tableRow.push(col);
+            // })
+            
             tableRow.push({ role: 'style' });
             data.splice(0, 0, tableRow);
 
@@ -253,8 +254,7 @@ function drawChart_edu_mobdesk() {
                 bar: { groupWidth: "75%" },
                 legend: { position: "right" },
                 vAxis: { title: "Percentage %" },
-                hAxis: { title: 'Top 10 Ranked Websites' },
-                colors: ['#DBB1CD', '#CE3175'],
+                colors: [ '#CE3175', '#DBB1CD'],
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
