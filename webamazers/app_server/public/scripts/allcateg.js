@@ -231,11 +231,6 @@ function drawChart_change_in_traffic() {
 
                         result[col] = parseFloat(result[col]);
                         tableRow.splice(1, 0, result[col]);
-                    } else
-                    if (col == "Website_Change") {
-
-                        result[col] = parseFloat(result[col]);
-                        tableRow.splice(2, 0, result[col]);
                     } else if (col == "Domain") {
                         tableRow.splice(0, 0, result[col]);
                     }
@@ -333,7 +328,7 @@ function drawChart_stackedchart_mobdesk_all() {
                 legend: { position: "right" },
                 vAxis: { title: "Percentage %" },
                 hAxis: { title: 'Top 100 High Traffic Websites of the world', textPosition: 'none' },
-                colors: ['#17a377','#ffcc99'],
+                colors: ['#17a377', '#ffcc99'],
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
