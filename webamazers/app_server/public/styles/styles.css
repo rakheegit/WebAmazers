@@ -33,7 +33,7 @@ header {
     background: #55d6aa;
 }
 #ring-canvas{
-    padding-top:5%
+    padding-top:5%;
 }
 header::after {
     content: '';
@@ -283,6 +283,7 @@ button[disabled] {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    height: 40%;
 }
 
 #passmatch {

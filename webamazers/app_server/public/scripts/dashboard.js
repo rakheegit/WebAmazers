@@ -32,16 +32,16 @@ $("#carrentalsDD").click(function(){
 function changeTiles(){
     if(curretCategory==="movies"){
         $("#traffic_change").html("+4%");
-        $("#total_traffic").html("87M");
+        $("#total_traffic").html("1143M");
         $("#adsense_enabled").html("68");
     }
     else if(curretCategory==="carrentals"){
-        $("#traffic_change").html("+10%");
-        $("#total_traffic").html("60M");
+        $("#traffic_change").html("+7%");
+        $("#total_traffic").html("63M");
         $("#adsense_enabled").html("32");
     }
     else if(curretCategory==="education"){
-        $("#traffic_change").html("+19%");
+        $("#traffic_change").html("+8%");
         $("#total_traffic").html("107M");
         $("#adsense_enabled").html("12");
     }
@@ -236,10 +236,11 @@ function drawChart_edu_mobdesk() {
 
             });
 
-            var tableRow = [];
-            columns.forEach(function(col) {
-                tableRow.push(col);
-            })
+            var tableRow = ["Domain","Mobile_Share","Desktop_Share"];
+            // columns.forEach(function(col) {
+            //     tableRow.push(col);
+            // })
+            
             tableRow.push({ role: 'style' });
             data.splice(0, 0, tableRow);
 
@@ -253,8 +254,7 @@ function drawChart_edu_mobdesk() {
                 bar: { groupWidth: "75%" },
                 legend: { position: "right" },
                 vAxis: { title: "Percentage %" },
-                hAxis: { title: 'Top 10 Ranked Websites' },
-                colors: ['#DBB1CD', '#CE3175'],
+                colors: [ '#CE3175', '#DBB1CD'],
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false

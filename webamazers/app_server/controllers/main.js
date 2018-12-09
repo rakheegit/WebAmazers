@@ -749,8 +749,8 @@ module.exports.get_dashboard_newuser_carrentals = function(req, res) {
 
 module.exports.get_dashboard_mobdesk_movies = function(req, res) {
   var q = moviesSchema
-    .find({}, { Domain: 1, Desktop_Share: 1, Mobile_Share: 1, _id: 0 })
-    .sort({ Rank: 1 })
+    .find({}, { Domain: 1, Mobile_Share: 1, Desktop_Share: 1, _id: 0 })
+    .sort({ Mobile_Share: -1 })
     .limit(10);
   q.exec(function(err, webs) {
     //console.log(webs);
@@ -760,8 +760,8 @@ module.exports.get_dashboard_mobdesk_movies = function(req, res) {
 
 module.exports.get_dashboard_mobdesk_education = function(req, res) {
   var q = eduWebsitesSchema
-    .find({}, { Domain: 1, Desktop_Share: 1, Mobile_Share: 1, _id: 0 })
-    .sort({ Rank: 1 })
+    .find({}, { Domain: 1, Mobile_Share: 1, Desktop_Share: 1, _id: 0 })
+    .sort({ Mobile_Share: -1 })
     .limit(10);
   q.exec(function(err, webs) {
     //console.log(webs);
@@ -771,8 +771,8 @@ module.exports.get_dashboard_mobdesk_education = function(req, res) {
 
 module.exports.get_dashboard_mobdesk_carrentals = function(req, res) {
   var q = carRentalsSchema
-    .find({}, { Domain: 1, Desktop_Share: 1, Mobile_Share: 1, _id: 0 })
-    .sort({ Rank: 1 })
+    .find({}, { Domain: 1, Mobile_Share: 1, Desktop_Share: 1, _id: 0 })
+    .sort({ Mobile_Share: -1 })
     .limit(10);
   q.exec(function(err, webs) {
     //console.log(webs);
