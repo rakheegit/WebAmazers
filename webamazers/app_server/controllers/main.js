@@ -683,7 +683,7 @@ module.exports.get_dashboard_newuser_movies = function(req, res) {
     var q = moviesSchema
         .find({}, { Domain: 1, Unique_Users: 1, _id: 0 })
         .sort({ Unique_Users: -1 })
-        .limit(5);
+        .limit(10);
     q.exec(function(err, webs) {
         //console.log(webs);
         return res.send({ webs: webs });
@@ -694,7 +694,7 @@ module.exports.get_dashboard_newuser_education = function(req, res) {
     var q = eduWebsitesSchema
         .find({}, { Domain: 1, Unique_Users: 1, _id: 0 })
         .sort({ Unique_Users: -1 })
-        .limit(5);
+        .limit(10);
     q.exec(function(err, webs) {
         //console.log(webs);
         return res.send({ webs: webs });
@@ -705,7 +705,7 @@ module.exports.get_dashboard_newuser_carrentals = function(req, res) {
     var q = carRentalsSchema
         .find({}, { Domain: 1, Unique_Users: 1, _id: 0 })
         .sort({ Unique_Users: -1 })
-        .limit(5);
+        .limit(10);
     q.exec(function(err, webs) {
         //console.log(webs);
         return res.send({ webs: webs });
