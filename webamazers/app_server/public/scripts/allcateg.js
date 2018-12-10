@@ -131,7 +131,7 @@ function drawChart_bouncestack() {
             var options = {
                 title: 'Ratio of Bounced Visitis to Total Visits',
                 isStacked: true,
-                //    vAxis: { title: "Domain" },
+                vAxis: { title: "Number of visits - in millions" },
                 hAxis: { title: 'Top 100 Most Visited sites', textPosition: 'none' },
                 //  hAxis: { title: 'Top 100 Most Visited sites', slantedText: true, textPosition: 'out' },
                 colors: ["#9999ff", "#ffcc00"],
