@@ -1,6 +1,6 @@
-
 var curretCategory = "movies";
-function loadCharts(){
+
+function loadCharts() {
     $("#loader").fadeIn("fast");
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.load('current', { 'packages': ['bar'] });
@@ -9,62 +9,60 @@ function loadCharts(){
     google.charts.setOnLoadCallback(drawChart_newuser);
     google.charts.setOnLoadCallback(drawChart_avg_monthly_visits);
     google.charts.setOnLoadCallback(drawChart_dashboard_timespent);
-    $("#dropdownMenu").html("Select Category: "+curretCategory.charAt(0).toUpperCase() + curretCategory.slice(1));
+    $("#dropdownMenu").html("Select Category: " + curretCategory.charAt(0).toUpperCase() + curretCategory.slice(1));
     $("#loader").fadeOut("fast");
 }
 
-$("#moviesDD").click(function(){
-    curretCategory="movies";
+$("#moviesDD").click(function() {
+    curretCategory = "movies";
     loadCharts();
     changeTiles();
 })
-$("#educationDD").click(function(){
-    curretCategory="education";
+$("#educationDD").click(function() {
+    curretCategory = "education";
     loadCharts();
     changeTiles();
 })
-$("#carrentalsDD").click(function(){
-    curretCategory="carrentals";
+$("#carrentalsDD").click(function() {
+    curretCategory = "carrentals";
     loadCharts();
     changeTiles();
 })
 
-function changeTiles(){
-    if(curretCategory==="movies"){
+function changeTiles() {
+    if (curretCategory === "movies") {
         $("#traffic_change").html("+4%");
         $("#total_traffic").html("1143M");
         $("#adsense_enabled").html("68");
-    }
-    else if(curretCategory==="carrentals"){
+    } else if (curretCategory === "carrentals") {
         $("#traffic_change").html("+7%");
         $("#total_traffic").html("63M");
         $("#adsense_enabled").html("32");
-    }
-    else if(curretCategory==="education"){
+    } else if (curretCategory === "education") {
         $("#traffic_change").html("+8%");
         $("#total_traffic").html("107M");
         $("#adsense_enabled").html("12");
     }
 }
 
-function checkCategories(){
+function checkCategories() {
     $.ajax({
         url: "/get_prefs",
         type: 'GET',
         success: function(data) {
             var categories = data.prefs;
-            if(categories.indexOf("movies")===-1){
+            if (categories.indexOf("movies") === -1) {
                 $("#moviesDD").remove();
             }
-            if(categories.indexOf("education")===-1){
+            if (categories.indexOf("education") === -1) {
                 $("#educationDD").remove();
             }
-            if(categories.indexOf("carrentals")===-1){
+            if (categories.indexOf("carrentals") === -1) {
                 $("#carrentalsDD").remove();
             }
         }
     });
-    
+
 }
 
 // google.charts.setOnLoadCallback(drawChart_dashboard_timespent);
@@ -78,14 +76,14 @@ $(window).ready(function() {
 function drawChart_newuser() {
 
     $.ajax({
-        url: "/dashboard_newuser_"+curretCategory,
+        url: "/dashboard_newuser_" + curretCategory,
         type: 'GET',
         success: function(resData) {
             var results = resData.webs;
 
 
             var columns = Object.keys(results[0]);
-            var colors = ["#f4a142", "grey", "grey", "grey", "grey"];
+            var colors = ["#f4a142", "grey", "grey", "grey", "grey", "grey", "grey", "grey", "grey", "grey"];
             var i = 0;
             var data = results.map(function(result) {
                 var tableRow = [];
@@ -93,7 +91,8 @@ function drawChart_newuser() {
 
                     if (col == "Unique_Users") {
 
-                        result[col] = parseInt(result[col] / 100000);
+                        //          result[col] = parseInt(result[col] / 100000);
+                        result[col] = parseInt(result[col]);
                         tableRow.splice(1, 0, result[col]);
                     } else if (col == "Domain") {
                         tableRow.splice(0, 0, result[col]);
@@ -115,10 +114,15 @@ function drawChart_newuser() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                
+
                 //title: ' User Favorites to rent Cars',
                 title: ' User Favorites for ' + curretCategory,
-                vAxis: { title: "No. of Unique users" },
+                vAxis: { title: "No. of Unique users", format: 'short' },
+                hAxis: {
+                    showTextEvery: 1,
+                    slantedText: true
+
+                },
                 width: 580,
                 height: 320,
                 legend: { position: "none" },
@@ -126,14 +130,15 @@ function drawChart_newuser() {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
                 },
-                
+
             };
 
-            /*    var chart = new google.visualization.ColumnChart(document.getElementById('newuser'));
-                chart.draw(chartData, options);*/
-            var chart = new google.charts.Bar(document.getElementById('newuser'));
+            var chart = new google.visualization.ColumnChart(document.getElementById('newuser'));
+            chart.draw(chartData, options);
+            /*  var chart = new google.charts.Bar(document.getElementById('newuser'));
 
-            chart.draw(chartData, google.charts.Bar.convertOptions(options));
+              chart.draw(chartData, google.charts.Bar.convertOptions(options));
+              */
         }
     })
 }
@@ -141,7 +146,7 @@ function drawChart_newuser() {
 function drawChart_avg_monthly_visits() {
 
     $.ajax({
-        url: "/dashboard_avg_monthly_visits_"+curretCategory,
+        url: "/dashboard_avg_monthly_visits_" + curretCategory,
         type: 'GET',
         success: function(resData) {
             console.log(resData.webs);
@@ -202,7 +207,7 @@ function drawChart_avg_monthly_visits() {
 function drawChart_edu_mobdesk() {
 
     $.ajax({
-        url: "/dashboard_mobdesk_"+curretCategory,
+        url: "/dashboard_mobdesk_" + curretCategory,
         type: 'GET',
         success: function(resData) {
             var results = resData.webs;
@@ -236,11 +241,11 @@ function drawChart_edu_mobdesk() {
 
             });
 
-            var tableRow = ["Domain","Mobile_Share","Desktop_Share"];
+            var tableRow = ["Domain", "Mobile_Share", "Desktop_Share"];
             // columns.forEach(function(col) {
             //     tableRow.push(col);
             // })
-            
+
             tableRow.push({ role: 'style' });
             data.splice(0, 0, tableRow);
 
@@ -254,7 +259,7 @@ function drawChart_edu_mobdesk() {
                 bar: { groupWidth: "75%" },
                 legend: { position: "right" },
                 vAxis: { title: "Percentage %" },
-                colors: [ '#CE3175', '#DBB1CD'],
+                colors: ['#CE3175', '#DBB1CD'],
                 titleTextStyle: {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
@@ -270,7 +275,7 @@ function drawChart_edu_mobdesk() {
 function drawChart_dashboard_timespent() {
 
     $.ajax({
-        url: "/dashboard_timespent_"+curretCategory,
+        url: "/dashboard_timespent_" + curretCategory,
         type: 'GET',
         success: function(resData) {
             var results = resData.webs;
@@ -318,7 +323,7 @@ function drawChart_dashboard_timespent() {
                 colors: ['#17a377'],
                 legend: { position: "none" },
                 chart: {
-                    title: 'Average Time spent / Pages viewed for '+curretCategory+ ' Websites'
+                    title: 'Average Time spent / Pages viewed for ' + curretCategory + ' Websites'
                         //     subtitle: 'based on hours studied'
                 },
                 hAxis: { title: 'Pages Per Visit' },
