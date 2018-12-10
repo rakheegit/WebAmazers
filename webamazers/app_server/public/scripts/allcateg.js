@@ -101,7 +101,7 @@ function drawChart_bouncestack() {
                         result[col] = parseInt(result[col] / 1000000);
                         tableRow.splice(2, 0, result[col]);
                     } else
-                    if (col == "Avg_Month_Visits") {
+                    if (col == "non_Bouncing_Visits") {
 
                         result[col] = parseInt(result[col] / 1000000);
                         tableRow.splice(1, 0, result[col]);
