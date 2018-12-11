@@ -714,36 +714,44 @@ module.exports.get_dashboard_newuser_carrentals = function(req, res) {
 
 // mob desk //
 
+function compare(a,b) {
+  if (a.Mobile_Share < b.Mobile_Share)
+    return 1;
+  if (a.Mobile_Share > b.Mobile_Share)
+    return -1;
+  return 0;
+}
+
 module.exports.get_dashboard_mobdesk_movies = function(req, res) {
     var q = moviesSchema
         .find({}, { Domain: 1, Mobile_Share: 1, Desktop_Share: 1, _id: 0 })
-        .sort({ Mobile_Share: -1 })
-        .limit(10);
+        .sort({ Rank:1 })
+        .limit(10)
     q.exec(function(err, webs) {
-        //console.log(webs);
-        return res.send({ webs: webs });
+        console.log(webs);
+        return res.send({ webs: webs.sort(compare) });
     });
 };
 
 module.exports.get_dashboard_mobdesk_education = function(req, res) {
     var q = eduWebsitesSchema
         .find({}, { Domain: 1, Mobile_Share: 1, Desktop_Share: 1, _id: 0 })
-        .sort({ Mobile_Share: -1 })
+        .sort({ Rank: -1 })
         .limit(10);
     q.exec(function(err, webs) {
         //console.log(webs);
-        return res.send({ webs: webs });
+        return res.send({ webs: webs.sort(compare) });
     });
 };
 
 module.exports.get_dashboard_mobdesk_carrentals = function(req, res) {
     var q = carRentalsSchema
         .find({}, { Domain: 1, Mobile_Share: 1, Desktop_Share: 1, _id: 0 })
-        .sort({ Mobile_Share: -1 })
+        .sort({ Rank: -1 })
         .limit(10);
     q.exec(function(err, webs) {
         //console.log(webs);
-        return res.send({ webs: webs });
+        return res.send({ webs: webs.sort(compare) });
     });
 };
 
