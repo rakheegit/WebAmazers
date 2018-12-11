@@ -36,7 +36,7 @@ function drawChart_stackedchart() {
 
                     if (col == "Unique_Users") {
 
-                        result[col] = parseInt(result[col] / 100000);
+                        result[col] = parseInt(result[col]);
                         tableRow.splice(1, 0, result[col]);
                     } else
 
@@ -60,9 +60,9 @@ function drawChart_stackedchart() {
 
             var chartData = google.visualization.arrayToDataTable(data);
             var options = {
-                title: 'Websites with Highes Unique Visitors Count',
+                title: 'Websites with Highest Unique Visitors Count',
                 //isStacked: true,
-                hAxis: { title: "in millions" },
+                hAxis: { title: "Unique visitors count", format: 'short' },
                 colors: ["#9999ff"],
                 width: 1150,
                 height: 650,
@@ -98,12 +98,12 @@ function drawChart_bouncestack() {
 
                     if (col == "Bouncing_Visits") {
 
-                        result[col] = parseInt(result[col] / 1000000);
+                        result[col] = parseInt(result[col]);
                         tableRow.splice(2, 0, result[col]);
                     } else
                     if (col == "non_Bouncing_Visits") {
 
-                        result[col] = parseInt(result[col] / 1000000);
+                        result[col] = parseInt(result[col]);
                         tableRow.splice(1, 0, result[col]);
                     } else
 
@@ -131,7 +131,7 @@ function drawChart_bouncestack() {
             var options = {
                 title: 'Ratio of Bounced Visitis to Total Visits',
                 isStacked: true,
-                vAxis: { title: "Number of visits - in millions" },
+                vAxis: { title: "Number of visits - in millions", format: 'short' },
                 hAxis: { title: 'Top 100 Most Visited sites', textPosition: 'none' },
                 //  hAxis: { title: 'Top 100 Most Visited sites', slantedText: true, textPosition: 'out' },
                 colors: ["#9999ff", "#ffcc00"],
@@ -197,7 +197,7 @@ function drawChart_social_avg_monthly() {
                 height: 500,
                 bar: { groupWidth: "60%" },
                 legend: { position: "none" },
-                vAxis: { title: 'Average Monthly visits' },
+                vAxis: { title: 'Average Monthly visits', format: 'short' },
                 hAxis: { title: 'Social Networking Sites' },
                 //   colors: ["#CE3175"],
                 titleTextStyle: {

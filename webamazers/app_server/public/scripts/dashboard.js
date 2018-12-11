@@ -190,7 +190,7 @@ function drawChart_avg_monthly_visits() {
                     fontSize: 14, // 12, 18 whatever you want (don't specify px)
                     bold: true, // true or false
                 },
-                vAxis: { title: "Monthly Visits" },
+                vAxis: { title: "Monthly Visits", format: 'short' },
                 hAxis: { title: "" },
                 //  vAxis: { format: 'percent' }
 
