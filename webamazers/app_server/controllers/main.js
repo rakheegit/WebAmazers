@@ -416,7 +416,9 @@ module.exports.get_allcategories_bouncestack = function(req, res) {
         {
             $project: {
                 Domain: 1,
-                Avg_Month_Visits: 1,
+                non_Bouncing_Visits: {
+                    $subtract: ["$Avg_Month_Visits", { $multiply: ["$Bounce_Rate", "$Avg_Month_Visits"] }]
+                },
 
                 _id: 0,
 
@@ -425,7 +427,7 @@ module.exports.get_allcategories_bouncestack = function(req, res) {
                 }
             }
         },
-        { $sort: { Avg_Month_Visits: -1 } }
+        { $sort: { non_Bouncing_Visits: -1 } }
     ]);
     q.exec(function(err, webs) {
         return res.send({ webs: webs });
@@ -509,7 +511,7 @@ module.exports.get_allcategories_change_in_traffic = function(req, res) {
         .sort({ Avg_Month_Visits: -1 })
         .limit(20);
     q.exec(function(err, webs) {
-        console.log(webs);
+        // console.log(webs);
         return res.send({ webs: webs });
     });
 };
@@ -540,7 +542,7 @@ module.exports.get_allcategories_social_avg_monthly = function(req, res) {
         .sort({ increase_from_lastmonth: -1 })
         .limit(20);
     q.exec(function(err, webs) {
-        console.log(webs);
+        // console.log(webs);
         return res.send({ webs: webs });
     });
 };
@@ -681,7 +683,7 @@ module.exports.get_dashboard_newuser_movies = function(req, res) {
     var q = moviesSchema
         .find({}, { Domain: 1, Unique_Users: 1, _id: 0 })
         .sort({ Unique_Users: -1 })
-        .limit(5);
+        .limit(10);
     q.exec(function(err, webs) {
         //console.log(webs);
         return res.send({ webs: webs });
@@ -692,7 +694,7 @@ module.exports.get_dashboard_newuser_education = function(req, res) {
     var q = eduWebsitesSchema
         .find({}, { Domain: 1, Unique_Users: 1, _id: 0 })
         .sort({ Unique_Users: -1 })
-        .limit(5);
+        .limit(10);
     q.exec(function(err, webs) {
         //console.log(webs);
         return res.send({ webs: webs });
@@ -703,7 +705,7 @@ module.exports.get_dashboard_newuser_carrentals = function(req, res) {
     var q = carRentalsSchema
         .find({}, { Domain: 1, Unique_Users: 1, _id: 0 })
         .sort({ Unique_Users: -1 })
-        .limit(5);
+        .limit(10);
     q.exec(function(err, webs) {
         //console.log(webs);
         return res.send({ webs: webs });
@@ -818,7 +820,7 @@ module.exports.get_dashboard_timespent_movies = function(req, res) {
         .sort({ Pages_Per_Visit: -1 })
         .limit(30);
     q.exec(function(err, webs) {
-        console.log(webs);
+        //  console.log(webs);
         return res.send({ webs: webs });
     });
 };
@@ -830,7 +832,7 @@ module.exports.get_dashboard_timespent_education = function(req, res) {
         .sort({ Pages_Per_Visit: -1 })
         .limit(30);
     q.exec(function(err, webs) {
-        console.log(webs);
+        //   console.log(webs);
         return res.send({ webs: webs });
     });
 };
@@ -842,7 +844,7 @@ module.exports.get_dashboard_timespent_carrentals = function(req, res) {
         .sort({ Pages_Per_Visit: -1 })
         .limit(30);
     q.exec(function(err, webs) {
-        console.log(webs);
+        //  console.log(webs);
         return res.send({ webs: webs });
     });
 };
@@ -853,7 +855,7 @@ module.exports.get_prefs = function(req, res) {
         .find({ _id: req.session.user._id })
         .select({ pref: 1, _id: 0 });
     q.exec(function(err, data) {
-        console.log("this ; ", data);
+        //     console.log("this ; ", data);
         return res.send({ prefs: data[0].pref });
     });
 };
