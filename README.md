@@ -1,9 +1,14 @@
 # WebAmazers
 
+For the data visualization project -
+
+## cd webamazers
 ## Do npm install
 ## Run npm start
 ## Open localhost:3000
-```
+
+For functionalities under WebAmazers -
+
 For admin : 
 Username: admin
 Password: admin
@@ -13,7 +18,7 @@ Username: ashish
 Password: 1234
 ```
 
-### Content to expect in each page
+### Content to expect in each page 
 ```
 Login page: login form with basic CSS, same for admin and general users
 Homepage: 
